@@ -181,7 +181,27 @@
       "updatedAt": "2026-10-06T12:24:46.000Z",
       "telemetryExecutionIds": [
         "EXE-20261006T122446884Z-21828acc"
-      ]
+      ],
+      "latestCheckpoint": {
+        "id": "e1c842c9e98fc16d44504b85",
+        "recordedAt": "2026-10-06T12:25:18.000Z",
+        "executionId": "EXE-20261006T122446884Z-21828acc",
+        "repository": "mercatus",
+        "branch": "chore/praxis-ci-batching-20260929",
+        "commit": "30b111e36d35c46bc7cf42b8a51aa56bcc30fce0",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/mercatus"
+        },
+        "remoteBranch": "chore/praxis-ci-batching-20260929",
+        "remoteCommit": "30b111e36d35c46bc7cf42b8a51aa56bcc30fce0",
+        "summary": "main merged into the GH-2 branch; AGENTS.md conflict resolved into a repo-specific section; pushed",
+        "nextAction": "Complete WI-0005 and merge PR #3",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      }
     }
   ]
 }
