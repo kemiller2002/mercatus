@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "1.0.0",
+  "protocolVersion": "1.0.0",
+  "repository": "mercatus",
+  "actor": "ros-bootstrap",
+  "startedAt": "2026-10-06T09:48:42.847Z",
+  "updatedAt": "2026-10-06T09:55:59Z",
+  "baselineDirtyPaths": [],
+  "workItems": [
+    {
+      "id": "ROS-INSTALL-3-6-0",
+      "type": "mechanical",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "installation",
+          "path": ".ros/installation.json"
+        }
+      ],
+      "updatedAt": "2026-10-06T09:48:42.847Z",
+      "completedAt": "2026-10-06T09:48:42.847Z"
+    },
+    {
+      "id": "WI-0001",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": ".echelon/ros.json"
+        },
+        {
+          "type": "implementation",
+          "path": ".echelon/sde.json"
+        },
+        {
+          "type": "implementation",
+          "path": ".echelon/limen.json"
+        },
+        {
+          "type": "implementation",
+          "path": ".echelon/foundations.json"
+        },
+        {
+          "type": "implementation",
+          "path": "package.json"
+        },
+        {
+          "type": "tests",
+          "path": ".github/workflows/ros-validation.yml"
+        },
+        {
+          "type": "tests",
+          "path": ".github/workflows/limen-verify.yml"
+        }
+      ],
+      "updatedAt": "2026-10-06T09:54:14Z",
+      "telemetryExecutionIds": [
+        "EXE-20261006T095340038Z-a98fb583"
+      ],
+      "latestCheckpoint": {
+        "id": "cd4faf33308df33639f61e0a",
+        "recordedAt": "2026-10-06T09:54:13Z",
+        "executionId": "EXE-20261006T095340038Z-a98fb583",
+        "repository": "mercatus",
+        "branch": "chore/current-capabilities",
+        "commit": "737df2a93267eb3c410b80f6aaefdd5b99cac5d9",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/mercatus"
+        },
+        "remoteBranch": "chore/current-capabilities",
+        "remoteCommit": "737df2a93267eb3c410b80f6aaefdd5b99cac5d9",
+        "summary": "Capabilities installed and committed at 737df2a; ros/ordo/VE/CE verify pass; limen verify --strict and foundations verify fail only for missing application code.",
+        "nextAction": "Complete WI-0001; owner decides how to handle the Limen and foundations gates before the first application slice.",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-10-06T09:54:14Z"
+    },
+    {
+      "id": "WI-0002",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": ".ros/work/queue.md"
+        },
+        {
+          "type": "tests",
+          "path": ".github/workflows/ros-validation.yml"
+        }
+      ],
+      "updatedAt": "2026-10-06T09:55:59Z",
+      "telemetryExecutionIds": [
+        "EXE-20261006T095544418Z-4e7b4736"
+      ],
+      "latestCheckpoint": {
+        "id": "3a24ba825f1b3774a1be8614",
+        "recordedAt": "2026-10-06T09:55:58Z",
+        "executionId": "EXE-20261006T095544418Z-4e7b4736",
+        "repository": "mercatus",
+        "branch": "chore/current-capabilities",
+        "commit": "b529707a121bbd65899233c7ff47d0e0b03066ed",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/mercatus"
+        },
+        "remoteBranch": "chore/current-capabilities",
+        "remoteCommit": "b529707a121bbd65899233c7ff47d0e0b03066ed",
+        "summary": "limen-verify.yml removed and pushed; WI-0003 captured for adding limen-verify and echelon-foundations with the first slice.",
+        "nextAction": "Complete WI-0002.",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-10-06T09:55:59Z"
+    }
+  ]
+}
