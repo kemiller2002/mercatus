@@ -23,6 +23,51 @@
       },
       "source": "manual",
       "sourceReference": null
+    },
+    {
+      "id": "WI-0002",
+      "title": "Defer limen-verify workflow until the first application slice",
+      "description": "limen verify --strict cannot pass (LIMEN010/LIMEN012) while Mercatus has no engine code; remove the tool-installed limen-verify.yml from this change so CI is not red. Owner/coordinator decision on PR #5.",
+      "tags": [],
+      "priority": "medium",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-10-06T09:55:43Z",
+      "updatedAt": "2026-10-06T09:55:43Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0003",
+      "title": "Add limen-verify and echelon-foundations workflows with the first application slice",
+      "description": "Deferred from PR #5. When the first Limen application slice lands: (1) run 'npx @echelon-foundry/limen@0.7.1 init' to reinstall the tool-owned .github/workflows/limen-verify.yml (absent now, so local limen verify also reports LIMEN007) and point limen.config.json boundary engine/kernel at real paths so limen verify --strict passes; (2) add .github/workflows/echelon-foundations.yml calling kemiller2002/praxis/.github/workflows/foundations-verify.yml with praxis_ref a95dbf238e561eaac4b38ca7011efc1a496cf1c6 (or newer), after adding an F# project referencing EchelonFoundry.Aegis.Core 1.0.0 with Aegis usage and aegis-boundaries.json, and pinned, used @echelon-foundry/design-system 0.4.1 and @echelon-foundry/print-components 0.3.0. Both workflows must be green; no notApplicable or required:false.",
+      "tags": [
+        "foundations",
+        "limen"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-10-06T09:55:44Z",
+      "updatedAt": "2026-10-06T09:55:44Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
     }
   ]
 }
