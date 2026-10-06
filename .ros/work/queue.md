@@ -8,3 +8,4 @@
 | WI-0003 | Add limen-verify and echelon-foundations workflows with the first application slice | captured | foundations, limen | high |
 | WI-0004 | Move mercatus to Praxis 3.7.1 (ROS -> Praxis rename) and Ordo 1.4.0 | complete | praxis, ordo, toolchain | medium |
 | WI-0005 | Adopt the Praxis CI batching policy (GH-2) | complete | ci, praxis | medium |
+| WI-0006 | Declare Praxis 3.7.1 as the foundations baseline | ready | praxis, foundations | medium |
