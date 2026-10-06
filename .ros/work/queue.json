@@ -151,10 +151,10 @@
         "toolchain"
       ],
       "priority": "medium",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-10-06T13:56:34.867Z",
-      "updatedAt": "2026-10-06T13:56:54.000Z",
+      "updatedAt": "2026-10-06T13:58:30.000Z",
       "createdBy": "anthropic/claude-code",
       "createdByActor": {
         "kind": "agent",
