@@ -4,7 +4,7 @@
   "repository": "mercatus",
   "actor": "anthropic/claude-code",
   "startedAt": "2026-10-06T09:48:42.847Z",
-  "updatedAt": "2026-10-06T16:30:29.000Z",
+  "updatedAt": "2026-10-06T16:33:03.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -302,13 +302,47 @@
     {
       "id": "WI-0008",
       "type": "mechanical",
-      "state": "active",
-      "semanticState": "active",
-      "evidence": [],
-      "updatedAt": "2026-10-06T16:30:29.000Z",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": ".echelon/toolchain.json"
+        },
+        {
+          "type": "implementation",
+          "path": "conditor.json"
+        },
+        {
+          "type": "implementation",
+          "path": ".conditor/lock.json"
+        }
+      ],
+      "updatedAt": "2026-10-06T16:33:03.000Z",
       "telemetryExecutionIds": [
         "EXE-20261006T163030202Z-c67312c1"
-      ]
+      ],
+      "latestCheckpoint": {
+        "id": "a71c78da6f470d7f1f9babfa",
+        "recordedAt": "2026-10-06T16:33:02.000Z",
+        "executionId": "EXE-20261006T163030202Z-c67312c1",
+        "repository": "mercatus",
+        "branch": "final-sweep-372",
+        "commit": "bd2f4bd3ba8471fa5bd51eb54a4ba905ae8a881d",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/mercatus"
+        },
+        "remoteBranch": "final-sweep-372",
+        "remoteCommit": "bd2f4bd3ba8471fa5bd51eb54a4ba905ae8a881d",
+        "summary": "upgrades applied, Conditor adopted, verified, pushed",
+        "nextAction": "complete, PR",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-10-06T16:33:03.000Z"
     }
   ]
 }
