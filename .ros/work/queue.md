@@ -1,0 +1,6 @@
+# Work Queue
+
+| ID | Work | Status | Tags | Priority |
+|---|---|---|---|---|
+| ROS-INSTALL-3-6-0 | ROS-INSTALL-3-6-0 | complete |  |  |
+| WI-0001 | Install current Echelon capabilities (Praxis 3.6.0, Ordo 1.4.0, Visual Engineering 1.0.0, Communication Engineering 1.0.0, Limen 0.7.1) and declare foundations | ready |  | medium |

@@ -1,0 +1,576 @@
+{
+  "schema_version": "1.0.0",
+  "package": "@echelon-foundry/repository-operating-system",
+  "package_version": "3.6.0",
+  "profile": "greenfield",
+  "project": "Mercatus",
+  "project_slug": "mercatus",
+  "installed_on": "2026-10-06",
+  "update_policy": "additive; collisions require explicit migration",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "1b6a506b88ac2119bb78b96aae481c4cf5ce52b66f57b55331755f5e2478cc7c",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256": "5e2f284ed6fab2d6f9a4f095f8b63ba978347a49add11945efb08480dc3836e8",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "GEMINI.md",
+      "sha256": "4c134735e005a1f8ff8277dc289116cfa13250cd90b709609b00f2738792949b",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": ".github/copilot-instructions.md",
+      "sha256": "6d73dbcff3faa092362c994120e091b40beec493030ce37da66f0ed573a5541e",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "BOOTSTRAP.md",
+      "sha256": "5f3c6db1d7a2d1823107c3e018951c9f40729f54138a7ceabe2cd5acc7410732",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": ".echelon/toolchain.json",
+      "sha256": "7be67c98654ea9bd9b61479253ee10a92b53e4854f65cd930f092594652f7c38",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": ".editorconfig",
+      "sha256": "6297da6b1169de32dca2f6184b4eaa63a8bb6c7e1c66c20d6e813166256e3856",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "1a1dbe176bc233b499d35a57db7513f2941c99ab9759f177830c9149be99005b",
+      "managed": false,
+      "disposition": "preserved-existing"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "c54943daf26c21b7bce4a13ac0af2403f2382c95ae34bdc5538ecb031e37aeb4",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "ros",
+      "sha256": "48abeafcbd2737d901d6ee14538ca9370607efaa0f171ad9d69a9674c0f35042",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "tools/ros_fs_launcher.mjs",
+      "sha256": "416b34f91e20569b36398fe07519b59743e2614991686547805920d1606835d4",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": ".github/workflows/ros-validation.yml",
+      "sha256": "e517535bf2b44ede484fa6b012369ded42c8a1c7503f6ba2017ef55f9507a1a6",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "ros.json",
+      "sha256": "fbb0de52230dc15122e0dd8f2507c1ca609ec8711d42d8b7a7bde159fca87db1",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "README.md",
+      "sha256": "19c55e83dd79747420479706d0f8a28f198e3b7847f67447b22097b6cc6cba27",
+      "managed": false,
+      "disposition": "preserved-existing"
+    },
+    {
+      "path": "PROJECT-CHARTER.md",
+      "sha256": "c0b99018fac26884c33a9a712e7feb895d6e3df3aa4e2b1ff0243f1700583b16",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "HANDOFF.md",
+      "sha256": "98d4bde0c6e8fcca5c721d5b2bf2d0add49ace24f268068d616ee9c12e41ebdc",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "context/CURRENT-STATE.md",
+      "sha256": "cd05c702c6ff4e40682251d4d12a479778230f5db8d5ee9f66402e1952a8be5f",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "context/ARCHITECTURE.md",
+      "sha256": "1c8e3ecc936b6f390778c3886ac1fb7c326a12914843b692e07600f2fc898a3a",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "context/DECISIONS.md",
+      "sha256": "785fe87491851b06d3d8063afb8b43ada6bc1402b15afa89e474ff76579e1a85",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "context/KNOWN-RISKS.md",
+      "sha256": "16bbda05d585c8835413d1197037493d49d08371df8cd01084ad054cb021bf83",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "context/RESEARCH-QUEUE.md",
+      "sha256": "2a4a076469f57ffe0d977c4804661c930bd27a2a78c88ae404ceacc3ef078353",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "docs/PILOT-MEASUREMENT-PLAN.md",
+      "sha256": "fab12710d9de1259b537064e0e6fbf7560789937daf389fb101801296b68494c",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "docs/architecture/README.md",
+      "sha256": "993c4ad506d2ed863a5d7e7a2afff13100fa779111763134ca7d18650cb91d18",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "docs/decisions/README.md",
+      "sha256": "3970af2444ed1c299a08983ad54706445e7136105ece60e43f3dd56f1f3f39e2",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "research/frontier/README.md",
+      "sha256": "7d9ee3373480441e4ac3bb4b630c76af0ea85407635fa19c33ccea366d2de4a9",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "research/decisions/.gitkeep",
+      "sha256": "072520166434a815de5c4537089bbd0cc617a566dc4a0523598fda2972839715",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "research/evidence/.gitkeep",
+      "sha256": "072520166434a815de5c4537089bbd0cc617a566dc4a0523598fda2972839715",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "research/experiments/.gitkeep",
+      "sha256": "072520166434a815de5c4537089bbd0cc617a566dc4a0523598fda2972839715",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "research/hypotheses/.gitkeep",
+      "sha256": "072520166434a815de5c4537089bbd0cc617a566dc4a0523598fda2972839715",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "research/journals/.gitkeep",
+      "sha256": "072520166434a815de5c4537089bbd0cc617a566dc4a0523598fda2972839715",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "research/packages/.gitkeep",
+      "sha256": "072520166434a815de5c4537089bbd0cc617a566dc4a0523598fda2972839715",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "research/theories/.gitkeep",
+      "sha256": "072520166434a815de5c4537089bbd0cc617a566dc4a0523598fda2972839715",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "missions/active/.gitkeep",
+      "sha256": "072520166434a815de5c4537089bbd0cc617a566dc4a0523598fda2972839715",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "missions/backlog/.gitkeep",
+      "sha256": "072520166434a815de5c4537089bbd0cc617a566dc4a0523598fda2972839715",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "missions/completed/.gitkeep",
+      "sha256": "072520166434a815de5c4537089bbd0cc617a566dc4a0523598fda2972839715",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "docs/00-governance/README.md",
+      "sha256": "448cc3a2d0c951ad25abf0811b9f59c4c2056c18b6a050713ad249654fdd1886",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "docs/00-governance/AI-Repository-Operating-System.md",
+      "sha256": "c1014fcad673b31d667d1e8206cef6e4b980ddc563f5ee2410fe5bfc07f879af",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "docs/00-governance/Agent-Operating-Manual.md",
+      "sha256": "3e3c77e81ee62ecbec0ca2e1b0222837944cf982f80b2a10ebae10aedde6d233",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "docs/00-governance/Engineering-Standards.md",
+      "sha256": "64405c458c48c5e2c48ddcd37cf11ac6459122adcfb589e195583991f456eb7d",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "docs/00-governance/Research-Execution-Package-Specification.md",
+      "sha256": "1706eee1391bc2d83c9acd6b1108dd21f8eacfb1f4285637d3f9c800f4dce0be",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "docs/00-governance/Governance-Decision-Log.md",
+      "sha256": "15413b818ae6fba195a99fa03134c2673b395467108a2b11d2ab01806430eff0",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "framework/REP-SPECIFICATION.md",
+      "sha256": "107a31d594e4d7d92c927224253907ccc8d7305ffe162c7dd9b07fe15b56a7e7",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "framework/policies/EVIDENCE-POLICY.md",
+      "sha256": "4a355f90897a40baabc8997f6e7a0749c4690b43b0dcbbda65c0e1c00ba2d415",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "framework/policies/OUTPUT-POLICY.md",
+      "sha256": "f8f0403b2ec80c1f65ad53669bd70d466b534f269bff386abc5f05827313f4e6",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "framework/policies/RESEARCH-POLICY.md",
+      "sha256": "476dbdac7555ce62e778eac7521f6728b18b62e2b442f6a7b2cd4ed308b2aed9",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "framework/protocols/ARTIFACT-LIFECYCLE.md",
+      "sha256": "5ce0ee1a392e225648be0cbb69eba9334b3e199ae28b520d7e26348df2b95e6d",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "framework/protocols/SUPERSESSION.md",
+      "sha256": "f890c37ea39901a7a5db5f7858ddbeb3a8414ce2b6c39f55cc77cc3af9b115ab",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "framework/standards/ARTIFACT-TIERS.md",
+      "sha256": "7dd5af22d242ce36fb160a52d0b9cbfabf188cc681f3387927250026e1d20943",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "framework/standards/CONFIDENCE.md",
+      "sha256": "8c384c21dedb039e6fe4c1d9921af1e9c3f279446954f8227679e8be3999a104",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "framework/standards/IDENTIFIERS.md",
+      "sha256": "18c7f078aef2e319777422d843ae9f20ddab38f28b50ea194567c4bef241bffd",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "framework/standards/NAMING-STANDARD.md",
+      "sha256": "fec4343ab4b8d149f4f0775d167a30300574d5b9b8a90baa096c2bb5dbc59505",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "framework/standards/TAXONOMY.md",
+      "sha256": "01bba2d2bb7745c3530fbe6d4afcecf47b5836c22d04121850f4afb3779638e0",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "telemetry/metrics.json",
+      "sha256": "c249761a9271dd44c9127d9fcf5add984c025a128b2109f4bd8f347b2b2d1bd5",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "templates/missions/MISSION-TEMPLATE.md",
+      "sha256": "d52ca65775f65a821e843417408b63183eb08b0e77be3b960963b7e6f6d6e7c9",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "templates/research/EVIDENCE-TEMPLATE.md",
+      "sha256": "ee4e83f37fd07af56b248fb5553aff3d50614bf4bc7e60afcd476323570a71d2",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "templates/research/EXPERIMENT-TEMPLATE.md",
+      "sha256": "7a415fb0dca8f1f9c1470712738443e65c7aa4f88c036741c5d943294965bc67",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "templates/research/HYPOTHESIS-TEMPLATE.md",
+      "sha256": "28a9d779edf53f79efa19b4e5aea9244f300056e4591172facc470bdc46a191f",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "templates/research/JOURNAL-TEMPLATE.md",
+      "sha256": "c030db1ce37bb055ee51945822c67f4285c55b9a9ef03b843d329c8b393748a6",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "templates/research/REP-TEMPLATE.md",
+      "sha256": "25a13cdf18c65cf3390a35224877759a6b122918510b02748caea42d90e4ab9d",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "templates/research/THEORY-TEMPLATE.md",
+      "sha256": "3d46aa47a888b66a8cea3695898cb0c5dc4c7ca050f75590982fe416508e7b1c",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "schemas/artifact-metadata.schema.json",
+      "sha256": "b397312d45d99b81e0f59aa2cecaf7e86e134c302e937636fc01299d3fa89871",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "schemas/evidence.schema.json",
+      "sha256": "7ba1080f9dfce16aaa78f7fa77942d8527ef60cba00bfc3cc8d4f8c018dde03c",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "schemas/experiment.schema.json",
+      "sha256": "f1b50d0fbe50d77c097dd3a054a3cee36d18aedd005f38d7ab6f89a1240bbaed",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "schemas/hypothesis.schema.json",
+      "sha256": "41b6f6564f9a543554a3b188253a4d4fb81bc621c6b0c00df92333df24560e93",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "schemas/journal.schema.json",
+      "sha256": "68e741ea277f9ea76865d045123a2ff01b6e69b6a2821e408cc1e1997ee61316",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "schemas/mission.schema.json",
+      "sha256": "1e4f4dba5c0a0755e401f9a87f5265877245509f1b5d802133542a4c4f3ca799",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "schemas/rep.schema.json",
+      "sha256": "113772ad0f940862db173072e6664fdc3d4ebf2cbd68c155e88dd70e21bb277f",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "schemas/theory.schema.json",
+      "sha256": "08ce1ff682cd891a3c826a4002b26e0bb86e1a996a00ae37380974d6863c1380",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "schemas/work-protocol.schema.json",
+      "sha256": "9c6792c68144fd505ef891ca1fcbf41c444c455ddd3b6b80b087f62548d66f73",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "schemas/execution-telemetry.schema.json",
+      "sha256": "14d3aac07bbc003eda3aa6cf327ece30b7546ab5eec4fb7238584513e3c703c7",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "schemas/work-adapter-request.schema.json",
+      "sha256": "b871adb760bba1658ebb1ff401883b2f17212aa6b46e1a9bf53cc51d4aa55a33",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "schemas/work-adapter-result.schema.json",
+      "sha256": "a028a706301658f3804a30665e69153074dcd32ef169f5ca713bdec1625807ed",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "schemas/praxis-remote-request.schema.json",
+      "sha256": "da8368301cac3a28b6d4d697c84aa2be0937f3a215b148eb20ca821c0b67d220",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "schemas/praxis-remote-response.schema.json",
+      "sha256": "08509fd2edaa1d29242c60f0a91c0f0f7eb40661ef33f91393c5969873ad9534",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "schemas/ros-resolution-assessment.schema.json",
+      "sha256": "0533cbd58fc78ec22c206c4dcbb1a8057b489b3cde17629f74098de0489cd610",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "schemas/ros-search-observation.schema.json",
+      "sha256": "76ae1a96abf03567596845e6b716b6b231090638810fc73449dc71cd57dbe7a6",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "schemas/ros-effect-observation.schema.json",
+      "sha256": "99556bbbb818a654225f868aa4b1c9c01fce3d61f278b53a1e8f4ff6b3ebe47a",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "schemas/ros-effective-current.schema.json",
+      "sha256": "37a62b67fd86bc04256962fafe5fad49eb433e1529dd05dc81c4563b0bfa4e61",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "schemas/ros-handoff-authority.schema.json",
+      "sha256": "fb902ff1d338d56f3b1b07ce4d29efe3236f59c00d9f39f7c3c2c8df05c316e4",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "docs/ordo-observation.md",
+      "sha256": "5f2962faab59eac5cd61825e2d16324d2b201360b32c338b0a945ff7e54eff4f",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "docs/work-protocol.md",
+      "sha256": "d15682d271ca060d6d6d50a96188cb38bf78a285aaef20690197317ed2a790d1",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "docs/agent-provenance.md",
+      "sha256": "6df651a8ce0c2145fd42b2e6afaeaaa06756319abd7f9cb8cd0bf11e1fd31de9",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "docs/remote-protocol.md",
+      "sha256": "9cc5aa11cd31556b2295f891fdb5cc29e767199f6e938294a320466b5cc84ea0",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "docs/remote-agent-contract.md",
+      "sha256": "132e01f9b94ac48df328bb9d900ec6658fc7097cc2b4b06692670fb439779636",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "docs/development-telemetry.md",
+      "sha256": "c4fd3074713002ef179d7ead95573b5c8244aa71f0e07fa76df4ce3a1e43a8f3",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "docs/work-adapter-contract.md",
+      "sha256": "218eebe0ef4996f77f661fce747c04e58ce21b26599340fac9cfc38bfebbf9c3",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "registries/decisions.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "registries/evidence.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "registries/experiments.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "registries/hypotheses.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "registries/journals.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "registries/missions.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "registries/research-packages.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "managed": true,
+      "disposition": "installed"
+    },
+    {
+      "path": "registries/theories.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "managed": true,
+      "disposition": "installed"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0.0",
+  "protocolVersion": "1.0.0",
+  "repository": "mercatus",
+  "actor": "ros-bootstrap",
+  "startedAt": "2026-10-06T09:48:42.847Z",
+  "updatedAt": "2026-10-06T09:53:39Z",
+  "baselineDirtyPaths": [],
+  "workItems": [
+    {
+      "id": "ROS-INSTALL-3-6-0",
+      "type": "mechanical",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "installation",
+          "path": ".ros/installation.json"
+        }
+      ],
+      "updatedAt": "2026-10-06T09:48:42.847Z",
+      "completedAt": "2026-10-06T09:48:42.847Z"
+    },
+    {
+      "id": "WI-0001",
+      "type": "task",
+      "state": "active",
+      "semanticState": "active",
+      "evidence": [],
+      "updatedAt": "2026-10-06T09:53:39Z",
+      "telemetryExecutionIds": [
+        "EXE-20261006T095340038Z-a98fb583"
+      ]
+    }
+  ]
+}
