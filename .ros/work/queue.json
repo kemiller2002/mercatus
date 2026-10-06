@@ -30,10 +30,10 @@
       "description": "limen verify --strict cannot pass (LIMEN010/LIMEN012) while Mercatus has no engine code; remove the tool-installed limen-verify.yml from this change so CI is not red. Owner/coordinator decision on PR #5.",
       "tags": [],
       "priority": "medium",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-10-06T09:55:43Z",
-      "updatedAt": "2026-10-06T09:55:43Z",
+      "updatedAt": "2026-10-06T09:55:59Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
