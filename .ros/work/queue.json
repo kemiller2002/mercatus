@@ -127,10 +127,10 @@
         "foundations"
       ],
       "priority": "medium",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-10-06T12:28:25.693Z",
-      "updatedAt": "2026-10-06T12:28:25.000Z",
+      "updatedAt": "2026-10-06T12:28:43.000Z",
       "createdBy": "anthropic/claude-code",
       "createdByActor": {
         "kind": "agent",
