@@ -4,7 +4,7 @@
   "repository": "mercatus",
   "actor": "anthropic/claude-code",
   "startedAt": "2026-10-06T09:48:42.847Z",
-  "updatedAt": "2026-10-08T07:14:42.218Z",
+  "updatedAt": "2026-10-08T07:31:42.230Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -347,13 +347,60 @@
     {
       "id": "WI-0009",
       "type": "task",
-      "state": "active",
-      "semanticState": "active",
-      "evidence": [],
-      "updatedAt": "2026-10-08T07:14:42.218Z",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "conditor.json"
+        },
+        {
+          "type": "implementation",
+          "path": ".conditor/lock.json"
+        },
+        {
+          "type": "implementation",
+          "path": ".conditor/authority/resolved-release-set.json"
+        },
+        {
+          "type": "implementation",
+          "path": ".echelon/toolchain.json"
+        },
+        {
+          "type": "tests",
+          "path": ".github/workflows/praxis-validation.yml"
+        },
+        {
+          "type": "implementation",
+          "path": ".echelon/foundations.json"
+        }
+      ],
+      "updatedAt": "2026-10-08T07:31:42.230Z",
       "telemetryExecutionIds": [
         "EXE-20261008T071442477Z-f3ef4083"
-      ]
+      ],
+      "latestCheckpoint": {
+        "id": "173a201464f50de978bad6ac",
+        "recordedAt": "2026-10-08T07:31:41.303Z",
+        "executionId": "EXE-20261008T071442477Z-f3ef4083",
+        "repository": "mercatus",
+        "branch": "chore/ordo-1.5.0",
+        "commit": "6bffb0b57cda4a99235ddca9c3eab57f391c8bb8",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/mercatus"
+        },
+        "remoteBranch": "chore/ordo-1.5.0",
+        "remoteCommit": "6bffb0b57cda4a99235ddca9c3eab57f391c8bb8",
+        "summary": "conditor upgrade --current to echelon-current 1.2.0 (Ordo 1.4.2 -> 1.5.0) committed and pushed; local checks passed",
+        "nextAction": "Open the PR, get CI green and merge",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-10-08T07:31:42.230Z",
+      "conclusion": "Ordo 1.5.0 through echelon-current 1.2.0; local checks passed (log: /tmp/claude-0/-home-user-praxis/7bcb3038-90cc-534e-8e5b-9be62aa1de8c/scratchpad/sweep/logs/mercatus.log)"
     }
   ]
 }
