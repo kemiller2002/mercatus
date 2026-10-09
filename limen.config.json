@@ -1,11 +1,8 @@
 {
   "configurationVersion": 1,
   "boundary": {
-    "engine": [
-      "src/engine"
-    ],
-    "kernel": [
-      "src/kernel"
-    ]
+    "notApplicable": {
+      "rationale": "Not yet applicable (DF-MERCATUS-FND-2026-0001): Mercatus's browser application is planned on Limen but no engine or kernel code exists yet; the repository holds requirements, research and governance only. The first application slice (WI-0003) replaces this declaration with its real engine and kernel paths."
+    }
   }
 }

@@ -1,1 +1,47 @@
-[]
+[
+  {
+    "confidence": "high",
+    "created": "2026-10-09",
+    "created_by_agent": "claude",
+    "decision_type": "applicability",
+    "evidence": [],
+    "id": "DF-MERCATUS-FND-2026-0001",
+    "path": "research/decisions/DF-MERCATUS-FND-2026-0001--limen-boundary-not-yet-applicable.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261009T003343840Z-454bbc38": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-10-09T00:34:20.450Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "Declare the Limen boundary not yet applicable during the Limen 0.9.0 rollout"
+        }
+      }
+    },
+    "related_documents": [
+      "limen.config.json",
+      ".echelon/limen.json",
+      ".echelon/foundations.json",
+      ".github/workflows/limen-verify.yml",
+      "README.md"
+    ],
+    "status": "accepted",
+    "superseded_by": [],
+    "supersedes": [],
+    "tags": [
+      "governance",
+      "foundations",
+      "limen",
+      "applicability"
+    ],
+    "title": "The Limen boundary is not yet applicable to Mercatus, which has no engine or kernel code; the first application slice restores it",
+    "updated": "2026-10-09"
+  }
+]
