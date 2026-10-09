@@ -43,5 +43,51 @@
     ],
     "title": "The Limen boundary is not yet applicable to Mercatus, which has no engine or kernel code; the first application slice restores it",
     "updated": "2026-10-09"
+  },
+  {
+    "confidence": "high",
+    "created": "2026-10-09",
+    "created_by_agent": "claude",
+    "decision_type": "applicability",
+    "evidence": [],
+    "id": "DF-MERCATUS-FND-2026-0002",
+    "path": "research/decisions/DF-MERCATUS-FND-2026-0002--aegis-forma-folio-not-yet-applicable.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261009T005857648Z-5cb8f7f4": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-10-09T00:59:35.190Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "Declare Aegis, Forma and Folio not yet applicable; run foundations verify in CI"
+        }
+      }
+    },
+    "related_documents": [
+      ".echelon/foundations.json",
+      ".github/workflows/echelon-foundations.yml",
+      "research/decisions/DF-MERCATUS-FND-2026-0001--limen-boundary-not-yet-applicable.md",
+      "README.md"
+    ],
+    "status": "accepted",
+    "superseded_by": [],
+    "supersedes": [],
+    "tags": [
+      "governance",
+      "foundations",
+      "aegis",
+      "forma",
+      "folio",
+      "applicability"
+    ],
+    "title": "Aegis, Forma and Folio are not yet applicable to Mercatus, which has no application code; the first application slice makes each required again",
+    "updated": "2026-10-09"
   }
 ]
