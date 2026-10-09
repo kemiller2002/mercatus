@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "mercatus",
-  "nextSeq": 10,
+  "nextSeq": 11,
   "items": [
     {
       "id": "WI-0001",
@@ -201,6 +201,27 @@
       "attachments": [],
       "createdAt": "2026-10-08T07:14:41.764Z",
       "updatedAt": "2026-10-08T07:31:42.230Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0010",
+      "title": "Upgrade Limen 0.7.1 -> 0.9.0; declare the Limen boundary not yet applicable and restore limen-verify",
+      "description": null,
+      "tags": [],
+      "priority": "medium",
+      "status": "complete",
+      "attachments": [],
+      "createdAt": "2026-10-09T00:33:38.950Z",
+      "updatedAt": "2026-10-09T00:34:36.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",

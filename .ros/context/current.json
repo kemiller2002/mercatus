@@ -4,7 +4,7 @@
   "repository": "mercatus",
   "actor": "anthropic/claude-code",
   "startedAt": "2026-10-06T09:48:42.847Z",
-  "updatedAt": "2026-10-08T07:31:42.230Z",
+  "updatedAt": "2026-10-09T00:34:36.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -401,6 +401,76 @@
       },
       "completedAt": "2026-10-08T07:31:42.230Z",
       "conclusion": "Ordo 1.5.0 through echelon-current 1.2.0; local checks passed (log: /tmp/claude-0/-home-user-praxis/7bcb3038-90cc-534e-8e5b-9be62aa1de8c/scratchpad/sweep/logs/mercatus.log)"
+    },
+    {
+      "id": "WI-0010",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": ".echelon/foundations.json"
+        },
+        {
+          "type": "implementation",
+          "path": ".echelon/limen.json"
+        },
+        {
+          "type": "implementation",
+          "path": "limen.config.json"
+        },
+        {
+          "type": "implementation",
+          "path": "package.json"
+        },
+        {
+          "type": "implementation",
+          "path": "package-lock.json"
+        },
+        {
+          "type": "implementation",
+          "path": ".github/workflows/limen-verify.yml"
+        },
+        {
+          "type": "implementation",
+          "path": "research/decisions/DF-MERCATUS-FND-2026-0001--limen-boundary-not-yet-applicable.md"
+        },
+        {
+          "type": "implementation",
+          "path": "registries/decisions.json"
+        },
+        {
+          "type": "tests",
+          "path": ".github/workflows/limen-verify.yml"
+        }
+      ],
+      "updatedAt": "2026-10-09T00:34:36.000Z",
+      "telemetryExecutionIds": [
+        "EXE-20261009T003343840Z-454bbc38"
+      ],
+      "latestCheckpoint": {
+        "id": "cf7490f8e364b4f0f7d629df",
+        "recordedAt": "2026-10-09T00:34:34.000Z",
+        "executionId": "EXE-20261009T003343840Z-454bbc38",
+        "repository": "mercatus",
+        "branch": "chore/limen-0.9.0",
+        "commit": "74d2ce64f5ec30758f2448d6cc2e11a483a305fc",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/mercatus"
+        },
+        "remoteBranch": "chore/limen-0.9.0",
+        "remoteCommit": "74d2ce64f5ec30758f2448d6cc2e11a483a305fc",
+        "summary": "Limen 0.9.0 with an honest not-applicable boundary; limen-verify restored",
+        "nextAction": "Merge the PR once every check on the head SHA passes",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-10-09T00:34:36.000Z",
+      "conclusion": "Limen 0.7.1 -> 0.9.0; boundary declared not yet applicable (DF-MERCATUS-FND-2026-0001); limen verify --strict passes with verdict not-applicable"
     }
   ]
 }
