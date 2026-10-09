@@ -4,7 +4,7 @@
   "repository": "mercatus",
   "actor": "anthropic/claude-code",
   "startedAt": "2026-10-06T09:48:42.847Z",
-  "updatedAt": "2026-10-09T00:34:36.000Z",
+  "updatedAt": "2026-10-09T00:59:50.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -471,6 +471,60 @@
       },
       "completedAt": "2026-10-09T00:34:36.000Z",
       "conclusion": "Limen 0.7.1 -> 0.9.0; boundary declared not yet applicable (DF-MERCATUS-FND-2026-0001); limen verify --strict passes with verdict not-applicable"
+    },
+    {
+      "id": "WI-0011",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": ".echelon/foundations.json"
+        },
+        {
+          "type": "implementation",
+          "path": ".github/workflows/echelon-foundations.yml"
+        },
+        {
+          "type": "implementation",
+          "path": "research/decisions/DF-MERCATUS-FND-2026-0002--aegis-forma-folio-not-yet-applicable.md"
+        },
+        {
+          "type": "implementation",
+          "path": "registries/decisions.json"
+        },
+        {
+          "type": "tests",
+          "path": ".github/workflows/echelon-foundations.yml"
+        }
+      ],
+      "updatedAt": "2026-10-09T00:59:50.000Z",
+      "telemetryExecutionIds": [
+        "EXE-20261009T005857648Z-5cb8f7f4"
+      ],
+      "latestCheckpoint": {
+        "id": "342d727bbbaebdb570f469f7",
+        "recordedAt": "2026-10-09T00:59:49.000Z",
+        "executionId": "EXE-20261009T005857648Z-5cb8f7f4",
+        "repository": "mercatus",
+        "branch": "chore/foundations-applicability",
+        "commit": "2caf4b8dfc50ae1277905259f05680e6f1dd56b4",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/mercatus"
+        },
+        "remoteBranch": "chore/foundations-applicability",
+        "remoteCommit": "2caf4b8dfc50ae1277905259f05680e6f1dd56b4",
+        "summary": "Foundations applicability corrected; foundations verify passes and runs in CI",
+        "nextAction": "Merge the PR once every check on the head SHA passes",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-10-09T00:59:50.000Z",
+      "conclusion": "Aegis, Forma and Folio declared not yet applicable (DF-MERCATUS-FND-2026-0002); praxis foundations verify passes locally and runs in CI"
     }
   ]
 }

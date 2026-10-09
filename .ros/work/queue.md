@@ -13,3 +13,4 @@
 | WI-0008 | Move mercatus to Praxis 3.7.2, Ordo 1.4.2, Visual Engineering 1.0.1 and adopt Conditor | complete | praxis, ordo, toolchain | medium |
 | WI-0009 | Move mercatus to Ordo 1.5.0 via echelon-current 1.2.0 (conditor upgrade --current) | complete |  | medium |
 | WI-0010 | Upgrade Limen 0.7.1 -> 0.9.0; declare the Limen boundary not yet applicable and restore limen-verify | complete |  | medium |
+| WI-0011 | Declare Aegis, Forma and Folio not yet applicable and run foundations verify in CI | complete |  | medium |

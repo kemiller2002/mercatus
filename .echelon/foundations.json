@@ -3,16 +3,16 @@
   "application": "Mercatus",
   "capabilities": {
     "aegis": {
-      "required": true,
+      "required": false,
       "version": "1.0.0",
       "boundaryManifest": "aegis-boundaries.json"
     },
     "forma": {
-      "required": true,
+      "required": false,
       "version": "0.4.1"
     },
     "folio": {
-      "required": true,
+      "required": false,
       "version": "0.3.0"
     },
     "limen": {

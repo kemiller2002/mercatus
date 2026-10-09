@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "mercatus",
-  "nextSeq": 11,
+  "nextSeq": 12,
   "items": [
     {
       "id": "WI-0001",
@@ -48,7 +48,7 @@
     {
       "id": "WI-0003",
       "title": "Add limen-verify and echelon-foundations workflows with the first application slice",
-      "description": "Deferred from PR #5. When the first Limen application slice lands: (1) run 'npx @echelon-foundry/limen@0.7.1 init' to reinstall the tool-owned .github/workflows/limen-verify.yml (absent now, so local limen verify also reports LIMEN007) and point limen.config.json boundary engine/kernel at real paths so limen verify --strict passes; (2) add .github/workflows/echelon-foundations.yml calling kemiller2002/praxis/.github/workflows/foundations-verify.yml with praxis_ref a95dbf238e561eaac4b38ca7011efc1a496cf1c6 (or newer), after adding an F# project referencing EchelonFoundry.Aegis.Core 1.0.0 with Aegis usage and aegis-boundaries.json, and pinned, used @echelon-foundry/design-system 0.4.1 and @echelon-foundry/print-components 0.3.0. Both workflows must be green; no notApplicable or required:false.",
+      "description": "With the first application slice: replace limen.config.json's notApplicable declaration with real engine/kernel paths (supersede DF-MERCATUS-FND-2026-0001) and make Aegis/Forma/Folio required again as their code lands (supersede DF-MERCATUS-FND-2026-0002). limen-verify.yml (WI-0010) and echelon-foundations.yml (WI-0011) are already in CI.",
       "tags": [
         "foundations",
         "limen"
@@ -57,7 +57,7 @@
       "status": "captured",
       "attachments": [],
       "createdAt": "2026-10-06T09:55:44Z",
-      "updatedAt": "2026-10-06T09:55:44Z",
+      "updatedAt": "2026-10-09T00:59:35.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
@@ -222,6 +222,27 @@
       "attachments": [],
       "createdAt": "2026-10-09T00:33:38.950Z",
       "updatedAt": "2026-10-09T00:34:36.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0011",
+      "title": "Declare Aegis, Forma and Folio not yet applicable and run foundations verify in CI",
+      "description": null,
+      "tags": [],
+      "priority": "medium",
+      "status": "complete",
+      "attachments": [],
+      "createdAt": "2026-10-09T00:58:56.795Z",
+      "updatedAt": "2026-10-09T00:59:50.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
