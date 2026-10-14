@@ -57,3 +57,15 @@ The system now includes a dedicated commercialization test for Echelon Foundry's
 - `requirements/PORTFOLIO-COMMERCIAL-REQUIREMENTS.md` - requirements discovered by trying to sell the portfolio, including ProblemPattern, CommercialMotion, Claim, ProofAsset, buying triggers, diagnostic qualification, objections, CTA experiments, referrals, workshops/diagnostics as products, portfolio cross-sell controls, category-comprehension testing, outcome follow-up, reference permissions, founder-time/productization analysis, and commercial failure taxonomy.
 
 A core rule is that external messaging starts with the buyer's recognizable problem rather than requiring the buyer to understand Echelon's internal framework/product names.
+
+
+## Proposed demand-creation strategy (2026-10-14)
+
+Demand creation is proposed as the primary commercial operating strategy: make real but under-recognized customer problems observable and economically intelligible before introducing an offering. Demand capture for buyers who already recognize a problem remains supported.
+
+- [Demand-creation strategy](docs/strategy/DEMAND-CREATION.md)
+- [Reconciliation with existing canonical requirements](docs/strategy/DEMAND-CREATION-RECONCILIATION.md)
+- [94 proposed requirement candidates](requirements/DEMAND-CREATION-CANDIDATES.md) ([structured source](requirements/DEMAND-CREATION-CANDIDATES.json))
+- [EDF, Clarity, and HelixNote pilot experiments](research/experiments/DEMAND-CREATION-PILOTS.md)
+
+The proposed catalog is **not** 94 accepted ROS work items. Before implementation, reconcile each candidate with existing Mercatus obligations and stage accepted coherent work slices through ROS/Praxis. No publication or outreach is authorized by these documents.
