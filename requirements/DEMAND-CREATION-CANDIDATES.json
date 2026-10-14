@@ -1,0 +1,950 @@
+{
+  "schemaVersion": 1,
+  "kind": "proposed-requirement-catalog",
+  "created": "2026-10-14",
+  "namespace": "DC",
+  "strategyDocument": "docs/strategy/DEMAND-CREATION.md",
+  "canonicalDestinationStatus": "verified_kemiller2002_mercatus_pending_reconciliation",
+  "items": [
+    {
+      "id": "DC-001",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Portfolio governance",
+      "requirement": "System MUST maintain an inventory of every Echelon initiative with accountable owner and campaign eligibility.",
+      "acceptance": "A newly added initiative is discoverable with owner, status, and last review; unassessed initiatives are marked unassessed.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-002",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Portfolio governance",
+      "requirement": "Every initiative MUST link to at least one explicit customer-problem hypothesis or have a documented no-market-campaign decision.",
+      "acceptance": "An initiative cannot be activated without a linked hypothesis; report lists exceptions.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-003",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Portfolio governance",
+      "requirement": "Problem maps MUST include symptom, causal hypothesis, audience, workaround, consequence, trigger, alternative, differentiator, evidence, counterevidence, and owner.",
+      "acceptance": "Schema validation rejects a problem map missing required fields while permitting typed unknown values.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-004",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Portfolio governance",
+      "requirement": "System MUST track current versions and states of existing MarketHypothesis, ProblemHypothesis, ICP, Campaign, Evidence, Asset, and Result rather than duplicate their authority.",
+      "acceptance": "Entity map demonstrates stable existing IDs and no competing canonical records.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-005",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Portfolio governance",
+      "requirement": "Opportunity prioritization MUST use explicitly defined criteria and expose evidence coverage and uncertainty separately from score.",
+      "acceptance": "Two reviewers can explain a priority outcome from source-linked criterion values; unknown is not silently zero.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-006",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Portfolio governance",
+      "requirement": "System MUST distinguish demand creation, demand capture, customer education, research, and promotional sales activity.",
+      "acceptance": "Campaign records and reports expose explicit mode; shared campaigns can contain separately measured modes.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-007",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Portfolio governance",
+      "requirement": "Commercial campaign approval MUST require buyer hypothesis, recognized symptom, plausible impact, identified buying trigger, evidence review, credible offer, and measurement plan.",
+      "acceptance": "Attempted promotion with one missing gate remains in research/blocked state with reason.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-008",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Portfolio governance",
+      "requirement": "Related initiatives MUST be represented as options for a shared problem without forcing a separate campaign for each product.",
+      "acceptance": "One problem map can link EDF, Clarity, and HelixNote with role-specific distinctions and no duplicate journey required.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-009",
+      "priority": "P1",
+      "phase": 3,
+      "epic": "Portfolio governance",
+      "requirement": "Priority decisions MUST be periodically reevaluated when contradictory research, offers, or conversion evidence arrives.",
+      "acceptance": "A material disconfirming finding creates a review candidate with immutable earlier decision.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-010",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Research and evidence",
+      "requirement": "Research intake MUST preserve provenance, capture time, original observation, interpretation, support and contradiction classification.",
+      "acceptance": "Given five findings, every one can be traced to an original source and claims remain separate from opinions.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-011",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Research and evidence",
+      "requirement": "Research plans MUST seek counterevidence and alternative explanations before advancing a problem hypothesis.",
+      "acceptance": "Review cannot be approved without recorded counterevidence search or explicit no-results rationale.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-012",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Research and evidence",
+      "requirement": "Customer interviews MUST capture role, purchase involvement, recent concrete example, current workaround, severity, urgency, and authorization-safe notes.",
+      "acceptance": "Structured interview template produces those fields, with declined/unavailable values preserved.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-013",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Research and evidence",
+      "requirement": "Customer-language snippets MUST be available as sourced quotation or paraphrase with authorization and handling metadata.",
+      "acceptance": "Unsupported or non-consented quote cannot enter approved public claims.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-014",
+      "priority": "P1",
+      "phase": 1,
+      "epic": "Research and evidence",
+      "requirement": "Research MUST differentiate practitioner, sponsor, economic buyer, approver, and veto/influencer roles.",
+      "acceptance": "A discovery record shows distinct persons/roles or explicit overlap and unknowns.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-015",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Research and evidence",
+      "requirement": "Evidence strength MUST distinguish attention, recognition, stated intent, behavioral commitment, buying activity, and paid action.",
+      "acceptance": "A popular post cannot automatically be promoted into evidence of demand or revenue.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-016",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Research and evidence",
+      "requirement": "System SHOULD classify recurring normalized symptoms and maintain a frequency/segment map without claiming a representative sample from small studies.",
+      "acceptance": "Report includes sample counts, sampling method, and limitation flag.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-017",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Research and evidence",
+      "requirement": "System MUST compare nonpurchase and competitor alternatives for each validated problem.",
+      "acceptance": "A buyer report shows viable alternatives and recorded situations where Echelon is not recommended.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-018",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Research and evidence",
+      "requirement": "System SHOULD support structured coding of problem severity and trigger timing without overriding researcher judgment.",
+      "acceptance": "Codebook version and reviewer edits are preserved for each categorized conversation.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-019",
+      "priority": "P1",
+      "phase": 3,
+      "epic": "Research and evidence",
+      "requirement": "Research findings SHOULD drive proposed product positioning and roadmap changes through versioned recommendations.",
+      "acceptance": "Recommendation identifies supporting/contrary evidence and affected requirement or initiative.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-020",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Recognition journeys",
+      "requirement": "Every approved demand-creation campaign MUST describe an observable entry symptom in customer's own language before describing product features.",
+      "acceptance": "Reviewer sees problem-first entry asset with no feature-dependent opening statement.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-021",
+      "priority": "P0",
+      "phase": 2,
+      "epic": "Recognition journeys",
+      "requirement": "A recognition journey MUST define ordered stages Recognition, Consequence, Possibility, Proof, Action, and Learning.",
+      "acceptance": "Journey validator rejects missing stage and displays its intended evidence/action.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-022",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Recognition journeys",
+      "requirement": "Each stage MUST serve a distinct customer question and connect to a relevant next step or a legitimate exit.",
+      "acceptance": "Usability test can complete journey or leave without forced product pitch.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-023",
+      "priority": "P0",
+      "phase": 2,
+      "epic": "Recognition journeys",
+      "requirement": "Recognition assets MUST disclose when scenarios are composites or illustrative rather than actual customer outcomes.",
+      "acceptance": "Publishing gate flags a case study without verifiable provenance or illustration label.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-024",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Recognition journeys",
+      "requirement": "Journeys MUST support practitioner, executive, and cross-functional approver perspectives without contradictory claims.",
+      "acceptance": "Same problem map renders appropriate evidence for each role with consistent source data.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-025",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Recognition journeys",
+      "requirement": "Every journey SHOULD include a usable independent action or lesson that remains valuable without buying.",
+      "acceptance": "Pilot users can identify at least one actionable insight without surrendering contact information.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-026",
+      "priority": "P1",
+      "phase": 3,
+      "epic": "Recognition journeys",
+      "requirement": "System SHOULD support sharing educational artifacts across channels while tracking source version and permissible claims.",
+      "acceptance": "Derived posts map to approved canonical narrative and list material edits.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-027",
+      "priority": "P1",
+      "phase": 3,
+      "epic": "Recognition journeys",
+      "requirement": "Cross-initiative next steps MUST be driven by diagnosed conditions rather than indiscriminate cross-sell.",
+      "acceptance": "A diagnostic finding unrelated to HelixNote does not recommend HelixNote.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-028",
+      "priority": "P2",
+      "phase": 3,
+      "epic": "Recognition journeys",
+      "requirement": "System MAY support multilingual customer-language variants after evidence of channel demand.",
+      "acceptance": "Variant claims remain traceable to source and human review of meaning.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-030",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Impact and economics",
+      "requirement": "An impact model MUST distinguish measured, observed, calculated, estimated, and unavailable inputs.",
+      "acceptance": "Report labels each parameter with type, units, origin, and date.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-031",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Impact and economics",
+      "requirement": "Missing cost, probability, severity or baseline data MUST remain unknown and MUST NOT default to zero.",
+      "acceptance": "Tests with missing inputs produce unavailable/range-needed, not a misleading numeric ROI.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-032",
+      "priority": "P0",
+      "phase": 2,
+      "epic": "Impact and economics",
+      "requirement": "Impact estimates MUST show method, assumptions, uncertainty, and sensitivity to material inputs.",
+      "acceptance": "Changing a key assumption visibly changes interval or outcome and report exposes formula version.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-033",
+      "priority": "P0",
+      "phase": 2,
+      "epic": "Impact and economics",
+      "requirement": "Every diagnostic report MUST separate possible correlation from causal attribution.",
+      "acceptance": "Report cannot claim time savings caused by a product from before/after alone.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-034",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Impact and economics",
+      "requirement": "System SHOULD support role-relevant consequence categories including rework, defects, delivery delay, risk, turnover, and foregone opportunities.",
+      "acceptance": "One problem can report relevant categories without double counting the same loss.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-035",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Impact and economics",
+      "requirement": "Business cases MUST compare at least doing nothing, process change, existing tooling, and Echelon offer where feasible.",
+      "acceptance": "Comparison labels unknown results and excludes inapplicable options with rationale.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-036",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Impact and economics",
+      "requirement": "Public quantified claims MUST be backed by versioned evidence and approval scoped to their specific wording and context.",
+      "acceptance": "An edited public claim cannot publish based on an approval of older wording.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-037",
+      "priority": "P2",
+      "phase": 3,
+      "epic": "Impact and economics",
+      "requirement": "System MAY calibrate cost-model error against customer-observed outcomes without revealing sensitive client inputs.",
+      "acceptance": "Calibration shows error distribution and anonymization controls.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-040",
+      "priority": "P0",
+      "phase": 2,
+      "epic": "Interactive diagnostics",
+      "requirement": "Pilot campaigns MUST offer a short self-assessment or demonstrator with clearly documented intended use and limitations.",
+      "acceptance": "Each pilot has an accessible artifact delivering actionable results without requiring a sales meeting.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-041",
+      "priority": "P0",
+      "phase": 2,
+      "epic": "Interactive diagnostics",
+      "requirement": "Diagnostic scoring MUST be versioned, explainable, reproducible, and tested against published fixtures.",
+      "acceptance": "Given same inputs and version, scores and explanations match golden results.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-042",
+      "priority": "P0",
+      "phase": 2,
+      "epic": "Interactive diagnostics",
+      "requirement": "A diagnostic MUST support unknown, prefer-not-to-answer, and insufficient-evidence outcomes instead of inventing precision.",
+      "acceptance": "Sparse answers yield limited conclusions and display missing evidence needs.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-043",
+      "priority": "P0",
+      "phase": 2,
+      "epic": "Interactive diagnostics",
+      "requirement": "Ungated diagnostic use MUST be possible unless individualized follow-up genuinely requires contact data.",
+      "acceptance": "An anonymous visitor can complete the basic self-check and view results.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-044",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Interactive diagnostics",
+      "requirement": "A diagnostic result MUST display strengths, suspected risks, suggested validation, alternative remedies, and relevant next step.",
+      "acceptance": "Result report includes these sections and distinguishes suspicion from confirmed failure.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-045",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Interactive diagnostics",
+      "requirement": "Interactive assets MUST work on mobile, keyboard, screen reader, and reduced-motion settings following Forma guidance.",
+      "acceptance": "Automated and manual accessibility verification covers all pilot diagnostics.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-046",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Interactive diagnostics",
+      "requirement": "Printable diagnostic and executive briefs MUST use Folio and remain legible across supported page sizes.",
+      "acceptance": "PDF/print fixture tests show no clipped charts, headings, or missing source notes.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-047",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Interactive diagnostics",
+      "requirement": "Demo examples MUST not expose real customer data and MUST clearly identify synthetic input.",
+      "acceptance": "Privacy review and fixture tests show demo artifacts use approved fictional examples.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-048",
+      "priority": "P2",
+      "phase": 3,
+      "epic": "Interactive diagnostics",
+      "requirement": "Diagnostics SHOULD be extensible to future initiatives through registered problem definitions rather than per-product forks.",
+      "acceptance": "A fourth diagnostic can be added through manifest and reused components.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-050",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Experiments",
+      "requirement": "Every campaign experiment MUST preregister hypothesis, audience, comparator, assignment, success metric, measurement window and stopping rule.",
+      "acceptance": "No experiment may enter running state while required preregistration fields are absent.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-051",
+      "priority": "P0",
+      "phase": 2,
+      "epic": "Experiments",
+      "requirement": "Pilots MUST compare problem-first messaging with a suitable product/service-led comparator where ethically and operationally practical.",
+      "acceptance": "Pilot design documents both variants and controlled differences, or reason comparison is unavailable.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-052",
+      "priority": "P0",
+      "phase": 2,
+      "epic": "Experiments",
+      "requirement": "Experiments MUST preserve exposure denominators, qualified visitors, conversion events, and eligibility definitions.",
+      "acceptance": "Analysis can reproduce conversion measures from captured event records.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-053",
+      "priority": "P0",
+      "phase": 2,
+      "epic": "Experiments",
+      "requirement": "System MUST warn against interpreting sparse, selected, or nonrandom samples as causal proof.",
+      "acceptance": "A low-volume nonrandom campaign yields descriptive findings and limitation text.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-054",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Experiments",
+      "requirement": "Experiment review MUST report both supporting and disconfirming outcomes, objections, and unexpected segments.",
+      "acceptance": "Outcome record includes failure cases and does not discard nonconverters.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-055",
+      "priority": "P1",
+      "phase": 3,
+      "epic": "Experiments",
+      "requirement": "Experiments MUST have explicit stop, refine, continue, and scale decisions supported by evidence and human authorization.",
+      "acceptance": "At end-of-window, workflow produces a decision candidate with traceable basis.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-056",
+      "priority": "P1",
+      "phase": 3,
+      "epic": "Experiments",
+      "requirement": "When multiple versions exist, the system SHOULD record change history and avoid untracked mid-test edits.",
+      "acceptance": "Changing copy after start creates new variant/version and preserves prior assignment.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-057",
+      "priority": "P2",
+      "phase": 3,
+      "epic": "Experiments",
+      "requirement": "System MAY estimate incremental commercial lift with appropriate experiment design and honest uncertainty bounds.",
+      "acceptance": "Analysis states design assumptions and declines causal claim when violated.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-060",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Distribution",
+      "requirement": "Each channel MUST declare authorized account, permissions, content policy, rate limits, audience, and escalation owner.",
+      "acceptance": "Unknown channel cannot publish or access credentials by default.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-061",
+      "priority": "P0",
+      "phase": 2,
+      "epic": "Distribution",
+      "requirement": "Public publishing and prospect outreach MUST require scoped human approval by channel, audience, asset version and action volume.",
+      "acceptance": "Unapproved publish or send action is rejected and logged.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-062",
+      "priority": "P0",
+      "phase": 2,
+      "epic": "Distribution",
+      "requirement": "LinkedIn, Reddit, Facebook and X integrations MUST respect platform rules and use supported access methods; unavailable permissions MUST remain blocked.",
+      "acceptance": "Adapter without approved access provides draft/export-only workflow, not workaround scraping.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-063",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Distribution",
+      "requirement": "System SHOULD support approved educational participation as distinct from promotional posting and outreach.",
+      "acceptance": "Editorial plan records community benefit and prohibits generic unsolicited mass posting.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-064",
+      "priority": "P1",
+      "phase": 3,
+      "epic": "Distribution",
+      "requirement": "Each distributed asset MUST retain canonical narrative ID, variant, channel, timestamp and source URL where available.",
+      "acceptance": "Campaign analytics trace a LinkedIn post to the original approved claim package.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-065",
+      "priority": "P1",
+      "phase": 3,
+      "epic": "Distribution",
+      "requirement": "Outreach MUST enforce recipient suppression, consent/legitimate basis policies, opt-out and deduplication.",
+      "acceptance": "Suppressed contact cannot be contacted from a different campaign.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-066",
+      "priority": "P1",
+      "phase": 3,
+      "epic": "Distribution",
+      "requirement": "Channel selection MUST be hypothesis-led, not blanket distribution to every supported platform.",
+      "acceptance": "Campaign plan states why the target decision maker is reachable through each chosen channel.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-067",
+      "priority": "P2",
+      "phase": 3,
+      "epic": "Distribution",
+      "requirement": "Distribution SHOULD support agent-prepared drafts with a human approval queue and content diff.",
+      "acceptance": "Reviewer can approve, reject, request edits or expire authorization without publishing.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-070",
+      "priority": "P0",
+      "phase": 2,
+      "epic": "Commercial conversion",
+      "requirement": "Every journey MUST have a relevant action offer, from no-cost assessment to scoped paid diagnostic, with clear expected effort and outcome.",
+      "acceptance": "Landing page makes next step and its obligations understandable before contact details.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-071",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Commercial conversion",
+      "requirement": "CRM and prospect records MUST distinguish anonymous interest, awareness gain, contact consent, qualified conversation, and active sales opportunity.",
+      "acceptance": "A diagnostic completion without contact consent never creates a contactable lead automatically.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-072",
+      "priority": "P1",
+      "phase": 3,
+      "epic": "Commercial conversion",
+      "requirement": "Qualification MUST capture problem ownership, urgency, economic impact hypothesis, buyer/approver access, and feasible next step.",
+      "acceptance": "A qualified conversation record contains required fields or explicit unknowns.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-073",
+      "priority": "P1",
+      "phase": 3,
+      "epic": "Commercial conversion",
+      "requirement": "Offers MUST include bounded scope, deliverables, exclusions, confidentiality, commercial terms, and success criteria.",
+      "acceptance": "A paid diagnostic template can be completed and reviewed without inventing client terms.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-074",
+      "priority": "P1",
+      "phase": 3,
+      "epic": "Commercial conversion",
+      "requirement": "System SHOULD capture objection taxonomy, reasons for loss, no-decision and alternative chosen.",
+      "acceptance": "Analysis can distinguish lack of recognized need from lack of budget or solution fit.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-075",
+      "priority": "P2",
+      "phase": 3,
+      "epic": "Commercial conversion",
+      "requirement": "System MAY generate tailored buying-group briefs using approved evidence only.",
+      "acceptance": "Generated executive/finance/procurement versions preserve same underlying claims.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-080",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Measurement",
+      "requirement": "Success metrics MUST distinguish distribution, problem recognition, perceived relevance, commercial intent, revenue, and profitability.",
+      "acceptance": "Reporting never shows reach as if it were verified commercial demand.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-081",
+      "priority": "P0",
+      "phase": 2,
+      "epic": "Measurement",
+      "requirement": "Recognition measurement SHOULD include a before/after or suitable comparator rather than treating clicks as awareness change.",
+      "acceptance": "Pilot collects or explicitly marks unavailable an evidence-backed recognition measure.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-082",
+      "priority": "P0",
+      "phase": 2,
+      "epic": "Measurement",
+      "requirement": "Event records MUST carry campaign ID, problem ID, channel, variant, timestamp, consent basis where relevant, and data quality.",
+      "acceptance": "Sample journey can be traced from exposure to qualified action when consent permits.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-083",
+      "priority": "P0",
+      "phase": 2,
+      "epic": "Measurement",
+      "requirement": "Attribution MUST support unattributed and multi-touch paths and MUST not falsely claim causal attribution.",
+      "acceptance": "Organic/direct/unknown conversions remain visible and attributed totals do not exceed eligible events.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-084",
+      "priority": "P1",
+      "phase": 3,
+      "epic": "Measurement",
+      "requirement": "A decision dashboard MUST show uncertainty, evidence coverage, funnel conversion, acquisition effort, objections and commercial outcomes.",
+      "acceptance": "An initiative with no opportunities displays zero observed opportunities and measurement coverage.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-085",
+      "priority": "P1",
+      "phase": 3,
+      "epic": "Measurement",
+      "requirement": "System MUST separate observed results from forecast and modeled estimates in all executive reports.",
+      "acceptance": "Dashboards and exports visibly label actuals, estimates and unavailable data.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-086",
+      "priority": "P1",
+      "phase": 3,
+      "epic": "Measurement",
+      "requirement": "The learning loop MUST update hypothesis and priority proposals without silently promoting them to accepted truth.",
+      "acceptance": "New results trigger review state; older decisions and supporting evidence remain preserved.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-087",
+      "priority": "P2",
+      "phase": 3,
+      "epic": "Measurement",
+      "requirement": "System SHOULD report cohorts and time lags so slow B2B purchasing cycles are not misread as immediate failure.",
+      "acceptance": "Quarterly results indicate age of cohort and pending outcomes rather than automatic zero conversion.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-090",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Architecture and traceability",
+      "requirement": "Each requirement MUST retain stable identity, priority, intended behavior, acceptance, source strategy section, and dependencies.",
+      "acceptance": "Praxis import/reconciliation can preserve IDs without conflating requirement and work item.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-091",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Architecture and traceability",
+      "requirement": "New features MUST reuse existing Marketing OS hypotheses, evidence, campaigns, approvals, and learning entities where equivalent.",
+      "acceptance": "Implementation design documents reuse map before proposing schema additions.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-092",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Architecture and traceability",
+      "requirement": "Ordo-controlled legal states and guarded transitions MUST protect campaign approval and measurement integrity where deployed.",
+      "acceptance": "Direct invalid transition attempt is rejected without partial persisted effects.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-093",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Architecture and traceability",
+      "requirement": "Praxis intake MUST preserve provenance, requirement IDs, decisions, work-item relationships, implementation tests and acceptance evidence.",
+      "acceptance": "A requirement can be traced end-to-end without a GitHub issue being mistaken for canonical requirement source.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-094",
+      "priority": "P0",
+      "phase": 2,
+      "epic": "Architecture and traceability",
+      "requirement": "Interactive browser implementations MUST use pinned Forma components and the approved Limen/browser boundary when applicable.",
+      "acceptance": "Tests detect release-pin drift and show components are actually used.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-095",
+      "priority": "P0",
+      "phase": 2,
+      "epic": "Architecture and traceability",
+      "requirement": "Printable reports MUST use pinned Folio; unexpected integration failures MUST use Aegis, not domain-state error aliases.",
+      "acceptance": "Integration tests cover printable report and a redacted Aegis fault at API/storage boundary.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-096",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Architecture and traceability",
+      "requirement": "Implementations SHOULD be static-first and GitHub Pages compatible when feasible; backend dependencies require explicit justification.",
+      "acceptance": "Pilot build runs locally and deploys without mandatory Kubernetes or unreviewed hosted services.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-097",
+      "priority": "P1",
+      "phase": 3,
+      "epic": "Architecture and traceability",
+      "requirement": "Fides and Arca integration MUST remain optional until verified as supported, with explicit provider-neutral contracts.",
+      "acceptance": "Feature can run in approved test environment without assuming production Fides/Arca availability.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-098",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Architecture and traceability",
+      "requirement": "External content and collected data MUST be treated as untrusted, with sanitization, injection defenses and redacted telemetry.",
+      "acceptance": "Adversarial source content cannot alter agent permissions or expose credentials.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-099",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Architecture and traceability",
+      "requirement": "Rules for agents MUST define permitted tools, inputs, outputs, approval gates, escalation, and no-send defaults.",
+      "acceptance": "Agent attempting external post without authorization is denied and auditable.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-100",
+      "priority": "P0",
+      "phase": 1,
+      "epic": "Privacy and quality",
+      "requirement": "Diagnostic and prospect collection MUST minimize personal information and distinguish anonymous from identified flows.",
+      "acceptance": "Anonymous run creates no contact identity; personal data fields have documented necessity.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-101",
+      "priority": "P0",
+      "phase": 2,
+      "epic": "Privacy and quality",
+      "requirement": "Retention, deletion, access control, and legal basis/consent MUST be specified before storing personal diagnostic responses or prospect data.",
+      "acceptance": "Data removal request can find and delete or legally retain records with stated rationale.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-102",
+      "priority": "P0",
+      "phase": 2,
+      "epic": "Privacy and quality",
+      "requirement": "All public claims MUST pass a claim-substantiation review; fabricated testimonials, false urgency and invented benchmarks are prohibited.",
+      "acceptance": "Test case with synthetic success story cannot be released as real case study.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-103",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Privacy and quality",
+      "requirement": "Diagnostics MUST document limitations, failure modes and inappropriate applications, and provide readable explanations.",
+      "acceptance": "Result includes why score may be wrong and next verification steps.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-104",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Privacy and quality",
+      "requirement": "Usability and accessibility MUST be validated on supported browser/device classes before launch.",
+      "acceptance": "Keyboard/mobile/screen-reader/reduced-motion smoke tests pass for each new visitor journey.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-105",
+      "priority": "P1",
+      "phase": 2,
+      "epic": "Privacy and quality",
+      "requirement": "Reports MUST avoid unverified causal claims, over-precise ROI, manipulative nudges or product-only outcomes.",
+      "acceptance": "Automated policy checks flag risky wording and human reviewer records resolution.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-106",
+      "priority": "P1",
+      "phase": 3,
+      "epic": "Privacy and quality",
+      "requirement": "Operational dashboards MUST show broken instrumentation, sample-selection issues and missing events.",
+      "acceptance": "Zero conversions can be distinguished from missing tracking.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-107",
+      "priority": "P1",
+      "phase": 3,
+      "epic": "Privacy and quality",
+      "requirement": "System MUST have a tested campaign rollback / publishing stop path for inaccurate claims or unauthorized content.",
+      "acceptance": "Reviewer can stop delivery, withdraw approved variants and preserve incident audit trail.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    },
+    {
+      "id": "DC-108",
+      "priority": "P2",
+      "phase": 3,
+      "epic": "Privacy and quality",
+      "requirement": "Continuous validation SHOULD detect changed platform policies or diagnostic model versions requiring reevaluation.",
+      "acceptance": "Material change creates review work and blocks unsafe automatic continuation.",
+      "status": "proposed",
+      "source": "docs/strategy/DEMAND-CREATION.md"
+    }
+  ]
+}
