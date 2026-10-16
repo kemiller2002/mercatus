@@ -57,3 +57,9 @@ The system now includes a dedicated commercialization test for Echelon Foundry's
 - `requirements/PORTFOLIO-COMMERCIAL-REQUIREMENTS.md` - requirements discovered by trying to sell the portfolio, including ProblemPattern, CommercialMotion, Claim, ProofAsset, buying triggers, diagnostic qualification, objections, CTA experiments, referrals, workshops/diagnostics as products, portfolio cross-sell controls, category-comprehension testing, outcome follow-up, reference permissions, founder-time/productization analysis, and commercial failure taxonomy.
 
 A core rule is that external messaging starts with the buyer's recognizable problem rather than requiring the buyer to understand Echelon's internal framework/product names.
+
+## License
+
+Source available under PolyForm Noncommercial 1.0.0 for permitted noncommercial uses. Commercial use requires a separate license from Echelon Foundry. Previously distributed versions remain subject to the licenses under which they were released.
+
+Commercial licensing information is forthcoming.
