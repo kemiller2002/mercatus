@@ -312,10 +312,10 @@
         "domain-audit"
       ],
       "priority": "medium",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-11-08T15:03:01Z",
-      "updatedAt": "2026-11-08T16:37:01.710Z",
+      "updatedAt": "2026-11-08T16:40:01.312Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
@@ -456,10 +456,10 @@
         "domain-audit"
       ],
       "priority": "high",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-11-08T15:03:03Z",
-      "updatedAt": "2026-11-08T16:37:02.138Z",
+      "updatedAt": "2026-11-08T16:40:01.312Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
@@ -480,10 +480,10 @@
         "domain-audit"
       ],
       "priority": "medium",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-11-08T15:03:03Z",
-      "updatedAt": "2026-11-08T16:37:02.446Z",
+      "updatedAt": "2026-11-08T16:40:01.312Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
@@ -744,10 +744,10 @@
         "domain-audit"
       ],
       "priority": "high",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-11-08T15:03:06Z",
-      "updatedAt": "2026-11-08T16:37:02.685Z",
+      "updatedAt": "2026-11-08T16:40:01.312Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
