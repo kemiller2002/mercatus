@@ -4,6 +4,8 @@ This document converts the commercial requirements into explicit SDE/Ordo state,
 
 ## 1. System-wide transition envelope
 
+ID: `DSM-01`
+
 Every state-changing command MUST evaluate:
 - aggregate identifier and expected version;
 - current state;
@@ -29,6 +31,8 @@ Agents MUST receive legal capabilities from current state rather than infer allo
 
 ## 2. MarketHypothesis
 
+ID: `DSM-02`
+
 States:
 Draft, Proposed, Researching, Testable, Testing, Supported, Weak, Rejected, Dormant, Reopened.
 
@@ -48,6 +52,8 @@ Obligations MAY include DefinePopulation, DefineProblem, IdentifyBuyer, FindCoun
 
 ## 3. ProblemHypothesis
 
+ID: `DSM-03`
+
 States:
 Draft, Observed, Investigating, Corroborated, CommerciallyRelevant, Weak, Rejected, Revisit.
 
@@ -65,6 +71,8 @@ FindIndependentEvidence, IdentifyConsequence, IdentifyCurrentAlternative, Identi
 
 ## 4. Observation
 
+ID: `DSM-04`
+
 States:
 Captured, Normalized, Reviewed, PromotedToEvidence, Dismissed, Superseded.
 
@@ -78,6 +86,8 @@ Capabilities:
 CanNormalize, CanReview, CanPromote, CanDismiss, CanSupersede.
 
 ## 5. Evidence
+
+ID: `DSM-05`
 
 States:
 Candidate, Accepted, Contested, Stale, Superseded, Invalidated.
@@ -96,10 +106,14 @@ CanAccept, CanContest, CanMarkStale, CanSupersede, CanInvalidate, CanLinkContrad
 
 ## 6. Organization
 
+ID: `DSM-06`
+
 States:
-Discovered, Researching, Researched, Candidate, Engaging, ActiveRelationship, Inactive, DoNotEngage.
+Discovered, Researching, Researched, Candidate, Engaging, ActiveRelationship, Inactive.
 
 Organization status is distinct from opportunity status.
+
+DoNotEngage is not a lifecycle state. It is an organization-level communication restriction held in CommunicationEligibility (section 7a), the single source of truth for whether anyone at the organization may be contacted (DF-MERCATUS-DOM-2026-0001).
 
 Obligations MAY include ResolveIdentity, ResolveDuplicate, IdentifyRelevantRoles, ValidateICPFit, RefreshEvidence.
 
@@ -107,10 +121,12 @@ Invariants include canonical identity/alias handling and prohibition on merging 
 
 ## 7. Contact
 
-States:
-Discovered, Unverified, Verified, Reachable, Engaged, Inactive, DoNotContact.
+ID: `DSM-07`
 
-Separate CommunicationEligibility MUST be represented rather than inferred from contact state.
+States:
+Discovered, Unverified, Verified, Engaged, Inactive.
+
+Whether a contact may be contacted is not part of contact state. CommunicationEligibility (section 7a) is the single source of truth for it; contact state MUST NOT encode or imply reachability (DF-MERCATUS-DOM-2026-0001).
 
 Invariants:
 - identity confidence is explicit;
@@ -118,7 +134,31 @@ Invariants:
 - contact and organization linkage has effective dates;
 - unsubscribe/do-not-contact cannot be overridden by campaign membership.
 
+## 7a. CommunicationEligibility
+
+ID: `DSM-07A`
+
+CommunicationEligibility is the single source of truth for whether, and how, a contact or an organization may be contacted. No other aggregate, projection, campaign, or agent may hold its own copy of this decision (DF-MERCATUS-DOM-2026-0001).
+
+Restrictions (negative):
+DoNotContact, Unsubscribed, InvalidAddress at contact scope; DoNotEngage at organization scope.
+
+Permissions (positive):
+RelationshipOnly, MarketingAllowed, DirectOutreachAllowed, ExistingCustomer.
+
+Invariants:
+- a negative always overrides a positive, at any scope: an organization-level DoNotEngage blocks every contact affiliated with that organization, whatever that contact's own permissions;
+- a restriction is active from the moment it is set until it is explicitly lifted; it is evaluated at send time, not only when a target is added;
+- a restriction can be lifted only by an explicit, authorized transition that records actor, rationale, and time; it never lapses through campaign membership, inference, elapsed time, or agent action;
+- lifting a restriction does not delete it: the history of when it was set and lifted is retained;
+- eligibility for a contact is derived as: blocked if any applicable restriction (contact scope or any current organization affiliation) is active, otherwise the granted permissions.
+
+Capabilities:
+CanSetRestriction, CanLiftRestriction, CanGrantPermission. Agents MUST NOT hold CanLiftRestriction.
+
 ## 8. Lead
+
+ID: `DSM-08`
 
 States:
 Discovered, Researching, EvidenceReady, QualificationPending, Qualified, Disqualified, Deferred, Converted.
@@ -133,6 +173,8 @@ DiscoverLead -> StartResearch -> MarkEvidenceReady -> RequestQualification -> Qu
 Qualify MUST require the policy-selected evidence dimensions. Missing information produces obligations rather than fabricated values.
 
 ## 9. Opportunity
+
+ID: `DSM-09`
 
 States:
 Discovered, Researching, Engaging, ProblemConfirmed, Qualified, Exploring, Proposal, Negotiation, Won, Lost, Dormant, Rejected.
@@ -150,6 +192,8 @@ ConfirmProblem, IdentifyDecisionMaker, IdentifyEconomicBuyer, DefineValueHypothe
 
 ## 10. Relationship
 
+ID: `DSM-10`
+
 Relationship SHOULD be modeled as history/projection rather than a single mutable CRM label.
 
 Events MAY include Introduced, InteractionRecorded, TrustSignalObserved, ReferralGiven, ReferralReceived, RelationshipStrengthChanged, DormancyObserved, Reengaged.
@@ -157,6 +201,8 @@ Events MAY include Introduced, InteractionRecorded, TrustSignalObserved, Referra
 Relationship strength MUST expose its evidence and recency.
 
 ## 11. Campaign
+
+ID: `DSM-11`
 
 States:
 Draft, ReadyForReview, Approved, Active, Paused, Completed, Evaluated, Cancelled.
@@ -169,6 +215,8 @@ Invariants:
 
 ## 12. CampaignTarget
 
+ID: `DSM-12`
+
 States:
 Identified, Researched, QualifiedForOutreach, MessagePrepared, ApprovalRequired, ApprovedToSend, SendRequested, Sent, Responded, FollowUpDue, Converted, Closed, Suppressed.
 
@@ -179,6 +227,8 @@ Invariants:
 - duplicate target/provider identity cannot create duplicate sends.
 
 ## 13. OutreachMessage
+
+ID: `DSM-13`
 
 States:
 Draft, ReadyForReview, Approved, Queued, Sending, Sent, DeliveryUnknown, Delivered, Failed, Responded, Cancelled.
@@ -192,6 +242,8 @@ DeliveryUnknown creates ReconcileDelivery obligation and MUST NOT automatically 
 
 ## 14. Experiment
 
+ID: `DSM-14`
+
 States:
 Draft, Designed, Ready, Running, Stopped, Completed, Interpreted, Archived.
 
@@ -203,6 +255,8 @@ Invariants:
 
 ## 15. Signal
 
+ID: `DSM-15`
+
 States:
 Detected, Triaged, Investigating, Relevant, NotRelevant, Expired, ConvertedToWork.
 
@@ -211,6 +265,8 @@ A Signal cannot directly create an Opportunity without the intervening evidence/
 Obligations MAY include VerifySource, FindCorroboration, DetermineAffectedMarket, DetermineAffectedOrganization, DetermineCommercialMeaning.
 
 ## 16. Asset and public claims
+
+ID: `DSM-16`
 
 Asset states:
 Draft, ReviewRequired, Approved, Published, Retired, Superseded.
@@ -222,6 +278,8 @@ Publishing MUST verify that governed claims remain approved/effective-current.
 
 ## 17. ExternalEffect
 
+ID: `DSM-17`
+
 States:
 Requested, Authorized, Executing, Confirmed, Failed, Unknown, ReconciliationRequired, Reconciled.
 
@@ -231,12 +289,16 @@ Every effect MUST retain idempotency/correlation information sufficient for prov
 
 ## 18. IntegrationInboxItem
 
+ID: `DSM-18`
+
 States:
 Received, Deduplicated, Normalized, Routed, Applied, NeedsReview, Failed, DeadLettered.
 
 Processing MUST be idempotent. Provider redelivery MUST NOT duplicate domain effects.
 
 ## 19. Approval
+
+ID: `DSM-19`
 
 States:
 Requested, Pending, Approved, Rejected, Expired, Revoked, Consumed.
@@ -245,6 +307,8 @@ Approval scope MUST include exact action/material/version. Editing approved mate
 
 ## 20. Obligation
 
+ID: `DSM-20`
+
 States:
 Open, Satisfied, Waived, Expired, Superseded.
 
@@ -252,11 +316,16 @@ Waiver requires actor capability and rationale. Blocking obligations prevent spe
 
 ## 21. Decision
 
+ID: `DSM-21`
+
 A Decision SHOULD retain options, evidence, assumptions, unknowns, risks, reversibility, decision posture, actor, time, and later outcome. Decisions SHOULD be reviewable against subsequent evidence.
 
 ## 22. Cross-aggregate invariants
 
-- DoNotContact/Unsubscribed dominates campaign intent.
+ID: `DSM-22`
+
+- DoNotContact/Unsubscribed/DoNotEngage dominates campaign intent; a negative eligibility restriction always overrides a positive permission (section 7a).
+- Each fact has exactly one authoritative owner; other aggregates and projections reference it rather than copy it.
 - Stale evidence cannot silently authorize current consequential transitions.
 - Human approval is version-specific.
 - Provider success without local persistence becomes reconciliation work.

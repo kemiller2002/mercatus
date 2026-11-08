@@ -39,7 +39,7 @@ Rules every screen must satisfy:
 | # | Rule | Check |
 |---|---|---|
 | C1 | The UI never computes whether a command is legal. It renders `Available` and `Blocked` exactly as Tier 3 returns them. | CHK-DOK-06 |
-| C2 | The UI submits commands only through the Tier 3 `submit` contract, never to storage or providers. | DVR-ARCH "domain mutation bypassing transition functions" |
+| C2 | The UI submits commands only through the Tier 3 `submit` contract, never to storage or providers. | DVR-02 "domain mutation bypassing transition functions" |
 | C3 | Actor identity and grants come from the host session, never from the command payload. | CHK-DOK-03 |
 | C4 | Every command carries `ExpectedVersion` (the view's fingerprint), an `IdempotencyKey` and a `CorrelationId`. | TST-08, TST-09 |
 | C5 | The UI renders all five result cases distinctly. `UnknownExternalEffect` is never shown as failure (SCN-09). `Conflict` shows the changed facts (SCN-10). `Deferred` lists the blocking obligations (PRD §10). | CHK-DOK-06 |
@@ -92,16 +92,16 @@ type ScreenContract<'view, 'command, 'event> =
 |---|---|---|---|---|---|---|
 | UI-01 | Belief board | HypothesisBoardView/v1 | ProposeHypothesis, StartResearch, MarkTestable, RecordEvidence, Evaluate, Reopen | WF-01, WF-03 | PRD-23 | FND-03, FND-04, FND-05, FND-15 |
 | UI-02 | Evidence inspector | EvidenceLineageView/v1 | AcceptEvidence, ContestEvidence, MarkStale, LinkContradiction, SupersedeEvidence | WF-02, WF-03 | PRD-07, PRD-23, PRD-26.3, PRD-26.4 | FND-15 |
-| UI-03 | Organization & contact | AccountView/v1 | ResolveIdentity, ProposeMerge, ReverseMerge, RecordEligibilityChange | WF-04 | PRD-08, PRD-23 | FND-09, FND-10 |
+| UI-03 | Organization & contact | AccountView/v1 | ResolveIdentity, ProposeMerge, ReverseMerge, SetRestriction, LiftRestriction, GrantPermission | WF-04 | PRD-08, PRD-23, DSM-07A | FND-03 |
 | UI-04 | Lead qualification | LeadQualificationView/v1 | StartResearch, MarkEvidenceReady, RequestQualification, Qualify, Disqualify, Defer, ConvertToOpportunity | WF-05 | PRD-09, PRD-25 | FND-11, FND-14 |
 | UI-05 | Opportunity & blockers | OpportunityBlockersView/v1 | AdvanceStage, Regress, MarkDormant, MarkLost, MarkWon, SatisfyObligation, WaiveObligation | WF-06, WF-14 | PRD-10, PRD-23, PRD-28, SCN-10 | FND-12, FND-14 |
 | UI-06 | Experiment board | ExperimentBoardView/v1 | Design, MarkReady, Run, Stop, Complete, Interpret, Archive | WF-11 | PRD-11, PRD-23 | FND-13 |
 | UI-07 | Approval queue (mobile) | ApprovalQueueView/v1 | Approve, Reject, Revoke | WF-13, WF-09, WF-12 | PRD-23, PRD-28, SCN-33 | FND-17, FND-23 |
 | UI-08 | Outreach composer & status | OutreachStatusView/v1 | DraftMessage, SubmitForReview, RequestSend, CancelQueued, StartReconciliation | WF-09 | PRD-13, SCN-08, SCN-09 | FND-07, FND-08 |
-| UI-09 | Reply classification (mobile) | InboxTriageView/v1 | ClassifyReply, ConfirmSuppression, RouteToReview | WF-10 | PRD-14, PRD-28 | FND-09 |
+| UI-09 | Reply classification (mobile) | InboxTriageView/v1 | ClassifyReply, ConfirmSuppression, RouteToReview | WF-10 | PRD-14, PRD-28 | FND-03 |
 | UI-10 | Campaign console | CampaignConsoleView/v1 | SubmitForReview, Activate, Pause, Resume, Complete, Evaluate, Cancel | WF-08 | PRD-11, PRD-28 | FND-06 |
 | UI-11 | Signal triage | SignalTriageView/v1 | Triage, Investigate, MarkRelevant, MarkNotRelevant, ConvertToWork | WF-07 | PRD-26.1 | FND-24 |
-| UI-12 | Field capture (conference) | FieldCaptureView/v1 | CaptureObservation, CaptureContact, CreateFollowUpObligation | WF-02, WF-04, WF-14 | PRD-28, PRD-31 | FND-09, FND-14 |
+| UI-12 | Field capture (conference) | FieldCaptureView/v1 | CaptureObservation, CaptureContact, CreateFollowUpObligation | WF-02, WF-04, WF-14 | PRD-28, PRD-31 | FND-14 |
 | UI-13 | Next actions | NextActionsView/v1 | ClaimWork, ReleaseWork | WF-14, WF-15 | PRD-23 | FND-18, FND-20 |
 
 FND-01 (no implementation) and FND-18 (no authorization model) block every
@@ -126,6 +126,10 @@ against that union.
 - **UI-09:** an `Unsubscribe` classification suggested by an agent is applied
   as suppression immediately on the domain side. The UI only confirms it and
   cannot defer it (DR-SEND-01).
+- **UI-03:** the eligibility panel shows any active restriction, including an
+  inherited organization DoNotEngage, ahead of permissions. `LiftRestriction`
+  appears only for actors with `CanLiftRestriction`, which agents never hold,
+  and it requires a rationale (DR-ELIG-02).
 - **UI-12:** must work offline-tolerant on a phone. Captured items are
   commands queued with idempotency keys, never local canonical state (C7).
 

@@ -4,6 +4,8 @@ This requirement set is carried forward from the predecessor sales-and-marketing
 
 ## Principle
 
+ID: `OPD-01`
+
 Echelon SHOULD avoid treating every idea as a separate consulting business. The system SHOULD identify reusable underlying capabilities and test multiple markets for those capabilities.
 
 A recurring capability pattern is:
@@ -11,6 +13,8 @@ A recurring capability pattern is:
 state + evidence + constraints + transitions + diagnostics + agents.
 
 ## Opportunity families to preserve for testing
+
+ID: `OPD-02`
 
 The system SHOULD be capable of holding and testing opportunity hypotheses including:
 
@@ -63,6 +67,8 @@ These are hypotheses to test, not approved product claims.
 
 ## Practice-level grouping
 
+ID: `OPD-03`
+
 The predecessor research suggested these can largely collapse into:
 - AI Engineering;
 - Diagnostic Engineering;
@@ -74,6 +80,8 @@ The predecessor research suggested these can largely collapse into:
 The system SHOULD permit alternative groupings as evidence changes.
 
 ## Initial commercial experiments
+
+ID: `OPD-04`
 
 The predecessor suggested early testing around:
 - AI Engineering Readiness;

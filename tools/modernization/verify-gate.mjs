@@ -2,9 +2,9 @@
 // Verifies docs/modernization/traceability.json against the repository.
 // I/O lives here; every rule lives in gate.mjs as a pure function.
 import { execFileSync } from "node:child_process";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import { headingsOf, runChecks } from "./gate.mjs";
+import { requirementIdsOf, runChecks } from "./gate.mjs";
 
 const root = process.argv[2] ?? process.cwd();
 const readText = (p) => readFileSync(join(root, p), "utf8");
@@ -16,17 +16,20 @@ const trackedPaths = execFileSync("git", ["ls-files"], { cwd: root, encoding: "u
   .split("\n")
   .filter(Boolean);
 
-const sourceFiles = [...new Set((doc.requirements ?? []).map((r) => r.file))];
-const headingsByFile = new Map(
-  sourceFiles.filter((f) => existsSync(join(root, f))).map((f) => [f, headingsOf(readText(f))]),
-);
+const requirementFiles = readdirSync(join(root, "requirements"))
+  .filter((f) => f.endsWith(".md"))
+  .map((f) => `requirements/${f}`);
+const idsByFile = new Map(requirementFiles.map((f) => [f, requirementIdsOf(readText(f))]));
 
-const evidencePaths = (doc.workflows ?? []).flatMap((w) => Object.values(w.gateEvidence ?? {}).flat());
+const evidencePaths = [
+  ...(doc.workflows ?? []).flatMap((w) => Object.values(w.gateEvidence ?? {}).flat()),
+  ...(doc.findings ?? []).map((f) => f.resolution).filter(Boolean),
+];
 const existingPaths = new Set(evidencePaths.filter((p) => existsSync(join(root, p))));
 
 const workItemIds = new Set(readJson(".ros/work/queue.json").items.map((i) => i.id));
 
-const violations = runChecks(doc, { headingsByFile, existingPaths, workItemIds, trackedPaths });
+const violations = runChecks(doc, { idsByFile, existingPaths, workItemIds, trackedPaths });
 
 const summary = (doc.workflows ?? []).map((w) => `${w.id} ${w.status}`).join(", ");
 

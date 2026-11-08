@@ -6,6 +6,9 @@
 - **Gate reference:** Echelon Mercatus modernization, "Domain Model and Workflow Validation" gate
 - **Machine-readable source of truth:** [`traceability.json`](traceability.json), checked by
   `node tools/modernization/verify-gate.mjs` (CI job `modernization-gate`)
+- **Update 2026-11-08:** the owner resolved FND-02, FND-09, FND-10 and FND-21
+  in [DF-MERCATUS-DOM-2026-0001](../../research/decisions/DF-MERCATUS-DOM-2026-0001--owner-decisions-scope-ids-single-source-negative-precedence.md). Those findings are marked
+  resolved below. The original analysis is kept as the record of why.
 - **Companion documents:** [`WORKFLOW-BOUNDARY-REVIEW.md`](WORKFLOW-BOUNDARY-REVIEW.md),
   [`DOMAIN-UI-CONTRACTS.md`](DOMAIN-UI-CONTRACTS.md)
 
@@ -50,11 +53,11 @@ proposal is labelled as such and assigned to a work item for owner decision.
    by extension. The inventory is recorded in `traceability.json` and
    re-checked mechanically on every CI run. If code appears, the gate check
    fails until this audit is revised.
-2. **Requirement extraction.** Requirements have no stable identifiers (only
-   `REQ-BOOTSTRAP-001` has one, see FND-02). This audit assigns interim
-   section-anchored IDs (`PRD-09`, `DSM-12`, `INT-EFFECTS`, `SCN-08`, ...).
-   Each ID records its source file and exact heading, and the gate check
-   verifies that the heading still exists.
+2. **Requirement extraction.** At audit time, only `REQ-BOOTSTRAP-001` had
+   a stable ID (FND-02). After the owner's decision, every requirement section
+   carries a stable `` ID: `...` `` line in its own document (`PRD-09`,
+   `DSM-12`, `INT-13`, `SCN-08`, ...). The gate check fails if a section lacks
+   an ID, an ID is duplicated, or traceability cites a missing ID.
 3. **Cross-document comparison.** Every aggregate was compared across DSM, PRD,
    INT, SCENARIOS-AND-EXPANSION and DOMAIN-VERIFICATION. The audit looked for
    divergent lifecycles, duplicated authority, representable invalid states and
@@ -76,8 +79,9 @@ proposal is labelled as such and assigned to a work item for owner decision.
 | ProblemHypothesis | 3 | Draft, Observed, Investigating, Corroborated, CommerciallyRelevant, Weak, Rejected, Revisit | no | yes |
 | Observation | 4 | Captured, Normalized, Reviewed, PromotedToEvidence, Dismissed, Superseded | no | yes |
 | Evidence | 5 | Candidate, Accepted, Contested, Stale, Superseded, Invalidated | no | yes |
-| Organization | 6 | Discovered, Researching, Researched, Candidate, Engaging, ActiveRelationship, Inactive, DoNotEngage | no | no |
-| Contact | 7 | Discovered, Unverified, Verified, Reachable, Engaged, Inactive, DoNotContact | no | no |
+| Organization | 6 | Discovered, Researching, Researched, Candidate, Engaging, ActiveRelationship, Inactive *(DoNotEngage moved to eligibility, FND-10)* | no | no |
+| Contact | 7 | Discovered, Unverified, Verified, Engaged, Inactive *(Reachable/DoNotContact moved to eligibility, FND-09)* | no | no |
+| CommunicationEligibility | 7a | restrictions DoNotContact, Unsubscribed, InvalidAddress, DoNotEngage; permissions RelationshipOnly, MarketingAllowed, DirectOutreachAllowed, ExistingCustomer | partial (set/lift restriction) | yes |
 | Lead | 8 | Discovered, Researching, EvidenceReady, QualificationPending, Qualified, Disqualified, Deferred, Converted | partial (linear chain) | no |
 | Opportunity | 9 | Discovered … Won, Lost, Dormant, Rejected (12) | no | no |
 | Campaign | 11 | Draft, ReadyForReview, Approved, Active, Paused, Completed, Evaluated, Cancelled | no | no |
@@ -223,7 +227,9 @@ doctrine §5 needs one Unknown state plus a reconciliation *obligation*.
 carries it.
 
 **FND-09. Contact lifecycle duplicates CommunicationEligibility.** *Requiring
-owner decision.* → WI-0020.
+owner decision.* → WI-0020. **Resolved (DF-MERCATUS-DOM-2026-0001: "one source of truth").**
+CommunicationEligibility (`DSM-07A`) is now the only owner of
+contactability.
 DSM §7 gives Contact the states `DoNotContact` and `Reachable` and also
 requires a separate CommunicationEligibility (DSM §7, INT, PRD §32). As a
 result, `Contact=Engaged ∧ Eligibility=DoNotContact` and
@@ -257,7 +263,8 @@ campaign approval covers many sends. CampaignTarget's
 See §3.5.
 
 **FND-21. The project charter conflicts with the product scope.** *Requiring
-owner decision.* → WI-0032.
+owner decision.* → WI-0032. **Resolved (DF-MERCATUS-DOM-2026-0001: the Sales and Marketing
+system).** The charter, current state and handoff are updated.
 `PROJECT-CHARTER.md`, `HANDOFF.md` and `context/CURRENT-STATE.md` still
 describe a template "communication problem" pilot with no intended users. The
 README and `requirements/` describe the Echelon Sales and Marketing system.
@@ -268,11 +275,11 @@ level.
 
 | ID | Classification | Finding | Work item |
 |---|---|---|---|
-| FND-02 | Requiring owner decision | Requirements lack stable IDs; interim IDs are used in `traceability.json` | WI-0014 |
+| FND-02 | Requiring owner decision | Requirements lacked stable IDs. **Resolved:** every section now carries one | WI-0014 |
 | FND-04 | Ambiguous requirement | MarketHypothesis lifecycle in PRD §4 (Proposed→Researching→Testing→…→Revisit) differs from DSM §2 (adds Draft, Testable, Dormant; Reopened) | WI-0016 |
 | FND-05 | Ambiguous requirement | The reopen state is `Reopened` for MarketHypothesis and `Revisit` for ProblemHypothesis | WI-0016 |
 | FND-06 | Ambiguous requirement | Campaign `Cancelled` and CampaignTarget `ApprovalRequired`/`SendRequested`/`Suppressed` appear in DSM only | WI-0017 |
-| FND-10 | Requiring owner decision | Whether `Organization=DoNotEngage` overrides an individual contact's eligibility is undefined | WI-0021 |
+| FND-10 | Requiring owner decision | Whether `Organization=DoNotEngage` overrides an individual contact's eligibility was undefined. **Resolved:** a negative always overrides a positive, and a restriction stays active until explicitly lifted | WI-0021 |
 | FND-13 | Ambiguous requirement | DSM §14 says "stopped/failed experiments remain queryable", but there is no Failed state | WI-0024 |
 | FND-16 | Missing business behavior | Claim has no Superseded/Retired state, and nothing defines what happens to a Published asset when a claim becomes Stale | WI-0027 |
 | FND-20 | Missing business behavior | 13 PRD §3 entities have no model (§3.2) | WI-0031 |
@@ -294,7 +301,7 @@ level.
 |---|---|---|
 | "Has the message been sent?" | CampaignTarget.Sent, OutreachMessage.Sent/Delivered, ExternalEffect.Confirmed | FND-07 |
 | "Outcome unknown" | ExternalEffect.Unknown, ExternalEffect.ReconciliationRequired, OutreachMessage.DeliveryUnknown | FND-08 |
-| "May we contact this person?" | Contact.DoNotContact/Reachable, CommunicationEligibility, Organization.DoNotEngage, CampaignTarget.Suppressed | FND-09, FND-10 |
+| "May we contact this person?" | Contact.DoNotContact/Reachable, CommunicationEligibility, Organization.DoNotEngage, CampaignTarget.Suppressed. **Resolved:** CommunicationEligibility only; CampaignTarget.Suppressed remains a projection to settle under FND-07 | FND-09, FND-10 |
 | "Approved" | Approval.Approved, CampaignTarget.ApprovedToSend, OutreachMessage.Approved, Campaign.Approved, Asset.Approved, Claim.Approved | FND-17 |
 | "Qualified" | Lead.Qualified, Opportunity.Qualified, CampaignTarget.QualifiedForOutreach | FND-11 |
 | "Reopened" | MarketHypothesis.Reopened, ProblemHypothesis.Revisit, Opportunity (Dormant→?) | FND-05, FND-12 |
@@ -322,8 +329,8 @@ only (DOMAIN-UI-CONTRACTS).
 
 ## 7. Next actions
 
-1. Owner decisions: WI-0032 (charter), WI-0014 (requirement IDs), WI-0020,
-   WI-0021.
+1. ~~Owner decisions: WI-0032, WI-0014, WI-0020, WI-0021.~~ Done in
+   DF-MERCATUS-DOM-2026-0001.
 2. Specification fixes that unblock the first slice: WI-0015, WI-0022,
    WI-0025, WI-0029, then WI-0018, WI-0019, WI-0026, WI-0028.
 3. WI-0013 / WI-0003: implement the Tier 1/2 core for PRD §25 (WF-01, WF-02,

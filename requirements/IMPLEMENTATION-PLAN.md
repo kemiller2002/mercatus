@@ -2,6 +2,8 @@
 
 ## Parallel workstreams
 
+ID: `IMP-01`
+
 The repository SHOULD use spare execution capacity to pressure-test the architecture in parallel while preserving contract-first development.
 
 Workstreams:
@@ -34,6 +36,8 @@ Workstreams:
 
 ## Contract-first rule
 
+ID: `IMP-02`
+
 Interfaces/contracts SHOULD be defined before provider implementations.
 
 A provider simulator SHOULD be built early so the complete commercial workflow can be exercised without credentials, API limits, or provider availability.
@@ -42,11 +46,15 @@ Every real provider SHOULD pass common contract tests plus provider-specific tes
 
 ## Commercial knowledge graph
 
+ID: `IMP-03`
+
 The domain SHOULD behave as a graph even if the physical store is not a graph database.
 
 Accounts, contacts, markets, problems, campaigns, observations, evidence, assets, conversations, relationships, and opportunities SHOULD be traversable through explicit relationships.
 
 ## Signal engine
+
+ID: `IMP-04`
 
 External events SHOULD create candidate signals, not automatic conclusions.
 
@@ -56,11 +64,15 @@ Signals MAY create obligations to investigate.
 
 ## Commercial memory
 
+ID: `IMP-05`
+
 The system MUST retain what was tried, what worked, what failed, why, and under what conditions.
 
 Agents SHOULD be able to discover prior experiments and negative results before proposing substantially equivalent work.
 
 ## Recommended construction sequence
+
+ID: `IMP-06`
 
 1. Install/verify governing repository capabilities.
 2. Normalize requirements into ROS work.
@@ -78,6 +90,8 @@ Agents SHOULD be able to discover prior experiments and negative results before 
 14. Add additional providers only after the contract is proven.
 
 ## Architectural attack workstream
+
+ID: `IMP-07`
 
 At least one workstream SHOULD continuously challenge:
 - GitHub persistence assumptions;
@@ -98,7 +112,11 @@ The purpose is to find where the architecture fails before production usage does
 
 ## Deferred bootstrap requirement
 
+ID: `IMP-08`
+
 ### REQ-BOOTSTRAP-001: Repository capability self-bootstrap
+
+ID: `REQ-BOOTSTRAP-001`
 
 Status: Deferred.
 

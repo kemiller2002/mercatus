@@ -2,7 +2,8 @@
 
 ## Objective
 
-Bootstrap Mercatus as a greenfield Repository Operating System pilot.
+Build Mercatus, the Echelon Sales and Marketing system (DF-MERCATUS-DOM-2026-0001). The
+sections below the WI-0012 heading are current; the bootstrap notes above them are historical.
 
 ## Current state
 

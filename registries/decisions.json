@@ -1,6 +1,51 @@
 [
   {
     "confidence": "high",
+    "created": "2026-11-08",
+    "created_by_agent": "claude",
+    "decision_type": "domain",
+    "evidence": [],
+    "id": "DF-MERCATUS-DOM-2026-0001",
+    "path": "research/decisions/DF-MERCATUS-DOM-2026-0001--owner-decisions-scope-ids-single-source-negative-precedence.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261108T163703269Z-61e14de4": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-11-08T16:39:43.134Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "Record owner decisions on scope, stable requirement IDs, single source of truth and negative eligibility precedence"
+        }
+      }
+    },
+    "related_documents": [
+      "docs/modernization/DOMAIN-MODEL-AUDIT.md",
+      "requirements/DOMAIN-STATE-MODEL.md",
+      "requirements/INTEGRATION-REQUIREMENTS.md",
+      "PROJECT-CHARTER.md"
+    ],
+    "status": "accepted",
+    "superseded_by": [],
+    "supersedes": [],
+    "tags": [
+      "domain",
+      "requirements",
+      "eligibility",
+      "governance",
+      "owner-decision"
+    ],
+    "title": "Owner decisions: Sales and Marketing scope, stable requirement IDs, one source of truth, and negative eligibility precedence",
+    "updated": "2026-11-08"
+  },
+  {
+    "confidence": "high",
     "created": "2026-10-09",
     "created_by_agent": "claude",
     "decision_type": "applicability",

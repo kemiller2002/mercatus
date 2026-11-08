@@ -122,9 +122,11 @@ requirement IDs refer to `traceability.json`.
    detection, or a job change (Scenario 3).
 2. **Actor:** Researcher/AccountAnalyst agent or human. A merge needs a
    reversible MergeDecision. Who may merge is undefined (FND-18).
-3. **States:** DSM §6 and §7. Contact state duplicates eligibility (FND-09).
-   DoNotEngage precedence is undefined (FND-10).
-4. **Rules:** DR-ORG-01, DR-CON-01.
+3. **States:** DSM §6, §7 and §7a. Contactability lives only in
+   CommunicationEligibility. Restrictions (including organization-level
+   DoNotEngage) override permissions and stay active until explicitly lifted
+   (DR-ELIG-01, DR-ELIG-02; FND-09 and FND-10 resolved).
+4. **Rules:** DR-ORG-01, DR-CON-01, DR-ELIG-01, DR-ELIG-02.
 5. **Dependencies and side effects:** none external.
 6. **Failure and recovery:** a wrong merge → reverse the merge with provenance
    preserved.
@@ -213,7 +215,7 @@ requirement IDs refer to `traceability.json`.
    Unsubscribe while queued → the effect is cancelled if not committed, or
    reconciled if Unknown (SCN-08). Send succeeded but persistence failed →
    reconciliation from the provider id (DR-EFF-02).
-7. **Requirements:** DSM-12, DSM-13, DSM-17, INT-OUTREACH, INT-EFFECTS,
+7. **Requirements:** DSM-12, DSM-13, DSM-17, INT-10, INT-13,
    PRD-13, SCN-08, SCN-09.
 8. **Tests and evidence:** none. TST-09, TST-10, TST-12 and TST-13 are
    required.
@@ -225,14 +227,14 @@ requirement IDs refer to `traceability.json`.
 2. **Actor:** an adapter (Tier 4) normalizes. The domain processor applies the
    event. An agent may *suggest* a classification, but an unsubscribe applies
    immediately and does not wait for approval.
-3. **States:** DSM §18 for the inbox item. Suppression lands on eligibility
-   (FND-09).
-4. **Rules:** DR-INBOX-01, DR-SEND-01, DR-CON-01.
+3. **States:** DSM §18 for the inbox item. An unsubscribe sets a restriction
+   in CommunicationEligibility, the single source of truth (`DSM-07A`).
+4. **Rules:** DR-INBOX-01, DR-SEND-01, DR-CON-01, DR-ELIG-01, DR-ELIG-02.
 5. **Dependencies and side effects:** provider webhooks or polling. A
    duplicate delivery must be absorbed.
 6. **Failure and recovery:** unroutable → `NeedsReview`. Repeated failure →
    `DeadLettered`, with no loss.
-7. **Requirements:** DSM-18, INT-INBOX, INT-ELIGIBILITY, PRD-14, SCN-08.
+7. **Requirements:** DSM-18, INT-14, INT-11, PRD-14, SCN-08.
 8. **Tests and evidence:** none. TST-11 and TST-13 are required.
 
 ### WF-11 Experiment lifecycle
@@ -260,7 +262,7 @@ requirement IDs refer to `traceability.json`.
 5. **Dependencies and side effects:** publishing adapters (Tier 4).
 6. **Failure and recovery:** a stale claim at publish time → `Deferred
    [RefreshClaimEvidence]`. A publish with an unknown outcome → reconcile.
-7. **Requirements:** DSM-16, PRD-30, INT-PUBLISHING.
+7. **Requirements:** DSM-16, PRD-30, INT-16.
 8. **Tests and evidence:** none. TST-06 and TST-12 are required.
 
 ### WF-13 Approval lifecycle (cross-cutting)
@@ -299,10 +301,10 @@ requirement IDs refer to `traceability.json`.
 3. **States:** WorkClaim/lease (PRD §32) is unmodelled (FND-20).
 4. **Rules:** DR-AUTH-01, DR-ENV-03.
 5. **Dependencies and side effects:** none directly. Agents never call
-   providers (INT-POLICY).
+   providers (INT-15).
 6. **Failure and recovery:** a revoked capability mid-task → `Rejected
    [CapabilityRevoked]`. An expired lease → the work is released.
-7. **Requirements:** PRD-18, PRD-22, INT-POLICY, DSM-22, PRD-32.
+7. **Requirements:** PRD-18, PRD-22, INT-15, DSM-22, PRD-32.
 8. **Tests and evidence:** none. TST-04 and TST-18 are required.
 
 ## 4. Proposed transition tables (owner confirmation required)

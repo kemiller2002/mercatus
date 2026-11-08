@@ -53,14 +53,41 @@ export const checkUniqueIds = (doc) => {
   return dupes.map((id) => `ids: '${id}' is declared more than once`);
 };
 
-// headingsByFile: Map<path, Set<heading text>>; a missing key means the file does not exist.
-export const checkRequirementSources = (doc, headingsByFile) =>
+// Requirement sections (## to ####) must carry a stable ID line directly under the heading
+// (DF-MERCATUS-DOM-2026-0001). The requirement document is the only source of the ID.
+const HEADING = /^#{2,4}\s+(.+?)\s*$/;
+const ID_LINE = /^ID: `([A-Z][A-Z0-9]*(?:-[A-Z0-9.]+)+)`\s*$/;
+
+export const requirementIdsOf = (markdown) => {
+  const lines = markdown.split(/\r?\n/);
+  const nextNonBlank = (i) => lines.slice(i + 1).find((l) => l.trim() !== "") ?? "";
+  const sections = lines
+    .map((line, i) => [HEADING.exec(line), i])
+    .filter(([m]) => m)
+    .map(([m, i]) => ({ heading: m[1], id: ID_LINE.exec(nextNonBlank(i))?.[1] ?? null }));
+  return {
+    ids: sections.filter((x) => x.id).map((x) => x.id),
+    missing: sections.filter((x) => !x.id).map((x) => x.heading),
+  };
+};
+
+// idsByFile: Map<path, {ids, missing}> for every requirements/*.md file.
+export const checkRequirementIds = (idsByFile) => {
+  const all = [...idsByFile.values()].flatMap((x) => x.ids);
+  const dupes = [...new Set(all.filter((id, i) => all.indexOf(id) !== i))];
+  return [
+    ...[...idsByFile].flatMap(([file, x]) => x.missing.map((h) => `${file}: section '${h}' has no stable ID line`)),
+    ...dupes.map((id) => `requirements: ID '${id}' is used by more than one section`),
+  ];
+};
+
+export const checkRequirementSources = (doc, idsByFile) =>
   doc.requirements.flatMap((r) =>
-    !headingsByFile.has(r.file)
+    !idsByFile.has(r.file)
       ? [`${r.id}: source file '${r.file}' does not exist`]
-      : headingsByFile.get(r.file).has(r.heading)
+      : idsByFile.get(r.file).ids.includes(r.id)
         ? []
-        : [`${r.id}: heading '${r.heading}' not found in ${r.file}`],
+        : [`${r.id}: no section with this ID in ${r.file}`],
   );
 
 export const checkReferences = (doc) => {
@@ -142,9 +169,12 @@ export const checkFormaGate = (doc) => {
     );
 };
 
-// workItemIds: Set of ids present in .ros/work/queue.json.
-export const checkFindings = (doc, workItemIds) =>
+// workItemIds: Set of ids present in .ros/work/queue.json; existingPaths: repository paths that exist.
+export const checkFindings = (doc, workItemIds, existingPaths = new Set()) =>
   doc.findings.flatMap((f) => [
+    ...(f.status === "resolved" && !(f.resolution && existingPaths.has(f.resolution))
+      ? [`${f.id}: resolved finding must cite an existing decision record`]
+      : []),
     ...(CLASSIFICATIONS.includes(f.classification) ? [] : [`${f.id}: unknown classification '${f.classification}'`]),
     ...(f.classification !== "correct-and-verified" && !(f.workItems ?? []).length
       ? [`${f.id}: actionable finding has no work item`]
@@ -178,21 +208,13 @@ export const runChecks = (doc, facts) => {
     ? shape
     : [
         ...checkUniqueIds(doc),
-        ...checkRequirementSources(doc, facts.headingsByFile),
+        ...checkRequirementIds(facts.idsByFile),
+        ...checkRequirementSources(doc, facts.idsByFile),
         ...checkReferences(doc),
         ...checkRuleStatus(doc),
         ...checkWorkflowGate(doc, facts.existingPaths),
         ...checkFormaGate(doc),
-        ...checkFindings(doc, facts.workItemIds),
+        ...checkFindings(doc, facts.workItemIds, facts.existingPaths),
         ...checkInventory(doc, facts.trackedPaths),
       ];
 };
-
-export const headingsOf = (markdown) =>
-  new Set(
-    markdown
-      .split(/\r?\n/)
-      .map((line) => /^#{1,6}\s+(.+?)\s*$/.exec(line))
-      .filter(Boolean)
-      .map((m) => m[1]),
-  );

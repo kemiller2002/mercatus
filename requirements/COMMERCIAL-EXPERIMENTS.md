@@ -4,6 +4,8 @@ The purpose of Mercatus is not to confirm Echelon's preferred story. It is to di
 
 ## Experiment family A: problem versus framework language
 
+ID: `CEX-01`
+
 For each Clarity, EDF, and HelixNote wedge, create paired messaging:
 A. problem-first, framework name absent or secondary;
 B. framework/product-first.
@@ -11,6 +13,8 @@ B. framework/product-first.
 Measure meaningful reply, conversation, problem recognition, internal forwarding, qualification, and paid conversion. Impressions alone do not decide the experiment.
 
 ## Experiment family B: diagnosis willingness to pay
+
+ID: `CEX-02`
 
 Test bounded diagnostics separately:
 - Recurring Failure Diagnostic;
@@ -33,6 +37,8 @@ These are distinct gates.
 
 ## Experiment family C: independence
 
+ID: `CEX-03`
+
 Compare:
 - independent diagnosis with implementation optional;
 - diagnosis bundled toward implementation.
@@ -40,6 +46,8 @@ Compare:
 Test trust, willingness to engage, close rate, price tolerance, and implementation follow-through. Do not assume independence wins.
 
 ## Experiment family D: proof
+
+ID: `CEX-04`
 
 For the same message, vary proof level:
 - reasoning only;
@@ -52,9 +60,13 @@ Measure the minimum proof needed by buyer role and commercial motion.
 
 ## Experiment family E: forwardability
 
+ID: `CEX-05`
+
 Give champions a concise decision/diagnostic asset and observe whether it creates engagement from hidden stakeholders. Compare long report, one-page executive artifact, technical appendix, and role-specific proof.
 
 ## Experiment family F: HelixNote jobs-to-be-done
+
+ID: `CEX-06`
 
 Do not begin with feature preference. Test jobs:
 - reconstruct chronology;
@@ -70,6 +82,8 @@ Compare against the user's current workflow.
 
 ## Experiment family G: Echelon portfolio comprehension
 
+ID: `CEX-07`
+
 Test whether prospects understand:
 1. Echelon Foundry alone;
 2. Echelon + problem-specific diagnostic;
@@ -81,6 +95,8 @@ Test whether prospects understand:
 Measure explanation time, recall, confusion, perceived relevance, and next action.
 
 ## Experiment family H: vertical versus horizontal
+
+ID: `CEX-08`
 
 Test the same core problem in:
 - software/engineering;
@@ -94,9 +110,13 @@ Do not generalize success across populations until replicated.
 
 ## Experiment family I: trigger timing
 
+ID: `CEX-09`
+
 For a valid problem, compare outreach when a buying trigger is present versus generic prospecting. Triggers include incident, rewrite proposal, AI budget review, leadership change, acquisition, failed implementation, compliance event, conference, cost mandate, and growth stress.
 
 ## Experiment family J: economic scalability
+
+ID: `CEX-10`
 
 For each paid motion capture:
 - acquisition effort;

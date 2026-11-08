@@ -4,6 +4,8 @@ The implementation MUST turn the domain requirements into executable tests.
 
 ## Required test classes
 
+ID: `DVR-01`
+
 1. State transition tests for every aggregate.
 2. Illegal-transition tests.
 3. Invariant property tests where practical.
@@ -27,6 +29,8 @@ The implementation MUST turn the domain requirements into executable tests.
 
 ## Architecture tests
 
+ID: `DVR-02`
+
 Tests MUST detect:
 - provider types leaking into domain;
 - direct provider calls from agents;
@@ -37,5 +41,7 @@ Tests MUST detect:
 - unsupported use of JavaScript where Limen/F# should own application behavior.
 
 ## Traceability
+
+ID: `DVR-03`
 
 Every implemented requirement SHOULD be traceable to tests and implementation evidence through ROS once the deferred bootstrap issue is resolved. Until then, requirement IDs and test names SHOULD preserve the mapping needed for later ROS import.

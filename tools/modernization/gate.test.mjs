@@ -10,12 +10,13 @@ import {
   checkFormaGate,
   checkInventory,
   checkReferences,
+  checkRequirementIds,
   checkRequirementSources,
   checkRuleStatus,
   checkUniqueIds,
   checkWorkflowGate,
-  headingsOf,
   inventoryOf,
+  requirementIdsOf,
 } from "./gate.mjs";
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
@@ -25,7 +26,7 @@ const allGate = (value) => Object.fromEntries(GATE_CRITERIA.map((c) => [c, value
 const base = () => ({
   schema: "mercatus.modernization-traceability/v1",
   implementationInventory: { fsharpProjects: 0, fsharpSources: 0, uiSources: 0, domainTests: 0 },
-  requirements: [{ id: "R-1", file: "req.md", heading: "1. Lead" }],
+  requirements: [{ id: "R-1", file: "req.md" }],
   aggregates: [{ id: "A-1", requirements: ["R-1"], findings: ["F-1"] }],
   domainRules: [{ id: "DR-1", requirements: ["R-1"], tests: ["T-1"], status: "ambiguous", findings: ["F-1"] }],
   workflows: [{ id: "WF-1", requirements: ["R-1"], domainRules: ["DR-1"], findings: ["F-1"], gate: allGate(false), status: "blocked" }],
@@ -53,11 +54,25 @@ test("duplicate ids across collections are rejected", () => {
   assert.match(checkUniqueIds(doc)[0], /'R-1' is declared more than once/);
 });
 
-test("a requirement pointing at a missing heading or file is rejected", () => {
+test("a requirement pointing at a missing ID or file is rejected", () => {
   const doc = base();
-  assert.deepEqual(checkRequirementSources(doc, new Map([["req.md", new Set(["1. Lead"])]])), []);
-  assert.match(checkRequirementSources(doc, new Map([["req.md", new Set(["2. Other"])]]))[0], /heading '1. Lead' not found/);
+  assert.deepEqual(checkRequirementSources(doc, new Map([["req.md", { ids: ["R-1"], missing: [] }]])), []);
+  assert.match(checkRequirementSources(doc, new Map([["req.md", { ids: ["R-2"], missing: [] }]]))[0], /no section with this ID in req.md/);
   assert.match(checkRequirementSources(doc, new Map())[0], /does not exist/);
+});
+
+test("requirementIdsOf reads the ID line under each section heading and reports sections without one", () => {
+  const md = "# Title\n\n## 1. Lead\n\nID: `DSM-08`\n\ntext\n### 26.1 Signals\nID: `PRD-26.1`\n## 7a. Eligibility\n\nID: `DSM-07A`\n## No id\n\nbody\n#### Deep\n\nID: `REQ-BOOTSTRAP-001`";
+  assert.deepEqual(requirementIdsOf(md), { ids: ["DSM-08", "PRD-26.1", "DSM-07A", "REQ-BOOTSTRAP-001"], missing: ["No id"] });
+});
+
+test("every requirement section needs a unique stable ID", () => {
+  const ok = new Map([["a.md", { ids: ["A-01"], missing: [] }], ["b.md", { ids: ["B-01"], missing: [] }]]);
+  assert.deepEqual(checkRequirementIds(ok), []);
+  const bad = new Map([["a.md", { ids: ["A-01"], missing: ["New section"] }], ["b.md", { ids: ["A-01"], missing: [] }]]);
+  const v = checkRequirementIds(bad);
+  assert.ok(v.some((x) => /a.md: section 'New section' has no stable ID line/.test(x)));
+  assert.ok(v.some((x) => /ID 'A-01' is used by more than one section/.test(x)));
 });
 
 test("dangling references are rejected", () => {
@@ -101,6 +116,9 @@ test("actionable findings need a work item that exists in the Praxis queue", () 
   assert.match(checkFindings(orphan, new Set())[0], /actionable finding has no work item/);
   const verified = update(base(), "findings", (f) => ({ ...f, classification: "correct-and-verified", workItems: [] }));
   assert.match(checkFindings(verified, new Set())[0], /requires evidence/);
+  const resolved = update(base(), "findings", (f) => ({ ...f, status: "resolved", resolution: "DF.md" }));
+  assert.match(checkFindings(resolved, new Set(["WI-1"]), new Set())[0], /must cite an existing decision record/);
+  assert.deepEqual(checkFindings(resolved, new Set(["WI-1"]), new Set(["DF.md"])), []);
   const unknown = update(base(), "findings", (f) => ({ ...f, classification: "fine" }));
   assert.match(checkFindings(unknown, new Set(["WI-1"]))[0], /unknown classification/);
 });
@@ -111,9 +129,6 @@ test("the audit fails once implementation appears without revising the inventory
   assert.equal(checkInventory(base(), paths).length, 4);
 });
 
-test("headingsOf extracts ATX headings of every level", () => {
-  assert.deepEqual([...headingsOf("# A\ntext\n## 1. Lead  \n### 26.1 Signals\n#nospace")], ["A", "1. Lead", "26.1 Signals"]);
-});
 
 test("the committed traceability document passes the gate", () => {
   const out = execFileSync(process.execPath, [join(repoRoot, "tools/modernization/verify-gate.mjs"), repoRoot], { encoding: "utf8" });
