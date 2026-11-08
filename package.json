@@ -1,6 +1,10 @@
 {
   "name": "mercatus",
   "private": true,
+  "scripts": {
+    "verify:modernization": "node tools/modernization/verify-gate.mjs",
+    "test:modernization": "node --test tools/modernization/gate.test.mjs"
+  },
   "dependencies": {
     "@echelon-foundry/limen": "0.9.0"
   },

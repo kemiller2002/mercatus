@@ -1,0 +1,2786 @@
+{
+  "schema": "mercatus.modernization-traceability/v1",
+  "asOf": "2026-11-08",
+  "workItem": "WI-0012",
+  "baseline": {
+    "repositoryCommit": "16a5e4e",
+    "ordoDoctrine": {
+      "repository": "kemiller2002/ordo",
+      "commit": "db6d39ed2e7bc185a7fab6821677e7cd00201d8c",
+      "documents": [
+        "doctrine/STATE-DIRECTED-ENGINEERING.md",
+        "doctrine/DECISION-AND-EVIDENCE-SEMANTICS.md",
+        "doctrine/BOUNDARY-PRESERVATION.md",
+        "doctrine/FOUR-TIER-ARCHITECTURE.md"
+      ]
+    },
+    "fourTierSpecification": ".sde/architecture/FOUR-TIER-ARCHITECTURE.md",
+    "forma": {
+      "version": "0.4.1",
+      "required": false,
+      "decision": "DF-MERCATUS-FND-2026-0002"
+    }
+  },
+  "implementationInventory": {
+    "fsharpProjects": 0,
+    "fsharpSources": 0,
+    "uiSources": 0,
+    "domainTests": 0,
+    "note": "The repository holds requirements, research and governance only. Verified by tools/modernization/verify-gate.mjs, which fails if these counts stop matching the tree."
+  },
+  "requirements": [
+    {
+      "id": "PRD-01",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "SDE/Ordo explicit state, transitions, invariants, capabilities; illegal states unrepresentable; agents request transitions; Limen + F#."
+    },
+    {
+      "id": "PRD-03",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Initial first-class entity list."
+    },
+    {
+      "id": "PRD-04",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "MarketHypothesis content and suggested lifecycle; competing hypotheses."
+    },
+    {
+      "id": "PRD-05",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Problems modelled independently of solutions; disconfirming evidence."
+    },
+    {
+      "id": "PRD-07",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Evidence first-class; distinguish observation, claim, evidence, inference, hypothesis, conclusion, interpretation."
+    },
+    {
+      "id": "PRD-08",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Organizations and contacts first-class and independent; relationship history."
+    },
+    {
+      "id": "PRD-09",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Found is not qualified; inspectable multi-dimensional qualification."
+    },
+    {
+      "id": "PRD-10",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Evidence-based opportunity transitions; obligations blocking advancement."
+    },
+    {
+      "id": "PRD-11",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Campaign content, states; CampaignTarget explicit; experiments distinct."
+    },
+    {
+      "id": "PRD-13",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Evidence-grounded personalisation; first contact requires human approval."
+    },
+    {
+      "id": "PRD-14",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Response classification preserves source and confidence."
+    },
+    {
+      "id": "PRD-18",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Agents have bounded purpose, capabilities, transition permissions, escalation."
+    },
+    {
+      "id": "PRD-22",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Least privilege; audit of actor, states, transition, evidence, policy, effect."
+    },
+    {
+      "id": "PRD-23",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Questions the application must answer."
+    },
+    {
+      "id": "PRD-25",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "MarketHypothesis -> ... -> Opportunity -> Outcome -> Learning."
+    },
+    {
+      "id": "PRD-26.1",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Signal distinct; never automatically a lead, opportunity or conclusion."
+    },
+    {
+      "id": "PRD-26.3",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Effective-current projections; stale evidence never silently satisfies requirements."
+    },
+    {
+      "id": "PRD-26.4",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Scoped negative knowledge; absence of evidence is not evidence of absence."
+    },
+    {
+      "id": "PRD-26.5",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Unknown effect state plus reconciliation obligation; no blind retry."
+    },
+    {
+      "id": "PRD-27",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Optimistic concurrency, atomicity, immutable history; Git success is not effect success."
+    },
+    {
+      "id": "PRD-28",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Core field workflows usable on a phone."
+    },
+    {
+      "id": "PRD-30",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Published claims retain evidence and approval."
+    },
+    {
+      "id": "PRD-31",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Accessibility-critical workflows in acceptance testing."
+    },
+    {
+      "id": "PRD-32",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "CommunicationEligibility, MergeDecision, WorkClaim, hash-scoped approvals, etc."
+    },
+    {
+      "id": "DSM-01",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "Transition inputs and the five result kinds."
+    },
+    {
+      "id": "DSM-02",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "States, invariants, capabilities, obligations."
+    },
+    {
+      "id": "DSM-03",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "States, invariants, capabilities, obligations."
+    },
+    {
+      "id": "DSM-04",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "Immutable source; interpretation separate."
+    },
+    {
+      "id": "DSM-05",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "States and invariants including stale evidence."
+    },
+    {
+      "id": "DSM-06",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "States; reversible merge with provenance."
+    },
+    {
+      "id": "DSM-07",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "States; separate CommunicationEligibility."
+    },
+    {
+      "id": "DSM-07A",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "CommunicationEligibility: single source of truth; negative overrides positive; restrictions active until explicitly lifted."
+    },
+    {
+      "id": "DSM-08",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "States and the only fully linear transition chain."
+    },
+    {
+      "id": "DSM-09",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "States, invariants, obligations."
+    },
+    {
+      "id": "DSM-11",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "States; Active preconditions; Paused blocks effects."
+    },
+    {
+      "id": "DSM-12",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "States; send-time eligibility; suppression."
+    },
+    {
+      "id": "DSM-13",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "States; content approval vs send eligibility; DeliveryUnknown."
+    },
+    {
+      "id": "DSM-14",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "States; hypothesis before Running; immutable results."
+    },
+    {
+      "id": "DSM-15",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "States; no direct Opportunity creation."
+    },
+    {
+      "id": "DSM-16",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "Asset and Claim states; publishing verifies claims."
+    },
+    {
+      "id": "DSM-17",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "States; Unknown first-class; idempotency."
+    },
+    {
+      "id": "DSM-18",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "States; idempotent processing."
+    },
+    {
+      "id": "DSM-19",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "States; version-scoped approval."
+    },
+    {
+      "id": "DSM-20",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "States; waiver needs capability and rationale; blocking obligations."
+    },
+    {
+      "id": "DSM-22",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "Suppression dominance, stale evidence, version-specific approval, effect/persistence separation."
+    },
+    {
+      "id": "INT-01",
+      "file": "requirements/INTEGRATION-REQUIREMENTS.md",
+      "summary": "Provider-neutral integration boundary."
+    },
+    {
+      "id": "INT-10",
+      "file": "requirements/INTEGRATION-REQUIREMENTS.md",
+      "summary": "CampaignTarget lifecycle; first contact approval."
+    },
+    {
+      "id": "INT-11",
+      "file": "requirements/INTEGRATION-REQUIREMENTS.md",
+      "summary": "Eligibility states and capabilities; agents cannot override."
+    },
+    {
+      "id": "INT-13",
+      "file": "requirements/INTEGRATION-REQUIREMENTS.md",
+      "summary": "Distinguish intent, attempt, confirmed effect, persisted state."
+    },
+    {
+      "id": "INT-14",
+      "file": "requirements/INTEGRATION-REQUIREMENTS.md",
+      "summary": "Inbound pipeline; adapters thin."
+    },
+    {
+      "id": "INT-15",
+      "file": "requirements/INTEGRATION-REQUIREMENTS.md",
+      "summary": "Agents request transitions rather than call providers."
+    },
+    {
+      "id": "INT-16",
+      "file": "requirements/INTEGRATION-REQUIREMENTS.md",
+      "summary": "Asset -> variant -> review -> approval -> effect."
+    },
+    {
+      "id": "DVR-01",
+      "file": "requirements/DOMAIN-VERIFICATION.md",
+      "summary": "Twenty required domain test classes."
+    },
+    {
+      "id": "DVR-02",
+      "file": "requirements/DOMAIN-VERIFICATION.md",
+      "summary": "Provider leakage, mutation bypass, projections as write models."
+    },
+    {
+      "id": "DVR-03",
+      "file": "requirements/DOMAIN-VERIFICATION.md",
+      "summary": "Requirement IDs and test names preserve mapping."
+    },
+    {
+      "id": "EFF-01",
+      "file": "requirements/EFFICIENCY-AND-SCALE.md",
+      "summary": "Projections are derived, never canonical write models."
+    },
+    {
+      "id": "EFF-18",
+      "file": "requirements/EFFICIENCY-AND-SCALE.md",
+      "summary": "Replay must not repeat external effects."
+    },
+    {
+      "id": "SCN-08",
+      "file": "requirements/SCENARIOS-AND-EXPANSION.md",
+      "summary": "Send-time eligibility; suppression precedence."
+    },
+    {
+      "id": "SCN-09",
+      "file": "requirements/SCENARIOS-AND-EXPANSION.md",
+      "summary": "Unknown effect; reconciliation; UI distinguishes unknown from failed."
+    },
+    {
+      "id": "SCN-10",
+      "file": "requirements/SCENARIOS-AND-EXPANSION.md",
+      "summary": "Optimistic concurrency; no last-writer-wins."
+    },
+    {
+      "id": "SCN-11",
+      "file": "requirements/SCENARIOS-AND-EXPANSION.md",
+      "summary": "Effective-current evidence; transition checks re-evaluate."
+    },
+    {
+      "id": "SCN-30",
+      "file": "requirements/SCENARIOS-AND-EXPANSION.md",
+      "summary": "Evidence derivation cycle detection."
+    },
+    {
+      "id": "SCN-33",
+      "file": "requirements/SCENARIOS-AND-EXPANSION.md",
+      "summary": "Hash-scoped approval invalidation."
+    },
+    {
+      "id": "SCN-34",
+      "file": "requirements/SCENARIOS-AND-EXPANSION.md",
+      "summary": "Dormant vs Lost; reopening preserves history."
+    }
+  ],
+  "aggregates": [
+    {
+      "id": "AGG-MARKET-HYPOTHESIS",
+      "name": "MarketHypothesis",
+      "requirements": [
+        "DSM-02",
+        "PRD-04"
+      ],
+      "states": [
+        "Draft",
+        "Proposed",
+        "Researching",
+        "Testable",
+        "Testing",
+        "Supported",
+        "Weak",
+        "Rejected",
+        "Dormant",
+        "Reopened"
+      ],
+      "transitionsSpecified": false,
+      "capabilitiesSpecified": true,
+      "findings": [
+        "FND-03",
+        "FND-04",
+        "FND-05"
+      ]
+    },
+    {
+      "id": "AGG-PROBLEM-HYPOTHESIS",
+      "name": "ProblemHypothesis",
+      "requirements": [
+        "DSM-03",
+        "PRD-05"
+      ],
+      "states": [
+        "Draft",
+        "Observed",
+        "Investigating",
+        "Corroborated",
+        "CommerciallyRelevant",
+        "Weak",
+        "Rejected",
+        "Revisit"
+      ],
+      "transitionsSpecified": false,
+      "capabilitiesSpecified": true,
+      "findings": [
+        "FND-03",
+        "FND-05"
+      ]
+    },
+    {
+      "id": "AGG-OBSERVATION",
+      "name": "Observation",
+      "requirements": [
+        "DSM-04"
+      ],
+      "states": [
+        "Captured",
+        "Normalized",
+        "Reviewed",
+        "PromotedToEvidence",
+        "Dismissed",
+        "Superseded"
+      ],
+      "transitionsSpecified": false,
+      "capabilitiesSpecified": true,
+      "findings": [
+        "FND-03"
+      ]
+    },
+    {
+      "id": "AGG-EVIDENCE",
+      "name": "Evidence",
+      "requirements": [
+        "DSM-05",
+        "PRD-07",
+        "PRD-26.3"
+      ],
+      "states": [
+        "Candidate",
+        "Accepted",
+        "Contested",
+        "Stale",
+        "Superseded",
+        "Invalidated"
+      ],
+      "transitionsSpecified": false,
+      "capabilitiesSpecified": true,
+      "findings": [
+        "FND-03",
+        "FND-15"
+      ]
+    },
+    {
+      "id": "AGG-ORGANIZATION",
+      "name": "Organization",
+      "requirements": [
+        "DSM-06",
+        "PRD-08"
+      ],
+      "states": [
+        "Discovered",
+        "Researching",
+        "Researched",
+        "Candidate",
+        "Engaging",
+        "ActiveRelationship",
+        "Inactive"
+      ],
+      "transitionsSpecified": false,
+      "capabilitiesSpecified": false,
+      "findings": [
+        "FND-03",
+        "FND-18"
+      ]
+    },
+    {
+      "id": "AGG-CONTACT",
+      "name": "Contact",
+      "requirements": [
+        "DSM-07",
+        "PRD-08",
+        "INT-11",
+        "DSM-07A"
+      ],
+      "states": [
+        "Discovered",
+        "Unverified",
+        "Verified",
+        "Engaged",
+        "Inactive"
+      ],
+      "transitionsSpecified": false,
+      "capabilitiesSpecified": false,
+      "findings": [
+        "FND-03",
+        "FND-18"
+      ]
+    },
+    {
+      "id": "AGG-COMMUNICATION-ELIGIBILITY",
+      "name": "CommunicationEligibility",
+      "requirements": [
+        "DSM-07A",
+        "INT-11",
+        "DSM-22"
+      ],
+      "states": [
+        "restrictions: DoNotContact, Unsubscribed, InvalidAddress, DoNotEngage (organization scope)",
+        "permissions: RelationshipOnly, MarketingAllowed, DirectOutreachAllowed, ExistingCustomer"
+      ],
+      "transitionsSpecified": "partial",
+      "capabilitiesSpecified": true,
+      "findings": [
+        "FND-03",
+        "FND-18"
+      ]
+    },
+    {
+      "id": "AGG-LEAD",
+      "name": "Lead",
+      "requirements": [
+        "DSM-08",
+        "PRD-09"
+      ],
+      "states": [
+        "Discovered",
+        "Researching",
+        "EvidenceReady",
+        "QualificationPending",
+        "Qualified",
+        "Disqualified",
+        "Deferred",
+        "Converted"
+      ],
+      "transitionsSpecified": "partial",
+      "capabilitiesSpecified": false,
+      "findings": [
+        "FND-03",
+        "FND-11",
+        "FND-18"
+      ]
+    },
+    {
+      "id": "AGG-OPPORTUNITY",
+      "name": "Opportunity",
+      "requirements": [
+        "DSM-09",
+        "PRD-10"
+      ],
+      "states": [
+        "Discovered",
+        "Researching",
+        "Engaging",
+        "ProblemConfirmed",
+        "Qualified",
+        "Exploring",
+        "Proposal",
+        "Negotiation",
+        "Won",
+        "Lost",
+        "Dormant",
+        "Rejected"
+      ],
+      "transitionsSpecified": false,
+      "capabilitiesSpecified": false,
+      "findings": [
+        "FND-03",
+        "FND-11",
+        "FND-12",
+        "FND-18"
+      ]
+    },
+    {
+      "id": "AGG-CAMPAIGN",
+      "name": "Campaign",
+      "requirements": [
+        "DSM-11",
+        "PRD-11"
+      ],
+      "states": [
+        "Draft",
+        "ReadyForReview",
+        "Approved",
+        "Active",
+        "Paused",
+        "Completed",
+        "Evaluated",
+        "Cancelled"
+      ],
+      "transitionsSpecified": false,
+      "capabilitiesSpecified": false,
+      "findings": [
+        "FND-03",
+        "FND-06",
+        "FND-18"
+      ]
+    },
+    {
+      "id": "AGG-CAMPAIGN-TARGET",
+      "name": "CampaignTarget",
+      "requirements": [
+        "DSM-12",
+        "INT-10"
+      ],
+      "states": [
+        "Identified",
+        "Researched",
+        "QualifiedForOutreach",
+        "MessagePrepared",
+        "ApprovalRequired",
+        "ApprovedToSend",
+        "SendRequested",
+        "Sent",
+        "Responded",
+        "FollowUpDue",
+        "Converted",
+        "Closed",
+        "Suppressed"
+      ],
+      "transitionsSpecified": false,
+      "capabilitiesSpecified": false,
+      "findings": [
+        "FND-03",
+        "FND-06",
+        "FND-07",
+        "FND-17",
+        "FND-24"
+      ]
+    },
+    {
+      "id": "AGG-OUTREACH-MESSAGE",
+      "name": "OutreachMessage",
+      "requirements": [
+        "DSM-13"
+      ],
+      "states": [
+        "Draft",
+        "ReadyForReview",
+        "Approved",
+        "Queued",
+        "Sending",
+        "Sent",
+        "DeliveryUnknown",
+        "Delivered",
+        "Failed",
+        "Responded",
+        "Cancelled"
+      ],
+      "transitionsSpecified": false,
+      "capabilitiesSpecified": false,
+      "findings": [
+        "FND-03",
+        "FND-07",
+        "FND-08"
+      ]
+    },
+    {
+      "id": "AGG-EXPERIMENT",
+      "name": "Experiment",
+      "requirements": [
+        "DSM-14",
+        "PRD-11"
+      ],
+      "states": [
+        "Draft",
+        "Designed",
+        "Ready",
+        "Running",
+        "Stopped",
+        "Completed",
+        "Interpreted",
+        "Archived"
+      ],
+      "transitionsSpecified": false,
+      "capabilitiesSpecified": false,
+      "findings": [
+        "FND-03",
+        "FND-13"
+      ]
+    },
+    {
+      "id": "AGG-SIGNAL",
+      "name": "Signal",
+      "requirements": [
+        "DSM-15",
+        "PRD-26.1"
+      ],
+      "states": [
+        "Detected",
+        "Triaged",
+        "Investigating",
+        "Relevant",
+        "NotRelevant",
+        "Expired",
+        "ConvertedToWork"
+      ],
+      "transitionsSpecified": false,
+      "capabilitiesSpecified": false,
+      "findings": [
+        "FND-03",
+        "FND-24"
+      ]
+    },
+    {
+      "id": "AGG-ASSET",
+      "name": "Asset",
+      "requirements": [
+        "DSM-16",
+        "INT-16"
+      ],
+      "states": [
+        "Draft",
+        "ReviewRequired",
+        "Approved",
+        "Published",
+        "Retired",
+        "Superseded"
+      ],
+      "transitionsSpecified": false,
+      "capabilitiesSpecified": false,
+      "findings": [
+        "FND-03",
+        "FND-16"
+      ]
+    },
+    {
+      "id": "AGG-CLAIM",
+      "name": "Claim",
+      "requirements": [
+        "DSM-16",
+        "PRD-30"
+      ],
+      "states": [
+        "Proposed",
+        "EvidenceLinked",
+        "Reviewed",
+        "Approved",
+        "Stale",
+        "Rejected"
+      ],
+      "transitionsSpecified": false,
+      "capabilitiesSpecified": false,
+      "findings": [
+        "FND-03",
+        "FND-16"
+      ]
+    },
+    {
+      "id": "AGG-EXTERNAL-EFFECT",
+      "name": "ExternalEffect",
+      "requirements": [
+        "DSM-17",
+        "INT-13",
+        "PRD-26.5"
+      ],
+      "states": [
+        "Requested",
+        "Authorized",
+        "Executing",
+        "Confirmed",
+        "Failed",
+        "Unknown",
+        "ReconciliationRequired",
+        "Reconciled"
+      ],
+      "transitionsSpecified": false,
+      "capabilitiesSpecified": false,
+      "findings": [
+        "FND-03",
+        "FND-07",
+        "FND-08"
+      ]
+    },
+    {
+      "id": "AGG-INBOX-ITEM",
+      "name": "IntegrationInboxItem",
+      "requirements": [
+        "DSM-18",
+        "INT-14"
+      ],
+      "states": [
+        "Received",
+        "Deduplicated",
+        "Normalized",
+        "Routed",
+        "Applied",
+        "NeedsReview",
+        "Failed",
+        "DeadLettered"
+      ],
+      "transitionsSpecified": false,
+      "capabilitiesSpecified": false,
+      "findings": [
+        "FND-03"
+      ]
+    },
+    {
+      "id": "AGG-APPROVAL",
+      "name": "Approval",
+      "requirements": [
+        "DSM-19",
+        "SCN-33"
+      ],
+      "states": [
+        "Requested",
+        "Pending",
+        "Approved",
+        "Rejected",
+        "Expired",
+        "Revoked",
+        "Consumed"
+      ],
+      "transitionsSpecified": false,
+      "capabilitiesSpecified": false,
+      "findings": [
+        "FND-03",
+        "FND-17"
+      ]
+    },
+    {
+      "id": "AGG-OBLIGATION",
+      "name": "Obligation",
+      "requirements": [
+        "DSM-20"
+      ],
+      "states": [
+        "Open",
+        "Satisfied",
+        "Waived",
+        "Expired",
+        "Superseded"
+      ],
+      "transitionsSpecified": false,
+      "capabilitiesSpecified": false,
+      "findings": [
+        "FND-03",
+        "FND-14"
+      ]
+    }
+  ],
+  "domainRules": [
+    {
+      "id": "DR-ENV-01",
+      "aggregate": "*",
+      "tier": 2,
+      "kind": "transition-envelope",
+      "statement": "Every state-changing command is evaluated against aggregate id, expected version, current state, actor and capabilities, policy version, effective-current evidence, blocking obligations, invariants, effect implications, idempotency key, time and correlation ids.",
+      "requirements": [
+        "DSM-01",
+        "PRD-01"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-01",
+        "TST-02",
+        "TST-08"
+      ]
+    },
+    {
+      "id": "DR-ENV-02",
+      "aggregate": "*",
+      "tier": 2,
+      "kind": "transition-envelope",
+      "statement": "A transition result is exactly one of Accepted | Rejected | Deferred | Conflict | UnknownExternalEffect.",
+      "requirements": [
+        "DSM-01"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-01",
+        "TST-02"
+      ]
+    },
+    {
+      "id": "DR-ENV-03",
+      "aggregate": "*",
+      "tier": 2,
+      "kind": "capability",
+      "statement": "Legal capabilities are derived from current state by Tier 2; no caller infers allowed mutations.",
+      "requirements": [
+        "DSM-01",
+        "PRD-01"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-04",
+        "TST-18"
+      ]
+    },
+    {
+      "id": "DR-ENV-04",
+      "aggregate": "*",
+      "tier": 2,
+      "kind": "concurrency",
+      "statement": "A command with a stale expected version yields Conflict; no last-writer-wins for state transitions.",
+      "requirements": [
+        "DSM-01",
+        "SCN-10",
+        "PRD-27"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-08"
+      ]
+    },
+    {
+      "id": "DR-MH-01",
+      "aggregate": "MarketHypothesis",
+      "tier": 1,
+      "kind": "invariant",
+      "statement": "Testable requires a falsifiable proposition and a defined population/market scope.",
+      "requirements": [
+        "DSM-02"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-01",
+        "TST-03"
+      ]
+    },
+    {
+      "id": "DR-MH-02",
+      "aggregate": "MarketHypothesis",
+      "tier": 2,
+      "kind": "invariant",
+      "statement": "Supported requires both a supporting-evidence review and a counter-evidence review; confidence never substitutes for evidence references.",
+      "requirements": [
+        "DSM-02",
+        "DSM-22"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-01",
+        "TST-02"
+      ]
+    },
+    {
+      "id": "DR-MH-03",
+      "aggregate": "MarketHypothesis",
+      "tier": 1,
+      "kind": "invariant",
+      "statement": "Rejected and reopened hypotheses preserve prior lifecycle, evidence and rationale.",
+      "requirements": [
+        "DSM-02"
+      ],
+      "status": "ambiguous",
+      "tests": [
+        "TST-01"
+      ],
+      "findings": [
+        "FND-04",
+        "FND-05"
+      ]
+    },
+    {
+      "id": "DR-PH-01",
+      "aggregate": "ProblemHypothesis",
+      "tier": 1,
+      "kind": "invariant",
+      "statement": "A problem is represented independently of any Echelon solution.",
+      "requirements": [
+        "DSM-03",
+        "PRD-05"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-03"
+      ]
+    },
+    {
+      "id": "DR-PH-02",
+      "aggregate": "ProblemHypothesis",
+      "tier": 2,
+      "kind": "invariant",
+      "statement": "Corroborated requires explicit affected actor and consequence; CommerciallyRelevant requires evidence beyond social attention; workaround is Unknown or recorded, never assumed absent.",
+      "requirements": [
+        "DSM-03",
+        "PRD-26.4"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-02",
+        "TST-07"
+      ]
+    },
+    {
+      "id": "DR-OBS-01",
+      "aggregate": "Observation",
+      "tier": 1,
+      "kind": "invariant",
+      "statement": "Original source reference is immutable; interpretation is not stored as raw observation; capture time and observed time are distinct types.",
+      "requirements": [
+        "DSM-04",
+        "PRD-07"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-03"
+      ]
+    },
+    {
+      "id": "DR-EV-01",
+      "aggregate": "Evidence",
+      "tier": 2,
+      "kind": "invariant",
+      "statement": "Stale evidence cannot satisfy a current-evidence requirement.",
+      "requirements": [
+        "DSM-05",
+        "PRD-26.3",
+        "SCN-11",
+        "DSM-22"
+      ],
+      "status": "ambiguous",
+      "tests": [
+        "TST-06"
+      ],
+      "findings": [
+        "FND-15"
+      ]
+    },
+    {
+      "id": "DR-EV-02",
+      "aggregate": "Evidence",
+      "tier": 1,
+      "kind": "invariant",
+      "statement": "Agent inference is never labelled as source evidence; repetition never strengthens evidence; contradictions are retained.",
+      "requirements": [
+        "DSM-05",
+        "PRD-07"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-03"
+      ]
+    },
+    {
+      "id": "DR-EV-03",
+      "aggregate": "Evidence",
+      "tier": 2,
+      "kind": "invariant",
+      "statement": "Derived evidence closure is acyclic and every referenced input exists.",
+      "requirements": [
+        "SCN-30",
+        "DVR-01"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-16"
+      ]
+    },
+    {
+      "id": "DR-NK-01",
+      "aggregate": "Evidence",
+      "tier": 1,
+      "kind": "invariant",
+      "statement": "Negative knowledge is scoped (target, scope, method, time, coverage); absence is supported only by Complete coverage for the same scope.",
+      "requirements": [
+        "PRD-26.4"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-07"
+      ]
+    },
+    {
+      "id": "DR-ORG-01",
+      "aggregate": "Organization",
+      "tier": 2,
+      "kind": "invariant",
+      "statement": "Organization and contact merges are reversible and preserve references and provenance.",
+      "requirements": [
+        "DSM-06",
+        "DSM-22",
+        "PRD-32"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-15"
+      ]
+    },
+    {
+      "id": "DR-CON-01",
+      "aggregate": "Contact",
+      "tier": 1,
+      "kind": "invariant",
+      "statement": "CommunicationEligibility is the single source of truth for contactability; Contact and Organization lifecycles do not encode it.",
+      "requirements": [
+        "DSM-07",
+        "DSM-06",
+        "DSM-07A",
+        "INT-11",
+        "PRD-32"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-13"
+      ]
+    },
+    {
+      "id": "DR-ELIG-01",
+      "aggregate": "CommunicationEligibility",
+      "tier": 2,
+      "kind": "cross-aggregate",
+      "statement": "A negative restriction at any scope overrides every positive permission; an organization DoNotEngage blocks all affiliated contacts; evaluated at send time.",
+      "requirements": [
+        "DSM-07A",
+        "DSM-22",
+        "INT-11",
+        "SCN-08"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-03",
+        "TST-13"
+      ]
+    },
+    {
+      "id": "DR-ELIG-02",
+      "aggregate": "CommunicationEligibility",
+      "tier": 2,
+      "kind": "transition",
+      "statement": "A restriction stays active until lifted by an explicit authorized transition recording actor, rationale and time; agents cannot lift; lifting retains history.",
+      "requirements": [
+        "DSM-07A"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-02",
+        "TST-04",
+        "TST-18"
+      ]
+    },
+    {
+      "id": "DR-LEAD-01",
+      "aggregate": "Lead",
+      "tier": 2,
+      "kind": "transition",
+      "statement": "Qualify requires the policy-selected evidence dimensions; missing information yields obligations (Deferred), never fabricated values.",
+      "requirements": [
+        "DSM-08",
+        "PRD-09"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-01",
+        "TST-05"
+      ]
+    },
+    {
+      "id": "DR-LEAD-02",
+      "aggregate": "Lead",
+      "tier": 1,
+      "kind": "invariant",
+      "statement": "Qualification dimensions remain individually inspectable with representable uncertainty; no opaque single score.",
+      "requirements": [
+        "DSM-08",
+        "PRD-09"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-03"
+      ]
+    },
+    {
+      "id": "DR-LEAD-03",
+      "aggregate": "Lead",
+      "tier": 2,
+      "kind": "transition",
+      "statement": "ConvertToOpportunity is legal only from Qualified and creates an Opportunity in a defined initial state.",
+      "requirements": [
+        "DSM-08",
+        "DSM-09",
+        "PRD-25"
+      ],
+      "status": "ambiguous",
+      "tests": [
+        "TST-01",
+        "TST-02"
+      ],
+      "findings": [
+        "FND-11"
+      ]
+    },
+    {
+      "id": "DR-OPP-01",
+      "aggregate": "Opportunity",
+      "tier": 2,
+      "kind": "invariant",
+      "statement": "Won requires a defined commercial outcome; Proposal requires problem/value context and proposal capability; elapsed time alone never advances stage.",
+      "requirements": [
+        "DSM-09",
+        "PRD-10"
+      ],
+      "status": "ambiguous",
+      "tests": [
+        "TST-01",
+        "TST-04"
+      ],
+      "findings": [
+        "FND-12"
+      ]
+    },
+    {
+      "id": "DR-OPP-02",
+      "aggregate": "Opportunity",
+      "tier": 1,
+      "kind": "invariant",
+      "statement": "Dormant is distinct from Lost; Lost retains reason, evidence and alternative when known; reopening preserves history.",
+      "requirements": [
+        "DSM-09",
+        "SCN-34"
+      ],
+      "status": "ambiguous",
+      "tests": [
+        "TST-01"
+      ],
+      "findings": [
+        "FND-12"
+      ]
+    },
+    {
+      "id": "DR-CMP-01",
+      "aggregate": "Campaign",
+      "tier": 2,
+      "kind": "transition",
+      "statement": "Activate requires objective, audience, hypothesis, success/failure criteria, stop rules, budget policy, channel policy and required approval.",
+      "requirements": [
+        "DSM-11",
+        "PRD-11"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-01",
+        "TST-02",
+        "TST-19"
+      ]
+    },
+    {
+      "id": "DR-CMP-02",
+      "aggregate": "Campaign",
+      "tier": 2,
+      "kind": "cross-aggregate",
+      "statement": "A paused campaign blocks new outbound effects, including previously queued ones unless policy explicitly permits in-flight effects.",
+      "requirements": [
+        "DSM-11",
+        "DSM-22"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-14"
+      ]
+    },
+    {
+      "id": "DR-SEND-01",
+      "aggregate": "CampaignTarget",
+      "tier": 2,
+      "kind": "cross-aggregate",
+      "statement": "Communication eligibility is checked at send time; DoNotContact/Unsubscribed dominates campaign intent and cannot be overridden by agents.",
+      "requirements": [
+        "DSM-12",
+        "DSM-22",
+        "INT-11",
+        "SCN-08"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-13"
+      ]
+    },
+    {
+      "id": "DR-SEND-02",
+      "aggregate": "OutreachMessage",
+      "tier": 2,
+      "kind": "transition",
+      "statement": "Send requires Approved content + eligibility + capability + policy + idempotency key; content approval is distinct from send eligibility.",
+      "requirements": [
+        "DSM-13",
+        "PRD-13"
+      ],
+      "status": "ambiguous",
+      "tests": [
+        "TST-04",
+        "TST-09",
+        "TST-12"
+      ],
+      "findings": [
+        "FND-07",
+        "FND-23"
+      ]
+    },
+    {
+      "id": "DR-SEND-03",
+      "aggregate": "CampaignTarget",
+      "tier": 2,
+      "kind": "invariant",
+      "statement": "Duplicate target/provider identity cannot create duplicate sends.",
+      "requirements": [
+        "DSM-12",
+        "DSM-18"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-09",
+        "TST-11"
+      ]
+    },
+    {
+      "id": "DR-EFF-01",
+      "aggregate": "ExternalEffect",
+      "tier": 2,
+      "kind": "transition",
+      "statement": "Unknown outcome is first-class, creates a reconciliation obligation and forbids automatic retry or compensation before reconciliation.",
+      "requirements": [
+        "DSM-17",
+        "PRD-26.5",
+        "SCN-09",
+        "INT-13"
+      ],
+      "status": "ambiguous",
+      "tests": [
+        "TST-10"
+      ],
+      "findings": [
+        "FND-08"
+      ]
+    },
+    {
+      "id": "DR-EFF-02",
+      "aggregate": "ExternalEffect",
+      "tier": 2,
+      "kind": "cross-aggregate",
+      "statement": "Provider success without local persistence becomes reconciliation work; local persistence or Git commit success never implies provider success.",
+      "requirements": [
+        "DSM-22",
+        "PRD-27"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-10"
+      ]
+    },
+    {
+      "id": "DR-INBOX-01",
+      "aggregate": "IntegrationInboxItem",
+      "tier": 2,
+      "kind": "invariant",
+      "statement": "Inbox processing is idempotent; provider redelivery never duplicates domain effects.",
+      "requirements": [
+        "DSM-18",
+        "INT-14"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-09",
+        "TST-11"
+      ]
+    },
+    {
+      "id": "DR-APR-01",
+      "aggregate": "Approval",
+      "tier": 2,
+      "kind": "invariant",
+      "statement": "Approval scope names exact action, material and content hash/version; editing approved material invalidates or narrows the approval.",
+      "requirements": [
+        "DSM-19",
+        "DSM-22",
+        "SCN-33",
+        "PRD-32"
+      ],
+      "status": "ambiguous",
+      "tests": [
+        "TST-12"
+      ],
+      "findings": [
+        "FND-17"
+      ]
+    },
+    {
+      "id": "DR-OBL-01",
+      "aggregate": "Obligation",
+      "tier": 2,
+      "kind": "transition",
+      "statement": "Waive requires actor capability and rationale; open blocking obligations prevent the transitions they block.",
+      "requirements": [
+        "DSM-20",
+        "PRD-10"
+      ],
+      "status": "missing",
+      "tests": [
+        "TST-05"
+      ],
+      "findings": [
+        "FND-14"
+      ]
+    },
+    {
+      "id": "DR-EXP-01",
+      "aggregate": "Experiment",
+      "tier": 2,
+      "kind": "transition",
+      "statement": "Running requires hypothesis and expected signal; interpretation criteria precede results where practical; results are immutable.",
+      "requirements": [
+        "DSM-14",
+        "PRD-11"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-01",
+        "TST-03"
+      ]
+    },
+    {
+      "id": "DR-SIG-01",
+      "aggregate": "Signal",
+      "tier": 2,
+      "kind": "cross-aggregate",
+      "statement": "A signal never directly creates a Lead, Opportunity or market conclusion.",
+      "requirements": [
+        "DSM-15",
+        "PRD-26.1"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-02"
+      ]
+    },
+    {
+      "id": "DR-CLM-01",
+      "aggregate": "Asset",
+      "tier": 2,
+      "kind": "cross-aggregate",
+      "statement": "Publishing verifies every governed claim is Approved and effective-current.",
+      "requirements": [
+        "DSM-16",
+        "PRD-30",
+        "INT-16"
+      ],
+      "status": "ambiguous",
+      "tests": [
+        "TST-06",
+        "TST-12"
+      ],
+      "findings": [
+        "FND-16"
+      ]
+    },
+    {
+      "id": "DR-AUTH-01",
+      "aggregate": "*",
+      "tier": 2,
+      "kind": "authorization",
+      "statement": "Agent authority is capability-scoped and revocable; agents request transitions and never call providers directly.",
+      "requirements": [
+        "DSM-22",
+        "PRD-18",
+        "INT-15",
+        "PRD-22"
+      ],
+      "status": "missing",
+      "tests": [
+        "TST-18"
+      ],
+      "findings": [
+        "FND-18"
+      ]
+    },
+    {
+      "id": "DR-PERS-01",
+      "aggregate": "*",
+      "tier": 3,
+      "kind": "persistence",
+      "statement": "Projections are never canonical write models; replay never repeats external effects.",
+      "requirements": [
+        "EFF-01",
+        "EFF-18",
+        "DVR-02"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-17"
+      ]
+    },
+    {
+      "id": "DR-UNK-01",
+      "aggregate": "*",
+      "tier": 1,
+      "kind": "invariant",
+      "statement": "No state machine may use an Unknown value to bypass a required invariant; Unknown yields an explicit legal path or obligation.",
+      "requirements": [
+        "DSM-22"
+      ],
+      "status": "specified-unimplemented",
+      "tests": [
+        "TST-03",
+        "TST-07"
+      ]
+    }
+  ],
+  "workflows": [
+    {
+      "id": "WF-01",
+      "name": "Market and problem hypothesis research",
+      "aggregates": [
+        "MarketHypothesis",
+        "ProblemHypothesis",
+        "Evidence",
+        "Obligation"
+      ],
+      "requirements": [
+        "DSM-02",
+        "DSM-03",
+        "PRD-04",
+        "PRD-05",
+        "PRD-25"
+      ],
+      "domainRules": [
+        "DR-MH-01",
+        "DR-MH-02",
+        "DR-MH-03",
+        "DR-PH-01",
+        "DR-PH-02"
+      ],
+      "findings": [
+        "FND-01",
+        "FND-03",
+        "FND-04",
+        "FND-05",
+        "FND-18"
+      ],
+      "gate": {
+        "domainModelVerified": false,
+        "transitionsDefined": false,
+        "authorizationEnforced": false,
+        "rulesTested": false,
+        "formaFollowsContracts": false,
+        "endToEndDemonstrated": false
+      },
+      "status": "blocked"
+    },
+    {
+      "id": "WF-02",
+      "name": "Observation capture and evidence promotion",
+      "aggregates": [
+        "Observation",
+        "Evidence"
+      ],
+      "requirements": [
+        "DSM-04",
+        "DSM-05",
+        "PRD-07",
+        "PRD-28"
+      ],
+      "domainRules": [
+        "DR-OBS-01",
+        "DR-EV-02"
+      ],
+      "findings": [
+        "FND-01",
+        "FND-03",
+        "FND-18"
+      ],
+      "gate": {
+        "domainModelVerified": false,
+        "transitionsDefined": false,
+        "authorizationEnforced": false,
+        "rulesTested": false,
+        "formaFollowsContracts": false,
+        "endToEndDemonstrated": false
+      },
+      "status": "blocked"
+    },
+    {
+      "id": "WF-03",
+      "name": "Evidence lifecycle, freshness and contradiction",
+      "aggregates": [
+        "Evidence",
+        "Obligation"
+      ],
+      "requirements": [
+        "DSM-05",
+        "PRD-26.3",
+        "PRD-26.4",
+        "SCN-11",
+        "SCN-30"
+      ],
+      "domainRules": [
+        "DR-EV-01",
+        "DR-EV-03",
+        "DR-NK-01"
+      ],
+      "findings": [
+        "FND-01",
+        "FND-03",
+        "FND-15"
+      ],
+      "gate": {
+        "domainModelVerified": false,
+        "transitionsDefined": false,
+        "authorizationEnforced": false,
+        "rulesTested": false,
+        "formaFollowsContracts": false,
+        "endToEndDemonstrated": false
+      },
+      "status": "blocked"
+    },
+    {
+      "id": "WF-04",
+      "name": "Organization and contact discovery, identity and merge",
+      "aggregates": [
+        "Organization",
+        "Contact"
+      ],
+      "requirements": [
+        "DSM-06",
+        "DSM-07",
+        "PRD-08",
+        "PRD-32",
+        "DSM-07A"
+      ],
+      "domainRules": [
+        "DR-ORG-01",
+        "DR-CON-01",
+        "DR-ELIG-01",
+        "DR-ELIG-02"
+      ],
+      "findings": [
+        "FND-01",
+        "FND-03"
+      ],
+      "gate": {
+        "domainModelVerified": false,
+        "transitionsDefined": false,
+        "authorizationEnforced": false,
+        "rulesTested": false,
+        "formaFollowsContracts": false,
+        "endToEndDemonstrated": false
+      },
+      "status": "blocked"
+    },
+    {
+      "id": "WF-05",
+      "name": "Lead discovery, qualification and conversion",
+      "aggregates": [
+        "Lead",
+        "Opportunity",
+        "Obligation"
+      ],
+      "requirements": [
+        "DSM-08",
+        "PRD-09",
+        "PRD-25"
+      ],
+      "domainRules": [
+        "DR-LEAD-01",
+        "DR-LEAD-02",
+        "DR-LEAD-03"
+      ],
+      "findings": [
+        "FND-01",
+        "FND-11",
+        "FND-14",
+        "FND-18"
+      ],
+      "gate": {
+        "domainModelVerified": false,
+        "transitionsDefined": false,
+        "authorizationEnforced": false,
+        "rulesTested": false,
+        "formaFollowsContracts": false,
+        "endToEndDemonstrated": false
+      },
+      "status": "blocked"
+    },
+    {
+      "id": "WF-06",
+      "name": "Opportunity progression, outcome and win/loss",
+      "aggregates": [
+        "Opportunity",
+        "Obligation"
+      ],
+      "requirements": [
+        "DSM-09",
+        "PRD-10",
+        "SCN-10",
+        "SCN-34"
+      ],
+      "domainRules": [
+        "DR-OPP-01",
+        "DR-OPP-02",
+        "DR-ENV-04",
+        "DR-OBL-01"
+      ],
+      "findings": [
+        "FND-01",
+        "FND-03",
+        "FND-12",
+        "FND-14",
+        "FND-19"
+      ],
+      "gate": {
+        "domainModelVerified": false,
+        "transitionsDefined": false,
+        "authorizationEnforced": false,
+        "rulesTested": false,
+        "formaFollowsContracts": false,
+        "endToEndDemonstrated": false
+      },
+      "status": "blocked"
+    },
+    {
+      "id": "WF-07",
+      "name": "Signal triage",
+      "aggregates": [
+        "Signal",
+        "Obligation"
+      ],
+      "requirements": [
+        "DSM-15",
+        "PRD-26.1"
+      ],
+      "domainRules": [
+        "DR-SIG-01"
+      ],
+      "findings": [
+        "FND-01",
+        "FND-03",
+        "FND-24"
+      ],
+      "gate": {
+        "domainModelVerified": false,
+        "transitionsDefined": false,
+        "authorizationEnforced": false,
+        "rulesTested": false,
+        "formaFollowsContracts": false,
+        "endToEndDemonstrated": false
+      },
+      "status": "blocked"
+    },
+    {
+      "id": "WF-08",
+      "name": "Campaign lifecycle",
+      "aggregates": [
+        "Campaign",
+        "Approval"
+      ],
+      "requirements": [
+        "DSM-11",
+        "PRD-11"
+      ],
+      "domainRules": [
+        "DR-CMP-01",
+        "DR-CMP-02"
+      ],
+      "findings": [
+        "FND-01",
+        "FND-03",
+        "FND-06",
+        "FND-18"
+      ],
+      "gate": {
+        "domainModelVerified": false,
+        "transitionsDefined": false,
+        "authorizationEnforced": false,
+        "rulesTested": false,
+        "formaFollowsContracts": false,
+        "endToEndDemonstrated": false
+      },
+      "status": "blocked"
+    },
+    {
+      "id": "WF-09",
+      "name": "Outreach send and delivery reconciliation",
+      "aggregates": [
+        "CampaignTarget",
+        "OutreachMessage",
+        "Approval",
+        "ExternalEffect"
+      ],
+      "requirements": [
+        "DSM-12",
+        "DSM-13",
+        "DSM-17",
+        "INT-10",
+        "INT-13",
+        "PRD-13",
+        "SCN-08",
+        "SCN-09",
+        "DSM-07A"
+      ],
+      "domainRules": [
+        "DR-SEND-01",
+        "DR-SEND-02",
+        "DR-SEND-03",
+        "DR-EFF-01",
+        "DR-EFF-02",
+        "DR-APR-01",
+        "DR-ELIG-01",
+        "DR-ELIG-02"
+      ],
+      "findings": [
+        "FND-01",
+        "FND-03",
+        "FND-07",
+        "FND-08",
+        "FND-17",
+        "FND-23"
+      ],
+      "gate": {
+        "domainModelVerified": false,
+        "transitionsDefined": false,
+        "authorizationEnforced": false,
+        "rulesTested": false,
+        "formaFollowsContracts": false,
+        "endToEndDemonstrated": false
+      },
+      "status": "blocked"
+    },
+    {
+      "id": "WF-10",
+      "name": "Inbound processing, reply classification and suppression",
+      "aggregates": [
+        "IntegrationInboxItem",
+        "CampaignTarget",
+        "Contact"
+      ],
+      "requirements": [
+        "DSM-18",
+        "INT-14",
+        "INT-11",
+        "PRD-14",
+        "SCN-08",
+        "DSM-07A"
+      ],
+      "domainRules": [
+        "DR-INBOX-01",
+        "DR-SEND-01",
+        "DR-CON-01",
+        "DR-ELIG-01",
+        "DR-ELIG-02"
+      ],
+      "findings": [
+        "FND-01",
+        "FND-03"
+      ],
+      "gate": {
+        "domainModelVerified": false,
+        "transitionsDefined": false,
+        "authorizationEnforced": false,
+        "rulesTested": false,
+        "formaFollowsContracts": false,
+        "endToEndDemonstrated": false
+      },
+      "status": "blocked"
+    },
+    {
+      "id": "WF-11",
+      "name": "Experiment lifecycle",
+      "aggregates": [
+        "Experiment"
+      ],
+      "requirements": [
+        "DSM-14",
+        "PRD-11"
+      ],
+      "domainRules": [
+        "DR-EXP-01"
+      ],
+      "findings": [
+        "FND-01",
+        "FND-03",
+        "FND-13"
+      ],
+      "gate": {
+        "domainModelVerified": false,
+        "transitionsDefined": false,
+        "authorizationEnforced": false,
+        "rulesTested": false,
+        "formaFollowsContracts": false,
+        "endToEndDemonstrated": false
+      },
+      "status": "blocked"
+    },
+    {
+      "id": "WF-12",
+      "name": "Asset and claim governance and publication",
+      "aggregates": [
+        "Asset",
+        "Claim",
+        "Approval",
+        "ExternalEffect"
+      ],
+      "requirements": [
+        "DSM-16",
+        "PRD-30",
+        "INT-16"
+      ],
+      "domainRules": [
+        "DR-CLM-01",
+        "DR-APR-01",
+        "DR-EFF-01"
+      ],
+      "findings": [
+        "FND-01",
+        "FND-03",
+        "FND-16",
+        "FND-17"
+      ],
+      "gate": {
+        "domainModelVerified": false,
+        "transitionsDefined": false,
+        "authorizationEnforced": false,
+        "rulesTested": false,
+        "formaFollowsContracts": false,
+        "endToEndDemonstrated": false
+      },
+      "status": "blocked"
+    },
+    {
+      "id": "WF-13",
+      "name": "Approval lifecycle",
+      "aggregates": [
+        "Approval"
+      ],
+      "requirements": [
+        "DSM-19",
+        "SCN-33",
+        "PRD-13"
+      ],
+      "domainRules": [
+        "DR-APR-01"
+      ],
+      "findings": [
+        "FND-01",
+        "FND-03",
+        "FND-17",
+        "FND-23"
+      ],
+      "gate": {
+        "domainModelVerified": false,
+        "transitionsDefined": false,
+        "authorizationEnforced": false,
+        "rulesTested": false,
+        "formaFollowsContracts": false,
+        "endToEndDemonstrated": false
+      },
+      "status": "blocked"
+    },
+    {
+      "id": "WF-14",
+      "name": "Obligation lifecycle",
+      "aggregates": [
+        "Obligation"
+      ],
+      "requirements": [
+        "DSM-20",
+        "PRD-10"
+      ],
+      "domainRules": [
+        "DR-OBL-01"
+      ],
+      "findings": [
+        "FND-01",
+        "FND-03",
+        "FND-14"
+      ],
+      "gate": {
+        "domainModelVerified": false,
+        "transitionsDefined": false,
+        "authorizationEnforced": false,
+        "rulesTested": false,
+        "formaFollowsContracts": false,
+        "endToEndDemonstrated": false
+      },
+      "status": "blocked"
+    },
+    {
+      "id": "WF-15",
+      "name": "Capability-scoped agent requests and work claims",
+      "aggregates": [
+        "*"
+      ],
+      "requirements": [
+        "PRD-18",
+        "PRD-22",
+        "INT-15",
+        "DSM-22",
+        "PRD-32"
+      ],
+      "domainRules": [
+        "DR-AUTH-01",
+        "DR-ENV-03"
+      ],
+      "findings": [
+        "FND-01",
+        "FND-18"
+      ],
+      "gate": {
+        "domainModelVerified": false,
+        "transitionsDefined": false,
+        "authorizationEnforced": false,
+        "rulesTested": false,
+        "formaFollowsContracts": false,
+        "endToEndDemonstrated": false
+      },
+      "status": "blocked"
+    }
+  ],
+  "uiContracts": [
+    {
+      "id": "UI-01",
+      "screen": "Belief board",
+      "workflows": [
+        "WF-01",
+        "WF-03"
+      ],
+      "requirements": [
+        "PRD-23"
+      ],
+      "query": "HypothesisBoardView/v1",
+      "commands": [
+        "ProposeHypothesis",
+        "StartResearch",
+        "MarkTestable",
+        "RecordEvidence",
+        "Evaluate",
+        "Reopen"
+      ],
+      "status": "proposed",
+      "formaStatus": "not-started"
+    },
+    {
+      "id": "UI-02",
+      "screen": "Evidence inspector (why do we believe this?)",
+      "workflows": [
+        "WF-02",
+        "WF-03"
+      ],
+      "requirements": [
+        "PRD-07",
+        "PRD-23",
+        "PRD-26.3",
+        "PRD-26.4"
+      ],
+      "query": "EvidenceLineageView/v1",
+      "commands": [
+        "AcceptEvidence",
+        "ContestEvidence",
+        "MarkStale",
+        "LinkContradiction",
+        "SupersedeEvidence"
+      ],
+      "status": "proposed",
+      "formaStatus": "not-started"
+    },
+    {
+      "id": "UI-03",
+      "screen": "Organization and contact record",
+      "workflows": [
+        "WF-04"
+      ],
+      "requirements": [
+        "PRD-08",
+        "PRD-23"
+      ],
+      "query": "AccountView/v1",
+      "commands": [
+        "ResolveIdentity",
+        "ProposeMerge",
+        "ReverseMerge",
+        "SetRestriction",
+        "LiftRestriction",
+        "GrantPermission"
+      ],
+      "status": "proposed",
+      "formaStatus": "not-started"
+    },
+    {
+      "id": "UI-04",
+      "screen": "Lead qualification workspace",
+      "workflows": [
+        "WF-05"
+      ],
+      "requirements": [
+        "PRD-09",
+        "PRD-25"
+      ],
+      "query": "LeadQualificationView/v1",
+      "commands": [
+        "StartResearch",
+        "MarkEvidenceReady",
+        "RequestQualification",
+        "Qualify",
+        "Disqualify",
+        "Defer",
+        "ConvertToOpportunity"
+      ],
+      "status": "proposed",
+      "formaStatus": "not-started"
+    },
+    {
+      "id": "UI-05",
+      "screen": "Opportunity and blockers",
+      "workflows": [
+        "WF-06",
+        "WF-14"
+      ],
+      "requirements": [
+        "PRD-10",
+        "PRD-23",
+        "PRD-28",
+        "SCN-10"
+      ],
+      "query": "OpportunityBlockersView/v1",
+      "commands": [
+        "AdvanceStage",
+        "Regress",
+        "MarkDormant",
+        "MarkLost",
+        "MarkWon",
+        "SatisfyObligation",
+        "WaiveObligation"
+      ],
+      "status": "proposed",
+      "formaStatus": "not-started"
+    },
+    {
+      "id": "UI-06",
+      "screen": "Experiment board",
+      "workflows": [
+        "WF-11"
+      ],
+      "requirements": [
+        "PRD-11",
+        "PRD-23"
+      ],
+      "query": "ExperimentBoardView/v1",
+      "commands": [
+        "Design",
+        "MarkReady",
+        "Run",
+        "Stop",
+        "Complete",
+        "Interpret",
+        "Archive"
+      ],
+      "status": "proposed",
+      "formaStatus": "not-started"
+    },
+    {
+      "id": "UI-07",
+      "screen": "Approval queue (mobile-first)",
+      "workflows": [
+        "WF-13",
+        "WF-09",
+        "WF-12"
+      ],
+      "requirements": [
+        "PRD-23",
+        "PRD-28",
+        "SCN-33"
+      ],
+      "query": "ApprovalQueueView/v1",
+      "commands": [
+        "Approve",
+        "Reject",
+        "Revoke"
+      ],
+      "status": "proposed",
+      "formaStatus": "not-started"
+    },
+    {
+      "id": "UI-08",
+      "screen": "Outreach composer and send status",
+      "workflows": [
+        "WF-09"
+      ],
+      "requirements": [
+        "PRD-13",
+        "SCN-08",
+        "SCN-09"
+      ],
+      "query": "OutreachStatusView/v1",
+      "commands": [
+        "DraftMessage",
+        "SubmitForReview",
+        "RequestSend",
+        "CancelQueued",
+        "StartReconciliation"
+      ],
+      "status": "proposed",
+      "formaStatus": "not-started"
+    },
+    {
+      "id": "UI-09",
+      "screen": "Reply classification (mobile)",
+      "workflows": [
+        "WF-10"
+      ],
+      "requirements": [
+        "PRD-14",
+        "PRD-28"
+      ],
+      "query": "InboxTriageView/v1",
+      "commands": [
+        "ClassifyReply",
+        "ConfirmSuppression",
+        "RouteToReview"
+      ],
+      "status": "proposed",
+      "formaStatus": "not-started"
+    },
+    {
+      "id": "UI-10",
+      "screen": "Campaign console",
+      "workflows": [
+        "WF-08"
+      ],
+      "requirements": [
+        "PRD-11",
+        "PRD-28"
+      ],
+      "query": "CampaignConsoleView/v1",
+      "commands": [
+        "SubmitForReview",
+        "Activate",
+        "Pause",
+        "Resume",
+        "Complete",
+        "Evaluate",
+        "Cancel"
+      ],
+      "status": "proposed",
+      "formaStatus": "not-started"
+    },
+    {
+      "id": "UI-11",
+      "screen": "Signal triage",
+      "workflows": [
+        "WF-07"
+      ],
+      "requirements": [
+        "PRD-26.1"
+      ],
+      "query": "SignalTriageView/v1",
+      "commands": [
+        "Triage",
+        "Investigate",
+        "MarkRelevant",
+        "MarkNotRelevant",
+        "ConvertToWork"
+      ],
+      "status": "proposed",
+      "formaStatus": "not-started"
+    },
+    {
+      "id": "UI-12",
+      "screen": "Field capture (conference mode)",
+      "workflows": [
+        "WF-02",
+        "WF-04",
+        "WF-14"
+      ],
+      "requirements": [
+        "PRD-28",
+        "PRD-31"
+      ],
+      "query": "FieldCaptureView/v1",
+      "commands": [
+        "CaptureObservation",
+        "CaptureContact",
+        "CreateFollowUpObligation"
+      ],
+      "status": "proposed",
+      "formaStatus": "not-started"
+    },
+    {
+      "id": "UI-13",
+      "screen": "Next actions (where should human time go?)",
+      "workflows": [
+        "WF-14",
+        "WF-15"
+      ],
+      "requirements": [
+        "PRD-23"
+      ],
+      "query": "NextActionsView/v1",
+      "commands": [
+        "ClaimWork",
+        "ReleaseWork"
+      ],
+      "status": "proposed",
+      "formaStatus": "not-started"
+    }
+  ],
+  "tests": [
+    {
+      "id": "TST-01",
+      "class": "State transition tests for every aggregate",
+      "requirement": "DVR-01",
+      "status": "missing"
+    },
+    {
+      "id": "TST-02",
+      "class": "Illegal-transition tests",
+      "requirement": "DVR-01",
+      "status": "missing"
+    },
+    {
+      "id": "TST-03",
+      "class": "Invariant property tests",
+      "requirement": "DVR-01",
+      "status": "missing"
+    },
+    {
+      "id": "TST-04",
+      "class": "Capability/authorization tests",
+      "requirement": "DVR-01",
+      "status": "missing"
+    },
+    {
+      "id": "TST-05",
+      "class": "Obligation-blocking tests",
+      "requirement": "DVR-01",
+      "status": "missing"
+    },
+    {
+      "id": "TST-06",
+      "class": "Evidence freshness tests",
+      "requirement": "DVR-01",
+      "status": "missing"
+    },
+    {
+      "id": "TST-07",
+      "class": "Negative-knowledge tests",
+      "requirement": "DVR-01",
+      "status": "missing"
+    },
+    {
+      "id": "TST-08",
+      "class": "Optimistic-concurrency tests",
+      "requirement": "DVR-01",
+      "status": "missing"
+    },
+    {
+      "id": "TST-09",
+      "class": "Idempotency tests",
+      "requirement": "DVR-01",
+      "status": "missing"
+    },
+    {
+      "id": "TST-10",
+      "class": "External-effect Unknown/reconciliation tests",
+      "requirement": "DVR-01",
+      "status": "missing"
+    },
+    {
+      "id": "TST-11",
+      "class": "Provider duplicate-event tests",
+      "requirement": "DVR-01",
+      "status": "missing"
+    },
+    {
+      "id": "TST-12",
+      "class": "Approval version/hash invalidation tests",
+      "requirement": "DVR-01",
+      "status": "missing"
+    },
+    {
+      "id": "TST-13",
+      "class": "Suppression/unsubscribe race tests",
+      "requirement": "DVR-01",
+      "status": "missing"
+    },
+    {
+      "id": "TST-14",
+      "class": "Campaign pause race tests",
+      "requirement": "DVR-01",
+      "status": "missing"
+    },
+    {
+      "id": "TST-15",
+      "class": "Entity merge/unmerge provenance tests",
+      "requirement": "DVR-01",
+      "status": "missing"
+    },
+    {
+      "id": "TST-16",
+      "class": "Evidence dependency/cycle tests",
+      "requirement": "DVR-01",
+      "status": "missing"
+    },
+    {
+      "id": "TST-17",
+      "class": "Projection rebuild/equivalence tests",
+      "requirement": "DVR-01",
+      "status": "missing"
+    },
+    {
+      "id": "TST-18",
+      "class": "Agent authority tests",
+      "requirement": "DVR-01",
+      "status": "missing"
+    },
+    {
+      "id": "TST-19",
+      "class": "Cost/budget stop tests",
+      "requirement": "DVR-01",
+      "status": "missing"
+    },
+    {
+      "id": "TST-20",
+      "class": "Scenario tests for every scenario in SCENARIOS-AND-EXPANSION.md",
+      "requirement": "DVR-01",
+      "status": "missing"
+    }
+  ],
+  "verificationChecks": [
+    {
+      "id": "CHK-GATE",
+      "kind": "executable",
+      "description": "Traceability integrity and modernization-gate consistency.",
+      "command": "node tools/modernization/verify-gate.mjs",
+      "status": "passing"
+    },
+    {
+      "id": "CHK-DOK-01",
+      "kind": "dokimos",
+      "description": "Domain invariants (property tests over Tier 1 types).",
+      "tests": [
+        "TST-03",
+        "TST-07"
+      ],
+      "status": "defined-not-executable",
+      "precondition": "WI-0013"
+    },
+    {
+      "id": "CHK-DOK-02",
+      "kind": "dokimos",
+      "description": "Valid and invalid state transitions for every aggregate.",
+      "tests": [
+        "TST-01",
+        "TST-02"
+      ],
+      "status": "defined-not-executable",
+      "precondition": "WI-0015"
+    },
+    {
+      "id": "CHK-DOK-03",
+      "kind": "dokimos",
+      "description": "Authorization boundaries: capability-denied commands are Rejected regardless of origin (UI, API, agent, workflow).",
+      "tests": [
+        "TST-04",
+        "TST-18"
+      ],
+      "status": "defined-not-executable",
+      "precondition": "WI-0029"
+    },
+    {
+      "id": "CHK-DOK-04",
+      "kind": "dokimos",
+      "description": "Persistence consistency: optimistic concurrency, idempotency, projection rebuild equivalence.",
+      "tests": [
+        "TST-08",
+        "TST-09",
+        "TST-17"
+      ],
+      "status": "defined-not-executable",
+      "precondition": "WI-0030"
+    },
+    {
+      "id": "CHK-DOK-05",
+      "kind": "dokimos",
+      "description": "Workflow failure and recovery: Unknown effects, duplicate events, suppression and pause races.",
+      "tests": [
+        "TST-10",
+        "TST-11",
+        "TST-13",
+        "TST-14"
+      ],
+      "status": "defined-not-executable",
+      "precondition": "WI-0018"
+    },
+    {
+      "id": "CHK-DOK-06",
+      "kind": "dokimos",
+      "description": "Domain-to-UI contract compatibility: every screen's commands exist in the Tier 2 command set and every TransitionResult case is rendered.",
+      "tests": [
+        "TST-20"
+      ],
+      "status": "defined-not-executable",
+      "precondition": "WI-0013"
+    },
+    {
+      "id": "CHK-DOK-07",
+      "kind": "dokimos",
+      "description": "Regression ratchet against accepted behaviour (dokimos ratchet check).",
+      "tests": [
+        "TST-20"
+      ],
+      "status": "defined-not-executable",
+      "precondition": "WI-0013"
+    }
+  ],
+  "findings": [
+    {
+      "id": "FND-01",
+      "severity": "critical",
+      "classification": "missing-business-behavior",
+      "title": "No domain implementation exists; every workflow fails the gate",
+      "workItems": [
+        "WI-0013",
+        "WI-0003"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-02",
+      "severity": "medium",
+      "classification": "requiring-owner-decision",
+      "title": "Requirements lack stable IDs; interim section-anchored IDs used",
+      "workItems": [
+        "WI-0014"
+      ],
+      "status": "resolved",
+      "resolution": "research/decisions/DF-MERCATUS-DOM-2026-0001--owner-decisions-scope-ids-single-source-negative-precedence.md",
+      "resolutionSummary": "Stable requirement IDs adopted; IDs live in the requirement documents."
+    },
+    {
+      "id": "FND-03",
+      "severity": "critical",
+      "classification": "missing-business-behavior",
+      "title": "17 of 19 aggregates list states without legal transitions",
+      "workItems": [
+        "WI-0015"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-04",
+      "severity": "medium",
+      "classification": "ambiguous-requirement",
+      "title": "MarketHypothesis lifecycle differs between PRD 4 and DSM 2",
+      "workItems": [
+        "WI-0016"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-05",
+      "severity": "low",
+      "classification": "ambiguous-requirement",
+      "title": "Reopen state named Reopened (MarketHypothesis) vs Revisit (ProblemHypothesis)",
+      "workItems": [
+        "WI-0016"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-06",
+      "severity": "low",
+      "classification": "ambiguous-requirement",
+      "title": "Campaign and CampaignTarget lifecycles differ across PRD, INT and DSM",
+      "workItems": [
+        "WI-0017"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-07",
+      "severity": "critical",
+      "classification": "architecture-violation",
+      "title": "Send state duplicated across CampaignTarget, OutreachMessage and ExternalEffect",
+      "workItems": [
+        "WI-0018"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-08",
+      "severity": "high",
+      "classification": "ambiguous-requirement",
+      "title": "Unknown vs ReconciliationRequired vs DeliveryUnknown undefined",
+      "workItems": [
+        "WI-0019"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-09",
+      "severity": "high",
+      "classification": "requiring-owner-decision",
+      "title": "Contact DoNotContact/Reachable duplicates CommunicationEligibility",
+      "workItems": [
+        "WI-0020"
+      ],
+      "status": "resolved",
+      "resolution": "research/decisions/DF-MERCATUS-DOM-2026-0001--owner-decisions-scope-ids-single-source-negative-precedence.md",
+      "resolutionSummary": "One source of truth: contactability lives only in CommunicationEligibility (DSM-07A)."
+    },
+    {
+      "id": "FND-10",
+      "severity": "medium",
+      "classification": "requiring-owner-decision",
+      "title": "Organization DoNotEngage precedence over contact eligibility undefined",
+      "workItems": [
+        "WI-0021"
+      ],
+      "status": "resolved",
+      "resolution": "research/decisions/DF-MERCATUS-DOM-2026-0001--owner-decisions-scope-ids-single-source-negative-precedence.md",
+      "resolutionSummary": "Negative overrides positive at every scope; DoNotEngage blocks all affiliated contacts until explicitly lifted."
+    },
+    {
+      "id": "FND-11",
+      "severity": "critical",
+      "classification": "ambiguous-requirement",
+      "title": "Lead vs Opportunity qualification and conversion target undefined",
+      "workItems": [
+        "WI-0022",
+        "WI-0015"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-12",
+      "severity": "high",
+      "classification": "ambiguous-requirement",
+      "title": "Opportunity Lost vs Rejected, regression and Outcome model undefined",
+      "workItems": [
+        "WI-0023"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-13",
+      "severity": "low",
+      "classification": "ambiguous-requirement",
+      "title": "Experiment invariant references failed experiments; no Failed state",
+      "workItems": [
+        "WI-0024"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-14",
+      "severity": "critical",
+      "classification": "missing-business-behavior",
+      "title": "Blocking-obligation semantics unspecified",
+      "workItems": [
+        "WI-0025"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-15",
+      "severity": "high",
+      "classification": "ambiguous-requirement",
+      "title": "Evidence Stale as stored state conflicts with effective-current projection",
+      "workItems": [
+        "WI-0026"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-16",
+      "severity": "medium",
+      "classification": "missing-business-behavior",
+      "title": "Claim lifecycle incomplete; published asset with stale claim unhandled",
+      "workItems": [
+        "WI-0027"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-17",
+      "severity": "high",
+      "classification": "ambiguous-requirement",
+      "title": "Approval Requested vs Pending, Consumed scope and CampaignTarget approval duplication",
+      "workItems": [
+        "WI-0028"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-18",
+      "severity": "critical",
+      "classification": "missing-business-behavior",
+      "title": "Authorization model (actors, roles, capability grants) not specified",
+      "workItems": [
+        "WI-0029"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-19",
+      "severity": "high",
+      "classification": "missing-business-behavior",
+      "title": "Persistence contract, ownership and atomicity boundaries not specified",
+      "workItems": [
+        "WI-0030"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-20",
+      "severity": "medium",
+      "classification": "missing-business-behavior",
+      "title": "13 PRD 3 entities have no state or value model",
+      "workItems": [
+        "WI-0031"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-21",
+      "severity": "high",
+      "classification": "requiring-owner-decision",
+      "title": "Template project charter conflicts with Sales and Marketing scope",
+      "workItems": [
+        "WI-0032"
+      ],
+      "status": "resolved",
+      "resolution": "research/decisions/DF-MERCATUS-DOM-2026-0001--owner-decisions-scope-ids-single-source-negative-precedence.md",
+      "resolutionSummary": "Mercatus is the Echelon Sales and Marketing system; charter updated."
+    },
+    {
+      "id": "FND-22",
+      "severity": "low",
+      "classification": "ambiguous-requirement",
+      "title": "No Ordo artifact named 'playbook'; Ordo doctrine used instead",
+      "workItems": [
+        "WI-0033"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-23",
+      "severity": "medium",
+      "classification": "ambiguous-requirement",
+      "title": "Scope of 'first contact requires human approval' undefined",
+      "workItems": [
+        "WI-0034"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-24",
+      "severity": "medium",
+      "classification": "ambiguous-requirement",
+      "title": "Targets of CampaignTarget.Converted and Signal.ConvertedToWork undefined",
+      "workItems": [
+        "WI-0034"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-25",
+      "severity": "info",
+      "classification": "correct-and-verified",
+      "title": "Aegis/Forma/Folio not-applicable declarations match the repository",
+      "workItems": [],
+      "evidence": [
+        "research/decisions/DF-MERCATUS-FND-2026-0002--aegis-forma-folio-not-yet-applicable.md"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-26",
+      "severity": "info",
+      "classification": "correct-but-insufficiently-tested",
+      "title": "Transition-envelope result kinds agree with Ordo Unknown-effect doctrine",
+      "workItems": [
+        "WI-0013"
+      ],
+      "status": "open"
+    },
+    {
+      "id": "FND-27",
+      "severity": "info",
+      "classification": "correct-but-insufficiently-tested",
+      "title": "Suppression dominance and send-time eligibility agree across DSM 12, DSM 22, INT and Scenario 8",
+      "workItems": [
+        "WI-0013"
+      ],
+      "status": "open"
+    }
+  ],
+  "requirementIdPolicy": {
+    "decision": "research/decisions/DF-MERCATUS-DOM-2026-0001--owner-decisions-scope-ids-single-source-negative-precedence.md",
+    "rule": "Every ##-#### section in requirements/*.md carries an `ID: `...`` line under its heading; the document is the only source of the ID; IDs never change or get reused."
+  }
+}

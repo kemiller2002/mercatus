@@ -253,6 +253,559 @@
       },
       "source": "manual",
       "sourceReference": null
+    },
+    {
+      "id": "WI-0012",
+      "title": "Domain model and workflow validation gate before Forma modernization",
+      "description": "Audit the domain model, workflow boundaries and domain-UI contracts; deliver DOMAIN-MODEL-AUDIT, WORKFLOW-BOUNDARY-REVIEW, DOMAIN-UI-CONTRACTS with machine-readable traceability and an executable gate check; file findings as work items.",
+      "tags": [
+        "modernization",
+        "domain",
+        "ordo"
+      ],
+      "priority": "high",
+      "status": "complete",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:01:43Z",
+      "updatedAt": "2026-11-08T15:10:58.969Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0013",
+      "title": "FND-01: Implement the Tier 1/2 F# semantic core for the first vertical slice (no domain implementation exists)",
+      "description": "Mercatus has no F# project, domain types, transition functions or tests. Every workflow fails the modernization gate until a Tier 1/2 core exists. Restores Aegis per DF-MERCATUS-FND-2026-0002. See docs/modernization/DOMAIN-MODEL-AUDIT.md FND-01.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:01Z",
+      "updatedAt": "2026-11-08T15:03:01Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0014",
+      "title": "FND-02: Assign stable requirement IDs to canonical requirements (owner decision)",
+      "description": "Only REQ-BOOTSTRAP-001 has an ID. Interim section-anchored IDs are used in docs/modernization/traceability.json; the owner must approve canonical IDs. FND-02.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "medium",
+      "status": "complete",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:01Z",
+      "updatedAt": "2026-11-08T16:40:01.312Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0015",
+      "title": "FND-03: Specify explicit transition tables for every aggregate in DOMAIN-STATE-MODEL",
+      "description": "17 of 19 aggregates list states without legal transitions. Proposed tables in WORKFLOW-BOUNDARY-REVIEW.md need owner confirmation. FND-03.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:02Z",
+      "updatedAt": "2026-11-08T15:03:02Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0016",
+      "title": "FND-04/05: Reconcile MarketHypothesis and ProblemHypothesis lifecycles (Revisit vs Reopened, PRD 4 vs DSM 2)",
+      "description": "Two documents give different MarketHypothesis lifecycles and the reopen state is named differently per aggregate. FND-04, FND-05.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:02Z",
+      "updatedAt": "2026-11-08T15:03:02Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0017",
+      "title": "FND-06: Reconcile Campaign and CampaignTarget lifecycles between PRD, INT and DSM",
+      "description": "Campaign Cancelled and CampaignTarget ApprovalRequired/SendRequested/Suppressed appear only in DSM. FND-06.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "low",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:02Z",
+      "updatedAt": "2026-11-08T15:03:02Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0018",
+      "title": "FND-07: Establish a single authority for outbound send state (CampaignTarget vs OutreachMessage vs ExternalEffect)",
+      "description": "Send progress is represented in three aggregates with overlapping states, allowing contradictory combinations. FND-07.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:02Z",
+      "updatedAt": "2026-11-08T15:03:02Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0019",
+      "title": "FND-08: Define ExternalEffect Unknown vs ReconciliationRequired and OutreachMessage DeliveryUnknown semantics",
+      "description": "The distinction between Unknown and ReconciliationRequired is undefined and DeliveryUnknown duplicates it. FND-08.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:03Z",
+      "updatedAt": "2026-11-08T15:03:03Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0020",
+      "title": "FND-09: Owner decision on removing DoNotContact/Reachable from Contact lifecycle in favour of CommunicationEligibility",
+      "description": "Contact state and CommunicationEligibility both encode reachability, so Engaged+DoNotContact is representable. FND-09.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "high",
+      "status": "complete",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:03Z",
+      "updatedAt": "2026-11-08T16:40:01.312Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0021",
+      "title": "FND-10: Owner decision on Organization DoNotEngage precedence over contact eligibility",
+      "description": "Interaction between Organization.DoNotEngage and per-contact eligibility is undefined. FND-10.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "medium",
+      "status": "complete",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:03Z",
+      "updatedAt": "2026-11-08T16:40:01.312Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0022",
+      "title": "FND-11: Define Lead-to-Opportunity conversion and the relationship between Lead and Opportunity qualification",
+      "description": "Both aggregates have a Qualified state; the initial state of a converted Opportunity is undefined. Blocks the PRD 25 vertical slice. FND-11.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:03Z",
+      "updatedAt": "2026-11-08T15:03:03Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0023",
+      "title": "FND-12: Define Opportunity Lost vs Rejected, regression transitions and the Outcome model required for Won",
+      "description": "FND-12.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:04Z",
+      "updatedAt": "2026-11-08T15:03:04Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0024",
+      "title": "FND-13: Add or remove Failed experiment state (DSM 14 invariant references failed experiments)",
+      "description": "FND-13.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "low",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:04Z",
+      "updatedAt": "2026-11-08T15:03:04Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0025",
+      "title": "FND-14: Specify blocking-obligation semantics (which obligation kinds block which transitions)",
+      "description": "DSM 20 says blocking obligations prevent specified transitions but no mapping exists. FND-14.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:04Z",
+      "updatedAt": "2026-11-08T15:03:04Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0026",
+      "title": "FND-15: Decide evidence freshness representation (stored Stale state vs effective-current projection)",
+      "description": "FND-15.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:04Z",
+      "updatedAt": "2026-11-08T15:03:04Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0027",
+      "title": "FND-16: Complete Claim lifecycle and define published-asset behaviour when a claim becomes stale",
+      "description": "FND-16.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:05Z",
+      "updatedAt": "2026-11-08T15:03:05Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0028",
+      "title": "FND-17: Define Approval Requested vs Pending, Consumed scope, and CampaignTarget approval-state duplication",
+      "description": "FND-17.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:05Z",
+      "updatedAt": "2026-11-08T15:03:05Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0029",
+      "title": "FND-18: Define the authorization model (actors, roles, capability grants, agent transition permissions)",
+      "description": "Capabilities exist for 4 of 19 aggregates; PRD 18 agent permissions are not specified. FND-18.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:05Z",
+      "updatedAt": "2026-11-08T15:03:05Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0030",
+      "title": "FND-19: Define the persistence contract, aggregate ownership and atomicity boundaries for GitHub-backed storage",
+      "description": "FND-19.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:05Z",
+      "updatedAt": "2026-11-08T15:03:05Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0031",
+      "title": "FND-20: Classify PRD 3 entities without a model as aggregates or value objects",
+      "description": "ICP, Offering, Interaction, Conversation, Outcome, Source, CustomerLanguage, Competitor, Alternative, ChannelPolicy, AgentActivity, Metric, Message. FND-20.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:06Z",
+      "updatedAt": "2026-11-08T15:03:06Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0032",
+      "title": "FND-21: Owner decision: reconcile the template project charter/handoff with the Sales and Marketing product scope",
+      "description": "FND-21.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "high",
+      "status": "complete",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:06Z",
+      "updatedAt": "2026-11-08T16:40:01.312Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0033",
+      "title": "FND-22: Identify the authoritative Ordo playbook (no artifact of that name exists in Ordo)",
+      "description": "FND-22.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "low",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:06Z",
+      "updatedAt": "2026-11-08T15:03:06Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0034",
+      "title": "FND-23/24: Define first-contact approval scope and the targets of CampaignTarget.Converted and Signal.ConvertedToWork",
+      "description": "FND-23, FND-24.",
+      "tags": [
+        "modernization",
+        "domain-audit"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-08T15:03:06Z",
+      "updatedAt": "2026-11-08T15:03:06Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0012",
+      "sourceReference": null
     }
   ]
 }

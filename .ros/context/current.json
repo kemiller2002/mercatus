@@ -4,7 +4,7 @@
   "repository": "mercatus",
   "actor": "anthropic/claude-code",
   "startedAt": "2026-10-06T09:48:42.847Z",
-  "updatedAt": "2026-10-09T00:59:50.000Z",
+  "updatedAt": "2026-11-08T16:40:01.312Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -525,6 +525,268 @@
       },
       "completedAt": "2026-10-09T00:59:50.000Z",
       "conclusion": "Aegis, Forma and Folio declared not yet applicable (DF-MERCATUS-FND-2026-0002); praxis foundations verify passes locally and runs in CI"
+    },
+    {
+      "id": "WI-0012",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "tools/modernization/gate.mjs"
+        },
+        {
+          "type": "implementation",
+          "path": "tools/modernization/verify-gate.mjs"
+        },
+        {
+          "type": "tests",
+          "path": "tools/modernization/gate.test.mjs"
+        },
+        {
+          "type": "document",
+          "path": "docs/modernization/DOMAIN-MODEL-AUDIT.md"
+        },
+        {
+          "type": "document",
+          "path": "docs/modernization/WORKFLOW-BOUNDARY-REVIEW.md"
+        },
+        {
+          "type": "document",
+          "path": "docs/modernization/DOMAIN-UI-CONTRACTS.md"
+        },
+        {
+          "type": "document",
+          "path": "docs/modernization/traceability.json"
+        }
+      ],
+      "updatedAt": "2026-11-08T15:10:58.969Z",
+      "telemetryExecutionIds": [
+        "EXE-20261108T150146856Z-7123ce13"
+      ],
+      "latestCheckpoint": {
+        "id": "66e6487cb5044026ef550581",
+        "recordedAt": "2026-11-08T15:10:48.952Z",
+        "executionId": "EXE-20261108T150146856Z-7123ce13",
+        "repository": "mercatus",
+        "branch": "claude/elegant-archimedes-p2xelw",
+        "commit": "0371f610c8c1f24cb712ac535472994903d08538",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/mercatus"
+        },
+        "remoteBranch": "claude/elegant-archimedes-p2xelw",
+        "remoteCommit": "0371f610c8c1f24cb712ac535472994903d08538",
+        "summary": "Domain audit, workflow review, domain-UI contracts, traceability.json and gate check committed and pushed",
+        "nextAction": "Owner decisions WI-0032/WI-0014/WI-0020/WI-0021; then specification fixes WI-0015/WI-0022/WI-0025/WI-0029",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-11-08T15:10:58.969Z",
+      "conclusion": "Gate defined and enforced; all 15 workflows blocked pending implementation and 22 filed findings (WI-0013..WI-0034)"
+    },
+    {
+      "id": "WI-0032",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "research/decisions/DF-MERCATUS-DOM-2026-0001--owner-decisions-scope-ids-single-source-negative-precedence.md"
+        },
+        {
+          "type": "implementation",
+          "path": "requirements/DOMAIN-STATE-MODEL.md"
+        },
+        {
+          "type": "implementation",
+          "path": "tools/modernization/gate.mjs"
+        },
+        {
+          "type": "tests",
+          "path": "tools/modernization/gate.test.mjs"
+        }
+      ],
+      "updatedAt": "2026-11-08T16:40:01.312Z",
+      "telemetryExecutionIds": [
+        "EXE-20261108T163703269Z-61e14de4"
+      ],
+      "latestCheckpoint": {
+        "id": "051f064b70f1faceb8eeeeb6",
+        "recordedAt": "2026-11-08T16:39:56.526Z",
+        "executionId": "EXE-20261108T163703269Z-61e14de4",
+        "repository": "mercatus",
+        "branch": "claude/elegant-archimedes-p2xelw",
+        "commit": "8fe64133835f6568f29e8a139c80e6847181e7fa",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/mercatus"
+        },
+        "remoteBranch": "claude/elegant-archimedes-p2xelw",
+        "remoteCommit": "8fe64133835f6568f29e8a139c80e6847181e7fa",
+        "summary": "Owner decision applied and recorded in DF-MERCATUS-DOM-2026-0001",
+        "nextAction": "Specification fixes WI-0015, WI-0022, WI-0025, WI-0029",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-11-08T16:40:01.312Z",
+      "conclusion": "Owner decisions applied: Sales and Marketing scope, stable requirement IDs, single source of truth, negative eligibility precedence"
+    },
+    {
+      "id": "WI-0014",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "research/decisions/DF-MERCATUS-DOM-2026-0001--owner-decisions-scope-ids-single-source-negative-precedence.md"
+        },
+        {
+          "type": "implementation",
+          "path": "requirements/DOMAIN-STATE-MODEL.md"
+        },
+        {
+          "type": "implementation",
+          "path": "tools/modernization/gate.mjs"
+        },
+        {
+          "type": "tests",
+          "path": "tools/modernization/gate.test.mjs"
+        }
+      ],
+      "updatedAt": "2026-11-08T16:40:01.312Z",
+      "telemetryExecutionIds": [
+        "EXE-20261108T163703415Z-a1ae3481"
+      ],
+      "latestCheckpoint": {
+        "id": "85c58451e274c828baa64373",
+        "recordedAt": "2026-11-08T16:39:57.453Z",
+        "executionId": "EXE-20261108T163703415Z-a1ae3481",
+        "repository": "mercatus",
+        "branch": "claude/elegant-archimedes-p2xelw",
+        "commit": "8fe64133835f6568f29e8a139c80e6847181e7fa",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/mercatus"
+        },
+        "remoteBranch": "claude/elegant-archimedes-p2xelw",
+        "remoteCommit": "8fe64133835f6568f29e8a139c80e6847181e7fa",
+        "summary": "Owner decision applied and recorded in DF-MERCATUS-DOM-2026-0001",
+        "nextAction": "Specification fixes WI-0015, WI-0022, WI-0025, WI-0029",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-11-08T16:40:01.312Z",
+      "conclusion": "Owner decisions applied: Sales and Marketing scope, stable requirement IDs, single source of truth, negative eligibility precedence"
+    },
+    {
+      "id": "WI-0020",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "research/decisions/DF-MERCATUS-DOM-2026-0001--owner-decisions-scope-ids-single-source-negative-precedence.md"
+        },
+        {
+          "type": "implementation",
+          "path": "requirements/DOMAIN-STATE-MODEL.md"
+        },
+        {
+          "type": "implementation",
+          "path": "tools/modernization/gate.mjs"
+        },
+        {
+          "type": "tests",
+          "path": "tools/modernization/gate.test.mjs"
+        }
+      ],
+      "updatedAt": "2026-11-08T16:40:01.312Z",
+      "telemetryExecutionIds": [
+        "EXE-20261108T163703552Z-9bb13707"
+      ],
+      "latestCheckpoint": {
+        "id": "6e056f2d94379f5875cafaea",
+        "recordedAt": "2026-11-08T16:39:58.439Z",
+        "executionId": "EXE-20261108T163703552Z-9bb13707",
+        "repository": "mercatus",
+        "branch": "claude/elegant-archimedes-p2xelw",
+        "commit": "8fe64133835f6568f29e8a139c80e6847181e7fa",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/mercatus"
+        },
+        "remoteBranch": "claude/elegant-archimedes-p2xelw",
+        "remoteCommit": "8fe64133835f6568f29e8a139c80e6847181e7fa",
+        "summary": "Owner decision applied and recorded in DF-MERCATUS-DOM-2026-0001",
+        "nextAction": "Specification fixes WI-0015, WI-0022, WI-0025, WI-0029",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-11-08T16:40:01.312Z",
+      "conclusion": "Owner decisions applied: Sales and Marketing scope, stable requirement IDs, single source of truth, negative eligibility precedence"
+    },
+    {
+      "id": "WI-0021",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "research/decisions/DF-MERCATUS-DOM-2026-0001--owner-decisions-scope-ids-single-source-negative-precedence.md"
+        },
+        {
+          "type": "implementation",
+          "path": "requirements/DOMAIN-STATE-MODEL.md"
+        },
+        {
+          "type": "implementation",
+          "path": "tools/modernization/gate.mjs"
+        },
+        {
+          "type": "tests",
+          "path": "tools/modernization/gate.test.mjs"
+        }
+      ],
+      "updatedAt": "2026-11-08T16:40:01.312Z",
+      "telemetryExecutionIds": [
+        "EXE-20261108T163703716Z-4b0caef3"
+      ],
+      "latestCheckpoint": {
+        "id": "4fc1c807cbdb9fd81d2a39ba",
+        "recordedAt": "2026-11-08T16:39:59.347Z",
+        "executionId": "EXE-20261108T163703716Z-4b0caef3",
+        "repository": "mercatus",
+        "branch": "claude/elegant-archimedes-p2xelw",
+        "commit": "8fe64133835f6568f29e8a139c80e6847181e7fa",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/mercatus"
+        },
+        "remoteBranch": "claude/elegant-archimedes-p2xelw",
+        "remoteCommit": "8fe64133835f6568f29e8a139c80e6847181e7fa",
+        "summary": "Owner decision applied and recorded in DF-MERCATUS-DOM-2026-0001",
+        "nextAction": "Specification fixes WI-0015, WI-0022, WI-0025, WI-0029",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-11-08T16:40:01.312Z",
+      "conclusion": "Owner decisions applied: Sales and Marketing scope, stable requirement IDs, single source of truth, negative eligibility precedence"
     }
   ]
 }

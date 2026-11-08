@@ -4,6 +4,8 @@ These scenarios are deliberately chosen to expose inefficiency, missing state, u
 
 ## Scenario 1: 500 companies discovered overnight
 
+ID: `SCN-01`
+
 A research agent discovers 500 organizations after a market event.
 
 Naive behavior: research all 500 deeply and generate 500 messages.
@@ -22,6 +24,8 @@ Add ResearchBudget, ResearchQueue, and TriageDecision concepts.
 
 ## Scenario 2: Same company appears through Reddit, conference list, website, and referral
 
+ID: `SCN-02`
+
 Required solution:
 - canonical identity resolution;
 - alias/external identity graph;
@@ -32,6 +36,8 @@ Required solution:
 
 ## Scenario 3: A contact changes jobs
 
+ID: `SCN-03`
+
 Required solution:
 - time-bounded PersonRole/OrganizationAffiliation;
 - historical relationships preserved;
@@ -39,6 +45,8 @@ Required solution:
 - campaigns using stale role information generate RefreshContact obligation.
 
 ## Scenario 4: Strong engagement but no commercial intent
+
+ID: `SCN-04`
 
 A post gets large engagement and many positive comments.
 
@@ -49,6 +57,8 @@ Required solution:
 
 ## Scenario 5: One message works for CTOs and fails for CFOs
 
+ID: `SCN-05`
+
 Required solution:
 - message variants tied to audience/role/problem/channel;
 - segmented results;
@@ -58,6 +68,8 @@ Required solution:
 
 ## Scenario 6: Agent wants to repeat a failed campaign
 
+ID: `SCN-06`
+
 Required solution:
 - commercial-memory similarity search;
 - retrieve prior hypothesis, audience, message, conditions, result, and failure explanation;
@@ -65,6 +77,8 @@ Required solution:
 - intentional replication supported and labeled.
 
 ## Scenario 7: Prospect replies "not now, call me in six months"
+
+ID: `SCN-07`
 
 Required solution:
 - FollowUpLater classification;
@@ -76,6 +90,8 @@ Required solution:
 
 ## Scenario 8: Prospect unsubscribes while an email is queued
 
+ID: `SCN-08`
+
 Required solution:
 - send-time eligibility check;
 - suppression state has precedence;
@@ -83,6 +99,8 @@ Required solution:
 - if effect status is Unknown, reconcile rather than assume cancellation.
 
 ## Scenario 9: Email provider accepts send but response is lost
+
+ID: `SCN-09`
 
 Required solution:
 - Unknown external effect;
@@ -93,6 +111,8 @@ Required solution:
 
 ## Scenario 10: Two agents edit the same opportunity
 
+ID: `SCN-10`
+
 Required solution:
 - optimistic concurrency/version checks;
 - stale command rejection;
@@ -102,6 +122,8 @@ Required solution:
 
 ## Scenario 11: Evidence becomes stale during a long sales cycle
 
+ID: `SCN-11`
+
 Required solution:
 - effective-current evidence projection;
 - evidence expiry/refresh policies;
@@ -110,6 +132,8 @@ Required solution:
 
 ## Scenario 12: A customer says something that contradicts the ICP
 
+ID: `SCN-12`
+
 Required solution:
 - contradiction linked to ICP/market/problem hypotheses;
 - counterevidence queue;
@@ -117,6 +141,8 @@ Required solution:
 - thresholds may require reevaluation, not automatic strategy rewrite.
 
 ## Scenario 13: A conference generates 80 conversations in one day
+
+ID: `SCN-13`
 
 Required solution:
 - mobile rapid capture;
@@ -131,6 +157,8 @@ Required solution:
 
 ## Scenario 14: User takes a photo of a badge/business card
 
+ID: `SCN-14`
+
 Required solution:
 - optional document/image ingestion boundary;
 - extracted text is candidate data until reviewed;
@@ -140,6 +168,8 @@ Required solution:
 
 ## Scenario 15: Meeting notes contain multiple commitments
 
+ID: `SCN-15`
+
 Required solution:
 - extract candidate obligations separately;
 - human/agent review;
@@ -148,6 +178,8 @@ Required solution:
 - unresolved commitments visible in opportunity blockers.
 
 ## Scenario 16: Customer asks a technical question during outreach
+
+ID: `SCN-16`
 
 Required solution:
 - classify Question;
@@ -159,6 +191,8 @@ Required solution:
 
 ## Scenario 17: Pricing differs by customer
 
+ID: `SCN-17`
+
 Required solution:
 - pricing/proposal domain separated from generic content;
 - authorization policy;
@@ -169,6 +203,8 @@ Required solution:
 
 ## Scenario 18: Referral introduces three people
 
+ID: `SCN-18`
+
 Required solution:
 - referral as first-class relationship event;
 - preserve referrer;
@@ -178,6 +214,8 @@ Required solution:
 
 ## Scenario 19: One organization has several simultaneous problems
 
+ID: `SCN-19`
+
 Required solution:
 - multiple leads/opportunities can reference same organization;
 - do not collapse organization into one pipeline stage;
@@ -186,6 +224,8 @@ Required solution:
 
 ## Scenario 20: One problem maps to several Echelon offerings
 
+ID: `SCN-20`
+
 Required solution:
 - OfferingFit assessment with evidence;
 - options can coexist;
@@ -193,6 +233,8 @@ Required solution:
 - avoid prematurely locking problem to first product.
 
 ## Scenario 21: New offering emerges from repeated conversations
+
+ID: `SCN-21`
 
 Required solution:
 - cluster problem evidence/customer language;
@@ -203,6 +245,8 @@ Required solution:
 
 ## Scenario 22: A channel changes API capability or policy
 
+ID: `SCN-22`
+
 Required solution:
 - runtime/provider capability registry;
 - provider contract version;
@@ -212,6 +256,8 @@ Required solution:
 - no core-domain assumption that every provider can publish/search/message.
 
 ## Scenario 23: API rate limit hits mid-campaign
+
+ID: `SCN-23`
 
 Required solution:
 - provider-aware rate budget;
@@ -224,6 +270,8 @@ Required solution:
 
 ## Scenario 24: Website visitor becomes known later
 
+ID: `SCN-24`
+
 Required solution:
 - anonymous session data remains privacy-bounded;
 - identity stitching only when permitted and evidenced;
@@ -231,6 +279,8 @@ Required solution:
 - confidence/provenance retained.
 
 ## Scenario 25: Multiple touches precede a sale
+
+ID: `SCN-25`
 
 Required solution:
 - attribution model as analysis, not fact;
@@ -240,12 +290,16 @@ Required solution:
 
 ## Scenario 26: Campaign is successful but unprofitable
 
+ID: `SCN-26`
+
 Required solution:
 - revenue, gross margin where available, human effort, agent/API cost, advertising/event cost, and opportunity cost;
 - value-realization analysis;
 - success criteria may include economic thresholds, not only conversions.
 
 ## Scenario 27: Agent/API costs spike
+
+ID: `SCN-27`
 
 Required solution:
 - per-agent/model/workflow/campaign budgets;
@@ -257,6 +311,8 @@ Required solution:
 
 ## Scenario 28: Research source disappears
 
+ID: `SCN-28`
+
 Required solution:
 - retain citation/reference metadata and permitted snapshot/hash;
 - derived evidence does not pretend source is still available;
@@ -264,6 +320,8 @@ Required solution:
 - high-consequence claims may require re-verification.
 
 ## Scenario 29: Two sources repeat the same underlying press release
+
+ID: `SCN-29`
 
 Required solution:
 - evidence dependency/lineage graph;
@@ -273,12 +331,16 @@ Required solution:
 
 ## Scenario 30: Evidence forms a circular support chain
 
+ID: `SCN-30`
+
 Required solution:
 - evidence dependency-cycle validation;
 - conclusions cannot support their own premises through derived artifacts;
 - graph diagnostics identify cycles.
 
 ## Scenario 31: Agent hallucinates a company fact
+
+ID: `SCN-31`
 
 Required solution:
 - sourced-fact fields require evidence reference;
@@ -288,6 +350,8 @@ Required solution:
 
 ## Scenario 32: Human overrides agent recommendation
 
+ID: `SCN-32`
+
 Required solution:
 - override is legal;
 - preserve recommendation and human decision separately;
@@ -296,12 +360,16 @@ Required solution:
 
 ## Scenario 33: Human approves copy, then agent edits one sentence
 
+ID: `SCN-33`
+
 Required solution:
 - approval bound to content hash/version;
 - modification invalidates approval;
 - trivial-formatting policy MAY permit defined non-semantic transformations.
 
 ## Scenario 34: Opportunity appears dead, then resurfaces a year later
+
+ID: `SCN-34`
 
 Required solution:
 - Dormant/Reopen lifecycle;
@@ -312,6 +380,8 @@ Required solution:
 
 ## Scenario 35: Customer has a negative experience
 
+ID: `SCN-35`
+
 Required solution:
 - relationship risk signal;
 - suppress inappropriate automated marketing;
@@ -320,6 +390,8 @@ Required solution:
 - do not let campaign optimization override relationship safety.
 
 ## Scenario 36: Sensitive information enters notes accidentally
+
+ID: `SCN-36`
 
 Required solution:
 - data classification;
@@ -330,6 +402,8 @@ Required solution:
 - agents receive least data necessary.
 
 ## Scenario 37: GitHub repository grows too large
+
+ID: `SCN-37`
 
 Required solution:
 - storage abstraction at domain boundary;
@@ -342,6 +416,8 @@ Required solution:
 
 ## Scenario 38: User needs answer on phone in 30 seconds
 
+ID: `SCN-38`
+
 Required solution:
 - decision-oriented home screen;
 - saved views;
@@ -353,12 +429,16 @@ Required solution:
 
 ## Scenario 39: User asks "what should I do next?"
 
+ID: `SCN-39`
+
 Required solution:
 - NextBestWork projection built from obligations, deadlines, expected value, reversibility, evidence gaps, relationship timing, and human-only approvals;
 - explanation required;
 - it is decision support, not opaque prioritization.
 
 ## Scenario 40: Several agents can work in parallel
+
+ID: `SCN-40`
 
 Required solution:
 - WorkClaim/lease or equivalent;
@@ -371,6 +451,8 @@ Required solution:
 
 ## Scenario 41: Research never ends
 
+ID: `SCN-41`
+
 Required solution:
 - research stopping criteria;
 - evidence sufficiency policies;
@@ -380,12 +462,16 @@ Required solution:
 
 ## Scenario 42: No evidence is found
 
+ID: `SCN-42`
+
 Required solution:
 - NegativeKnowledge with search scope, sources, method, time, expected evidence, and expiry;
 - absence is not automatically evidence of absence;
 - repeated scoped negative searches may influence confidence according to policy.
 
 ## Scenario 43: Competitor launches similar offering
+
+ID: `SCN-43`
 
 Required solution:
 - competitor signal;
@@ -395,12 +481,16 @@ Required solution:
 
 ## Scenario 44: Client wants a custom engagement
 
+ID: `SCN-44`
+
 Required solution:
 - Opportunity can create EngagementHypothesis/solution configuration without requiring a pre-existing catalog SKU;
 - reusable capabilities linked to custom configuration;
 - learn whether custom patterns should become standard offerings.
 
 ## Scenario 45: Existing client presents expansion opportunity
+
+ID: `SCN-45`
 
 Required solution:
 - customer/account relationship context;
@@ -409,6 +499,8 @@ Required solution:
 - outreach policies distinguish customer success from prospecting.
 
 ## Scenario 46: Marketing creates more qualified work than delivery can handle
+
+ID: `SCN-46`
 
 Required solution:
 - capacity signal;
@@ -420,6 +512,8 @@ Required solution:
 
 ## Scenario 47: A campaign targets different countries
 
+ID: `SCN-47`
+
 Required solution:
 - jurisdiction/channel policy attached to recipient/context;
 - do not assume one outreach rule applies globally;
@@ -427,6 +521,8 @@ Required solution:
 - uncertain compliance blocks consequential automation pending review.
 
 ## Scenario 48: User wants to know why a recommendation changed
+
+ID: `SCN-48`
 
 Required solution:
 - decision/recommendation provenance;
@@ -436,6 +532,8 @@ Required solution:
 
 ## Scenario 49: System makes a bad recommendation
 
+ID: `SCN-49`
+
 Required solution:
 - outcome linked to decision;
 - retrospective;
@@ -443,6 +541,8 @@ Required solution:
 - feed learning into requirements/experiments rather than silently tuning an opaque score.
 
 ## Scenario 50: Business adds a completely new market
+
+ID: `SCN-50`
 
 Required solution:
 - no code change should be required merely to represent a new market/ICP/problem/offer;

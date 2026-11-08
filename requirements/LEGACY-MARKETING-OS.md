@@ -6,6 +6,8 @@ This document records concepts that must not be lost during consolidation into `
 
 ## Core principle
 
+ID: `LEG-01`
+
 Marketing is a learning system, not an activity generator.
 
 Canonical learning loop:
@@ -15,6 +17,8 @@ Market hypothesis -> Problem hypothesis -> Evidence gathering -> ICP refinement 
 Agents MUST NOT turn assumptions into truth.
 
 ## State-driven marketing
+
+ID: `LEG-02`
 
 The predecessor proposed explicit states such as:
 
@@ -30,6 +34,8 @@ Every meaningful transition SHOULD answer:
 This principle is retained and strengthened by current SDE/Ordo.
 
 ## Evidence strength
+
+ID: `LEG-03`
 
 The predecessor explicitly distinguished evidence strength.
 
@@ -57,11 +63,15 @@ Attention MUST NOT be silently promoted into evidence of purchasing demand.
 
 ## Buying triggers
 
+ID: `LEG-04`
+
 Buying triggers remain first-class research targets. Examples include AI mandates, production incidents, growth in AI-generated code, architecture/security concerns, modernization, acquisition, executive changes, board pressure, missed delivery, rising defects/rework, customer escalation, and regulation.
 
 The system SHOULD learn which triggers correlate with real conversations and purchases.
 
 ## Strategy synthesis
+
+ID: `LEG-05`
 
 Strategy agents SHOULD be constrained to legal recommendations such as continue research, refine hypothesis, advance to test, or reject hypothesis.
 
@@ -69,31 +79,45 @@ Advancement SHOULD require sufficient evidence for recognized pain, buyer, conse
 
 ## Campaign principle
 
+ID: `LEG-06`
+
 A campaign is an experiment against a proposition, not an excuse to generate activity.
 
 Campaigns define audience, trigger, problem, message, offer, channel, call to action, success measure, and stopping condition.
 
 ## Asset principle
 
+ID: `LEG-07`
+
 Content agents execute against approved strategy. They MUST NOT silently redefine market, problem, positioning, offer, or claims while producing copy.
 
 ## Distribution principle
+
+ID: `LEG-08`
 
 External communication is consequential. Authorization MUST be explicit. High-volume contact is never implied by access to a list.
 
 ## Results interpretation
 
+ID: `LEG-09`
+
 Impressions demonstrate distribution, clicks may demonstrate interest, replies demonstrate engagement, qualified conversations provide stronger problem-recognition evidence, proposals demonstrate commercial consideration, and purchases provide demand evidence. The system MUST preserve those distinctions.
 
 ## Human role
+
+ID: `LEG-10`
 
 Humans remain important for strategic judgment, reputation-sensitive decisions, novel claims, ethical questions, major positioning changes, high-consequence outreach, and ambiguous evidence.
 
 ## Initial test concept
 
+ID: `LEG-11`
+
 The predecessor proposed testing whether software organizations expanding AI-assisted development represent a market for engineering architecture/risk services, with CTO/VP Engineering as an initial candidate buyer. This remains a hypothesis, not established truth.
 
 ## Success criterion
+
+ID: `LEG-12`
 
 The system succeeds when it can answer:
 - What do we believe?

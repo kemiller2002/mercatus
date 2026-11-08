@@ -29,3 +29,16 @@ jobs:
       - name: Validate agent policy
         shell: bash
         run: test -s AGENTS.md
+
+  modernization-gate:
+    needs: debounce
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify domain and workflow modernization gate (WI-0012)
+        run: node tools/modernization/verify-gate.mjs
+      - name: Test modernization gate rules
+        run: node --test tools/modernization/gate.test.mjs

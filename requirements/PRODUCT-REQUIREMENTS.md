@@ -2,6 +2,8 @@
 
 ## 1. Governing requirements
 
+ID: `PRD-01`
+
 1. The system MUST follow ROS for requirements, work decomposition, evidence, execution tracking, traceability, agent activity, cost, completion criteria, handoffs, and release readiness.
 2. The system MUST follow SDE/Ordo. Important domain objects MUST expose explicit state, legal transitions, invariants, capabilities, obligations, evidence requirements, policy, version checks, history, and explicit external effects.
 3. Illegal states SHOULD be unrepresentable where practical.
@@ -12,6 +14,8 @@
 8. Evolution SHOULD be incremental and compatibility-preserving. Breaking changes require an explicit migration.
 
 ## 2. Purpose
+
+ID: `PRD-02`
 
 The system MUST help Echelon:
 - discover markets and problems;
@@ -31,12 +35,16 @@ The system MUST distinguish activity, output, engagement, evidence, opportunity,
 
 ## 3. Core domain
 
+ID: `PRD-03`
+
 Initial first-class entities:
 MarketHypothesis, ICP, ProblemHypothesis, Organization, Contact, Relationship, Lead, Opportunity, Offering, Campaign, CampaignTarget, Experiment, Message, Asset, Interaction, Conversation, Observation, Evidence, Source, CustomerLanguage, Competitor, Alternative, Outcome, Decision, Obligation, AgentActivity, Metric, ChannelPolicy, ExternalEffect.
 
 This is a discovery model and MAY evolve through evidence.
 
 ## 4. Market hypotheses
+
+ID: `PRD-04`
 
 A MarketHypothesis MUST support market/segment, organization characteristics, geography, buyer roles, users, problems, pressures, technology environment, ability to pay, urgency, alternatives, buying triggers, assumptions, supporting evidence, contradictory evidence, confidence, and state.
 
@@ -47,6 +55,8 @@ The system MUST permit competing hypotheses and MUST NOT assume the current mark
 
 ## 5. Problem hypotheses
 
+ID: `PRD-05`
+
 Problems MUST be modeled independently from solutions.
 
 A ProblemHypothesis SHOULD capture affected customer/role, current process, impact, frequency, severity, economic/operational consequence, workaround, alternatives, evidence, missing evidence, assumptions, and confidence.
@@ -55,6 +65,8 @@ Research MUST seek disconfirming evidence, not merely confirmation.
 
 ## 6. ICP
 
+ID: `PRD-06`
+
 An ICP is a versioned hypothesis, not static segmentation.
 
 It MAY include industry, revenue, employees, technical complexity, maturity, AI adoption, modernization activity, regulation, decision structure, pain, budget, triggers, exclusions, and buyer characteristics.
@@ -62,6 +74,8 @@ It MAY include industry, revenue, employees, technical complexity, maturity, AI 
 Won and lost opportunities SHOULD be compared against ICP assumptions.
 
 ## 7. Evidence
+
+ID: `PRD-07`
 
 Evidence is first-class.
 
@@ -82,6 +96,8 @@ Negative results MUST be retained.
 
 ## 8. Organizations, contacts, and relationships
 
+ID: `PRD-08`
+
 Organizations MUST be first-class and MAY include industry, size, locations, leadership, business units, technology, initiatives, acquisitions, hiring, public statements, AI/modernization activity, known problems, vendors, relationships, and interaction history.
 
 Contacts MUST remain independent from organizations and MAY include role, responsibilities, relationship, relationship strength, interests, priorities, problems, influence, buying role, preferred channel, and communication history.
@@ -89,6 +105,8 @@ Contacts MUST remain independent from organizations and MAY include role, respon
 Relationships MUST preserve history rather than reducing a person to a current CRM stage.
 
 ## 9. Lead discovery and qualification
+
+ID: `PRD-09`
 
 Lead discovery MAY use market research, announcements, news, hiring, conferences, referrals, inbound content, website engagement, public technical activity, business changes, and other legitimate public signals.
 
@@ -99,6 +117,8 @@ A lead MUST retain source, time, relevance, evidence, associated hypothesis, and
 Qualification SHOULD consider problem fit, capability fit, urgency, economic value, authority, willingness, timing, access, strategic relevance, competitive position, and relationship. Uncertainty MUST be representable. Opaque single-number AI scoring is insufficient.
 
 ## 10. Opportunities and obligations
+
+ID: `PRD-10`
 
 Suggested opportunity states:
 Discovered, Researching, Engaging, ProblemConfirmed, Qualified, Exploring, Proposal, Negotiation, Won, Lost, Dormant, Rejected.
@@ -118,6 +138,8 @@ The UI SHOULD answer what unresolved work prevents advancement.
 
 ## 11. Campaigns and experiments
 
+ID: `PRD-11`
+
 A Campaign MUST include objective, target market, ICP, accounts/roles, problem hypothesis, message hypothesis, offer, channels, assets, duration, cost, expected outcome, success/failure criteria, stopping criteria, evidence, and results.
 
 Campaign states MAY include Draft, ReadyForReview, Approved, Active, Paused, Completed, Evaluated.
@@ -127,6 +149,8 @@ CampaignTarget MUST be an explicit entity rather than a recipient list.
 Experiments MUST remain distinct from campaign execution and SHOULD include hypothesis, independent variable, expected signal, audience, measurement, duration/sample target, stopping rules, interpretation rules, result, and learning.
 
 ## 12. Messaging and content
+
+ID: `PRD-12`
 
 The system MUST support message testing across market, role, problem, technical sophistication, maturity, trigger, offering, and channel.
 
@@ -140,6 +164,8 @@ AI-generated public content MUST be reviewable where policy requires.
 
 ## 13. Distribution and outreach
 
+ID: `PRD-13`
+
 Channels MAY include website, email, LinkedIn, Reddit, X, Meta/Facebook, video, conferences, groups, direct outreach, and referrals.
 
 The system SHOULD support account/contact briefs, conversation starters, draft outreach, follow-up, meeting preparation, discovery questions, and recommended next moves.
@@ -149,6 +175,8 @@ Personalization MUST be evidence-grounded. The system MUST NOT fabricate familia
 Initial first contact requires human approval.
 
 ## 14. Conversations, response, and learning
+
+ID: `PRD-14`
 
 Sales conversations SHOULD capture questions, problems, evidence, objections, commitments, unknowns, stakeholders, decision process, and next steps.
 
@@ -160,11 +188,15 @@ Conversations MAY update or contradict market, problem, ICP, message, and opport
 
 ## 15. Win/loss
 
+ID: `PRD-15`
+
 The system SHOULD preserve why an organization considered acting, acted, did not act, won, lost, selected alternatives, objected to message/pricing/timing, or lacked trust/access/fit.
 
 Losses remain learning artifacts.
 
 ## 16. Metrics and economics
+
+ID: `PRD-16`
 
 Leading measures MAY include researched target accounts, validated problems, relevant conversations, response rates, relationship growth, qualified opportunities, and experiment evidence.
 
@@ -180,11 +212,15 @@ Agent activity SHOULD retain agent, task, model, tokens/cost where available, du
 
 ## 17. Decision support and Clarity
 
+ID: `PRD-17`
+
 Recommendations SHOULD expose evidence, assumptions, uncertainty, benefits, risks, alternatives, and unresolved questions.
 
 Clarity MAY be used for market selection, account prioritization, campaigns, opportunities, proposals, and experiments when useful. It SHOULD NOT be mechanically forced into every decision.
 
 ## 18. Agents
+
+ID: `PRD-18`
 
 Initial/specialized roles MAY include:
 Researcher, Strategist, ExperimentDesigner, AccountAnalyst, ContentStrategist, ContentProducer, SalesAnalyst, LearningAgent, MarketListener, ProblemMiner, CustomerLanguageAnalyst, CompetitorMonitor, OpportunityScout, ContentOpportunityAgent, EngagementAgent.
@@ -195,11 +231,15 @@ Agent roles are independent of model/provider selection.
 
 ## 19. Knowledge
 
+ID: `PRD-19`
+
 The knowledge system SHOULD structure markets, customer language, problems, objections, competitors, alternatives, successful/failed messages, campaigns, experiments, account patterns, win/loss information, conversations, and evidence.
 
 It MUST NOT treat an unstructured document/vector store as canonical truth.
 
 ## 20. Exploration and pivot discovery
+
+ID: `PRD-20`
 
 The system MUST support exploration as well as exploitation.
 
@@ -209,11 +249,15 @@ It MAY recommend investigation of a pivot. It MUST NOT silently pivot strategy.
 
 ## 21. Website and attribution
 
+ID: `PRD-21`
+
 The website SHOULD become part of the commercial system, supporting source/attribution, content interaction, calls to action, conversions, and return visits under explicit privacy rules.
 
 Attribution SHOULD support multiple touches. The final interaction MUST NOT automatically be treated as causal.
 
 ## 22. Privacy, security, and audit
+
+ID: `PRD-22`
 
 The system MUST collect only legitimate, relevant information.
 
@@ -226,6 +270,8 @@ Important actions MUST retain actor, previous/resulting state, requested transit
 More consequential and less reversible actions SHOULD require stronger evidence and/or approval.
 
 ## 23. UX
+
+ID: `PRD-23`
 
 The application SHOULD make it easy to answer:
 - What markets are we testing?
@@ -244,6 +290,8 @@ The application SHOULD make it easy to answer:
 
 ## 24. Anti-requirements
 
+ID: `PRD-24`
+
 The system is NOT:
 - a Salesforce clone;
 - a generic CRM;
@@ -258,6 +306,8 @@ The system is NOT:
 
 ## 25. Initial vertical slice
 
+ID: `PRD-25`
+
 The first complete vertical slice SHOULD be:
 
 MarketHypothesis -> ProblemHypothesis -> Organization discovery -> Observation/Evidence -> Lead -> Qualification -> Opportunity -> Outcome -> Learning.
@@ -267,7 +317,11 @@ It MUST exercise ROS, SDE, Limen, F#, states, transitions, evidence, obligations
 
 ## 26. Commercial signal and memory requirements
 
+ID: `PRD-26`
+
 ### 26.1 Signals
+
+ID: `PRD-26.1`
 
 The system MUST model a Signal separately from Observation and Evidence. A signal is a candidate indication that commercial conditions may have changed and requires interpretation before it can affect strategy.
 
@@ -279,11 +333,15 @@ A signal MUST NOT automatically become a lead, opportunity, or market conclusion
 
 ### 26.2 Commercial memory
 
+ID: `PRD-26.2`
+
 The system MUST retain prior experiments, campaigns, messages, offers, hypotheses, outcomes, failures, negative evidence, and contextual conditions so agents can determine whether substantially equivalent work has already been attempted.
 
 Before proposing a repeated experiment, an agent SHOULD identify the prior attempt and explain what material condition has changed.
 
 ### 26.3 Evidence freshness
+
+ID: `PRD-26.3`
 
 Evidence SHOULD support effective-current projections. The system MUST be able to distinguish historically true evidence from evidence believed to remain currently applicable.
 
@@ -291,15 +349,21 @@ Stale evidence MUST NOT silently satisfy current transition requirements.
 
 ### 26.4 Negative knowledge
 
+ID: `PRD-26.4`
+
 The system MUST represent relevant searches or investigations that found no expected evidence when that absence is meaningful. Negative knowledge SHOULD retain scope, method, time, source set, expected finding, and expiry conditions.
 
 Absence of evidence MUST NOT automatically be interpreted as evidence of absence.
 
 ### 26.5 Unknown external effects
 
+ID: `PRD-26.5`
+
 When an external operation may have occurred but confirmation is unavailable, the system MUST preserve an Unknown effect state and create a reconciliation obligation. It MUST NOT blindly retry a potentially non-idempotent operation.
 
 ## 27. GitHub-backed persistence requirements
+
+ID: `PRD-27`
 
 GitHub is the initial durable store, but domain semantics MUST remain independent of Git.
 
@@ -323,6 +387,8 @@ Git commit success MUST NOT be confused with successful external commercial effe
 
 ## 28. Mobile requirements
 
+ID: `PRD-28`
+
 The Limen application MUST be usable from a phone for core field workflows.
 
 Mobile workflows SHOULD include:
@@ -339,11 +405,15 @@ The design MUST follow current Visual Engineering accessibility and responsive-l
 
 ## 29. Conference and field mode
 
+ID: `PRD-29`
+
 The system SHOULD support an event/conference mode optimized for rapid capture.
 
 It SHOULD permit pre-event target research, introductions/meeting requests, on-site conversation/evidence capture, contact context, accessibility notes relevant to interaction logistics, follow-up obligations, post-event personalized outreach, conversion tracking, and event-level learning.
 
 ## 30. Claim governance
+
+ID: `PRD-30`
 
 Externally published factual and outcome claims MUST retain supporting evidence and an approval state.
 
@@ -353,6 +423,8 @@ Agents MUST NOT convert internal hypotheses, estimates, or research conclusions 
 
 ## 31. Accessibility
 
+ID: `PRD-31`
+
 Accessibility is a system requirement rather than a late UI audit.
 
 The application MUST support keyboard operation, semantic structure, visible focus, appropriate target sizing, zoom/reflow, reduced motion, non-color-only communication, accessible validation/errors, assistive-technology semantics, and contrast/readability requirements defined by Visual Engineering.
@@ -361,6 +433,8 @@ Accessibility-critical workflows MUST be included in acceptance testing.
 
 
 ## 32. Requirements discovered through scenario analysis
+
+ID: `PRD-32`
 
 The following additional concepts are required or strongly indicated by scenario analysis and MUST be treated as part of the design backlog:
 
