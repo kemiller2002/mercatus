@@ -14,7 +14,7 @@
 | WI-0009 | Move mercatus to Ordo 1.5.0 via echelon-current 1.2.0 (conditor upgrade --current) | complete |  | medium |
 | WI-0010 | Upgrade Limen 0.7.1 -> 0.9.0; declare the Limen boundary not yet applicable and restore limen-verify | complete |  | medium |
 | WI-0011 | Declare Aegis, Forma and Folio not yet applicable and run foundations verify in CI | complete |  | medium |
-| WI-0012 | Domain model and workflow validation gate before Forma modernization | active | modernization, domain, ordo | high |
+| WI-0012 | Domain model and workflow validation gate before Forma modernization | complete | modernization, domain, ordo | high |
 | WI-0013 | FND-01: Implement the Tier 1/2 F# semantic core for the first vertical slice (no domain implementation exists) | captured | modernization, domain-audit | high |
 | WI-0014 | FND-02: Assign stable requirement IDs to canonical requirements (owner decision) | captured | modernization, domain-audit | medium |
 | WI-0015 | FND-03: Specify explicit transition tables for every aggregate in DOMAIN-STATE-MODEL | captured | modernization, domain-audit | high |
