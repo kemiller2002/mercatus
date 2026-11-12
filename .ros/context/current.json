@@ -797,7 +797,27 @@
       "updatedAt": "2026-11-12T18:53:48.118Z",
       "telemetryExecutionIds": [
         "EXE-20261112T185348453Z-40de1309"
-      ]
+      ],
+      "latestCheckpoint": {
+        "id": "9a5f55598ac58854c955a08a",
+        "recordedAt": "2026-11-12T18:55:13.838Z",
+        "executionId": "EXE-20261112T185348453Z-40de1309",
+        "repository": "mercatus",
+        "branch": "claude/elegant-archimedes-p2xelw",
+        "commit": "554deb0b72955fc0b82e8ff4a860b32ff0d2390c",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/mercatus"
+        },
+        "remoteBranch": "claude/elegant-archimedes-p2xelw",
+        "remoteCommit": "554deb0b72955fc0b82e8ff4a860b32ff0d2390c",
+        "summary": "Site generator started (content module, pinned marked); nothing deployed",
+        "nextAction": "Await owner choice: deploy project site, start application build, or both",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      }
     }
   ]
 }
