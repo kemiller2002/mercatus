@@ -66,6 +66,11 @@ test("requirementIdsOf reads the ID line under each section heading and reports 
   assert.deepEqual(requirementIdsOf(md), { ids: ["DSM-08", "PRD-26.1", "DSM-07A", "REQ-BOOTSTRAP-001"], missing: ["No id"] });
 });
 
+test("only the first # heading is exempt as the document title", () => {
+  const md = "# Title\n\n## 1. A\n\nID: `X-01`\n\n# Part II\n\ntext\n# Rules\n\nID: `X-02`";
+  assert.deepEqual(requirementIdsOf(md), { ids: ["X-01", "X-02"], missing: ["Part II"] });
+});
+
 test("every requirement section needs a unique stable ID", () => {
   const ok = new Map([["a.md", { ids: ["A-01"], missing: [] }], ["b.md", { ids: ["B-01"], missing: [] }]]);
   assert.deepEqual(checkRequirementIds(ok), []);

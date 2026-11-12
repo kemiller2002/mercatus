@@ -135,6 +135,8 @@ A motion can have strong customer value and still fail as an Echelon business mo
 
 # Stop and pivot rules
 
+ID: `CEX-11`
+
 A commercial hypothesis should be reviewed when:
 - problem recognition is repeatedly low;
 - recognized problem has no urgency;
@@ -151,6 +153,8 @@ Review does not automatically mean rejection. It requires an explicit decision a
 
 # Positive escalation rules
 
+ID: `CEX-12`
+
 A wedge deserves more investment when multiple independent signals appear:
 - unsolicited problem language matches the hypothesis;
 - meaningful conversations repeat;
@@ -165,5 +169,7 @@ A wedge deserves more investment when multiple independent signals appear:
 No single viral post, enthusiastic conversation, or successful engagement is sufficient.
 
 # Required experiment record
+
+ID: `CEX-13`
 
 Every experiment must retain hypothesis, population, trigger, offering/motion, message, proof, CTA, channel, time window, cost, human effort, agent/model effort, stopping rule, raw outcomes, interpretation, contradictory evidence, decision, and follow-up obligations.

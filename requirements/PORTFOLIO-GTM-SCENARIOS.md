@@ -15,6 +15,8 @@ The system MUST also allow each offering to sell independently. Buyers should no
 
 # Part I: Clarity
 
+ID: `PGS-PART1`
+
 ## C-01 Executive decision under uncertainty
 
 ID: `PGS-C01`
@@ -108,6 +110,8 @@ This tests Clarity as scalable IP rather than hourly consulting.
 
 # Part II: EDF
 
+ID: `PGS-PART2`
+
 ## E-01 Recurring software failure nobody has fixed
 
 ID: `PGS-E01`
@@ -190,6 +194,8 @@ Expansion: Visual Engineering/accessibility remediation.
 
 # Part III: HelixNote
 
+ID: `PGS-PART3`
+
 ## H-01 Complex evidence packet
 
 ID: `PGS-H01`
@@ -265,6 +271,8 @@ Trigger: meeting/interview/field observation produces unstructured notes.
 HelixNote creates candidate structured observations, claims, obligations, chronology, and evidence links, with human review before treating extracted information as fact.
 
 # Part IV: Echelon Foundry
+
+ID: `PGS-PART4`
 
 ## F-01 Diagnostic front door
 
@@ -347,6 +355,8 @@ Position Echelon as a diagnostic and decision practice capable of crossing domai
 
 # Part V: Portfolio combinations
 
+ID: `PGS-PART5`
+
 ## P-01 EDF -> Clarity
 
 ID: `PGS-P01`
@@ -389,6 +399,8 @@ Important: the buyer does not need to know these internal names. External messag
 
 # Part VI: Distribution experiments
 
+ID: `PGS-PART6`
+
 The system MUST support experiments for:
 - problem-led articles;
 - anonymized case narratives;
@@ -413,6 +425,8 @@ Each distribution experiment MUST specify audience, problem, promise, proof, CTA
 
 # Part VII: Proof ladder
 
+ID: `PGS-PART7`
+
 Marketing MUST distinguish:
 1. Conceptual claim: why the method should work.
 2. Demonstration: worked example/simulation.
@@ -424,6 +438,8 @@ Marketing MUST distinguish:
 The system MUST prevent movement up this ladder without supporting evidence.
 
 # Part VIII: Messaging principle
+
+ID: `PGS-PART8`
 
 Do not lead with "Clarity," "EDF," or "HelixNote" when the prospect does not know the category.
 

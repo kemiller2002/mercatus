@@ -39,3 +39,6 @@ logs/*
 # Refresh it with: npx @echelon-foundry/visual-engineering upgrade
 !.visual-engineering/
 # END echelon:visual-engineering
+
+# Generated site
+dist/
