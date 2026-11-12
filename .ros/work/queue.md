@@ -38,7 +38,7 @@
 | WI-0033 | FND-22: Identify the authoritative Ordo playbook (no artifact of that name exists in Ordo) | captured | modernization, domain-audit | low |
 | WI-0034 | FND-23/24: Define first-contact approval scope and the targets of CampaignTarget.Converted and Signal.ConvertedToWork | captured | modernization, domain-audit | medium |
 | WI-0035 | Deploy the Mercatus project site to GitHub Pages | active | site, pages | high |
-| WI-0036 | Requirements completeness review: identify what is missing | active | requirements, review | high |
+| WI-0036 | Requirements completeness review: identify what is missing | complete | requirements, review | high |
 | WI-0037 | GAP-01: Decide the private data store and erasure model (personal data must not go in the public code repository) | captured | requirements, gap-analysis | high |
 | WI-0038 | GAP-02: Define legal outreach and personal-data requirements per target jurisdiction | captured | requirements, gap-analysis | high |
 | WI-0039 | GAP-03: Decide the host/runtime tier (workers, scheduler, webhook inbox, agent runtime) | captured | requirements, gap-analysis | high |
