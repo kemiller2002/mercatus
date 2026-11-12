@@ -830,6 +830,486 @@
       },
       "source": "manual",
       "sourceReference": null
+    },
+    {
+      "id": "WI-0036",
+      "title": "Requirements completeness review: identify what is missing",
+      "description": "Review all requirement documents for missing, contradictory and unbuildable requirements; record gaps with stable IDs and file actionable ones.",
+      "tags": [
+        "requirements",
+        "review"
+      ],
+      "priority": "high",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-11-12T18:59:53Z",
+      "updatedAt": "2026-11-12T18:59:54.144Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0037",
+      "title": "GAP-01: Decide the private data store and erasure model (personal data must not go in the public code repository)",
+      "description": "See docs/requirements-review/REQUIREMENTS-GAP-ANALYSIS.md, GAP-01.",
+      "tags": [
+        "requirements",
+        "gap-analysis"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-12T19:01:38Z",
+      "updatedAt": "2026-11-12T19:01:38Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0036",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0038",
+      "title": "GAP-02: Define legal outreach and personal-data requirements per target jurisdiction",
+      "description": "See docs/requirements-review/REQUIREMENTS-GAP-ANALYSIS.md, GAP-02.",
+      "tags": [
+        "requirements",
+        "gap-analysis"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-12T19:01:38Z",
+      "updatedAt": "2026-11-12T19:01:38Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0036",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0039",
+      "title": "GAP-03: Decide the host/runtime tier (workers, scheduler, webhook inbox, agent runtime)",
+      "description": "See docs/requirements-review/REQUIREMENTS-GAP-ANALYSIS.md, GAP-03.",
+      "tags": [
+        "requirements",
+        "gap-analysis"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-12T19:01:38Z",
+      "updatedAt": "2026-11-12T19:01:38Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0036",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0040",
+      "title": "GAP-04: Define human users, sign-in and human roles",
+      "description": "See docs/requirements-review/REQUIREMENTS-GAP-ANALYSIS.md, GAP-04.",
+      "tags": [
+        "requirements",
+        "gap-analysis"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-12T19:01:38Z",
+      "updatedAt": "2026-11-12T19:01:38Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0036",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0041",
+      "title": "GAP-05: Verify provider capabilities (Proton, Reddit, LinkedIn, X, Meta) against official documentation and choose the email provider",
+      "description": "See docs/requirements-review/REQUIREMENTS-GAP-ANALYSIS.md, GAP-05.",
+      "tags": [
+        "requirements",
+        "gap-analysis"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-12T19:01:39Z",
+      "updatedAt": "2026-11-12T19:01:39Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0036",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0042",
+      "title": "GAP-06: Specify secrets and credential management",
+      "description": "See docs/requirements-review/REQUIREMENTS-GAP-ANALYSIS.md, GAP-06.",
+      "tags": [
+        "requirements",
+        "gap-analysis"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-12T19:01:39Z",
+      "updatedAt": "2026-11-12T19:01:39Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0036",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0043",
+      "title": "GAP-07: Require untrusted-content isolation for agents and a global emergency stop",
+      "description": "See docs/requirements-review/REQUIREMENTS-GAP-ANALYSIS.md, GAP-07.",
+      "tags": [
+        "requirements",
+        "gap-analysis"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-12T19:01:39Z",
+      "updatedAt": "2026-11-12T19:01:39Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0036",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0044",
+      "title": "GAP-08: Fold the later commercial concepts (PCR, CLS, CPR, RDC) into the domain model",
+      "description": "See docs/requirements-review/REQUIREMENTS-GAP-ANALYSIS.md, GAP-08.",
+      "tags": [
+        "requirements",
+        "gap-analysis"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-12T19:01:40Z",
+      "updatedAt": "2026-11-12T19:01:40Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0036",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0045",
+      "title": "GAP-09: Choose one canonical definition for concepts defined several ways (Claim, roles, triggers, proof levels, lifecycles)",
+      "description": "See docs/requirements-review/REQUIREMENTS-GAP-ANALYSIS.md, GAP-09.",
+      "tags": [
+        "requirements",
+        "gap-analysis"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-12T19:01:40Z",
+      "updatedAt": "2026-11-12T19:01:40Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0036",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0046",
+      "title": "GAP-10: Owner decision on whether Mercatus manages engagement delivery; move PCR-24 to HelixNote",
+      "description": "See docs/requirements-review/REQUIREMENTS-GAP-ANALYSIS.md, GAP-10.",
+      "tags": [
+        "requirements",
+        "gap-analysis"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-12T19:01:40Z",
+      "updatedAt": "2026-11-12T19:01:40Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0036",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0047",
+      "title": "GAP-11: Establish one authoritative build order (PRD-25 vs IMP-06 vs INT-21)",
+      "description": "See docs/requirements-review/REQUIREMENTS-GAP-ANALYSIS.md, GAP-11.",
+      "tags": [
+        "requirements",
+        "gap-analysis"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-12T19:01:40Z",
+      "updatedAt": "2026-11-12T19:01:40Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0036",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0048",
+      "title": "GAP-12: Map requirements to releases (slice 1, slice 2, later)",
+      "description": "See docs/requirements-review/REQUIREMENTS-GAP-ANALYSIS.md, GAP-12.",
+      "tags": [
+        "requirements",
+        "gap-analysis"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-12T19:01:41Z",
+      "updatedAt": "2026-11-12T19:01:41Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0036",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0049",
+      "title": "GAP-13: Add acceptance criteria and provisional policy values for slice-1 requirements",
+      "description": "See docs/requirements-review/REQUIREMENTS-GAP-ANALYSIS.md, GAP-13.",
+      "tags": [
+        "requirements",
+        "gap-analysis"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-12T19:01:41Z",
+      "updatedAt": "2026-11-12T19:01:41Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0036",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0050",
+      "title": "GAP-14: Specify non-functional requirements (performance, scale, availability, backup, devices, offline, language)",
+      "description": "See docs/requirements-review/REQUIREMENTS-GAP-ANALYSIS.md, GAP-14.",
+      "tags": [
+        "requirements",
+        "gap-analysis"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-12T19:01:41Z",
+      "updatedAt": "2026-11-12T19:01:41Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0036",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0051",
+      "title": "GAP-15: Specify how people are notified of approvals, follow-ups, Unknown effects and budget breaches",
+      "description": "See docs/requirements-review/REQUIREMENTS-GAP-ANALYSIS.md, GAP-15.",
+      "tags": [
+        "requirements",
+        "gap-analysis"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-12T19:01:42Z",
+      "updatedAt": "2026-11-12T19:01:42Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0036",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0052",
+      "title": "GAP-16: Define integration boundaries for calendar, revenue/accounting, website consent and initial data import",
+      "description": "See docs/requirements-review/REQUIREMENTS-GAP-ANALYSIS.md, GAP-16.",
+      "tags": [
+        "requirements",
+        "gap-analysis"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-12T19:01:42Z",
+      "updatedAt": "2026-11-12T19:01:42Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0036",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0053",
+      "title": "GAP-17: Assign an automation posture to each workflow (EFF-13)",
+      "description": "See docs/requirements-review/REQUIREMENTS-GAP-ANALYSIS.md, GAP-17.",
+      "tags": [
+        "requirements",
+        "gap-analysis"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-12T19:01:42Z",
+      "updatedAt": "2026-11-12T19:01:42Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0036",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0054",
+      "title": "GAP-18: Mark each requirement document as system requirement or commercial operating practice",
+      "description": "See docs/requirements-review/REQUIREMENTS-GAP-ANALYSIS.md, GAP-18.",
+      "tags": [
+        "requirements",
+        "gap-analysis"
+      ],
+      "priority": "low",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-12T19:01:43Z",
+      "updatedAt": "2026-11-12T19:01:43Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0036",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0055",
+      "title": "GAP-20: Trace SCN, PCR-34 and PGS scenarios to domain rules and planned tests",
+      "description": "See docs/requirements-review/REQUIREMENTS-GAP-ANALYSIS.md, GAP-20.",
+      "tags": [
+        "requirements",
+        "gap-analysis"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-12T19:01:43Z",
+      "updatedAt": "2026-11-12T19:01:43Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "WI-0036",
+      "sourceReference": null
     }
   ]
 }

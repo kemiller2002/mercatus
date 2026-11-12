@@ -53,9 +53,10 @@ export const checkUniqueIds = (doc) => {
   return dupes.map((id) => `ids: '${id}' is declared more than once`);
 };
 
-// Requirement sections (## to ####) must carry a stable ID line directly under the heading
+// Requirement sections must carry a stable ID line directly under the heading
 // (DF-MERCATUS-DOM-2026-0001). The requirement document is the only source of the ID.
-const HEADING = /^#{2,4}\s+(.+?)\s*$/;
+// Every heading from # to #### counts, except the first # heading, which is the document title.
+const HEADING = /^#{1,4}\s+(.+?)\s*$/;
 const ID_LINE = /^ID: `([A-Z][A-Z0-9]*(?:-[A-Z0-9.]+)+)`\s*$/;
 
 export const requirementIdsOf = (markdown) => {
@@ -64,6 +65,7 @@ export const requirementIdsOf = (markdown) => {
   const sections = lines
     .map((line, i) => [HEADING.exec(line), i])
     .filter(([m]) => m)
+    .filter(([, i], n) => !(n === 0 && /^#\s/.test(lines[i])))
     .map(([m, i]) => ({ heading: m[1], id: ID_LINE.exec(nextNonBlank(i))?.[1] ?? null }));
   return {
     ids: sections.filter((x) => x.id).map((x) => x.id),
