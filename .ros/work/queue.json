@@ -806,6 +806,30 @@
       },
       "source": "WI-0012",
       "sourceReference": null
+    },
+    {
+      "id": "WI-0035",
+      "title": "Deploy the Mercatus project site to GitHub Pages",
+      "description": "Static site generated from requirements (stable-ID anchors), decisions and modernization gate status; Actions deploy to mercatus.echelonfoundry.com behind a site quality gate.",
+      "tags": [
+        "site",
+        "pages"
+      ],
+      "priority": "high",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-11-12T18:53:47Z",
+      "updatedAt": "2026-11-12T18:53:47.867Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
     }
   ]
 }

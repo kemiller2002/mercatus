@@ -4,7 +4,7 @@
   "repository": "mercatus",
   "actor": "anthropic/claude-code",
   "startedAt": "2026-10-06T09:48:42.847Z",
-  "updatedAt": "2026-11-08T16:40:01.312Z",
+  "updatedAt": "2026-11-12T18:53:48.118Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -787,6 +787,17 @@
       },
       "completedAt": "2026-11-08T16:40:01.312Z",
       "conclusion": "Owner decisions applied: Sales and Marketing scope, stable requirement IDs, single source of truth, negative eligibility precedence"
+    },
+    {
+      "id": "WI-0035",
+      "type": "task",
+      "state": "active",
+      "semanticState": "active",
+      "evidence": [],
+      "updatedAt": "2026-11-12T18:53:48.118Z",
+      "telemetryExecutionIds": [
+        "EXE-20261112T185348453Z-40de1309"
+      ]
     }
   ]
 }

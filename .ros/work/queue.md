@@ -37,3 +37,4 @@
 | WI-0032 | FND-21: Owner decision: reconcile the template project charter/handoff with the Sales and Marketing product scope | complete | modernization, domain-audit | high |
 | WI-0033 | FND-22: Identify the authoritative Ordo playbook (no artifact of that name exists in Ordo) | captured | modernization, domain-audit | low |
 | WI-0034 | FND-23/24: Define first-contact approval scope and the targets of CampaignTarget.Converted and Signal.ConvertedToWork | captured | modernization, domain-audit | medium |
+| WI-0035 | Deploy the Mercatus project site to GitHub Pages | ready | site, pages | high |
