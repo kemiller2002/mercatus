@@ -41,4 +41,4 @@ jobs:
       - name: Verify domain and workflow modernization gate (WI-0012)
         run: node tools/modernization/verify-gate.mjs
       - name: Test modernization gate and Forma/Folio conformance rules
-        run: node --test tools/modernization/gate.test.mjs tools/modernization/ui-conformance.test.mjs
+        run: node --test tools/modernization/gate.test.mjs tools/modernization/ui-conformance.test.mjs tools/modernization/transitions.test.mjs

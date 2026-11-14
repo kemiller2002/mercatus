@@ -5,6 +5,7 @@
 // facts (files, headings, work items, tracked paths) and passes them in.
 
 import { runUiConformance } from "./ui-conformance.mjs";
+import { checkProposal, checkRendered } from "./transitions.mjs";
 
 export const GATE_CRITERIA = Object.freeze([
   "domainModelVerified",
@@ -227,6 +228,12 @@ export const runChecks = (doc, facts) => {
         ...checkInventory(doc, facts.trackedPaths),
         ...checkCoverage(doc, facts.idsByFile),
         ...(facts.ui ? runUiConformance(facts.ui) : []),
+        ...(facts.transitions
+          ? [
+              ...checkProposal(facts.transitions.doc, facts.transitions.dsmStates),
+              ...checkRendered(facts.transitions.markdown, facts.transitions.doc),
+            ]
+          : []),
       ];
 };
 

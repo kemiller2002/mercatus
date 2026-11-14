@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "mercatus",
-  "nextSeq": 51,
+  "nextSeq": 53,
   "items": [
     {
       "id": "WI-0001",
@@ -1160,6 +1160,52 @@
       "attachments": [],
       "createdAt": "2026-11-14T15:45:40.532Z",
       "updatedAt": "2026-11-14T15:48:39.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0051",
+      "title": "Draft the PRD-25 first-slice acceptance proposal: numbered acceptance criteria, synthetic-data policy (with an executable fixture check) and a minimal Outcome/LearningRecord model, for owner acceptance under WI-0038",
+      "description": null,
+      "tags": [
+        "first-slice,proposal"
+      ],
+      "priority": "high",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-11-14T20:43:16.005Z",
+      "updatedAt": "2026-11-14T20:43:16.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0052",
+      "title": "Draft machine-readable transition tables for the first-slice aggregates with a validator in the gate (proposal for owner acceptance under WI-0015, WI-0016, WI-0022, WI-0023, WI-0026)",
+      "description": null,
+      "tags": [
+        "first-slice,proposal,domain"
+      ],
+      "priority": "high",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-11-14T20:43:16.618Z",
+      "updatedAt": "2026-11-14T20:43:17.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",

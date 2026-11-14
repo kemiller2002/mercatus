@@ -2783,6 +2783,13 @@
       "description": "Folio deterministic PDF tests (UIR-06, UIR-15.3).",
       "status": "defined-not-executable",
       "precondition": "first print contract (PR-*) folioStatus in-progress"
+    },
+    {
+      "id": "CHK-TRN-01",
+      "kind": "executable",
+      "description": "First-slice transition proposal coherence: reachability, no dead ends, explicit reopen from terminal states, determinism, declared DSM amendments, generated tables current (WI-0052).",
+      "command": "node --test tools/modernization/transitions.test.mjs && node tools/modernization/verify-gate.mjs",
+      "status": "passing"
     }
   ],
   "findings": [
