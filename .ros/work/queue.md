@@ -52,4 +52,4 @@
 | WI-0047 | UIREV: Adopt Forma/VE browser conformance tooling with the first screen: TokenValidator, forma-color, NamespaceMigrator --check, forma-conformance Playwright suite, axe, VE robustness manifest, Folio PDF tests (CHK-UI-02..05) | captured | ui,verification | medium |
 | WI-0048 | Editorial: replace stale template context (research queue, decisions, risks, architecture, handoff header) with the Sales and Marketing scope; fix audit count, LEG-01 target and IMP-08 evidence (REQ-EVAL-31; non-decision part of WI-0044) | complete | editorial,context | medium |
 | WI-0049 | Traceability coverage report and ratchet in the modernization gate: count traced vs untraced requirement IDs and fail on regression (REQ-EVAL-30; first part of WI-0043) | complete | verification,traceability | medium |
-| WI-0050 | Scheduled Conditor drift advisory in CI against echelon-registry, failing when a pin falls below the supported range | ready | ci,conditor,toolchain | medium |
+| WI-0050 | Scheduled Conditor drift advisory in CI against echelon-registry, failing when a pin falls below the supported range | complete | ci,conditor,toolchain | medium |
