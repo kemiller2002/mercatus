@@ -1,0 +1,72 @@
+name: Conditor drift advisory
+
+# Reports how far Mercatus's pinned Echelon components (Praxis, Ordo, Limen,
+# Forma, Folio, echelon-theme, ...) lag the Registry channel echelon-current
+# (WI-0050; Conditor docs/drift-advisory.md). Runs weekly and on demand rather
+# than on every push, because the Registry moves independently of this
+# repository. It fails only when a pin falls below the channel's supported
+# range; other lag is reported in the job summary as an advisory.
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: conditor-drift
+  cancel-in-progress: true
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      # Exact Conditor release; the installer is read from that tag's commit
+      # and verifies the binary against the release checksums.
+      CONDITOR_VERSION: v0.10.25
+      CONDITOR_COMMIT: d204133e5d599fa36634e9b031c39590e81341c8
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          path: mercatus
+          fetch-depth: 0
+
+      - name: Check out the Echelon Registry
+        uses: actions/checkout@v4
+        with:
+          repository: kemiller2002/echelon-registry
+          path: echelon-registry
+          # Full history so registration times and historical sets are available.
+          fetch-depth: 0
+
+      - name: Install Conditor
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL "https://raw.githubusercontent.com/kemiller2002/conditor/${CONDITOR_COMMIT}/scripts/install.sh" \
+            | CONDITOR_INSTALL_DIR="$RUNNER_TEMP/bin" sh
+          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
+
+      - name: Report drift against echelon-current
+        shell: bash
+        run: |
+          set -uo pipefail
+          conditor drift --registry echelon-registry --channel echelon-current \
+            --target mercatus --fail-on fail | tee "$RUNNER_TEMP/drift.txt"
+          code=${PIPESTATUS[0]}
+          {
+            echo '## Conditor drift (echelon-current)'
+            echo
+            echo '```text'
+            cat "$RUNNER_TEMP/drift.txt"
+            echo '```'
+            echo
+            echo 'To move: `conditor upgrade --current --check --resolved-set <registry>/channels/echelon-current/linux-x64.json --resolved-set-sha256 <sha>`, review the plan, then authorize its digest (docs/ui/UI-INTEGRATION.md).'
+          } >> "$GITHUB_STEP_SUMMARY"
+          # 0: report produced; 3: a pin is below the supported range; 2: Registry input unavailable.
+          if [ "$code" -eq 3 ]; then echo "::error::A pinned component is below the Registry's supported range."; fi
+          exit "$code"

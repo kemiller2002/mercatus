@@ -69,3 +69,14 @@ then the specification fixes WI-0015, WI-0022, WI-0025, WI-0029.
   `npm run test:modernization` (31 tests).
 - **Open:** Folio's Forma 1.x alignment (WI-0045), Forma pattern gaps
   (WI-0046), and browser conformance tooling with the first screen (WI-0047).
+
+## WI-0048 to WI-0050: context refresh, coverage ratchet, drift advisory (2026-11-14)
+
+- The context files now describe the Sales and Marketing scope (they no
+  longer describe the template pilot).
+- `node tools/modernization/verify-gate.mjs` prints requirement coverage
+  (81 of 317 listed, 75 linked) and fails if it changes without a
+  baseline edit in `traceability.json` `coverage`. Add `--coverage` to list
+  the untraced IDs.
+- `.github/workflows/conditor-drift.yml` runs weekly (Monday 06:17 UTC) and on
+  demand. It fails only when a pin is below the Registry's supported range.
