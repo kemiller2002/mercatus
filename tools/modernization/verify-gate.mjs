@@ -6,6 +6,8 @@ import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { coverageOf, requirementIdsOf, runChecks } from "./gate.mjs";
 import { isUiSource } from "./ui-conformance.mjs";
+import { dsmStatesOf } from "./transitions.mjs";
+import { isFixture } from "./data-policy.mjs";
 
 const args = process.argv.slice(2);
 const root = args.find((a) => !a.startsWith("--")) ?? process.cwd();
@@ -38,7 +40,18 @@ const ui = {
   foundations: readJson(".echelon/foundations.json"),
 };
 
-const violations = runChecks(doc, { idsByFile, existingPaths, workItemIds, trackedPaths, ui });
+const transitionsPath = "docs/proposals/slice-transitions.json";
+const transitions = existsSync(join(root, transitionsPath))
+  ? {
+      doc: readJson(transitionsPath),
+      dsmStates: dsmStatesOf(readText("requirements/DOMAIN-STATE-MODEL.md")),
+      markdown: readText("docs/proposals/SLICE-TRANSITION-TABLES.md"),
+    }
+  : null;
+
+const fixtures = trackedPaths.filter(isFixture).map((path) => ({ path, text: readText(path) }));
+
+const violations = runChecks(doc, { idsByFile, existingPaths, workItemIds, trackedPaths, ui, transitions, fixtures });
 
 const summary = (doc.workflows ?? []).map((w) => `${w.id} ${w.status}`).join(", ");
 
@@ -50,5 +63,9 @@ violations.length
   : console.log(`PASS modernization gate: ${doc.requirements.length} requirements, ${doc.domainRules.length} rules, ${doc.workflows.length} workflows (${summary}), ${doc.findings.length} findings; UI conformance: ${ui.files.length} UI source file(s)`);
 
 console.log(coverageLine);
+transitions &&
+  console.log(
+    `transition proposal (${transitions.doc.status}): ${transitions.doc.aggregates.length} aggregates, ${transitions.doc.aggregates.reduce((n, a) => n + a.commands.length, 0)} commands`,
+  );
 showCoverage &&
   console.log([...coverage.untracedByFile].map(([file, ids]) => `  ${file} (${ids.length}): ${ids.join(", ")}`).join("\n"));

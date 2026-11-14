@@ -1,0 +1,1119 @@
+{
+  "schema": "mercatus.transition-proposal/v1",
+  "status": "proposed",
+  "workItem": "WI-0052",
+  "acceptanceOwner": "repository owner (PROJECT-CHARTER.md)",
+  "note": "Proposal only. Not accepted business rules. Actor columns are a proposal for the slice authorization model (FND-18). 'human' means no agent may hold the capability for this command in the slice; 'agent-or-human' means an agent with the capability may submit it; 'system' means the host issues it from time or another aggregate's event. Every command is evaluated through the DSM-01 envelope and returns one of the five TransitionResult cases.",
+  "aggregates": [
+    {
+      "id": "MarketHypothesis",
+      "source": "DSM-02",
+      "findings": [
+        "FND-03",
+        "FND-04",
+        "FND-05"
+      ],
+      "resolves": "FND-04: DSM-02 states are authoritative; PRD-04's lifecycle is the 'suggested' subset and its 'Revisit' becomes the transition pair Reopen -> Reopened -> ResumeResearch. FND-05: both hypothesis types use 'Reopened'.",
+      "initial": "Draft",
+      "states": [
+        {
+          "name": "Draft"
+        },
+        {
+          "name": "Proposed"
+        },
+        {
+          "name": "Researching"
+        },
+        {
+          "name": "Testable"
+        },
+        {
+          "name": "Testing"
+        },
+        {
+          "name": "Supported"
+        },
+        {
+          "name": "Weak"
+        },
+        {
+          "name": "Rejected",
+          "terminal": true,
+          "note": "reopenable"
+        },
+        {
+          "name": "Dormant",
+          "terminal": true,
+          "note": "reopenable"
+        },
+        {
+          "name": "Reopened",
+          "note": "transitional: records why it was reopened"
+        }
+      ],
+      "commands": [
+        {
+          "name": "Propose",
+          "from": [
+            "Draft"
+          ],
+          "to": "Proposed",
+          "actor": "agent-or-human",
+          "capability": "CanPropose",
+          "guard": "proposition and market scope stated"
+        },
+        {
+          "name": "StartResearch",
+          "from": [
+            "Proposed"
+          ],
+          "to": "Researching",
+          "actor": "agent-or-human",
+          "capability": "CanStartResearch",
+          "guard": "—"
+        },
+        {
+          "name": "MarkTestable",
+          "from": [
+            "Researching"
+          ],
+          "to": "Testable",
+          "actor": "agent-or-human",
+          "capability": "CanMarkTestable",
+          "guard": "falsifiable proposition; defined population; explicit assumptions"
+        },
+        {
+          "name": "StartTest",
+          "from": [
+            "Testable"
+          ],
+          "to": "Testing",
+          "actor": "human",
+          "capability": "CanStartTest",
+          "guard": "test plan or Experiment linked"
+        },
+        {
+          "name": "Support",
+          "from": [
+            "Testing"
+          ],
+          "to": "Supported",
+          "actor": "human",
+          "capability": "CanSupport",
+          "guard": "supporting and counter-evidence reviews done (no open FindCounterEvidence); cited evidence effective-current"
+        },
+        {
+          "name": "Weaken",
+          "from": [
+            "Testing",
+            "Supported"
+          ],
+          "to": "Weak",
+          "actor": "agent-or-human",
+          "capability": "CanWeaken",
+          "guard": "cites contradicting or missing evidence"
+        },
+        {
+          "name": "Reject",
+          "from": [
+            "Researching",
+            "Testable",
+            "Testing",
+            "Weak"
+          ],
+          "to": "Rejected",
+          "actor": "human",
+          "capability": "CanReject",
+          "guard": "rationale and evidence preserved"
+        },
+        {
+          "name": "MarkDormant",
+          "from": [
+            "Proposed",
+            "Researching",
+            "Testable",
+            "Supported",
+            "Weak"
+          ],
+          "to": "Dormant",
+          "actor": "human",
+          "capability": "CanDormant",
+          "guard": "reason and revisit condition"
+        },
+        {
+          "name": "Reopen",
+          "from": [
+            "Supported",
+            "Weak",
+            "Rejected",
+            "Dormant"
+          ],
+          "to": "Reopened",
+          "actor": "agent-or-human",
+          "capability": "CanReopen",
+          "guard": "new evidence or revisit condition met; prior lifecycle preserved",
+          "reopen": true
+        },
+        {
+          "name": "ResumeResearch",
+          "from": [
+            "Reopened"
+          ],
+          "to": "Researching",
+          "actor": "agent-or-human",
+          "capability": "CanStartResearch",
+          "guard": "—"
+        }
+      ],
+      "nonTransitions": [
+        "RecordEvidence",
+        "Edit"
+      ]
+    },
+    {
+      "id": "ProblemHypothesis",
+      "source": "DSM-03",
+      "findings": [
+        "FND-03",
+        "FND-05"
+      ],
+      "resolves": "FND-05: 'Revisit' is renamed 'Reopened', entered by Reopen and left by ResumeInvestigation.",
+      "initial": "Draft",
+      "states": [
+        {
+          "name": "Draft"
+        },
+        {
+          "name": "Observed"
+        },
+        {
+          "name": "Investigating"
+        },
+        {
+          "name": "Corroborated"
+        },
+        {
+          "name": "CommerciallyRelevant"
+        },
+        {
+          "name": "Weak"
+        },
+        {
+          "name": "Rejected",
+          "terminal": true,
+          "note": "reopenable"
+        },
+        {
+          "name": "Reopened",
+          "note": "renamed from Revisit (FND-05)"
+        }
+      ],
+      "commands": [
+        {
+          "name": "AttachFirstObservation",
+          "from": [
+            "Draft"
+          ],
+          "to": "Observed",
+          "actor": "agent-or-human",
+          "capability": "CanAttachObservation",
+          "guard": ">=1 Observation; problem stated without an Echelon solution"
+        },
+        {
+          "name": "Investigate",
+          "from": [
+            "Observed"
+          ],
+          "to": "Investigating",
+          "actor": "agent-or-human",
+          "capability": "CanInvestigate",
+          "guard": "—"
+        },
+        {
+          "name": "Corroborate",
+          "from": [
+            "Investigating"
+          ],
+          "to": "Corroborated",
+          "actor": "human",
+          "capability": "CanCorroborate",
+          "guard": "affected actor and consequence explicit; >=2 independent effective-current Evidence; workaround recorded or Unknown"
+        },
+        {
+          "name": "ConfirmCommercialRelevance",
+          "from": [
+            "Corroborated"
+          ],
+          "to": "CommerciallyRelevant",
+          "actor": "human",
+          "capability": "CanTestCommercialRelevance",
+          "guard": "evidence beyond social attention (TestCommercialConsequence satisfied)"
+        },
+        {
+          "name": "Weaken",
+          "from": [
+            "Investigating",
+            "Corroborated",
+            "CommerciallyRelevant"
+          ],
+          "to": "Weak",
+          "actor": "agent-or-human",
+          "capability": null,
+          "guard": "cites contradicting evidence"
+        },
+        {
+          "name": "Reject",
+          "from": [
+            "Observed",
+            "Investigating",
+            "Weak"
+          ],
+          "to": "Rejected",
+          "actor": "human",
+          "capability": "CanReject",
+          "guard": "rationale and evidence preserved"
+        },
+        {
+          "name": "Reopen",
+          "from": [
+            "Weak",
+            "Rejected"
+          ],
+          "to": "Reopened",
+          "actor": "agent-or-human",
+          "capability": "CanRevisit",
+          "guard": "new evidence",
+          "reopen": true
+        },
+        {
+          "name": "ResumeInvestigation",
+          "from": [
+            "Reopened"
+          ],
+          "to": "Investigating",
+          "actor": "agent-or-human",
+          "capability": "CanInvestigate",
+          "guard": "—"
+        }
+      ],
+      "nonTransitions": [
+        "AttachObservation",
+        "AttachEvidence"
+      ],
+      "amends": {
+        "renamed": {
+          "Revisit": "Reopened"
+        }
+      }
+    },
+    {
+      "id": "Observation",
+      "source": "DSM-04",
+      "findings": [
+        "FND-03"
+      ],
+      "initial": "Captured",
+      "states": [
+        {
+          "name": "Captured"
+        },
+        {
+          "name": "Normalized"
+        },
+        {
+          "name": "Reviewed"
+        },
+        {
+          "name": "PromotedToEvidence",
+          "terminal": true
+        },
+        {
+          "name": "Dismissed",
+          "terminal": true
+        },
+        {
+          "name": "Superseded",
+          "terminal": true
+        }
+      ],
+      "commands": [
+        {
+          "name": "Normalize",
+          "from": [
+            "Captured"
+          ],
+          "to": "Normalized",
+          "actor": "agent-or-human",
+          "capability": "CanNormalize",
+          "guard": "source reference immutable; observed and captured times distinct"
+        },
+        {
+          "name": "Review",
+          "from": [
+            "Normalized"
+          ],
+          "to": "Reviewed",
+          "actor": "agent-or-human",
+          "capability": "CanReview",
+          "guard": "—"
+        },
+        {
+          "name": "Promote",
+          "from": [
+            "Reviewed"
+          ],
+          "to": "PromotedToEvidence",
+          "actor": "agent-or-human",
+          "capability": "CanPromote",
+          "guard": "creates Evidence in Candidate; interpretation stored on the Evidence, not the Observation"
+        },
+        {
+          "name": "Dismiss",
+          "from": [
+            "Captured",
+            "Normalized",
+            "Reviewed"
+          ],
+          "to": "Dismissed",
+          "actor": "agent-or-human",
+          "capability": "CanDismiss",
+          "guard": "reason"
+        },
+        {
+          "name": "Supersede",
+          "from": [
+            "Captured",
+            "Normalized",
+            "Reviewed"
+          ],
+          "to": "Superseded",
+          "actor": "agent-or-human",
+          "capability": "CanSupersede",
+          "guard": "newer Observation linked; provenance kept"
+        }
+      ],
+      "nonTransitions": [
+        "LinkDuplicate"
+      ]
+    },
+    {
+      "id": "Evidence",
+      "source": "DSM-05",
+      "findings": [
+        "FND-03",
+        "FND-15"
+      ],
+      "resolves": "FND-15 (proposal): 'Stale' is not a stored state. Freshness is the pure projection effectiveCurrent(validity, now), so 'Accepted but expired' cannot satisfy a current-evidence guard. MarkStale is replaced by the ReviewStaleEvidence obligation, raised when the projection turns stale. DSM-05 needs an owner amendment.",
+      "initial": "Candidate",
+      "states": [
+        {
+          "name": "Candidate"
+        },
+        {
+          "name": "Accepted"
+        },
+        {
+          "name": "Contested"
+        },
+        {
+          "name": "Superseded",
+          "terminal": true
+        },
+        {
+          "name": "Invalidated",
+          "terminal": true
+        }
+      ],
+      "commands": [
+        {
+          "name": "Accept",
+          "from": [
+            "Candidate"
+          ],
+          "to": "Accepted",
+          "actor": "human",
+          "capability": "CanAccept",
+          "guard": "scope, claim, source, observation refs and validity window present; agent inference labelled as inference"
+        },
+        {
+          "name": "Contest",
+          "from": [
+            "Accepted"
+          ],
+          "to": "Contested",
+          "actor": "agent-or-human",
+          "capability": "CanContest",
+          "guard": "contradicting Evidence linked"
+        },
+        {
+          "name": "Uphold",
+          "from": [
+            "Contested"
+          ],
+          "to": "Accepted",
+          "actor": "human",
+          "capability": "CanAccept",
+          "guard": "rationale; contradiction kept (proposed command)"
+        },
+        {
+          "name": "Supersede",
+          "from": [
+            "Accepted",
+            "Contested"
+          ],
+          "to": "Superseded",
+          "actor": "agent-or-human",
+          "capability": "CanSupersede",
+          "guard": "newer Evidence linked"
+        },
+        {
+          "name": "Invalidate",
+          "from": [
+            "Candidate",
+            "Accepted",
+            "Contested"
+          ],
+          "to": "Invalidated",
+          "actor": "human",
+          "capability": "CanInvalidate",
+          "guard": "reason; dependants re-evaluated (EFF-01)"
+        }
+      ],
+      "nonTransitions": [
+        "LinkContradiction"
+      ],
+      "amends": {
+        "removed": [
+          "Stale"
+        ]
+      }
+    },
+    {
+      "id": "Organization",
+      "source": "DSM-06",
+      "findings": [
+        "FND-03"
+      ],
+      "initial": "Discovered",
+      "states": [
+        {
+          "name": "Discovered"
+        },
+        {
+          "name": "Researching"
+        },
+        {
+          "name": "Researched"
+        },
+        {
+          "name": "Candidate"
+        },
+        {
+          "name": "Engaging"
+        },
+        {
+          "name": "ActiveRelationship"
+        },
+        {
+          "name": "Inactive",
+          "note": "reactivatable"
+        }
+      ],
+      "commands": [
+        {
+          "name": "StartResearch",
+          "from": [
+            "Discovered"
+          ],
+          "to": "Researching",
+          "actor": "agent-or-human",
+          "capability": null,
+          "guard": "—"
+        },
+        {
+          "name": "CompleteResearch",
+          "from": [
+            "Researching"
+          ],
+          "to": "Researched",
+          "actor": "agent-or-human",
+          "capability": null,
+          "guard": "no open ResolveIdentity or ResolveDuplicate obligation"
+        },
+        {
+          "name": "MarkCandidate",
+          "from": [
+            "Researched"
+          ],
+          "to": "Candidate",
+          "actor": "agent-or-human",
+          "capability": null,
+          "guard": "ValidateICPFit satisfied with effective-current evidence"
+        },
+        {
+          "name": "BeginEngagement",
+          "from": [
+            "Candidate"
+          ],
+          "to": "Engaging",
+          "actor": "human",
+          "capability": null,
+          "guard": "CommunicationEligibility not blocked at organization scope (DSM-07A); outside the first slice"
+        },
+        {
+          "name": "EstablishRelationship",
+          "from": [
+            "Engaging"
+          ],
+          "to": "ActiveRelationship",
+          "actor": "human",
+          "capability": null,
+          "guard": "recorded interaction or Won opportunity"
+        },
+        {
+          "name": "MarkInactive",
+          "from": [
+            "Researched",
+            "Candidate",
+            "Engaging",
+            "ActiveRelationship"
+          ],
+          "to": "Inactive",
+          "actor": "agent-or-human",
+          "capability": null,
+          "guard": "reason"
+        },
+        {
+          "name": "Reactivate",
+          "from": [
+            "Inactive"
+          ],
+          "to": "Researching",
+          "actor": "agent-or-human",
+          "capability": null,
+          "guard": "reason; history kept",
+          "reopen": true
+        }
+      ],
+      "nonTransitions": [
+        "ProposeMerge",
+        "ReverseMerge"
+      ]
+    },
+    {
+      "id": "Lead",
+      "source": "DSM-08",
+      "findings": [
+        "FND-03",
+        "FND-11"
+      ],
+      "resolves": "Extends WORKFLOW-BOUNDARY-REVIEW §4.1. FND-11 (proposal): ConvertToOpportunity creates an Opportunity in ProblemConfirmed. Lead qualification establishes fit and problem evidence; Opportunity qualification (decision maker, economic buyer, value hypothesis) happens later. Disqualified leads can be reconsidered with new evidence.",
+      "initial": "Discovered",
+      "states": [
+        {
+          "name": "Discovered"
+        },
+        {
+          "name": "Researching"
+        },
+        {
+          "name": "EvidenceReady"
+        },
+        {
+          "name": "QualificationPending"
+        },
+        {
+          "name": "Qualified"
+        },
+        {
+          "name": "Disqualified",
+          "terminal": true,
+          "note": "reconsiderable"
+        },
+        {
+          "name": "Deferred"
+        },
+        {
+          "name": "Converted",
+          "terminal": true
+        }
+      ],
+      "commands": [
+        {
+          "name": "StartResearch",
+          "from": [
+            "Discovered"
+          ],
+          "to": "Researching",
+          "actor": "agent-or-human",
+          "capability": "CanResearch",
+          "guard": "—"
+        },
+        {
+          "name": "MarkEvidenceReady",
+          "from": [
+            "Researching"
+          ],
+          "to": "EvidenceReady",
+          "actor": "agent-or-human",
+          "capability": null,
+          "guard": ">=1 effective-current Evidence"
+        },
+        {
+          "name": "RequestQualification",
+          "from": [
+            "EvidenceReady"
+          ],
+          "to": "QualificationPending",
+          "actor": "agent-or-human",
+          "capability": null,
+          "guard": "policy dimensions selected"
+        },
+        {
+          "name": "Qualify",
+          "from": [
+            "QualificationPending"
+          ],
+          "to": "Qualified",
+          "actor": "human",
+          "capability": "CanQualify",
+          "guard": "every required dimension assessed with effective-current evidence; no blocking obligation"
+        },
+        {
+          "name": "Disqualify",
+          "from": [
+            "QualificationPending"
+          ],
+          "to": "Disqualified",
+          "actor": "human",
+          "capability": "CanQualify",
+          "guard": "reason and evidence"
+        },
+        {
+          "name": "Defer",
+          "from": [
+            "QualificationPending"
+          ],
+          "to": "Deferred",
+          "actor": "agent-or-human",
+          "capability": null,
+          "guard": "revisit condition; missing dimensions become obligations"
+        },
+        {
+          "name": "Resume",
+          "from": [
+            "Deferred"
+          ],
+          "to": "Researching",
+          "actor": "agent-or-human",
+          "capability": null,
+          "guard": "revisit condition met"
+        },
+        {
+          "name": "ConvertToOpportunity",
+          "from": [
+            "Qualified"
+          ],
+          "to": "Converted",
+          "actor": "human",
+          "capability": "CanConvert",
+          "guard": "creates Opportunity in ProblemConfirmed, atomically (FND-19)"
+        },
+        {
+          "name": "Reconsider",
+          "from": [
+            "Disqualified"
+          ],
+          "to": "Researching",
+          "actor": "agent-or-human",
+          "capability": null,
+          "guard": "new evidence; prior assessment kept",
+          "reopen": true
+        }
+      ]
+    },
+    {
+      "id": "Opportunity",
+      "source": "DSM-09",
+      "findings": [
+        "FND-03",
+        "FND-12",
+        "FND-20"
+      ],
+      "resolves": "FND-12 (proposal): Rejected means Echelon chose not to pursue (fit, ethics, capacity) and can happen before engagement. Lost means the buyer chose an alternative or did not decide after engagement. Regression is explicit: RegressToProblemConfirmed and RegressToQualified reopen the obligations that the changed evidence invalidates. Won requires a CommercialOutcome value (FND-20). Converted leads enter at ProblemConfirmed (initial for direct creation: Discovered).",
+      "initial": "Discovered",
+      "entryStates": [
+        "ProblemConfirmed"
+      ],
+      "states": [
+        {
+          "name": "Discovered"
+        },
+        {
+          "name": "Researching"
+        },
+        {
+          "name": "Engaging"
+        },
+        {
+          "name": "ProblemConfirmed"
+        },
+        {
+          "name": "Qualified"
+        },
+        {
+          "name": "Exploring"
+        },
+        {
+          "name": "Proposal"
+        },
+        {
+          "name": "Negotiation"
+        },
+        {
+          "name": "Won",
+          "terminal": true
+        },
+        {
+          "name": "Lost",
+          "terminal": true,
+          "note": "reopenable"
+        },
+        {
+          "name": "Dormant",
+          "terminal": true,
+          "note": "reopenable"
+        },
+        {
+          "name": "Rejected",
+          "terminal": true,
+          "note": "reconsiderable"
+        }
+      ],
+      "commands": [
+        {
+          "name": "StartResearch",
+          "from": [
+            "Discovered"
+          ],
+          "to": "Researching",
+          "actor": "agent-or-human",
+          "capability": null,
+          "guard": "—"
+        },
+        {
+          "name": "BeginEngagement",
+          "from": [
+            "Researching"
+          ],
+          "to": "Engaging",
+          "actor": "human",
+          "capability": null,
+          "guard": "an interaction is recorded; outbound effects are outside the first slice"
+        },
+        {
+          "name": "ConfirmProblem",
+          "from": [
+            "Engaging"
+          ],
+          "to": "ProblemConfirmed",
+          "actor": "human",
+          "capability": null,
+          "guard": "ConfirmProblem obligation satisfied by buyer-sourced evidence"
+        },
+        {
+          "name": "Qualify",
+          "from": [
+            "ProblemConfirmed"
+          ],
+          "to": "Qualified",
+          "actor": "human",
+          "capability": "CanQualify",
+          "guard": "IdentifyDecisionMaker, IdentifyEconomicBuyer, DefineValueHypothesis satisfied"
+        },
+        {
+          "name": "Explore",
+          "from": [
+            "Qualified"
+          ],
+          "to": "Exploring",
+          "actor": "human",
+          "capability": null,
+          "guard": "—"
+        },
+        {
+          "name": "StartProposal",
+          "from": [
+            "Exploring"
+          ],
+          "to": "Proposal",
+          "actor": "human",
+          "capability": "CanPropose",
+          "guard": "problem and value context present (DR-OPP-01)"
+        },
+        {
+          "name": "StartNegotiation",
+          "from": [
+            "Proposal"
+          ],
+          "to": "Negotiation",
+          "actor": "human",
+          "capability": null,
+          "guard": "—"
+        },
+        {
+          "name": "MarkWon",
+          "from": [
+            "Negotiation"
+          ],
+          "to": "Won",
+          "actor": "human",
+          "capability": null,
+          "guard": "CommercialOutcome recorded (offering, value, terms reference)"
+        },
+        {
+          "name": "MarkLost",
+          "from": [
+            "Engaging",
+            "ProblemConfirmed",
+            "Qualified",
+            "Exploring",
+            "Proposal",
+            "Negotiation"
+          ],
+          "to": "Lost",
+          "actor": "human",
+          "capability": null,
+          "guard": "reason; alternative or Unknown recorded; evidence"
+        },
+        {
+          "name": "Reject",
+          "from": [
+            "Discovered",
+            "Researching",
+            "Engaging",
+            "ProblemConfirmed",
+            "Qualified"
+          ],
+          "to": "Rejected",
+          "actor": "human",
+          "capability": null,
+          "guard": "Echelon's reason (fit, ethics, capacity)"
+        },
+        {
+          "name": "MarkDormant",
+          "from": [
+            "Researching",
+            "Engaging",
+            "ProblemConfirmed",
+            "Qualified",
+            "Exploring",
+            "Proposal",
+            "Negotiation"
+          ],
+          "to": "Dormant",
+          "actor": "human",
+          "capability": null,
+          "guard": "revisit condition; never on elapsed time alone"
+        },
+        {
+          "name": "RegressToProblemConfirmed",
+          "from": [
+            "Qualified",
+            "Exploring",
+            "Proposal",
+            "Negotiation"
+          ],
+          "to": "ProblemConfirmed",
+          "actor": "human",
+          "capability": null,
+          "guard": "evidence invalidating a satisfied qualification obligation; obligation reopened"
+        },
+        {
+          "name": "RegressToQualified",
+          "from": [
+            "Exploring",
+            "Proposal",
+            "Negotiation"
+          ],
+          "to": "Qualified",
+          "actor": "human",
+          "capability": null,
+          "guard": "evidence invalidating value or proposal context"
+        },
+        {
+          "name": "Reopen",
+          "from": [
+            "Lost",
+            "Dormant"
+          ],
+          "to": "Researching",
+          "actor": "agent-or-human",
+          "capability": null,
+          "guard": "new evidence or revisit condition; history kept (SCN-34)",
+          "reopen": true
+        },
+        {
+          "name": "Reconsider",
+          "from": [
+            "Rejected"
+          ],
+          "to": "Researching",
+          "actor": "human",
+          "capability": null,
+          "guard": "rationale",
+          "reopen": true
+        }
+      ]
+    },
+    {
+      "id": "Obligation",
+      "source": "DSM-20",
+      "findings": [
+        "FND-14"
+      ],
+      "resolves": "Extends WORKFLOW-BOUNDARY-REVIEW §4.4: each Obligation declares the transition kinds it blocks. Reopen supports evidence-driven regression.",
+      "initial": "Open",
+      "states": [
+        {
+          "name": "Open"
+        },
+        {
+          "name": "Satisfied"
+        },
+        {
+          "name": "Waived",
+          "terminal": true
+        },
+        {
+          "name": "Expired",
+          "terminal": true
+        },
+        {
+          "name": "Superseded",
+          "terminal": true
+        }
+      ],
+      "commands": [
+        {
+          "name": "Satisfy",
+          "from": [
+            "Open"
+          ],
+          "to": "Satisfied",
+          "actor": "agent-or-human",
+          "capability": null,
+          "guard": "evidence refs that are effective-current"
+        },
+        {
+          "name": "Waive",
+          "from": [
+            "Open"
+          ],
+          "to": "Waived",
+          "actor": "human",
+          "capability": "CanWaive",
+          "guard": "rationale (DSM-20)"
+        },
+        {
+          "name": "Expire",
+          "from": [
+            "Open"
+          ],
+          "to": "Expired",
+          "actor": "system",
+          "capability": null,
+          "guard": "due time passed and the kind is expirable; legal-deadline kinds never expire silently"
+        },
+        {
+          "name": "Supersede",
+          "from": [
+            "Open"
+          ],
+          "to": "Superseded",
+          "actor": "agent-or-human",
+          "capability": null,
+          "guard": "replacement obligation linked"
+        },
+        {
+          "name": "Reopen",
+          "from": [
+            "Satisfied"
+          ],
+          "to": "Open",
+          "actor": "system",
+          "capability": null,
+          "guard": "satisfying evidence invalidated or superseded",
+          "reopen": true
+        }
+      ]
+    },
+    {
+      "id": "LearningRecord",
+      "source": "PRD-25",
+      "findings": [
+        "FND-20"
+      ],
+      "resolves": "New, proposed with the PRD-25 acceptance proposal. A LearningRecord turns outcomes and evidence into requested belief changes. Applying it submits ordinary hypothesis commands, each evaluated normally, and never writes hypothesis state directly. Each record names the single validation dimension it affects (CLS-10).",
+      "initial": "Proposed",
+      "states": [
+        {
+          "name": "Proposed"
+        },
+        {
+          "name": "Accepted"
+        },
+        {
+          "name": "Applied",
+          "terminal": true
+        },
+        {
+          "name": "Discarded",
+          "terminal": true
+        }
+      ],
+      "commands": [
+        {
+          "name": "Accept",
+          "from": [
+            "Proposed"
+          ],
+          "to": "Accepted",
+          "actor": "human",
+          "capability": "CanAcceptLearning",
+          "guard": ">=1 outcome or evidence ref; >=1 affected hypothesis; one validation dimension named (CLS-10)"
+        },
+        {
+          "name": "Apply",
+          "from": [
+            "Accepted"
+          ],
+          "to": "Applied",
+          "actor": "system",
+          "capability": null,
+          "guard": "submits the requested hypothesis commands; records each TransitionResult, including Deferred"
+        },
+        {
+          "name": "Discard",
+          "from": [
+            "Proposed",
+            "Accepted"
+          ],
+          "to": "Discarded",
+          "actor": "human",
+          "capability": null,
+          "guard": "reason"
+        }
+      ],
+      "amends": {
+        "added": [
+          "Proposed",
+          "Accepted",
+          "Applied",
+          "Discarded"
+        ]
+      }
+    }
+  ]
+}
