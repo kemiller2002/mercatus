@@ -834,10 +834,10 @@
       "description": null,
       "tags": [],
       "priority": "medium",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-11-14T10:08:12.776Z",
-      "updatedAt": "2026-11-14T10:08:32.000Z",
+      "updatedAt": "2026-11-14T10:24:34.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
