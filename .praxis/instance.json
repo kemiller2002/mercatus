@@ -1,0 +1,12 @@
+{
+  "schema": "praxis.instance/1",
+  "instanceId": "pxi-f9c4994fa06d49ee88033044f1c375ce",
+  "createdAt": "2026-11-14T10:10:55.884Z",
+  "createdWith": "3.25.0",
+  "repository": {
+    "provider": "github",
+    "repositoryId": null,
+    "repository": "kemiller2002/mercatus"
+  },
+  "predecessors": []
+}

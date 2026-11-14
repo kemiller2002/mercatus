@@ -5,6 +5,7 @@ import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { requirementIdsOf, runChecks } from "./gate.mjs";
+import { isUiSource } from "./ui-conformance.mjs";
 
 const root = process.argv[2] ?? process.cwd();
 const readText = (p) => readFileSync(join(root, p), "utf8");
@@ -29,7 +30,13 @@ const existingPaths = new Set(evidencePaths.filter((p) => existsSync(join(root, 
 
 const workItemIds = new Set(readJson(".ros/work/queue.json").items.map((i) => i.id));
 
-const violations = runChecks(doc, { idsByFile, existingPaths, workItemIds, trackedPaths });
+const ui = {
+  files: trackedPaths.filter(isUiSource).map((path) => ({ path, text: readText(path) })),
+  packageJson: readJson("package.json"),
+  foundations: readJson(".echelon/foundations.json"),
+};
+
+const violations = runChecks(doc, { idsByFile, existingPaths, workItemIds, trackedPaths, ui });
 
 const summary = (doc.workflows ?? []).map((w) => `${w.id} ${w.status}`).join(", ");
 

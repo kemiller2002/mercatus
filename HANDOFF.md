@@ -56,3 +56,21 @@ baseline and acceptance criteria in `context/CURRENT-STATE.md`.
 - Next: resolve the critical specification findings (WI-0015, WI-0022,
   WI-0025, WI-0029), then WI-0013/WI-0003 implements the Tier 1/2 F# core for
   the PRD §25 vertical slice.
+
+## WI-0035 and WI-0036: toolchain, requirements evaluation and UI (2026-11-14)
+
+- **Toolchain:** Conditor now governs echelon-current 1.39.0: Praxis 3.25.0, Ordo
+  1.20.0, Limen 0.9.1, Forma 1.0.1, echelon-theme 1.1.0 and Folio 0.4.1. Run
+  `conditor status --target .`, with `GH_TOKEN` and `GITHUB_TOKEN` unset in
+  cloud sessions.
+- **Requirements:** the evaluation is in
+  `docs/requirements-evaluation/REQUIREMENTS-EVALUATION-2026-11.md`. Follow-ups
+  are WI-0037 to WI-0044; WI-0039 and WI-0044 need owner decisions.
+- **UI:** the requirements are `requirements/UI-REQUIREMENTS.md` (UIR-01 to
+  UIR-15). The review is `docs/ui/UI-REVIEW.md`, and the integration guide for
+  the first screen is `docs/ui/UI-INTEGRATION.md`. Print contracts PR-01 to
+  PR-07 are gated like screens.
+- **Gate:** `node tools/modernization/verify-gate.mjs` and
+  `npm run test:modernization` (31 tests).
+- **Open:** Folio's Forma 1.x alignment (WI-0045), Forma pattern gaps
+  (WI-0046), and browser conformance tooling with the first screen (WI-0047).

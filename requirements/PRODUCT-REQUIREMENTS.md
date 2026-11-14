@@ -4,7 +4,7 @@
 
 ID: `PRD-01`
 
-1. The system MUST follow ROS for requirements, work decomposition, evidence, execution tracking, traceability, agent activity, cost, completion criteria, handoffs, and release readiness.
+1. The system MUST follow Praxis (formerly ROS) for requirements, work decomposition, evidence, execution tracking, traceability, agent activity, cost, completion criteria, handoffs, and release readiness.
 2. The system MUST follow SDE/Ordo. Important domain objects MUST expose explicit state, legal transitions, invariants, capabilities, obligations, evidence requirements, policy, version checks, history, and explicit external effects.
 3. Illegal states SHOULD be unrepresentable where practical.
 4. Agents MUST request legal transitions rather than arbitrarily mutate domain state.
@@ -12,6 +12,7 @@ ID: `PRD-01`
 6. Domain and application logic SHOULD be F# unless a documented technical constraint justifies an exception.
 7. The system MUST apply Visual Engineering to UI decisions and Communication Engineering to user-facing and externally published communication.
 8. Evolution SHOULD be incremental and compatibility-preserving. Breaking changes require an explicit migration.
+9. The browser UI MUST use Forma (with the Echelon theme), and printed or exported documents MUST use Folio, as specified in `requirements/UI-REQUIREMENTS.md` (UIR-01 to UIR-15).
 
 ## 2. Purpose
 
@@ -312,7 +313,7 @@ The first complete vertical slice SHOULD be:
 
 MarketHypothesis -> ProblemHypothesis -> Organization discovery -> Observation/Evidence -> Lead -> Qualification -> Opportunity -> Outcome -> Learning.
 
-It MUST exercise ROS, SDE, Limen, F#, states, transitions, evidence, obligations, policies, capabilities, audit, and agent boundaries before broad automation is added.
+It MUST exercise Praxis, Ordo (SDE), Limen, F#, states, transitions, evidence, obligations, policies, capabilities, audit, and agent boundaries before broad automation is added.
 
 
 ## 26. Commercial signal and memory requirements
@@ -430,6 +431,8 @@ Accessibility is a system requirement rather than a late UI audit.
 The application MUST support keyboard operation, semantic structure, visible focus, appropriate target sizing, zoom/reflow, reduced motion, non-color-only communication, accessible validation/errors, assistive-technology semantics, and contrast/readability requirements defined by Visual Engineering.
 
 Accessibility-critical workflows MUST be included in acceptance testing.
+
+The conformance target is WCAG 2.2 Level AA for the application and its printed or exported documents. The accessibility-critical workflows and their acceptance checks are defined in `UIR-07`.
 
 
 ## 32. Requirements discovered through scenario analysis
