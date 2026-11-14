@@ -118,3 +118,14 @@ test("non-UI files are ignored by every rule", () => {
   const files = [{ path: "docs/notes.md", text: ".ef-old #fff @media print" }];
   assert.deepEqual(runUiConformance({ files, packageJson: pkg(), foundations: foundations(false, false) }), []);
 });
+
+test("a print document is a Folio page: print.css required, Forma all.css forbidden", () => {
+  const folioCss = "/node_modules/@echelon-foundry/print-components/src/styles/print.css";
+  const doc = (hrefs) => ({
+    path: "src/kernel/print/brief.html",
+    text: `<!doctype html><html lang="en" data-forma-brand="echelon"><head>${links(hrefs)}</head><body><ef-print-document></ef-print-document></body></html>`,
+  });
+  assert.deepEqual(checkDocumentShell([doc([folioCss, "/styles/print-bridge.css"])]), []);
+  assert.match(checkDocumentShell([doc([formaHrefs[0], folioCss])])[0], /must not load design-system\/dist\/all.css/);
+  assert.match(checkDocumentShell([doc(["/styles/print-bridge.css"])])[0], /must load Folio/);
+});

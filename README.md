@@ -33,6 +33,7 @@ The browser application will use Limen. GitHub is the initial durable backing st
 - `requirements/LEGACY-MARKETING-OS.md` - requirements retained from the predecessor Marketing OS repository
 - `requirements/OPPORTUNITY-DISCOVERY.md` - diversification and market exploration requirements
 - `requirements/IMPLEMENTATION-PLAN.md` - recommended build order and parallel workstreams
+- `requirements/UI-REQUIREMENTS.md` - UI requirements: Forma for every screen, Folio for every printed or exported document, WCAG 2.2 AA
 
 The older `kemiller2002/sales-and-marketing` repository is treated as predecessor research. Relevant concepts have been carried forward here rather than making the new system depend on the old repository.
 

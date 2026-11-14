@@ -12,6 +12,7 @@ ID: `PRD-01`
 6. Domain and application logic SHOULD be F# unless a documented technical constraint justifies an exception.
 7. The system MUST apply Visual Engineering to UI decisions and Communication Engineering to user-facing and externally published communication.
 8. Evolution SHOULD be incremental and compatibility-preserving. Breaking changes require an explicit migration.
+9. The browser UI MUST use Forma (with the Echelon theme), and printed or exported documents MUST use Folio, as specified in `requirements/UI-REQUIREMENTS.md` (UIR-01 to UIR-15).
 
 ## 2. Purpose
 
@@ -430,6 +431,8 @@ Accessibility is a system requirement rather than a late UI audit.
 The application MUST support keyboard operation, semantic structure, visible focus, appropriate target sizing, zoom/reflow, reduced motion, non-color-only communication, accessible validation/errors, assistive-technology semantics, and contrast/readability requirements defined by Visual Engineering.
 
 Accessibility-critical workflows MUST be included in acceptance testing.
+
+The conformance target is WCAG 2.2 Level AA for the application and its printed or exported documents. The accessibility-critical workflows and their acceptance checks are defined in `UIR-07`.
 
 
 ## 32. Requirements discovered through scenario analysis

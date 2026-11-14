@@ -79,9 +79,21 @@ const orderViolations = (path, hrefs) => {
   ];
 };
 
-// Every HTML document is a Forma page: the Echelon brand on <html> and Forma
-// plus echelon-theme in the documented order. A fragment with no <html> is
-// exempt.
+// Every interactive HTML document is a Forma page: the Echelon brand on
+// <html> and Forma plus echelon-theme in the documented order. A print
+// document is a Folio page instead. It loads Folio's print.css and must not
+// load Forma's all.css, because Folio styles html globally (UIR-06.1). A
+// fragment with no <html> is exempt.
+const FOLIO_STYLESHEET = "print-components/src/styles/print.css";
+const FORMA_APP_STYLESHEET = STYLESHEET_ORDER[0];
+
+const printShellViolations = (path, hrefs) => [
+  ...(hrefs.some((h) => h.endsWith(FOLIO_STYLESHEET)) ? [] : [`${path}: a print document must load Folio ${FOLIO_STYLESHEET}`]),
+  ...(hrefs.some((h) => h.endsWith(FORMA_APP_STYLESHEET))
+    ? [`${path}: a print document must not load ${FORMA_APP_STYLESHEET}; Forma values reach Folio through the print bridge`]
+    : []),
+];
+
 export const checkDocumentShell = (files) =>
   uiFilesOf(files)
     .filter((f) => isDocument(f.path) && /<html[\s>]/i.test(f.text))
@@ -89,7 +101,9 @@ export const checkDocumentShell = (files) =>
       ...(new RegExp(`<html\\b[^>]*\\bdata-forma-brand=["']${BRAND}["']`, "i").test(f.text)
         ? []
         : [`${f.path}: <html> must declare data-forma-brand="${BRAND}"`]),
-      ...orderViolations(f.path, linkedStylesheets(f.text)),
+      ...(isPrintSurface(f)
+        ? printShellViolations(f.path, linkedStylesheets(f.text))
+        : orderViolations(f.path, linkedStylesheets(f.text))),
     ]);
 
 // Application stylesheets use Forma semantic tokens (var(--forma-*)), never

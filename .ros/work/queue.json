@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "mercatus",
-  "nextSeq": 45,
+  "nextSeq": 48,
   "items": [
     {
       "id": "WI-0001",
@@ -1022,6 +1022,75 @@
       "attachments": [],
       "createdAt": "2026-11-14T10:17:33.937Z",
       "updatedAt": "2026-11-14T10:17:33.937Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0045",
+      "title": "UIX-01: Request a Forma 1.x aligned Folio release (forma- namespace, Forma icon grammar, Forma tokens, Node 22/24 engines) and then retire the print token bridge and the ef-print exemption (EV-MERCATUS-UI-2026-0001)",
+      "description": null,
+      "tags": [
+        "ui,folio,forma,upstream"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-14T10:21:55.986Z",
+      "updatedAt": "2026-11-14T10:21:55.986Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0046",
+      "title": "UIREV: Raise Forma consumer gap requests for the unimplemented P0 patterns Mercatus needs (application shell, breadcrumbs, data-table styling, tag/chip, inline message) and container-based reflow for dashboard grid, split pane and operation status",
+      "description": null,
+      "tags": [
+        "ui,forma,upstream"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-14T10:21:56.275Z",
+      "updatedAt": "2026-11-14T10:21:56.275Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0047",
+      "title": "UIREV: Adopt Forma/VE browser conformance tooling with the first screen: TokenValidator, forma-color, NamespaceMigrator --check, forma-conformance Playwright suite, axe, VE robustness manifest, Folio PDF tests (CHK-UI-02..05)",
+      "description": null,
+      "tags": [
+        "ui,verification"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-14T10:21:56.562Z",
+      "updatedAt": "2026-11-14T10:21:56.562Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",

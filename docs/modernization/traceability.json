@@ -348,6 +348,91 @@
       "id": "SCN-34",
       "file": "requirements/SCENARIOS-AND-EXPANSION.md",
       "summary": "Dormant vs Lost; reopening preserves history."
+    },
+    {
+      "id": "PRD-17",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Decision support and Clarity."
+    },
+    {
+      "id": "PRD-29",
+      "file": "requirements/PRODUCT-REQUIREMENTS.md",
+      "summary": "Conference and field mode."
+    },
+    {
+      "id": "UIR-01",
+      "file": "requirements/UI-REQUIREMENTS.md",
+      "summary": "Forma for every screen, Folio for every printed/exported document, Echelon theme, Conditor-governed pins, foundation triggers."
+    },
+    {
+      "id": "UIR-02",
+      "file": "requirements/UI-REQUIREMENTS.md",
+      "summary": "Single design system; forma- namespace only; Folio ef-print exception UIX-01; --mercatus-* app tokens."
+    },
+    {
+      "id": "UIR-03",
+      "file": "requirements/UI-REQUIREMENTS.md",
+      "summary": "Page shell: stylesheet order, brand attribute, typography roles, user-chosen presentation, token-only colour."
+    },
+    {
+      "id": "UIR-04",
+      "file": "requirements/UI-REQUIREMENTS.md",
+      "summary": "AIS-001 start-up screen and truthful loading states."
+    },
+    {
+      "id": "UIR-05",
+      "file": "requirements/UI-REQUIREMENTS.md",
+      "summary": "Available/Blocked commands, pending actions, result-case presentation map."
+    },
+    {
+      "id": "UIR-06",
+      "file": "requirements/UI-REQUIREMENTS.md",
+      "summary": "Folio print contracts, reproducibility, data-class filtering, print correctness and branding bridge."
+    },
+    {
+      "id": "UIR-07",
+      "file": "requirements/UI-REQUIREMENTS.md",
+      "summary": "WCAG 2.2 AA; accessibility-critical workflows; robustness manifest; machine operability."
+    },
+    {
+      "id": "UIR-08",
+      "file": "requirements/UI-REQUIREMENTS.md",
+      "summary": "Screen inventory, URL-addressable state via Limen.Routing, wayfinding, Forma gap substitutes."
+    },
+    {
+      "id": "UIR-09",
+      "file": "requirements/UI-REQUIREMENTS.md",
+      "summary": "Epistemic kinds, freshness and provenance, no strengthened certainty."
+    },
+    {
+      "id": "UIR-10",
+      "file": "requirements/UI-REQUIREMENTS.md",
+      "summary": "Approval surface, batch approval, revocation, mobile step-up."
+    },
+    {
+      "id": "UIR-11",
+      "file": "requirements/UI-REQUIREMENTS.md",
+      "summary": "Human-attention queue ranking, explanation, snooze, legal deadlines."
+    },
+    {
+      "id": "UIR-12",
+      "file": "requirements/UI-REQUIREMENTS.md",
+      "summary": "Loading/empty/error/recovery states, Aegis faults, offline command queue."
+    },
+    {
+      "id": "UIR-13",
+      "file": "requirements/UI-REQUIREMENTS.md",
+      "summary": "Phone-first screens and recomposition."
+    },
+    {
+      "id": "UIR-14",
+      "file": "requirements/UI-REQUIREMENTS.md",
+      "summary": "Static lifecycle diagrams from transition tables; forma-workflow runtime deferred."
+    },
+    {
+      "id": "UIR-15",
+      "file": "requirements/UI-REQUIREMENTS.md",
+      "summary": "UI verification: gate rules, Forma tools, per-screen Playwright, robustness, print PDF tests."
     }
   ],
   "aggregates": [
@@ -2009,7 +2094,11 @@
         "WF-03"
       ],
       "requirements": [
-        "PRD-23"
+        "PRD-23",
+        "UIR-01",
+        "UIR-03",
+        "UIR-08",
+        "UIR-14"
       ],
       "query": "HypothesisBoardView/v1",
       "commands": [
@@ -2034,7 +2123,12 @@
         "PRD-07",
         "PRD-23",
         "PRD-26.3",
-        "PRD-26.4"
+        "PRD-26.4",
+        "UIR-01",
+        "UIR-03",
+        "UIR-08",
+        "UIR-09",
+        "UIR-07"
       ],
       "query": "EvidenceLineageView/v1",
       "commands": [
@@ -2055,7 +2149,10 @@
       ],
       "requirements": [
         "PRD-08",
-        "PRD-23"
+        "PRD-23",
+        "UIR-01",
+        "UIR-03",
+        "UIR-08"
       ],
       "query": "AccountView/v1",
       "commands": [
@@ -2077,7 +2174,11 @@
       ],
       "requirements": [
         "PRD-09",
-        "PRD-25"
+        "PRD-25",
+        "UIR-01",
+        "UIR-03",
+        "UIR-08",
+        "UIR-07"
       ],
       "query": "LeadQualificationView/v1",
       "commands": [
@@ -2103,7 +2204,12 @@
         "PRD-10",
         "PRD-23",
         "PRD-28",
-        "SCN-10"
+        "SCN-10",
+        "UIR-01",
+        "UIR-03",
+        "UIR-08",
+        "UIR-05",
+        "UIR-07"
       ],
       "query": "OpportunityBlockersView/v1",
       "commands": [
@@ -2126,7 +2232,10 @@
       ],
       "requirements": [
         "PRD-11",
-        "PRD-23"
+        "PRD-23",
+        "UIR-01",
+        "UIR-03",
+        "UIR-08"
       ],
       "query": "ExperimentBoardView/v1",
       "commands": [
@@ -2152,7 +2261,13 @@
       "requirements": [
         "PRD-23",
         "PRD-28",
-        "SCN-33"
+        "SCN-33",
+        "UIR-01",
+        "UIR-03",
+        "UIR-08",
+        "UIR-10",
+        "UIR-07",
+        "UIR-13"
       ],
       "query": "ApprovalQueueView/v1",
       "commands": [
@@ -2172,7 +2287,11 @@
       "requirements": [
         "PRD-13",
         "SCN-08",
-        "SCN-09"
+        "SCN-09",
+        "UIR-01",
+        "UIR-03",
+        "UIR-08",
+        "UIR-05"
       ],
       "query": "OutreachStatusView/v1",
       "commands": [
@@ -2193,7 +2312,12 @@
       ],
       "requirements": [
         "PRD-14",
-        "PRD-28"
+        "PRD-28",
+        "UIR-01",
+        "UIR-03",
+        "UIR-08",
+        "UIR-07",
+        "UIR-13"
       ],
       "query": "InboxTriageView/v1",
       "commands": [
@@ -2212,7 +2336,10 @@
       ],
       "requirements": [
         "PRD-11",
-        "PRD-28"
+        "PRD-28",
+        "UIR-01",
+        "UIR-03",
+        "UIR-08"
       ],
       "query": "CampaignConsoleView/v1",
       "commands": [
@@ -2234,7 +2361,10 @@
         "WF-07"
       ],
       "requirements": [
-        "PRD-26.1"
+        "PRD-26.1",
+        "UIR-01",
+        "UIR-03",
+        "UIR-08"
       ],
       "query": "SignalTriageView/v1",
       "commands": [
@@ -2257,7 +2387,13 @@
       ],
       "requirements": [
         "PRD-28",
-        "PRD-31"
+        "PRD-31",
+        "UIR-01",
+        "UIR-03",
+        "UIR-08",
+        "UIR-12",
+        "UIR-07",
+        "UIR-13"
       ],
       "query": "FieldCaptureView/v1",
       "commands": [
@@ -2276,7 +2412,11 @@
         "WF-15"
       ],
       "requirements": [
-        "PRD-23"
+        "PRD-23",
+        "UIR-01",
+        "UIR-03",
+        "UIR-08",
+        "UIR-11"
       ],
       "query": "NextActionsView/v1",
       "commands": [
@@ -2287,7 +2427,112 @@
       "formaStatus": "not-started"
     }
   ],
-  "printContracts": [],
+  "printContracts": [
+    {
+      "id": "PR-01",
+      "document": "Opportunity brief",
+      "workflows": [
+        "WF-06",
+        "WF-14"
+      ],
+      "requirements": [
+        "PRD-10",
+        "UIR-06"
+      ],
+      "query": "OpportunityBlockersView/v1",
+      "status": "proposed",
+      "folioStatus": "not-started"
+    },
+    {
+      "id": "PR-02",
+      "document": "Evidence lineage report",
+      "workflows": [
+        "WF-02",
+        "WF-03"
+      ],
+      "requirements": [
+        "PRD-07",
+        "PRD-30",
+        "UIR-06"
+      ],
+      "query": "EvidenceLineageView/v1",
+      "status": "proposed",
+      "folioStatus": "not-started"
+    },
+    {
+      "id": "PR-03",
+      "document": "Decision packet",
+      "workflows": [
+        "WF-01",
+        "WF-03"
+      ],
+      "requirements": [
+        "PRD-17",
+        "UIR-06"
+      ],
+      "query": "HypothesisBoardView/v1",
+      "status": "proposed",
+      "folioStatus": "not-started"
+    },
+    {
+      "id": "PR-04",
+      "document": "Experiment result report",
+      "workflows": [
+        "WF-11"
+      ],
+      "requirements": [
+        "PRD-11",
+        "UIR-06"
+      ],
+      "query": "ExperimentBoardView/v1",
+      "status": "proposed",
+      "folioStatus": "not-started"
+    },
+    {
+      "id": "PR-05",
+      "document": "Campaign evaluation",
+      "workflows": [
+        "WF-08"
+      ],
+      "requirements": [
+        "PRD-11",
+        "UIR-06"
+      ],
+      "query": "CampaignConsoleView/v1",
+      "status": "proposed",
+      "folioStatus": "not-started"
+    },
+    {
+      "id": "PR-06",
+      "document": "Field capture summary",
+      "workflows": [
+        "WF-02",
+        "WF-04",
+        "WF-14"
+      ],
+      "requirements": [
+        "PRD-29",
+        "UIR-06"
+      ],
+      "query": "FieldCaptureView/v1",
+      "status": "proposed",
+      "folioStatus": "not-started"
+    },
+    {
+      "id": "PR-07",
+      "document": "Data-subject access export",
+      "workflows": [
+        "WF-04"
+      ],
+      "requirements": [
+        "PRD-22",
+        "UIR-06"
+      ],
+      "query": "AccountView/v1",
+      "status": "proposed",
+      "folioStatus": "not-started"
+    }
+  ],
   "tests": [
     {
       "id": "TST-01",
@@ -2495,6 +2740,41 @@
       ],
       "status": "defined-not-executable",
       "precondition": "WI-0013"
+    },
+    {
+      "id": "CHK-UI-01",
+      "kind": "executable",
+      "description": "Forma/Folio static conformance (UIR-01..03, UIR-06.1).",
+      "command": "node --test tools/modernization/ui-conformance.test.mjs && node tools/modernization/verify-gate.mjs",
+      "status": "passing"
+    },
+    {
+      "id": "CHK-UI-02",
+      "kind": "browser",
+      "description": "Per-screen Playwright conformance at 320/390/768/1280 and 100%/200% text, plus axe (UIR-07, UIR-15).",
+      "status": "defined-not-executable",
+      "precondition": "WI-0003"
+    },
+    {
+      "id": "CHK-UI-03",
+      "kind": "robustness",
+      "description": "Visual Engineering robustness manifest for consequential states (UIR-07.4).",
+      "status": "defined-not-executable",
+      "precondition": "WI-0003"
+    },
+    {
+      "id": "CHK-UI-04",
+      "kind": "executable",
+      "description": "limen verify --strict on a live boundary with routes inventory (UIR-08).",
+      "status": "defined-not-executable",
+      "precondition": "WI-0003"
+    },
+    {
+      "id": "CHK-UI-05",
+      "kind": "print",
+      "description": "Folio deterministic PDF tests (UIR-06, UIR-15.3).",
+      "status": "defined-not-executable",
+      "precondition": "first print contract (PR-*) folioStatus in-progress"
     }
   ],
   "findings": [
