@@ -3,43 +3,38 @@
 ## Objective
 
 Build Mercatus, the Echelon Sales and Marketing system (DF-MERCATUS-DOM-2026-0001). The
-sections below the WI-0012 heading are current; the bootstrap notes above them are historical.
+sections below are dated milestone notes; the newest is last.
 
 ## Current state
 
-- ROS 3.6.0 greenfield profile installed on 2026-10-06.
-- Project charter is a draft.
-- No first vertical slice, evidence record, hypothesis, or experiment has been
-  accepted.
-- The operating system is under evaluation.
+- Governed by Conditor at echelon-current 1.39.0: Praxis 3.25.0, Ordo 1.20.0,
+  Limen 0.9.1, Forma 1.0.1, echelon-theme 1.1.0, Folio 0.4.1.
+- No application code yet. The domain model and UI contracts are specified;
+  all 15 workflows are blocked by the modernization gate.
+- See `context/CURRENT-STATE.md` for the live summary and the sections below
+  for each milestone.
 
 ## Validation
 
-Run:
-
 ```bash
-./ros registry check
-./ros validate
+./praxis registry check
+./praxis validate
+./praxis foundations verify
+node tools/modernization/verify-gate.mjs
+npm run test:modernization
+conditor status --target .    # with GH_TOKEN/GITHUB_TOKEN unset in cloud sessions
 ```
 
 ## Continuity
 
-An executor session is disposable. Before handing off, commit and push the
-work, record `./ros work checkpoint --id ID --occurred-at NOW --summary ...
---next-action ...`, and push the `.ros/` state. A successor reads
-`./ros work context ID --text` and takes over with `./ros work continue`.
-
-## Unresolved questions
-
-1. What concrete communication problem and user should the first slice serve?
-2. What baseline workflow will be used for comparison?
-3. What data, privacy, safety, and accessibility constraints apply?
-4. Which outcome would distinguish useful engineering from additional process?
+Commit and push, then `./praxis work checkpoint --id ID --occurred-at NOW
+--summary ... --next-action ...`, then push `.ros/`. A successor reads
+`./praxis work context ID --text` and takes over with `./praxis work continue`.
 
 ## Next action
 
-Complete `PROJECT-CHARTER.md`, choose the first bounded outcome, and record its
-baseline and acceptance criteria in `context/CURRENT-STATE.md`.
+Owner decisions WI-0039 and WI-0044; first-slice readiness WI-0037 and WI-0038;
+then the specification fixes WI-0015, WI-0022, WI-0025, WI-0029.
 
 ## WI-0012: domain model and workflow validation gate (2026-11-08)
 
@@ -74,3 +69,14 @@ baseline and acceptance criteria in `context/CURRENT-STATE.md`.
   `npm run test:modernization` (31 tests).
 - **Open:** Folio's Forma 1.x alignment (WI-0045), Forma pattern gaps
   (WI-0046), and browser conformance tooling with the first screen (WI-0047).
+
+## WI-0048 to WI-0050: context refresh, coverage ratchet, drift advisory (2026-11-14)
+
+- The context files now describe the Sales and Marketing scope (they no
+  longer describe the template pilot).
+- `node tools/modernization/verify-gate.mjs` prints requirement coverage
+  (81 of 317 listed, 75 linked) and fails if it changes without a
+  baseline edit in `traceability.json` `coverage`. Add `--coverage` to list
+  the untraced IDs.
+- `.github/workflows/conditor-drift.yml` runs weekly (Monday 06:17 UTC) and on
+  demand. It fails only when a pin is below the Registry's supported range.
