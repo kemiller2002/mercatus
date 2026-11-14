@@ -136,4 +136,6 @@ Acceptance criteria:
 
 Current evidence: ROS 3.1.4 installation and verification completed successfully in the diagnostic Action, but committing the generated ROS workflow from that Action was rejected by GitHub. A subsequent attempt to add a `workflows: write` permission demonstrated that this is not a valid `GITHUB_TOKEN` workflow permission. This requirement is intentionally deferred so capability installation does not block product development.
 
+Update (2026-11-14, WI-0035): Conditor now provides most of this mechanism. `conditor upgrade --current` installs the Registry-selected versions, verifies each capability independently, is digest-authorized and idempotent, and stops at the failing component. It was used to move this repository to echelon-current 1.39.0. Workflow-file changes still need a development environment with workflow permission. Whether this satisfies REQ-BOOTSTRAP-001 is an owner decision (WI-0044).
+
 Until REQ-BOOTSTRAP-001 is implemented, repository capability upgrades MAY be performed through an authorized development environment or repository tooling that has the necessary permission to create/update workflow files.

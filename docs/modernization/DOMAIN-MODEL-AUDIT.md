@@ -41,7 +41,7 @@ The main consequences:
    started.
 3. **The specification has defects that must be fixed before code is written.**
    27 findings are recorded below. 22 are actionable and were filed as Praxis
-   work items WI-0013 to WI-0034. Five of them are critical and block the first
+   work items WI-0013 to WI-0034. Six of them are critical and block the first
    vertical slice (PRD §25).
 
 No business rule was changed. Where this audit proposes a resolution, the

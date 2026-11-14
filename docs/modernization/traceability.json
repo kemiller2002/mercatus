@@ -435,6 +435,14 @@
       "summary": "UI verification: gate rules, Forma tools, per-screen Playwright, robustness, print PDF tests."
     }
   ],
+  "coverage": {
+    "note": "Ratchet (WI-0049, REQ-EVAL-30): verify-gate fails unless listed/linked equal these baselines. Raise them when coverage improves; record a deferral with a reason instead of dropping a trace. Run `node tools/modernization/verify-gate.mjs . --coverage` for the untraced IDs.",
+    "baseline": {
+      "listed": 81,
+      "linked": 75
+    },
+    "deferred": []
+  },
   "aggregates": [
     {
       "id": "AGG-MARKET-HYPOTHESIS",

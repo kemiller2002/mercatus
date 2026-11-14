@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "mercatus",
-  "nextSeq": 48,
+  "nextSeq": 51,
   "items": [
     {
       "id": "WI-0001",
@@ -1091,6 +1091,75 @@
       "attachments": [],
       "createdAt": "2026-11-14T10:21:56.562Z",
       "updatedAt": "2026-11-14T10:21:56.562Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0048",
+      "title": "Editorial: replace stale template context (research queue, decisions, risks, architecture, handoff header) with the Sales and Marketing scope; fix audit count, LEG-01 target and IMP-08 evidence (REQ-EVAL-31; non-decision part of WI-0044)",
+      "description": null,
+      "tags": [
+        "editorial,context"
+      ],
+      "priority": "medium",
+      "status": "complete",
+      "attachments": [],
+      "createdAt": "2026-11-14T15:45:39.815Z",
+      "updatedAt": "2026-11-14T15:46:34.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0049",
+      "title": "Traceability coverage report and ratchet in the modernization gate: count traced vs untraced requirement IDs and fail on regression (REQ-EVAL-30; first part of WI-0043)",
+      "description": null,
+      "tags": [
+        "verification,traceability"
+      ],
+      "priority": "medium",
+      "status": "complete",
+      "attachments": [],
+      "createdAt": "2026-11-14T15:45:40.271Z",
+      "updatedAt": "2026-11-14T15:47:38.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0050",
+      "title": "Scheduled Conditor drift advisory in CI against echelon-registry, failing when a pin falls below the supported range",
+      "description": null,
+      "tags": [
+        "ci,conditor,toolchain"
+      ],
+      "priority": "medium",
+      "status": "complete",
+      "attachments": [],
+      "createdAt": "2026-11-14T15:45:40.532Z",
+      "updatedAt": "2026-11-14T15:48:39.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",

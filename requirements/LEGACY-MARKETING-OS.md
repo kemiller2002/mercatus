@@ -2,7 +2,7 @@
 
 Source: predecessor repository `kemiller2002/sales-and-marketing`.
 
-This document records concepts that must not be lost during consolidation into `echelon-sales-and-marketing`.
+This document records concepts that must not be lost during consolidation into Mercatus (`kemiller2002/mercatus`, formerly planned as `echelon-sales-and-marketing`).
 
 ## Core principle
 
