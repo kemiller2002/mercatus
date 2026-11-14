@@ -80,3 +80,16 @@ then the specification fixes WI-0015, WI-0022, WI-0025, WI-0029.
   the untraced IDs.
 - `.github/workflows/conditor-drift.yml` runs weekly (Monday 06:17 UTC) and on
   demand. It fails only when a pin is below the Registry's supported range.
+
+## WI-0051 and WI-0052: first-slice proposals (2026-11-14)
+
+- `docs/proposals/PRD-25-ACCEPTANCE.md` holds acceptance criteria AC-01..16,
+  the synthetic-data policy SDP-01..06, CommercialOutcome and
+  LearningRecord, and replacement text for PRD-25. Owner questions Q1..Q6.
+- `docs/proposals/SLICE-TRANSITION-TABLES.md` and `slice-transitions.json`
+  hold transition tables for 9 aggregates (67 commands). Owner decisions
+  P1..P9. Regenerate the tables with `npm run render:transitions`.
+- Gate additions: CHK-TRN-01 (transition proposal coherence) and CHK-DATA-01
+  (synthetic fixtures). 50 tests.
+- Both documents are proposals. Accepting them advances WI-0038, WI-0015,
+  WI-0016, WI-0022, WI-0023, WI-0025 and WI-0026.

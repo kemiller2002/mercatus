@@ -2790,6 +2790,13 @@
       "description": "First-slice transition proposal coherence: reachability, no dead ends, explicit reopen from terminal states, determinism, declared DSM amendments, generated tables current (WI-0052).",
       "command": "node --test tools/modernization/transitions.test.mjs && node tools/modernization/verify-gate.mjs",
       "status": "passing"
+    },
+    {
+      "id": "CHK-DATA-01",
+      "kind": "executable",
+      "description": "Synthetic-data policy SDP-02..04 on every tracked fixture: synthetic marker, reserved email/URL domains, fictional phone range (WI-0051, proposed PRD-25 acceptance).",
+      "command": "node --test tools/modernization/data-policy.test.mjs && node tools/modernization/verify-gate.mjs",
+      "status": "passing"
     }
   ],
   "findings": [

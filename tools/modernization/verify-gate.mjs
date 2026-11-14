@@ -7,6 +7,7 @@ import { join } from "node:path";
 import { coverageOf, requirementIdsOf, runChecks } from "./gate.mjs";
 import { isUiSource } from "./ui-conformance.mjs";
 import { dsmStatesOf } from "./transitions.mjs";
+import { isFixture } from "./data-policy.mjs";
 
 const args = process.argv.slice(2);
 const root = args.find((a) => !a.startsWith("--")) ?? process.cwd();
@@ -48,7 +49,9 @@ const transitions = existsSync(join(root, transitionsPath))
     }
   : null;
 
-const violations = runChecks(doc, { idsByFile, existingPaths, workItemIds, trackedPaths, ui, transitions });
+const fixtures = trackedPaths.filter(isFixture).map((path) => ({ path, text: readText(path) }));
+
+const violations = runChecks(doc, { idsByFile, existingPaths, workItemIds, trackedPaths, ui, transitions, fixtures });
 
 const summary = (doc.workflows ?? []).map((w) => `${w.id} ${w.status}`).join(", ");
 

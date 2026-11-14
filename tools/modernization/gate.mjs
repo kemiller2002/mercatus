@@ -6,6 +6,7 @@
 
 import { runUiConformance } from "./ui-conformance.mjs";
 import { checkProposal, checkRendered } from "./transitions.mjs";
+import { checkFixtures } from "./data-policy.mjs";
 
 export const GATE_CRITERIA = Object.freeze([
   "domainModelVerified",
@@ -228,6 +229,7 @@ export const runChecks = (doc, facts) => {
         ...checkInventory(doc, facts.trackedPaths),
         ...checkCoverage(doc, facts.idsByFile),
         ...(facts.ui ? runUiConformance(facts.ui) : []),
+        ...checkFixtures(facts.fixtures ?? []),
         ...(facts.transitions
           ? [
               ...checkProposal(facts.transitions.doc, facts.transitions.dsmStates),

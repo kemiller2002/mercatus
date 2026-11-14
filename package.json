@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "verify:modernization": "node tools/modernization/verify-gate.mjs",
-    "test:modernization": "node --test tools/modernization/gate.test.mjs tools/modernization/ui-conformance.test.mjs tools/modernization/transitions.test.mjs",
+    "test:modernization": "node --test tools/modernization/gate.test.mjs tools/modernization/ui-conformance.test.mjs tools/modernization/transitions.test.mjs tools/modernization/data-policy.test.mjs",
     "probe:folio-forma": "node tools/ui/folio-forma-icon-probe.mjs",
     "render:transitions": "node tools/modernization/render-transitions.mjs"
   },
