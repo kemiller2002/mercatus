@@ -2287,6 +2287,7 @@
       "formaStatus": "not-started"
     }
   ],
+  "printContracts": [],
   "tests": [
     {
       "id": "TST-01",

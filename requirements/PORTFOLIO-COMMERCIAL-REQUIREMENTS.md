@@ -409,7 +409,7 @@ Permission is versioned and revocable where applicable.
 
 ID: `PCR-31`
 
-For every commercial motion, track estimated founder hours, repeatable components, automation potential, delivery bottlenecks, and dependency on Kevin personally.
+For every commercial motion, track estimated founder hours, repeatable components, automation potential, delivery bottlenecks, and dependency on the founder personally (role `Founder`).
 
 The system SHOULD surface opportunities to convert repeated founder work into training, software, templates, or standardized diagnostics.
 

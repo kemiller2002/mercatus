@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "confidence": "high",
+    "contradicts": [],
+    "created_by_agent": "claude",
+    "evidence_type": "primary",
+    "id": "EV-MERCATUS-UI-2026-0001",
+    "path": "research/evidence/EV-MERCATUS-UI-2026-0001--folio-0-4-1-rejects-forma-1-0-1-icons.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261114T101312954Z-4bf1312a": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-11-14T10:18:21.740Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "Reproducible probe: Folio 0.4.1 rejects Forma 1.0.1 icons"
+        }
+      }
+    },
+    "related_theories": [],
+    "research_area": "ui-integration",
+    "retrieved": "2026-11-14",
+    "source_author": "Mercatus WI-0036",
+    "source_date": "2026-11-14",
+    "source_title": "Reproducible probe against the installed Registry packages",
+    "source_uri": "tools/ui/folio-forma-icon-probe.mjs",
+    "supports": [],
+    "tags": [
+      "forma",
+      "folio",
+      "integration",
+      "icons",
+      "namespace"
+    ],
+    "title": "Folio 0.4.1 cannot load Forma 1.0.1 icons and still uses the retired ef- namespace"
+  }
+]

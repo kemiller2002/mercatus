@@ -44,4 +44,4 @@ Tests MUST detect:
 
 ID: `DVR-03`
 
-Every implemented requirement SHOULD be traceable to tests and implementation evidence through ROS once the deferred bootstrap issue is resolved. Until then, requirement IDs and test names SHOULD preserve the mapping needed for later ROS import.
+Every implemented requirement SHOULD be traceable to tests and implementation evidence through Praxis (formerly ROS) and `docs/modernization/traceability.json`. Requirement IDs and test names SHOULD preserve that mapping.

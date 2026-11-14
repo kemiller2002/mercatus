@@ -4,6 +4,8 @@
 // violation strings. No check performs I/O; verify-gate.mjs gathers the
 // facts (files, headings, work items, tracked paths) and passes them in.
 
+import { runUiConformance } from "./ui-conformance.mjs";
+
 export const GATE_CRITERIA = Object.freeze([
   "domainModelVerified",
   "transitionsDefined",
@@ -37,6 +39,7 @@ const COLLECTIONS = Object.freeze([
   "domainRules",
   "workflows",
   "uiContracts",
+  "printContracts",
   "tests",
   "verificationChecks",
   "findings",
@@ -111,7 +114,7 @@ export const checkReferences = (doc) => {
       ...unresolved(w.id, "domainRules", w.domainRules, rules),
       ...unresolved(w.id, "findings", w.findings, fnd),
     ]),
-    ...doc.uiContracts.flatMap((u) => [
+    ...[...doc.uiContracts, ...(doc.printContracts ?? [])].flatMap((u) => [
       ...unresolved(u.id, "workflows", u.workflows, wfs),
       ...unresolved(u.id, "requirements", u.requirements, req),
     ]),
@@ -157,17 +160,22 @@ export const checkWorkflowGate = (doc, existingPaths) =>
 // Forma work may only start once the workflow's domain and application contracts are verified.
 const CONTRACT_CRITERIA = Object.freeze(["domainModelVerified", "transitionsDefined", "authorizationEnforced", "rulesTested"]);
 
-export const checkFormaGate = (doc) => {
+const contractGate = (doc, contracts, statusField, label) => {
   const byId = new Map(doc.workflows.map((w) => [w.id, w]));
   const contractsVerified = (wid) => CONTRACT_CRITERIA.every((c) => byId.get(wid)?.gate?.[c] === true);
-  return doc.uiContracts
-    .filter((u) => FORMA_ACTIVE.includes(u.formaStatus))
+  return (contracts ?? [])
+    .filter((u) => FORMA_ACTIVE.includes(u[statusField]))
     .flatMap((u) =>
       (u.workflows ?? [])
         .filter((wid) => !contractsVerified(wid))
-        .map((wid) => `${u.id}: Forma work is '${u.formaStatus}' but ${wid} contracts are not verified`),
+        .map((wid) => `${u.id}: ${label} work is '${u[statusField]}' but ${wid} contracts are not verified`),
     );
 };
+
+export const checkFormaGate = (doc) => contractGate(doc, doc.uiContracts, "formaStatus", "Forma");
+
+// Folio print surfaces follow the same rule as Forma screens (UIR-06).
+export const checkFolioGate = (doc) => contractGate(doc, doc.printContracts, "folioStatus", "Folio");
 
 // workItemIds: Set of ids present in .ros/work/queue.json; existingPaths: repository paths that exist.
 export const checkFindings = (doc, workItemIds, existingPaths = new Set()) =>
@@ -214,7 +222,9 @@ export const runChecks = (doc, facts) => {
         ...checkRuleStatus(doc),
         ...checkWorkflowGate(doc, facts.existingPaths),
         ...checkFormaGate(doc),
+        ...checkFolioGate(doc),
         ...checkFindings(doc, facts.workItemIds, facts.existingPaths),
         ...checkInventory(doc, facts.trackedPaths),
+        ...(facts.ui ? runUiConformance(facts.ui) : []),
       ];
 };

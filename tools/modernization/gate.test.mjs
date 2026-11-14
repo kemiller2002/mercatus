@@ -7,6 +7,7 @@ import { dirname, join } from "node:path";
 import {
   GATE_CRITERIA,
   checkFindings,
+  checkFolioGate,
   checkFormaGate,
   checkInventory,
   checkReferences,
@@ -31,6 +32,7 @@ const base = () => ({
   domainRules: [{ id: "DR-1", requirements: ["R-1"], tests: ["T-1"], status: "ambiguous", findings: ["F-1"] }],
   workflows: [{ id: "WF-1", requirements: ["R-1"], domainRules: ["DR-1"], findings: ["F-1"], gate: allGate(false), status: "blocked" }],
   uiContracts: [{ id: "UI-1", workflows: ["WF-1"], requirements: ["R-1"], formaStatus: "not-started" }],
+  printContracts: [{ id: "PR-1", workflows: ["WF-1"], requirements: ["R-1"], folioStatus: "not-started" }],
   tests: [{ id: "T-1", requirement: "R-1", status: "missing" }],
   verificationChecks: [{ id: "C-1", tests: ["T-1"] }],
   findings: [{ id: "F-1", classification: "ambiguous-requirement", workItems: ["WI-1"] }],
@@ -45,6 +47,7 @@ test("a consistent document has no violations", () => {
   assert.deepEqual(checkRuleStatus(doc), []);
   assert.deepEqual(checkWorkflowGate(doc, new Set()), []);
   assert.deepEqual(checkFormaGate(doc), []);
+  assert.deepEqual(checkFolioGate(doc), []);
   assert.deepEqual(checkFindings(doc, new Set(["WI-1"])), []);
   assert.deepEqual(checkInventory(doc, ["README.md"]), []);
 });
@@ -139,4 +142,19 @@ test("no workflow in the committed document claims readiness while its findings 
   const doc = JSON.parse(readFileSync(join(repoRoot, "docs/modernization/traceability.json"), "utf8"));
   assert.ok(doc.workflows.every((w) => w.status === "blocked"));
   assert.ok(doc.uiContracts.every((u) => u.formaStatus === "not-started"));
+});
+
+test("Folio print work cannot start before its workflow contracts are verified", () => {
+  const started = update(base(), "printContracts", (p) => ({ ...p, folioStatus: "in-progress" }));
+  assert.match(checkFolioGate(started)[0], /PR-1: Folio work is 'in-progress' but WF-1 contracts are not verified/);
+  const verified = update(started, "workflows", (w) => ({
+    ...w,
+    gate: { ...allGate(false), domainModelVerified: true, transitionsDefined: true, authorizationEnforced: true, rulesTested: true },
+  }));
+  assert.deepEqual(checkFolioGate(verified), []);
+});
+
+test("a print contract with dangling references is rejected", () => {
+  const doc = update(base(), "printContracts", (p) => ({ ...p, workflows: ["WF-9"] }));
+  assert.match(checkReferences(doc)[0], /PR-1: workflows references unknown id 'WF-9'/);
 });

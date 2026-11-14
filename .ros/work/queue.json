@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "mercatus",
-  "nextSeq": 37,
+  "nextSeq": 45,
   "items": [
     {
       "id": "WI-0001",
@@ -838,6 +838,190 @@
       "attachments": [],
       "createdAt": "2026-11-14T10:08:12.776Z",
       "updatedAt": "2026-11-14T10:08:32.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0037",
+      "title": "REQ-EVAL-01/07/20/21/35: Decide personal-data placement (crypto-shredding or deletable store), data classes, separate access-controlled commercial store, GitHub limits and backup/RPO before any real personal data is written",
+      "description": null,
+      "tags": [
+        "requirements-evaluation,privacy,persistence"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-14T10:17:31.784Z",
+      "updatedAt": "2026-11-14T10:17:31.784Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0038",
+      "title": "REQ-EVAL-03: Rewrite PRD-25 as a MUST with numbered acceptance criteria, a synthetic-data policy and a LearningRecord definition (first-slice readiness checklist)",
+      "description": null,
+      "tags": [
+        "requirements-evaluation,first-slice"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-14T10:17:32.080Z",
+      "updatedAt": "2026-11-14T10:17:32.080Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0039",
+      "title": "REQ-EVAL-02/04/05/13/23/24/25/36/38/39: Outbound compliance gate B: lawful basis and consent provenance on DSM-07A, message content and opt-out SLA, unsubscribe scope and lifting rule (owner amendment of DF-MERCATUS-DOM-2026-0001), jurisdiction default-deny, deliverability, endorsements, AI disclosure",
+      "description": null,
+      "tags": [
+        "requirements-evaluation,compliance,owner-decision"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-14T10:17:32.377Z",
+      "updatedAt": "2026-11-14T10:17:32.377Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0040",
+      "title": "REQ-EVAL-06/34: Data-subject-rights workflow, retention schedule and compliance ownership (controller, LIA, DPIA, ROPA)",
+      "description": null,
+      "tags": [
+        "requirements-evaluation,privacy,compliance"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-14T10:17:32.695Z",
+      "updatedAt": "2026-11-14T10:17:32.695Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0041",
+      "title": "REQ-EVAL-08/09/10/22: Agent security: untrusted ingested content and prompt-injection tests, command gateway (agents never hold store write credentials), human authentication and step-up, secrets management",
+      "description": null,
+      "tags": [
+        "requirements-evaluation,security"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-14T10:17:33.008Z",
+      "updatedAt": "2026-11-14T10:17:33.008Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0042",
+      "title": "REQ-EVAL-11/12: Provider terms assessment (Reddit approval and deletion sync, LinkedIn manual assist) and Proton Mail Bridge realities (Message-ID reconciliation, no Delivered state)",
+      "description": null,
+      "tags": [
+        "requirements-evaluation,integration"
+      ],
+      "priority": "high",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-14T10:17:33.319Z",
+      "updatedAt": "2026-11-14T10:17:33.319Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0043",
+      "title": "REQ-EVAL-17/18/30: Extend DOMAIN-VERIFICATION test classes, add non-functional targets, and make traceability cover every normative requirement (64 of 302 today)",
+      "description": null,
+      "tags": [
+        "requirements-evaluation,verification"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-14T10:17:33.622Z",
+      "updatedAt": "2026-11-14T10:17:33.622Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0044",
+      "title": "REQ-EVAL-19/29/31/32/33/41/42/43 and FND-21 reopen: Normative framework (BCP 14, document status, precedence, glossary, concept ownership), implementation-order reconciliation, operating mode, time semantics, budget defaults, stale template context/handoff text",
+      "description": null,
+      "tags": [
+        "requirements-evaluation,editorial,owner-decision"
+      ],
+      "priority": "medium",
+      "status": "captured",
+      "attachments": [],
+      "createdAt": "2026-11-14T10:17:33.937Z",
+      "updatedAt": "2026-11-14T10:17:33.937Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",

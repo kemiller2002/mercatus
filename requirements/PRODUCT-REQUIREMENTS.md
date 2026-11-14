@@ -4,7 +4,7 @@
 
 ID: `PRD-01`
 
-1. The system MUST follow ROS for requirements, work decomposition, evidence, execution tracking, traceability, agent activity, cost, completion criteria, handoffs, and release readiness.
+1. The system MUST follow Praxis (formerly ROS) for requirements, work decomposition, evidence, execution tracking, traceability, agent activity, cost, completion criteria, handoffs, and release readiness.
 2. The system MUST follow SDE/Ordo. Important domain objects MUST expose explicit state, legal transitions, invariants, capabilities, obligations, evidence requirements, policy, version checks, history, and explicit external effects.
 3. Illegal states SHOULD be unrepresentable where practical.
 4. Agents MUST request legal transitions rather than arbitrarily mutate domain state.
@@ -312,7 +312,7 @@ The first complete vertical slice SHOULD be:
 
 MarketHypothesis -> ProblemHypothesis -> Organization discovery -> Observation/Evidence -> Lead -> Qualification -> Opportunity -> Outcome -> Learning.
 
-It MUST exercise ROS, SDE, Limen, F#, states, transitions, evidence, obligations, policies, capabilities, audit, and agent boundaries before broad automation is added.
+It MUST exercise Praxis, Ordo (SDE), Limen, F#, states, transitions, evidence, obligations, policies, capabilities, audit, and agent boundaries before broad automation is added.
 
 
 ## 26. Commercial signal and memory requirements
