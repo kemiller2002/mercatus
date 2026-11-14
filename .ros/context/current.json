@@ -4,7 +4,7 @@
   "repository": "mercatus",
   "actor": "anthropic/claude-code",
   "startedAt": "2026-10-06T09:48:42.847Z",
-  "updatedAt": "2026-11-14T20:46:17.000Z",
+  "updatedAt": "2026-11-14T20:48:04.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -1125,13 +1125,47 @@
     {
       "id": "WI-0051",
       "type": "task",
-      "state": "active",
-      "semanticState": "active",
-      "evidence": [],
-      "updatedAt": "2026-11-14T20:46:17.000Z",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "docs/proposals/PRD-25-ACCEPTANCE.md"
+        },
+        {
+          "type": "implementation",
+          "path": "tools/modernization/data-policy.mjs"
+        },
+        {
+          "type": "tests",
+          "path": "tools/modernization/data-policy.test.mjs"
+        }
+      ],
+      "updatedAt": "2026-11-14T20:48:04.000Z",
       "telemetryExecutionIds": [
         "EXE-20261114T204617534Z-6f71aabf"
-      ]
+      ],
+      "latestCheckpoint": {
+        "id": "b112b96beebd73d55db065d1",
+        "recordedAt": "2026-11-14T20:48:03.000Z",
+        "executionId": "EXE-20261114T204617534Z-6f71aabf",
+        "repository": "mercatus",
+        "branch": "claude/loving-heisenberg-cgq0jl",
+        "commit": "a49b04291d076c1759918ce06282a56669eed596",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/mercatus"
+        },
+        "remoteBranch": "claude/loving-heisenberg-cgq0jl",
+        "remoteCommit": "a49b04291d076c1759918ce06282a56669eed596",
+        "summary": "PRD-25 acceptance proposal (AC-01..16, SDP-01..06) and fixture policy check",
+        "nextAction": "Owner answers Q1..Q6 and P1..P9",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-11-14T20:48:04.000Z"
     }
   ]
 }

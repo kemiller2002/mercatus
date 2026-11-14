@@ -1179,10 +1179,10 @@
         "first-slice,proposal"
       ],
       "priority": "high",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-11-14T20:43:16.005Z",
-      "updatedAt": "2026-11-14T20:43:16.000Z",
+      "updatedAt": "2026-11-14T20:48:04.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
