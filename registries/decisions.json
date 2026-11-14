@@ -134,5 +134,54 @@
     ],
     "title": "Aegis, Forma and Folio are not yet applicable to Mercatus, which has no application code; the first application slice makes each required again",
     "updated": "2026-10-09"
+  },
+  {
+    "confidence": "high",
+    "created": "2026-11-14",
+    "created_by_agent": "claude",
+    "decision_type": "applicability",
+    "evidence": [],
+    "id": "DF-MERCATUS-FND-2026-0003",
+    "path": "research/decisions/DF-MERCATUS-FND-2026-0003--forma-folio-bound-ahead-of-first-ui.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261114T100832798Z-1b15c02c": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-11-14T10:12:34.041Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "Bind Forma 1.0.1, Folio 0.4.1 and echelon-theme 1.1.0 under Conditor ahead of the first UI"
+        }
+      }
+    },
+    "related_documents": [
+      "conditor.json",
+      ".conditor/lock.json",
+      ".echelon/foundations.json",
+      "package.json",
+      "research/decisions/DF-MERCATUS-FND-2026-0002--aegis-forma-folio-not-yet-applicable.md",
+      "docs/ui/UI-INTEGRATION.md"
+    ],
+    "status": "accepted",
+    "superseded_by": [],
+    "supersedes": [],
+    "tags": [
+      "governance",
+      "foundations",
+      "forma",
+      "folio",
+      "echelon-theme",
+      "conditor",
+      "applicability"
+    ],
+    "title": "Forma 1.0.1, Folio 0.4.1 and echelon-theme 1.1.0 are installed and governed by Conditor before the first UI; foundations stay N/A until application source uses them",
+    "updated": "2026-11-14"
   }
 ]

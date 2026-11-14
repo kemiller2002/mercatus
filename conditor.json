@@ -4,7 +4,7 @@
   "registryAuthority": {
     "kind": "resolved-release-set",
     "path": ".conditor/authority/resolved-release-set.json",
-    "sha256": "ea1b39a003d3f2f41c4fb6e979694ec82fd03964854e5dd268e38df51cd22931"
+    "sha256": "b6510138864cb3c42ee79542b8bd3995150ce4b4ef7a19cb6d831fcdcdaf1cfe"
   },
   "components": [
     {
@@ -13,13 +13,33 @@
       "required": true
     },
     {
+      "id": "echelon-theme",
+      "version": "1.1.0",
+      "required": false
+    },
+    {
+      "id": "folio",
+      "version": "0.4.1",
+      "required": true
+    },
+    {
+      "id": "forma",
+      "version": "1.0.1",
+      "required": true
+    },
+    {
+      "id": "limen",
+      "version": "0.9.1",
+      "required": true
+    },
+    {
       "id": "ordo",
-      "version": "1.5.0",
+      "version": "1.20.0",
       "required": true
     },
     {
       "id": "praxis",
-      "version": "3.7.2",
+      "version": "3.25.0",
       "required": true
     },
     {

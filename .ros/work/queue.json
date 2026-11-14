@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "mercatus",
-  "nextSeq": 12,
+  "nextSeq": 37,
   "items": [
     {
       "id": "WI-0001",
@@ -805,6 +805,48 @@
         "runtime": "claude-code"
       },
       "source": "WI-0012",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0035",
+      "title": "Install Conditor locally, repair the Conditor lock drift and move mercatus to echelon-current 1.39.0 (Praxis, Ordo, Limen, Forma, Folio, echelon-theme)",
+      "description": null,
+      "tags": [],
+      "priority": "medium",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-11-14T10:08:12.525Z",
+      "updatedAt": "2026-11-14T10:08:32.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0036",
+      "title": "Evaluate all requirements, research Forma/Folio/Limen integration, and review the UI contracts so Mercatus screens use Forma and Folio",
+      "description": null,
+      "tags": [],
+      "priority": "medium",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-11-14T10:08:12.776Z",
+      "updatedAt": "2026-11-14T10:08:32.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
       "sourceReference": null
     }
   ]

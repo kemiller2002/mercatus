@@ -37,3 +37,5 @@
 | WI-0032 | FND-21: Owner decision: reconcile the template project charter/handoff with the Sales and Marketing product scope | complete | modernization, domain-audit | high |
 | WI-0033 | FND-22: Identify the authoritative Ordo playbook (no artifact of that name exists in Ordo) | captured | modernization, domain-audit | low |
 | WI-0034 | FND-23/24: Define first-contact approval scope and the targets of CampaignTarget.Converted and Signal.ConvertedToWork | captured | modernization, domain-audit | medium |
+| WI-0035 | Install Conditor locally, repair the Conditor lock drift and move mercatus to echelon-current 1.39.0 (Praxis, Ordo, Limen, Forma, Folio, echelon-theme) | ready |  | medium |
+| WI-0036 | Evaluate all requirements, research Forma/Folio/Limen integration, and review the UI contracts so Mercatus screens use Forma and Folio | ready |  | medium |
