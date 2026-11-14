@@ -6,8 +6,10 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import {
   GATE_CRITERIA,
+  checkCoverage,
   checkFindings,
   checkFolioGate,
+  coverageOf,
   checkFormaGate,
   checkInventory,
   checkReferences,
@@ -157,4 +159,45 @@ test("Folio print work cannot start before its workflow contracts are verified",
 test("a print contract with dangling references is rejected", () => {
   const doc = update(base(), "printContracts", (p) => ({ ...p, workflows: ["WF-9"] }));
   assert.match(checkReferences(doc)[0], /PR-1: workflows references unknown id 'WF-9'/);
+});
+
+const coverageFiles = () =>
+  new Map([
+    ["req.md", { ids: ["R-1", "R-2", "R-3"], missing: [] }],
+  ]);
+
+test("coverage counts listed, linked, deferred and untraced IDs", () => {
+  const doc = { ...base(), coverage: { baseline: { listed: 1, linked: 1 }, deferred: [{ id: "R-3", reason: "backlog catalogue" }] } };
+  const c = coverageOf(doc, coverageFiles());
+  assert.deepEqual(
+    { total: c.total, listed: c.listed, linked: c.linked, deferred: c.deferred, untraced: c.untraced },
+    { total: 3, listed: 1, linked: 1, deferred: 1, untraced: 1 },
+  );
+  assert.deepEqual([...c.untracedByFile], [["req.md", ["R-2"]]]);
+  assert.deepEqual(checkCoverage(doc, coverageFiles()), []);
+});
+
+test("coverage ratchet fails on regression and on an unrecorded improvement", () => {
+  const at = (listed, linked) => ({ ...base(), coverage: { baseline: { listed, linked }, deferred: [] } });
+  assert.match(checkCoverage(at(2, 1), coverageFiles())[0], /listed fell from 2 to 1/);
+  assert.match(checkCoverage(at(0, 1), coverageFiles())[0], /listed rose from 0 to 1; raise coverage.baseline.listed to 1/);
+  assert.match(checkCoverage({ ...base() }, coverageFiles())[0], /baseline 'listed' must be a number/);
+});
+
+test("a listed requirement that nothing references is listed but not linked", () => {
+  const doc = { ...base(), requirements: [...base().requirements, { id: "R-2", file: "req.md" }] };
+  const c = coverageOf(doc, coverageFiles());
+  assert.equal(c.listed, 2);
+  assert.equal(c.linked, 1);
+});
+
+test("deferrals must name a real ID, give a reason and not also be traced", () => {
+  const doc = {
+    ...base(),
+    coverage: { baseline: { listed: 1, linked: 1 }, deferred: [{ id: "R-9", reason: "x" }, { id: "R-2", reason: " " }, { id: "R-1", reason: "y" }] },
+  };
+  const v = checkCoverage(doc, coverageFiles());
+  assert.ok(v.some((x) => /deferred 'R-9' is not a requirement ID/.test(x)));
+  assert.ok(v.some((x) => /deferred 'R-2' has no reason/.test(x)));
+  assert.ok(v.some((x) => /'R-1' is both traced and deferred/.test(x)));
 });

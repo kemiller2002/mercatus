@@ -225,6 +225,63 @@ export const runChecks = (doc, facts) => {
         ...checkFolioGate(doc),
         ...checkFindings(doc, facts.workItemIds, facts.existingPaths),
         ...checkInventory(doc, facts.trackedPaths),
+        ...checkCoverage(doc, facts.idsByFile),
         ...(facts.ui ? runUiConformance(facts.ui) : []),
       ];
+};
+
+// Requirement coverage (REQ-EVAL-30, WI-0049). "Listed" means the ID appears in
+// traceability requirements[]. "Linked" means a domain rule, workflow, UI or
+// print contract, or test also references it. Deferred IDs carry an explicit
+// reason and count as neither. The ratchet makes every change in coverage a
+// deliberate edit of the recorded baseline.
+const linkedIdsOf = (doc) =>
+  new Set([
+    ...doc.domainRules.flatMap((r) => r.requirements ?? []),
+    ...doc.workflows.flatMap((w) => w.requirements ?? []),
+    ...doc.uiContracts.flatMap((u) => u.requirements ?? []),
+    ...(doc.printContracts ?? []).flatMap((p) => p.requirements ?? []),
+    ...doc.tests.map((t) => t.requirement),
+  ]);
+
+export const coverageOf = (doc, idsByFile) => {
+  const all = [...idsByFile.values()].flatMap((x) => x.ids);
+  const deferred = new Set((doc.coverage?.deferred ?? []).map((d) => d.id));
+  const listed = new Set(doc.requirements.map((r) => r.id));
+  const linked = linkedIdsOf(doc);
+  const untraced = all.filter((id) => !listed.has(id) && !deferred.has(id));
+  const untracedByFile = new Map(
+    [...idsByFile].map(([file, x]) => [file, x.ids.filter((id) => untraced.includes(id))]).filter(([, ids]) => ids.length),
+  );
+  return {
+    total: all.length,
+    listed: all.filter((id) => listed.has(id)).length,
+    linked: all.filter((id) => listed.has(id) && linked.has(id)).length,
+    deferred: all.filter((id) => deferred.has(id)).length,
+    untraced: untraced.length,
+    untracedByFile,
+  };
+};
+
+const ratchet = (name, actual, baseline) =>
+  typeof baseline !== "number"
+    ? [`coverage: baseline '${name}' must be a number`]
+    : actual < baseline
+      ? [`coverage: ${name} fell from ${baseline} to ${actual}; restore the trace or record a deferral`]
+      : actual > baseline
+        ? [`coverage: ${name} rose from ${baseline} to ${actual}; raise coverage.baseline.${name} to ${actual}`]
+        : [];
+
+export const checkCoverage = (doc, idsByFile) => {
+  const all = new Set([...idsByFile.values()].flatMap((x) => x.ids));
+  const listed = new Set(doc.requirements.map((r) => r.id));
+  const deferred = doc.coverage?.deferred ?? [];
+  const c = coverageOf(doc, idsByFile);
+  return [
+    ...deferred.filter((d) => !all.has(d.id)).map((d) => `coverage: deferred '${d.id}' is not a requirement ID`),
+    ...deferred.filter((d) => !(d.reason ?? "").trim()).map((d) => `coverage: deferred '${d.id}' has no reason`),
+    ...deferred.filter((d) => listed.has(d.id)).map((d) => `coverage: '${d.id}' is both traced and deferred`),
+    ...ratchet("listed", c.listed, doc.coverage?.baseline?.listed),
+    ...ratchet("linked", c.linked, doc.coverage?.baseline?.linked),
+  ];
 };

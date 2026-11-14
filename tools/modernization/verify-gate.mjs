@@ -4,10 +4,12 @@
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import { requirementIdsOf, runChecks } from "./gate.mjs";
+import { coverageOf, requirementIdsOf, runChecks } from "./gate.mjs";
 import { isUiSource } from "./ui-conformance.mjs";
 
-const root = process.argv[2] ?? process.cwd();
+const args = process.argv.slice(2);
+const root = args.find((a) => !a.startsWith("--")) ?? process.cwd();
+const showCoverage = args.includes("--coverage");
 const readText = (p) => readFileSync(join(root, p), "utf8");
 const readJson = (p) => JSON.parse(readText(p));
 
@@ -40,6 +42,13 @@ const violations = runChecks(doc, { idsByFile, existingPaths, workItemIds, track
 
 const summary = (doc.workflows ?? []).map((w) => `${w.id} ${w.status}`).join(", ");
 
+const coverage = coverageOf(doc, idsByFile);
+const coverageLine = `coverage: ${coverage.listed}/${coverage.total} requirement IDs listed, ${coverage.linked} linked to a rule, workflow, contract or test, ${coverage.deferred} deferred, ${coverage.untraced} untraced`;
+
 violations.length
   ? (console.error(violations.map((v) => `FAIL ${v}`).join("\n")), (process.exitCode = 1))
-  : console.log(`PASS modernization gate: ${doc.requirements.length} requirements, ${doc.domainRules.length} rules, ${doc.workflows.length} workflows (${summary}), ${doc.findings.length} findings`);
+  : console.log(`PASS modernization gate: ${doc.requirements.length} requirements, ${doc.domainRules.length} rules, ${doc.workflows.length} workflows (${summary}), ${doc.findings.length} findings; UI conformance: ${ui.files.length} UI source file(s)`);
+
+console.log(coverageLine);
+showCoverage &&
+  console.log([...coverage.untracedByFile].map(([file, ids]) => `  ${file} (${ids.length}): ${ids.join(", ")}`).join("\n"));
