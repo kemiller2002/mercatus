@@ -4,7 +4,7 @@
   "repository": "mercatus",
   "actor": "anthropic/claude-code",
   "startedAt": "2026-10-06T09:48:42.847Z",
-  "updatedAt": "2026-11-14T15:46:47.000Z",
+  "updatedAt": "2026-11-14T15:47:38.000Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -986,13 +986,51 @@
     {
       "id": "WI-0049",
       "type": "task",
-      "state": "active",
-      "semanticState": "active",
-      "evidence": [],
-      "updatedAt": "2026-11-14T15:46:47.000Z",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "tools/modernization/gate.mjs"
+        },
+        {
+          "type": "implementation",
+          "path": "tools/modernization/verify-gate.mjs"
+        },
+        {
+          "type": "implementation",
+          "path": "docs/modernization/traceability.json"
+        },
+        {
+          "type": "tests",
+          "path": "tools/modernization/gate.test.mjs"
+        }
+      ],
+      "updatedAt": "2026-11-14T15:47:38.000Z",
       "telemetryExecutionIds": [
         "EXE-20261114T154647547Z-bb8e03bc"
-      ]
+      ],
+      "latestCheckpoint": {
+        "id": "065a288408c4e591f9ab7ac9",
+        "recordedAt": "2026-11-14T15:47:38.000Z",
+        "executionId": "EXE-20261114T154647547Z-bb8e03bc",
+        "repository": "mercatus",
+        "branch": "claude/loving-heisenberg-cgq0jl",
+        "commit": "83230d0b59f1c9802a8c72d5795572c081295275",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/mercatus"
+        },
+        "remoteBranch": "claude/loving-heisenberg-cgq0jl",
+        "remoteCommit": "83230d0b59f1c9802a8c72d5795572c081295275",
+        "summary": "Coverage report and ratchet in gate; baseline 81 listed / 75 linked of 317",
+        "nextAction": "Complete WI-0049; start WI-0050",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-11-14T15:47:38.000Z"
     }
   ]
 }

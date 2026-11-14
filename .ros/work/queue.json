@@ -1133,10 +1133,10 @@
         "verification,traceability"
       ],
       "priority": "medium",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-11-14T15:45:40.271Z",
-      "updatedAt": "2026-11-14T15:45:40.000Z",
+      "updatedAt": "2026-11-14T15:47:38.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
