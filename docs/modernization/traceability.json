@@ -433,13 +433,78 @@
       "id": "UIR-15",
       "file": "requirements/UI-REQUIREMENTS.md",
       "summary": "UI verification: gate rules, Forma tools, per-screen Playwright, robustness, print PDF tests."
+    },
+    {
+      "id": "TRN-00",
+      "file": "requirements/SLICE-TRANSITIONS.md",
+      "summary": "Scope and actor model of the first-slice transition tables."
+    },
+    {
+      "id": "TRN-DECISIONS",
+      "file": "requirements/SLICE-TRANSITIONS.md",
+      "summary": "Accepted decisions P1-P9."
+    },
+    {
+      "id": "TRN-TABLES",
+      "file": "requirements/SLICE-TRANSITIONS.md",
+      "summary": "Generated transition tables."
+    },
+    {
+      "id": "TRN-MARKET-HYPOTHESIS",
+      "file": "requirements/SLICE-TRANSITIONS.md",
+      "summary": "MarketHypothesis transitions."
+    },
+    {
+      "id": "TRN-PROBLEM-HYPOTHESIS",
+      "file": "requirements/SLICE-TRANSITIONS.md",
+      "summary": "ProblemHypothesis transitions."
+    },
+    {
+      "id": "TRN-OBSERVATION",
+      "file": "requirements/SLICE-TRANSITIONS.md",
+      "summary": "Observation transitions."
+    },
+    {
+      "id": "TRN-EVIDENCE",
+      "file": "requirements/SLICE-TRANSITIONS.md",
+      "summary": "Evidence transitions; freshness as projection."
+    },
+    {
+      "id": "TRN-ORGANIZATION",
+      "file": "requirements/SLICE-TRANSITIONS.md",
+      "summary": "Organization transitions."
+    },
+    {
+      "id": "TRN-LEAD",
+      "file": "requirements/SLICE-TRANSITIONS.md",
+      "summary": "Lead transitions; conversion into ProblemConfirmed."
+    },
+    {
+      "id": "TRN-OPPORTUNITY",
+      "file": "requirements/SLICE-TRANSITIONS.md",
+      "summary": "Opportunity transitions; Lost vs Rejected; regression; CommercialOutcome."
+    },
+    {
+      "id": "TRN-OBLIGATION",
+      "file": "requirements/SLICE-TRANSITIONS.md",
+      "summary": "Obligation transitions; reopen on invalidated evidence."
+    },
+    {
+      "id": "TRN-LEARNING-RECORD",
+      "file": "requirements/SLICE-TRANSITIONS.md",
+      "summary": "LearningRecord transitions."
+    },
+    {
+      "id": "DSM-23",
+      "file": "requirements/DOMAIN-STATE-MODEL.md",
+      "summary": "LearningRecord aggregate: one validation dimension, applies via ordinary transitions."
     }
   ],
   "coverage": {
     "note": "Ratchet (WI-0049, REQ-EVAL-30): verify-gate fails unless listed/linked equal these baselines. Raise them when coverage improves; record a deferral with a reason instead of dropping a trace. Run `node tools/modernization/verify-gate.mjs . --coverage` for the untraced IDs.",
     "baseline": {
-      "listed": 81,
-      "linked": 75
+      "listed": 94,
+      "linked": 88
     },
     "deferred": []
   },
@@ -1599,7 +1664,14 @@
         "DSM-03",
         "PRD-04",
         "PRD-05",
-        "PRD-25"
+        "PRD-25",
+        "TRN-MARKET-HYPOTHESIS",
+        "TRN-PROBLEM-HYPOTHESIS",
+        "TRN-LEARNING-RECORD",
+        "DSM-23",
+        "TRN-00",
+        "TRN-DECISIONS",
+        "TRN-TABLES"
       ],
       "domainRules": [
         "DR-MH-01",
@@ -1636,7 +1708,11 @@
         "DSM-04",
         "DSM-05",
         "PRD-07",
-        "PRD-28"
+        "PRD-28",
+        "TRN-OBSERVATION",
+        "TRN-00",
+        "TRN-DECISIONS",
+        "TRN-TABLES"
       ],
       "domainRules": [
         "DR-OBS-01",
@@ -1669,7 +1745,11 @@
         "PRD-26.3",
         "PRD-26.4",
         "SCN-11",
-        "SCN-30"
+        "SCN-30",
+        "TRN-EVIDENCE",
+        "TRN-00",
+        "TRN-DECISIONS",
+        "TRN-TABLES"
       ],
       "domainRules": [
         "DR-EV-01",
@@ -1703,7 +1783,11 @@
         "DSM-07",
         "PRD-08",
         "PRD-32",
-        "DSM-07A"
+        "DSM-07A",
+        "TRN-ORGANIZATION",
+        "TRN-00",
+        "TRN-DECISIONS",
+        "TRN-TABLES"
       ],
       "domainRules": [
         "DR-ORG-01",
@@ -1736,7 +1820,11 @@
       "requirements": [
         "DSM-08",
         "PRD-09",
-        "PRD-25"
+        "PRD-25",
+        "TRN-LEAD",
+        "TRN-00",
+        "TRN-DECISIONS",
+        "TRN-TABLES"
       ],
       "domainRules": [
         "DR-LEAD-01",
@@ -1770,7 +1858,11 @@
         "DSM-09",
         "PRD-10",
         "SCN-10",
-        "SCN-34"
+        "SCN-34",
+        "TRN-OPPORTUNITY",
+        "TRN-00",
+        "TRN-DECISIONS",
+        "TRN-TABLES"
       ],
       "domainRules": [
         "DR-OPP-01",
@@ -2041,7 +2133,11 @@
       ],
       "requirements": [
         "DSM-20",
-        "PRD-10"
+        "PRD-10",
+        "TRN-OBLIGATION",
+        "TRN-00",
+        "TRN-DECISIONS",
+        "TRN-TABLES"
       ],
       "domainRules": [
         "DR-OBL-01"
@@ -2841,7 +2937,8 @@
       "workItems": [
         "WI-0016"
       ],
-      "status": "open"
+      "status": "resolved",
+      "resolution": "research/decisions/DF-MERCATUS-DOM-2026-0002--first-slice-acceptance-and-transitions.md"
     },
     {
       "id": "FND-05",
@@ -2851,7 +2948,8 @@
       "workItems": [
         "WI-0016"
       ],
-      "status": "open"
+      "status": "resolved",
+      "resolution": "research/decisions/DF-MERCATUS-DOM-2026-0002--first-slice-acceptance-and-transitions.md"
     },
     {
       "id": "FND-06",
@@ -2916,7 +3014,8 @@
         "WI-0022",
         "WI-0015"
       ],
-      "status": "open"
+      "status": "resolved",
+      "resolution": "research/decisions/DF-MERCATUS-DOM-2026-0002--first-slice-acceptance-and-transitions.md"
     },
     {
       "id": "FND-12",
@@ -2926,7 +3025,8 @@
       "workItems": [
         "WI-0023"
       ],
-      "status": "open"
+      "status": "resolved",
+      "resolution": "research/decisions/DF-MERCATUS-DOM-2026-0002--first-slice-acceptance-and-transitions.md"
     },
     {
       "id": "FND-13",
@@ -2956,7 +3056,8 @@
       "workItems": [
         "WI-0026"
       ],
-      "status": "open"
+      "status": "resolved",
+      "resolution": "research/decisions/DF-MERCATUS-DOM-2026-0002--first-slice-acceptance-and-transitions.md"
     },
     {
       "id": "FND-16",

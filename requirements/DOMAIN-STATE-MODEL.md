@@ -50,12 +50,16 @@ CanEdit, CanPropose, CanStartResearch, CanMarkTestable, CanStartTest, CanRecordE
 
 Obligations MAY include DefinePopulation, DefineProblem, IdentifyBuyer, FindCounterEvidence, EstablishBuyingTrigger, TestReachability, TestWillingnessToEngage, ReviewStaleEvidence.
 
+These states are authoritative. The lifecycle in PRD-04 is the suggested subset Proposed -> Researching -> Testing -> Supported/Weak/Rejected; its "Revisit" is the Reopen -> Reopened -> ResumeResearch path (FND-04).
+
+Transitions: `TRN-MARKET-HYPOTHESIS` in `requirements/SLICE-TRANSITIONS.md` (accepted in DF-MERCATUS-DOM-2026-0002).
+
 ## 3. ProblemHypothesis
 
 ID: `DSM-03`
 
 States:
-Draft, Observed, Investigating, Corroborated, CommerciallyRelevant, Weak, Rejected, Revisit.
+Draft, Observed, Investigating, Corroborated, CommerciallyRelevant, Weak, Rejected, Reopened.
 
 Invariants:
 - problem is represented independently from an Echelon solution;
@@ -68,6 +72,10 @@ CanInvestigate, CanAttachObservation, CanAttachEvidence, CanCorroborate, CanTest
 
 Obligations:
 FindIndependentEvidence, IdentifyConsequence, IdentifyCurrentAlternative, IdentifyFrequency, IdentifyOwner, TestCommercialConsequence.
+
+The reopen state is named Reopened, as for MarketHypothesis (formerly Revisit; FND-05).
+
+Transitions: `TRN-PROBLEM-HYPOTHESIS` in `requirements/SLICE-TRANSITIONS.md` (accepted in DF-MERCATUS-DOM-2026-0002).
 
 ## 4. Observation
 
@@ -85,12 +93,14 @@ Invariants:
 Capabilities:
 CanNormalize, CanReview, CanPromote, CanDismiss, CanSupersede.
 
+Transitions: `TRN-OBSERVATION` in `requirements/SLICE-TRANSITIONS.md` (accepted in DF-MERCATUS-DOM-2026-0002).
+
 ## 5. Evidence
 
 ID: `DSM-05`
 
 States:
-Candidate, Accepted, Contested, Stale, Superseded, Invalidated.
+Candidate, Accepted, Contested, Superseded, Invalidated.
 
 Evidence includes scope, claim, source, observation references, strength/type, collected/observed time, effective-current assessment, confidence where useful, contradictions, and interpretation.
 
@@ -102,7 +112,11 @@ Invariants:
 - agent-generated inference is not mislabeled as source evidence.
 
 Capabilities:
-CanAccept, CanContest, CanMarkStale, CanSupersede, CanInvalidate, CanLinkContradiction.
+CanAccept, CanContest, CanSupersede, CanInvalidate, CanLinkContradiction.
+
+Freshness is not a stored state (FND-15). It is the pure projection effectiveCurrent(validity, now), evaluated whenever a guard needs current evidence. Accepted or Contested evidence outside its validity window is stale for that evaluation, cannot satisfy a current-evidence requirement, and raises a ReviewStaleEvidence obligation on the dependent aggregate.
+
+Transitions: `TRN-EVIDENCE` in `requirements/SLICE-TRANSITIONS.md` (accepted in DF-MERCATUS-DOM-2026-0002).
 
 ## 6. Organization
 
@@ -118,6 +132,8 @@ DoNotEngage is not a lifecycle state. It is an organization-level communication 
 Obligations MAY include ResolveIdentity, ResolveDuplicate, IdentifyRelevantRoles, ValidateICPFit, RefreshEvidence.
 
 Invariants include canonical identity/alias handling and prohibition on merging organizations without provenance and reversible merge history.
+
+Transitions: `TRN-ORGANIZATION` in `requirements/SLICE-TRANSITIONS.md` (accepted in DF-MERCATUS-DOM-2026-0002).
 
 ## 7. Contact
 
@@ -172,6 +188,10 @@ DiscoverLead -> StartResearch -> MarkEvidenceReady -> RequestQualification -> Qu
 
 Qualify MUST require the policy-selected evidence dimensions. Missing information produces obligations rather than fabricated values.
 
+Lead qualification establishes fit and problem evidence. ConvertToOpportunity creates an Opportunity in ProblemConfirmed, where opportunity qualification (decision maker, economic buyer, value hypothesis) continues (FND-11). Qualify, Disqualify and ConvertToOpportunity are human-only in the first slice (capabilities CanQualify, CanConvert).
+
+Transitions: `TRN-LEAD` in `requirements/SLICE-TRANSITIONS.md` (accepted in DF-MERCATUS-DOM-2026-0002).
+
 ## 9. Opportunity
 
 ID: `DSM-09`
@@ -189,6 +209,14 @@ Invariants:
 
 Obligations:
 ConfirmProblem, IdentifyDecisionMaker, IdentifyEconomicBuyer, DefineValueHypothesis, EstablishNextInteraction, ResolveRisk, UnderstandProcurement, ConfirmTiming, RecordAlternative, FollowUp.
+
+Definitions (FND-12):
+- Rejected: Echelon chose not to pursue (fit, ethics, capacity); possible before engagement.
+- Lost: the buyer chose an alternative or did not decide after engagement.
+- Regression is explicit: RegressToProblemConfirmed and RegressToQualified cite the evidence that invalidated a satisfied obligation, which is reopened.
+- Won requires a CommercialOutcome value: offering, value (absent means "not disclosed", never zero), optional terms reference, recorder and time.
+
+Transitions: `TRN-OPPORTUNITY` in `requirements/SLICE-TRANSITIONS.md` (accepted in DF-MERCATUS-DOM-2026-0002).
 
 ## 10. Relationship
 
@@ -312,7 +340,9 @@ ID: `DSM-20`
 States:
 Open, Satisfied, Waived, Expired, Superseded.
 
-Waiver requires actor capability and rationale. Blocking obligations prevent specified transitions.
+Waiver requires actor capability (CanWaive) and rationale. Blocking obligations prevent specified transitions. A Satisfied obligation reopens when its satisfying evidence is invalidated or superseded.
+
+Transitions: `TRN-OBLIGATION` in `requirements/SLICE-TRANSITIONS.md` (accepted in DF-MERCATUS-DOM-2026-0002).
 
 ## 21. Decision
 
@@ -336,3 +366,22 @@ ID: `DSM-22`
 - Agent authority is capability-scoped and revocable.
 - Confidence never substitutes for evidence.
 - No state machine may use an Unknown value to bypass a required invariant; Unknown must produce an explicit legal path or obligation.
+
+## 23. LearningRecord
+
+ID: `DSM-23`
+
+States:
+Proposed, Accepted, Applied, Discarded.
+
+A LearningRecord turns outcomes and evidence into requested belief changes (PRD-25). It names exactly one validation dimension (CLS-10), at least one outcome or evidence source, and at least one requested hypothesis command.
+
+Invariants:
+- applying a record submits ordinary hypothesis commands, each evaluated through the transition envelope; it never writes hypothesis state directly;
+- every result, including Deferred, is recorded on the record;
+- success in one validation dimension does not advance another (CLS-10).
+
+Capabilities:
+CanProposeLearning, CanAcceptLearning. Agents MAY propose; acceptance is human-only.
+
+Transitions: `TRN-LEARNING-RECORD` in `requirements/SLICE-TRANSITIONS.md` (accepted in DF-MERCATUS-DOM-2026-0002).

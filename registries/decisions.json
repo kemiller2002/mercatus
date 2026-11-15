@@ -46,6 +46,54 @@
   },
   {
     "confidence": "high",
+    "created": "2026-11-15",
+    "created_by_agent": "claude",
+    "decision_type": "domain",
+    "evidence": [],
+    "id": "DF-MERCATUS-DOM-2026-0002",
+    "path": "research/decisions/DF-MERCATUS-DOM-2026-0002--first-slice-acceptance-and-transitions.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261115T090949131Z-253a3bae": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-11-15T09:11:40.184Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "Record owner acceptance of PRD-25 criteria, synthetic-data policy and first-slice transitions"
+        }
+      }
+    },
+    "related_documents": [
+      "requirements/PRODUCT-REQUIREMENTS.md",
+      "requirements/DOMAIN-STATE-MODEL.md",
+      "requirements/SLICE-TRANSITIONS.md",
+      "requirements/slice-transitions.json",
+      "docs/first-slice/PRD-25-ACCEPTANCE.md",
+      "docs/modernization/DOMAIN-MODEL-AUDIT.md",
+      "docs/modernization/WORKFLOW-BOUNDARY-REVIEW.md"
+    ],
+    "status": "accepted",
+    "superseded_by": [],
+    "supersedes": [],
+    "tags": [
+      "domain",
+      "first-slice",
+      "transitions",
+      "data-policy",
+      "owner-decision"
+    ],
+    "title": "Owner decisions: PRD-25 acceptance criteria, synthetic-data policy, and first-slice transition tables",
+    "updated": "2026-11-15"
+  },
+  {
+    "confidence": "high",
     "created": "2026-10-09",
     "created_by_agent": "claude",
     "decision_type": "applicability",

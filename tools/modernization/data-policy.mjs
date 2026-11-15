@@ -1,5 +1,5 @@
 // Pure synthetic-data rules for fixtures (WI-0051; proposed SDP-01..SDP-06 in
-// docs/proposals/PRD-25-ACCEPTANCE.md; REQ-EVAL-01). Every exported check is a
+// docs/first-slice/PRD-25-ACCEPTANCE.md; REQ-EVAL-01). Every exported check is a
 // total function from data to violation strings. verify-gate.mjs reads the
 // files.
 //

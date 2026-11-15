@@ -4,7 +4,7 @@
   "repository": "mercatus",
   "actor": "anthropic/claude-code",
   "startedAt": "2026-10-06T09:48:42.847Z",
-  "updatedAt": "2026-11-14T20:48:04.000Z",
+  "updatedAt": "2026-11-15T09:13:22.853Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -1166,6 +1166,251 @@
         }
       },
       "completedAt": "2026-11-14T20:48:04.000Z"
+    },
+    {
+      "id": "WI-0038",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "requirements/PRODUCT-REQUIREMENTS.md"
+        },
+        {
+          "type": "implementation",
+          "path": "docs/first-slice/PRD-25-ACCEPTANCE.md"
+        },
+        {
+          "type": "implementation",
+          "path": "research/decisions/DF-MERCATUS-DOM-2026-0002--first-slice-acceptance-and-transitions.md"
+        },
+        {
+          "type": "tests",
+          "path": "tools/modernization/data-policy.test.mjs"
+        }
+      ],
+      "updatedAt": "2026-11-15T09:13:13.002Z",
+      "telemetryExecutionIds": [
+        "EXE-20261115T090949131Z-253a3bae"
+      ],
+      "latestCheckpoint": {
+        "id": "d84e821d16a88f163bd48a70",
+        "recordedAt": "2026-11-15T09:13:11.896Z",
+        "executionId": "EXE-20261115T090949131Z-253a3bae",
+        "repository": "mercatus",
+        "branch": "claude/loving-heisenberg-cgq0jl",
+        "commit": "516311fb1824ba46b26aa8340928b9f70a7ab57d",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/mercatus"
+        },
+        "remoteBranch": "claude/loving-heisenberg-cgq0jl",
+        "remoteCommit": "516311fb1824ba46b26aa8340928b9f70a7ab57d",
+        "summary": "Owner acceptance applied: PRD-25 MUST, transitions normative, DSM amended",
+        "nextAction": "WI-0013/WI-0003 F# core",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-11-15T09:13:13.002Z"
+    },
+    {
+      "id": "WI-0016",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "research/decisions/DF-MERCATUS-DOM-2026-0002--first-slice-acceptance-and-transitions.md"
+        },
+        {
+          "type": "implementation",
+          "path": "requirements/DOMAIN-STATE-MODEL.md"
+        },
+        {
+          "type": "implementation",
+          "path": "requirements/slice-transitions.json"
+        },
+        {
+          "type": "tests",
+          "path": "tools/modernization/transitions.test.mjs"
+        }
+      ],
+      "updatedAt": "2026-11-15T09:13:15.551Z",
+      "telemetryExecutionIds": [
+        "EXE-20261115T091314614Z-438b18d8"
+      ],
+      "latestCheckpoint": {
+        "id": "011b410757c3914a84595eaf",
+        "recordedAt": "2026-11-15T09:13:14.821Z",
+        "executionId": "EXE-20261115T091314614Z-438b18d8",
+        "repository": "mercatus",
+        "branch": "claude/loving-heisenberg-cgq0jl",
+        "commit": "516311fb1824ba46b26aa8340928b9f70a7ab57d",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/mercatus"
+        },
+        "remoteBranch": "claude/loving-heisenberg-cgq0jl",
+        "remoteCommit": "516311fb1824ba46b26aa8340928b9f70a7ab57d",
+        "summary": "Resolved by owner decision DF-MERCATUS-DOM-2026-0002, applied in 516311f",
+        "nextAction": "none for this finding",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-11-15T09:13:15.551Z"
+    },
+    {
+      "id": "WI-0022",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "research/decisions/DF-MERCATUS-DOM-2026-0002--first-slice-acceptance-and-transitions.md"
+        },
+        {
+          "type": "implementation",
+          "path": "requirements/DOMAIN-STATE-MODEL.md"
+        },
+        {
+          "type": "implementation",
+          "path": "requirements/slice-transitions.json"
+        },
+        {
+          "type": "tests",
+          "path": "tools/modernization/transitions.test.mjs"
+        }
+      ],
+      "updatedAt": "2026-11-15T09:13:17.967Z",
+      "telemetryExecutionIds": [
+        "EXE-20261115T091317061Z-bb6919b5"
+      ],
+      "latestCheckpoint": {
+        "id": "f895ce6398d7048f4a6e552c",
+        "recordedAt": "2026-11-15T09:13:17.266Z",
+        "executionId": "EXE-20261115T091317061Z-bb6919b5",
+        "repository": "mercatus",
+        "branch": "claude/loving-heisenberg-cgq0jl",
+        "commit": "516311fb1824ba46b26aa8340928b9f70a7ab57d",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/mercatus"
+        },
+        "remoteBranch": "claude/loving-heisenberg-cgq0jl",
+        "remoteCommit": "516311fb1824ba46b26aa8340928b9f70a7ab57d",
+        "summary": "Resolved by owner decision DF-MERCATUS-DOM-2026-0002, applied in 516311f",
+        "nextAction": "none for this finding",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-11-15T09:13:17.967Z"
+    },
+    {
+      "id": "WI-0023",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "research/decisions/DF-MERCATUS-DOM-2026-0002--first-slice-acceptance-and-transitions.md"
+        },
+        {
+          "type": "implementation",
+          "path": "requirements/DOMAIN-STATE-MODEL.md"
+        },
+        {
+          "type": "implementation",
+          "path": "requirements/slice-transitions.json"
+        },
+        {
+          "type": "tests",
+          "path": "tools/modernization/transitions.test.mjs"
+        }
+      ],
+      "updatedAt": "2026-11-15T09:13:20.418Z",
+      "telemetryExecutionIds": [
+        "EXE-20261115T091319534Z-b75d29be"
+      ],
+      "latestCheckpoint": {
+        "id": "81bf6e36401ea8619cd063c4",
+        "recordedAt": "2026-11-15T09:13:19.759Z",
+        "executionId": "EXE-20261115T091319534Z-b75d29be",
+        "repository": "mercatus",
+        "branch": "claude/loving-heisenberg-cgq0jl",
+        "commit": "516311fb1824ba46b26aa8340928b9f70a7ab57d",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/mercatus"
+        },
+        "remoteBranch": "claude/loving-heisenberg-cgq0jl",
+        "remoteCommit": "516311fb1824ba46b26aa8340928b9f70a7ab57d",
+        "summary": "Resolved by owner decision DF-MERCATUS-DOM-2026-0002, applied in 516311f",
+        "nextAction": "none for this finding",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-11-15T09:13:20.418Z"
+    },
+    {
+      "id": "WI-0026",
+      "type": "task",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "research/decisions/DF-MERCATUS-DOM-2026-0002--first-slice-acceptance-and-transitions.md"
+        },
+        {
+          "type": "implementation",
+          "path": "requirements/DOMAIN-STATE-MODEL.md"
+        },
+        {
+          "type": "implementation",
+          "path": "requirements/slice-transitions.json"
+        },
+        {
+          "type": "tests",
+          "path": "tools/modernization/transitions.test.mjs"
+        }
+      ],
+      "updatedAt": "2026-11-15T09:13:22.853Z",
+      "telemetryExecutionIds": [
+        "EXE-20261115T091321929Z-24966b32"
+      ],
+      "latestCheckpoint": {
+        "id": "c38eace0f47d2b1d756b451d",
+        "recordedAt": "2026-11-15T09:13:22.162Z",
+        "executionId": "EXE-20261115T091321929Z-24966b32",
+        "repository": "mercatus",
+        "branch": "claude/loving-heisenberg-cgq0jl",
+        "commit": "516311fb1824ba46b26aa8340928b9f70a7ab57d",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/mercatus"
+        },
+        "remoteBranch": "claude/loving-heisenberg-cgq0jl",
+        "remoteCommit": "516311fb1824ba46b26aa8340928b9f70a7ab57d",
+        "summary": "Resolved by owner decision DF-MERCATUS-DOM-2026-0002, applied in 516311f",
+        "nextAction": "none for this finding",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-11-15T09:13:22.853Z"
     }
   ]
 }

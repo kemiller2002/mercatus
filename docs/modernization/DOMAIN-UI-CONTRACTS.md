@@ -117,7 +117,9 @@ type ScreenContract<'view, 'command, 'event> =
 | UI-13 | Next actions | NextActionsView/v1 | ClaimWork, ReleaseWork | WF-14, WF-15 | PRD-23 | FND-18, FND-20 |
 
 FND-01 (no implementation) and FND-18 (no authorization model) block every
-row.
+row. FND-04, FND-05, FND-11, FND-12 and FND-15 were resolved on 2026-11-15
+(DF-MERCATUS-DOM-2026-0002), so they no longer block UI-01, UI-02, UI-04 or
+UI-05.
 
 Command names are provisional. They become authoritative only when the
 Tier 2 command union is merged. CHK-DOK-06 then checks each screen's commands

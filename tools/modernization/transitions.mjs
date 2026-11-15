@@ -1,4 +1,4 @@
-// Pure checks and rendering for docs/proposals/slice-transitions.json
+// Pure checks and rendering for requirements/slice-transitions.json
 // (WI-0052). Every exported function is total and performs no I/O.
 //
 // The proposal is data: one entry per aggregate, listing its states and its
@@ -95,6 +95,10 @@ export const checkProposal = (doc, dsmStates) => [
   ...(doc?.schema === "mercatus.transition-proposal/v1" ? [] : ["transitions: expected schema mercatus.transition-proposal/v1"]),
   ...(Array.isArray(doc?.aggregates) ? [] : ["transitions: 'aggregates' must be an array"]),
   ...duplicates((doc?.aggregates ?? []).map((a) => a.id)).map((id) => `transitions: aggregate '${id}' declared twice`),
+  ...(doc?.status === "accepted"
+    ? (doc?.aggregates ?? []).filter((a) => !a.requirementId).map((a) => `${a.id}: an accepted table needs a requirementId`)
+    : []),
+  ...duplicates((doc?.aggregates ?? []).map((a) => a.requirementId).filter(Boolean)).map((id) => `transitions: requirementId '${id}' used twice`),
   ...(doc?.aggregates ?? []).flatMap((a) => [...checkAggregate(a), ...checkAgainstDsm(a, dsmStates)]),
 ];
 
@@ -106,6 +110,7 @@ const renderAggregate = (a) =>
   [
     `### ${a.id} (${a.source}${a.findings?.length ? `; ${a.findings.join(", ")}` : ""})`,
     "",
+    ...(a.requirementId ? [`ID: \`${a.requirementId}\``, ""] : []),
     ...(a.resolves ? [a.resolves, ""] : []),
     `States: ${a.states.map((s) => (s.terminal ? `**${s.name}** (terminal${s.note ? `, ${s.note}` : ""})` : s.note ? `${s.name} (${s.note})` : s.name)).join(", ")}. Initial: ${a.initial}${a.entryStates?.length ? `; also entered at ${a.entryStates.join(", ")}` : ""}.`,
     ...(a.amends ? ["", `Amends ${a.source}: ${JSON.stringify(a.amends)}`] : []),

@@ -309,12 +309,13 @@ The system is NOT:
 
 ID: `PRD-25`
 
-The first complete vertical slice SHOULD be:
+The first complete vertical slice MUST be:
 
 MarketHypothesis -> ProblemHypothesis -> Organization discovery -> Observation/Evidence -> Lead -> Qualification -> Opportunity -> Outcome -> Learning.
 
-It MUST exercise Praxis, Ordo (SDE), Limen, F#, states, transitions, evidence, obligations, policies, capabilities, audit, and agent boundaries before broad automation is added.
+It MUST exercise Praxis, Ordo, Limen, F#, states, transitions, evidence, obligations, policies, capabilities, audit, and agent boundaries before broad automation is added.
 
+It MUST satisfy acceptance criteria AC-01 to AC-16 and the synthetic-data policy SDP-01 to SDP-06 in `docs/first-slice/PRD-25-ACCEPTANCE.md`, using the transitions in `requirements/SLICE-TRANSITIONS.md`. It MUST NOT store real personal data until the personal-data placement decision (WI-0037) is accepted. Outbound effects are out of scope. (Accepted 2026-11-15, DF-MERCATUS-DOM-2026-0002.)
 
 ## 26. Commercial signal and memory requirements
 
