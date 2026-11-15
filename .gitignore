@@ -39,3 +39,13 @@ logs/*
 # Refresh it with: npx @echelon-foundry/visual-engineering upgrade
 !.visual-engineering/
 # END echelon:visual-engineering
+
+# conditor:build-outputs
+bin/
+obj/
+dist/
+TestResults/
+test-results/
+playwright-report/
+*.nupkg
+# end conditor:build-outputs

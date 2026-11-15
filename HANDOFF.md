@@ -112,3 +112,25 @@ then the specification fixes WI-0015, WI-0022, WI-0025, WI-0029.
   listed and 88 linked.
 - **Next:** WI-0013 and WI-0003, the F# core for the slice. Tier 2 must match
   every table exhaustively before any workflow's `transitionsDefined` flips.
+
+## WI-0013: first-slice F# domain core (2026-11-15)
+
+- `Mercatus.slnx`, `src/domain/` (Tier 1/2, FSharp.Core only), and
+  `tests/Mercatus.Domain.Tests/` (xUnit). Build with .NET 10:
+  `dotnet test Mercatus.slnx -c Release`, or `npm run test:domain`.
+- Each of the nine aggregates has typed states, typed commands and one
+  exhaustive `decide`. FS0025 (incomplete match) is a build error. Freshness
+  is `Evidence.effectiveCurrent`, and blocking is `Obligation.blocking`.
+- The conformance suite tries every command from every state against
+  `requirements/slice-transitions.json`. It covers targets, illegal
+  transitions, actor rules, capabilities and blocking obligations. A mutation
+  test confirmed it catches drift. Guard tests cover AC-04..07 and AC-11, and
+  a pure happy path covers part of AC-02. 25 tests in total.
+- Gate additions: CHK-ARCH-01 (no references and no ambient effects in
+  `src/domain`), and an inventory revised to 2/9/0/5. CI runs the
+  `build-and-test.yml` workflow.
+- Aegis is restored with the first host project, not the domain
+  (DF-MERCATUS-FND-2026-0004).
+- **Next:** Tier 3 command handling (expected version, idempotency, event
+  envelope, replay) and the store port with its contract tests (AC-08..10).
+  Then the Limen host and the Forma screens (WI-0003).

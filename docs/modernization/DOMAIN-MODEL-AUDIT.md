@@ -44,6 +44,14 @@ The main consequences:
    work items WI-0013 to WI-0034. Six of them are critical and block the first
    vertical slice (PRD §25).
 
+**Update 2026-11-15 (WI-0013):** the Tier 1/2 F# core for the nine
+first-slice aggregates exists in `src/domain/`. Its tests in
+`tests/Mercatus.Domain.Tests/` check every command from every state against
+`requirements/slice-transitions.json`. The implementation inventory is revised
+to 2 projects, 9 sources and 5 test files. FND-01 is narrowed: the slice has a
+domain core, but no Tier 3, persistence or host yet. `transitionsDefined` is
+now true, with evidence, for WF-01, WF-02, WF-03, WF-05, WF-06 and WF-14.
+
 **Update 2026-11-15:** FND-04, FND-05, FND-11, FND-12 and FND-15 are resolved
 by owner decision DF-MERCATUS-DOM-2026-0002 (first-slice transitions in
 `requirements/SLICE-TRANSITIONS.md`). FND-03, FND-14, FND-18 and FND-20 are

@@ -231,5 +231,51 @@
     ],
     "title": "Forma 1.0.1, Folio 0.4.1 and echelon-theme 1.1.0 are installed and governed by Conditor before the first UI; foundations stay N/A until application source uses them",
     "updated": "2026-11-14"
+  },
+  {
+    "confidence": "high",
+    "created": "2026-11-15",
+    "created_by_agent": "claude",
+    "decision_type": "applicability",
+    "evidence": [],
+    "id": "DF-MERCATUS-FND-2026-0004",
+    "path": "research/decisions/DF-MERCATUS-FND-2026-0004--aegis-trigger-is-first-host-project.md",
+    "provenance": {
+      "contributions": {
+        "EXE-20261115T122951039Z-f1d4cc56": {
+          "actor": {
+            "id": "anthropic/claude-code",
+            "kind": "agent",
+            "model": "unknown",
+            "provider": "anthropic",
+            "runtime": "claude-code"
+          },
+          "at": "2026-11-15T12:38:17.577Z",
+          "operations": [
+            "created"
+          ],
+          "reason": "Make the Aegis restoration trigger precise: first host or integration project, not the pure domain"
+        }
+      }
+    },
+    "related_documents": [
+      "research/decisions/DF-MERCATUS-FND-2026-0002--aegis-forma-folio-not-yet-applicable.md",
+      "docs/modernization/WORKFLOW-BOUNDARY-REVIEW.md",
+      "docs/modernization/DOMAIN-UI-CONTRACTS.md",
+      "src/domain/Mercatus.Domain.fsproj",
+      "tools/modernization/architecture.mjs"
+    ],
+    "status": "accepted",
+    "superseded_by": [],
+    "supersedes": [],
+    "tags": [
+      "governance",
+      "foundations",
+      "aegis",
+      "architecture",
+      "applicability"
+    ],
+    "title": "The Aegis restoration trigger is the first host or integration project, not the pure Tier 1/2 domain library",
+    "updated": "2026-11-15"
   }
 ]

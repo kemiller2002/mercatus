@@ -8,6 +8,7 @@ import { coverageOf, requirementIdsOf, runChecks } from "./gate.mjs";
 import { isUiSource } from "./ui-conformance.mjs";
 import { dsmStatesOf } from "./transitions.mjs";
 import { isFixture } from "./data-policy.mjs";
+import { DOMAIN_DIR } from "./architecture.mjs";
 
 const args = process.argv.slice(2);
 const root = args.find((a) => !a.startsWith("--")) ?? process.cwd();
@@ -50,8 +51,9 @@ const transitions = existsSync(join(root, transitionsPath))
   : null;
 
 const fixtures = trackedPaths.filter(isFixture).map((path) => ({ path, text: readText(path) }));
+const domain = trackedPaths.filter((p) => p.startsWith(DOMAIN_DIR)).map((path) => ({ path, text: readText(path) }));
 
-const violations = runChecks(doc, { idsByFile, existingPaths, workItemIds, trackedPaths, ui, transitions, fixtures });
+const violations = runChecks(doc, { idsByFile, existingPaths, workItemIds, trackedPaths, ui, transitions, fixtures, domain });
 
 const summary = (doc.workflows ?? []).map((w) => `${w.id} ${w.status}`).join(", ");
 

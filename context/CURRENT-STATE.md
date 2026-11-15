@@ -4,7 +4,8 @@
 
 Conditor governs echelon-current 1.39.0: Praxis 3.25.0, Ordo 1.20.0,
 Limen 0.9.1, Forma 1.0.1, echelon-theme 1.1.0 and Folio 0.4.1
-(WI-0035, DF-MERCATUS-FND-2026-0003). There is no application code yet.
+(WI-0035, DF-MERCATUS-FND-2026-0003). The Tier 1/2 F# domain core for the first slice exists (`src/domain/`,
+WI-0013). There is no host, persistence or UI code yet.
 
 ## Observed facts
 

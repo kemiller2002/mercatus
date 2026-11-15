@@ -1,0 +1,11 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Deterministic>true</Deterministic>
+    <!-- Exhaustive matching is a requirement (TRN-00): an incomplete match is a build error. -->
+    <WarningsAsErrors>FS0025;$(WarningsAsErrors)</WarningsAsErrors>
+  </PropertyGroup>
+</Project>

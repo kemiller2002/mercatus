@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Tier 1/2 semantic model and pure domain rules (DOMAIN-UI-CONTRACTS §2).
+       References only FSharp.Core: no I/O, hosts, providers or Aegis here. -->
+  <PropertyGroup>
+    <AssemblyName>Mercatus.Domain</AssemblyName>
+    <RootNamespace>Mercatus.Domain</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Core.fs" />
+    <Compile Include="Hypotheses.fs" />
+    <Compile Include="Evidence.fs" />
+    <Compile Include="Commercial.fs" />
+    <Compile Include="Obligations.fs" />
+  </ItemGroup>
+</Project>
