@@ -15,7 +15,7 @@
 | WI-0010 | Upgrade Limen 0.7.1 -> 0.9.0; declare the Limen boundary not yet applicable and restore limen-verify | complete |  | medium |
 | WI-0011 | Declare Aegis, Forma and Folio not yet applicable and run foundations verify in CI | complete |  | medium |
 | WI-0012 | Domain model and workflow validation gate before Forma modernization | complete | modernization, domain, ordo | high |
-| WI-0013 | FND-01: Implement the Tier 1/2 F# semantic core for the first vertical slice (no domain implementation exists) | ready | modernization, domain-audit | high |
+| WI-0013 | FND-01: Implement the Tier 1/2 F# semantic core for the first vertical slice (no domain implementation exists) | complete | modernization, domain-audit | high |
 | WI-0014 | FND-02: Assign stable requirement IDs to canonical requirements (owner decision) | complete | modernization, domain-audit | medium |
 | WI-0015 | FND-03: Specify explicit transition tables for every aggregate in DOMAIN-STATE-MODEL | captured | modernization, domain-audit | high |
 | WI-0016 | FND-04/05: Reconcile MarketHypothesis and ProblemHypothesis lifecycles (Revisit vs Reopened, PRD 4 vs DSM 2) | complete | modernization, domain-audit | medium |

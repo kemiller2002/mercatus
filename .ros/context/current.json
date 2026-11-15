@@ -4,7 +4,7 @@
   "repository": "mercatus",
   "actor": "anthropic/claude-code",
   "startedAt": "2026-10-06T09:48:42.847Z",
-  "updatedAt": "2026-11-15T12:29:50.363Z",
+  "updatedAt": "2026-11-15T12:39:01.831Z",
   "baselineDirtyPaths": [],
   "workItems": [
     {
@@ -1415,13 +1415,59 @@
     {
       "id": "WI-0013",
       "type": "task",
-      "state": "active",
-      "semanticState": "active",
-      "evidence": [],
-      "updatedAt": "2026-11-15T12:29:50.363Z",
+      "state": "complete",
+      "semanticState": "complete",
+      "evidence": [
+        {
+          "type": "implementation",
+          "path": "src/domain/Core.fs"
+        },
+        {
+          "type": "implementation",
+          "path": "src/domain/Commercial.fs"
+        },
+        {
+          "type": "implementation",
+          "path": "src/domain/Mercatus.Domain.fsproj"
+        },
+        {
+          "type": "tests",
+          "path": "tests/Mercatus.Domain.Tests/ConformanceTests.fs"
+        },
+        {
+          "type": "tests",
+          "path": "tests/Mercatus.Domain.Tests/GuardTests.fs"
+        },
+        {
+          "type": "tests",
+          "path": ".github/workflows/build-and-test.yml"
+        }
+      ],
+      "updatedAt": "2026-11-15T12:39:01.831Z",
       "telemetryExecutionIds": [
         "EXE-20261115T122951039Z-f1d4cc56"
-      ]
+      ],
+      "latestCheckpoint": {
+        "id": "aabecd2810b64b2d179e737a",
+        "recordedAt": "2026-11-15T12:39:00.866Z",
+        "executionId": "EXE-20261115T122951039Z-f1d4cc56",
+        "repository": "mercatus",
+        "branch": "claude/loving-heisenberg-cgq0jl",
+        "commit": "5e92cc6a67af352aefcaf2b14937cc3d0a7373ad",
+        "remote": {
+          "name": "origin",
+          "url": "https://github.com/kemiller2002/mercatus"
+        },
+        "remoteBranch": "claude/loving-heisenberg-cgq0jl",
+        "remoteCommit": "5e92cc6a67af352aefcaf2b14937cc3d0a7373ad",
+        "summary": "Tier 1/2 F# core for 9 slice aggregates; 25 tests incl. table conformance; architecture gate; CI",
+        "nextAction": "Tier 3 command handling and store port (AC-08..10); then WI-0003 host and screens",
+        "verification": {
+          "status": "verified",
+          "mechanism": "git-remote-observation"
+        }
+      },
+      "completedAt": "2026-11-15T12:39:01.831Z"
     }
   ]
 }
