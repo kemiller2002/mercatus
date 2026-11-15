@@ -40,12 +40,12 @@ const ui = {
   foundations: readJson(".echelon/foundations.json"),
 };
 
-const transitionsPath = "docs/proposals/slice-transitions.json";
+const transitionsPath = "requirements/slice-transitions.json";
 const transitions = existsSync(join(root, transitionsPath))
   ? {
       doc: readJson(transitionsPath),
       dsmStates: dsmStatesOf(readText("requirements/DOMAIN-STATE-MODEL.md")),
-      markdown: readText("docs/proposals/SLICE-TRANSITION-TABLES.md"),
+      markdown: readText("requirements/SLICE-TRANSITIONS.md"),
     }
   : null;
 
@@ -65,7 +65,7 @@ violations.length
 console.log(coverageLine);
 transitions &&
   console.log(
-    `transition proposal (${transitions.doc.status}): ${transitions.doc.aggregates.length} aggregates, ${transitions.doc.aggregates.reduce((n, a) => n + a.commands.length, 0)} commands`,
+    `transition tables (${transitions.doc.status}): ${transitions.doc.aggregates.length} aggregates, ${transitions.doc.aggregates.reduce((n, a) => n + a.commands.length, 0)} commands`,
   );
 showCoverage &&
   console.log([...coverage.untracedByFile].map(([file, ids]) => `  ${file} (${ids.length}): ${ids.join(", ")}`).join("\n"));

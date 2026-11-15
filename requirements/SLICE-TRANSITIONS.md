@@ -1,48 +1,50 @@
-# First-Slice Transition Tables (proposal)
+# First-Slice Transitions
 
-- **Work item:** WI-0052
-- **Date:** 2026-11-14
-- **Status:** **proposed.** Nothing in this document is an accepted business
-  rule. It is a draft for the owner to accept, amend or reject. Acceptance
-  closes or advances WI-0015 (FND-03), WI-0016 (FND-04, FND-05), WI-0022
-  (FND-11), WI-0023 (FND-12), WI-0025 (FND-14) and WI-0026 (FND-15) for the
-  first-slice aggregates.
-- **Source of truth:** `docs/proposals/slice-transitions.json`. The tables
-  in §4 are generated from it by
-  `node tools/modernization/render-transitions.mjs`.
-- **Executable checks:** `node tools/modernization/verify-gate.mjs` validates
-  the JSON on every CI run:
-  - every state is reachable from the initial state;
-  - no non-terminal state is a dead end;
-  - terminal states are left only by an explicit reopen (↺);
-  - each command and from-state pair has a single target;
-  - actors are valid;
-  - the proposal departs from `requirements/DOMAIN-STATE-MODEL.md` only
-    where `amends` declares it.
+These tables define the legal transitions of the aggregates the PRD-25
+vertical slice uses. They were accepted by the owner on 2026-11-15
+(DF-MERCATUS-DOM-2026-0002). Each aggregate's section in
+`requirements/DOMAIN-STATE-MODEL.md` points to its table here.
+
+The source of truth is `requirements/slice-transitions.json`. The tables in
+§4 are generated from it (`npm run render:transitions`). The modernization
+gate fails if the tables and the JSON differ, and it checks the JSON on every
+CI run:
+
+- every state is reachable;
+- no non-terminal state is a dead end;
+- terminal states are left only by an explicit reopen (↺);
+- each command and from-state pair has a single target;
+- actors are valid;
+- the states match DOMAIN-STATE-MODEL exactly.
 
 ## 1. Scope
 
-These are the aggregates the PRD-25 vertical slice touches:
+ID: `TRN-00`
 
-| Aggregate | DSM | Finding(s) this proposal addresses |
-|---|---|---|
-| MarketHypothesis | DSM-02 | FND-03, FND-04, FND-05 |
-| ProblemHypothesis | DSM-03 | FND-03, FND-05 |
-| Observation | DSM-04 | FND-03 |
-| Evidence | DSM-05 | FND-03, FND-15 |
-| Organization | DSM-06 | FND-03 |
-| Lead | DSM-08 | FND-03, FND-11 (extends WORKFLOW-BOUNDARY-REVIEW §4.1) |
-| Opportunity | DSM-09 | FND-03, FND-12, FND-20 |
-| Obligation | DSM-20 | FND-14 (extends WORKFLOW-BOUNDARY-REVIEW §4.4) |
-| LearningRecord | new (PRD-25) | FND-20; defined with `docs/proposals/PRD-25-ACCEPTANCE.md` |
+The tables cover MarketHypothesis, ProblemHypothesis, Observation,
+Evidence, Organization, Lead, Opportunity, Obligation and LearningRecord.
+Other aggregates (Contact, CommunicationEligibility, Campaign and outreach)
+still lack accepted tables (FND-03, WI-0015).
 
-Contact, CommunicationEligibility, Campaign and outreach are outside the
-slice (charter: no real outbound sending).
+Every command is evaluated through the DSM-01 envelope, alongside expected
+version, capabilities, policy and blocking obligations, and returns exactly
+one of the five TransitionResult cases. A command from any state the table
+does not list MUST be Rejected.
 
-## 2. Decisions this proposal asks the owner to make
+Actor values:
 
-Each row gives a recommendation and the alternative. Accepting the document
-accepts the recommendations.
+- `human`: no agent may hold the capability for this command in the first
+  slice.
+- `agent-or-human`: an agent holding the capability may submit the command.
+- `system`: the host issues the command, from time or from another
+  aggregate's event.
+
+## 2. Accepted decisions
+
+ID: `TRN-DECISIONS`
+
+The owner accepted every recommendation below on 2026-11-15
+(DF-MERCATUS-DOM-2026-0002).
 
 | # | Question | Recommendation | Alternative |
 |---|---|---|---|
@@ -56,11 +58,13 @@ accepts the recommendations.
 | P8 | Who may do what in the slice (part of FND-18)? | See each table's Actor column. **Human-only:** Accept evidence, Corroborate, Support, Reject, Qualify, Convert, MarkWon/Lost, Waive, Accept learning. **Agents may:** discover, research, normalize, review, promote observations to Candidate evidence, contest, weaken, propose learning. | Allow agents to accept evidence under a policy. |
 | P9 | New capabilities | `CanQualify`, `CanConvert`, `CanWaive` and `CanAcceptLearning` are named here. DSM lists none of them. | Fold them into existing capabilities. |
 
-## 3. Illustrative types (functional core)
+## 3. Illustrative types
 
-States are union cases that carry only what that state guarantees. A
-transition is a total, pure function. Freshness depends on the clock, so it
-is computed from `now`, never stored.
+ID: `TRN-TYPES`
+
+This section is informative, not normative. States are union cases that carry
+only what each state guarantees. Transitions are total, pure functions.
+Freshness depends on the clock, so it is computed from `now` and never stored.
 
 ```fsharp
 // Tier 1 (illustrative)
@@ -85,13 +89,15 @@ let decide (now: DateTimeOffset) (actor: SessionActor) (cmd: OpportunityCommand)
 
 ## 4. Tables
 
-↺ marks an explicit reopen out of a terminal state. Guards are evaluated
-inside the DSM-01 envelope, alongside expected version, capabilities, policy
-and blocking obligations.
+ID: `TRN-TABLES`
+
+↺ marks an explicit reopen out of a terminal state.
 
 <!-- BEGIN generated: node tools/modernization/render-transitions.mjs -->
 
 ### MarketHypothesis (DSM-02; FND-03, FND-04, FND-05)
+
+ID: `TRN-MARKET-HYPOTHESIS`
 
 FND-04: DSM-02 states are authoritative; PRD-04's lifecycle is the 'suggested' subset and its 'Revisit' becomes the transition pair Reopen -> Reopened -> ResumeResearch. FND-05: both hypothesis types use 'Reopened'.
 
@@ -114,11 +120,11 @@ Non-transition commands (no state change): RecordEvidence, Edit.
 
 ### ProblemHypothesis (DSM-03; FND-03, FND-05)
 
+ID: `TRN-PROBLEM-HYPOTHESIS`
+
 FND-05: 'Revisit' is renamed 'Reopened', entered by Reopen and left by ResumeInvestigation.
 
 States: Draft, Observed, Investigating, Corroborated, CommerciallyRelevant, Weak, **Rejected** (terminal, reopenable), Reopened (renamed from Revisit (FND-05)). Initial: Draft.
-
-Amends DSM-03: {"renamed":{"Revisit":"Reopened"}}
 
 | Command | From | To | Actor | Capability | Guard |
 |---|---|---|---|---|---|
@@ -135,6 +141,8 @@ Non-transition commands (no state change): AttachObservation, AttachEvidence.
 
 ### Observation (DSM-04; FND-03)
 
+ID: `TRN-OBSERVATION`
+
 States: Captured, Normalized, Reviewed, **PromotedToEvidence** (terminal), **Dismissed** (terminal), **Superseded** (terminal). Initial: Captured.
 
 | Command | From | To | Actor | Capability | Guard |
@@ -149,23 +157,25 @@ Non-transition commands (no state change): LinkDuplicate.
 
 ### Evidence (DSM-05; FND-03, FND-15)
 
-FND-15 (proposal): 'Stale' is not a stored state. Freshness is the pure projection effectiveCurrent(validity, now), so 'Accepted but expired' cannot satisfy a current-evidence guard. MarkStale is replaced by the ReviewStaleEvidence obligation, raised when the projection turns stale. DSM-05 needs an owner amendment.
+ID: `TRN-EVIDENCE`
+
+FND-15: 'Stale' is not a stored state. Freshness is the pure projection effectiveCurrent(validity, now), so 'Accepted but expired' cannot satisfy a current-evidence guard. MarkStale is replaced by the ReviewStaleEvidence obligation, raised when the projection turns stale.
 
 States: Candidate, Accepted, Contested, **Superseded** (terminal), **Invalidated** (terminal). Initial: Candidate.
-
-Amends DSM-05: {"removed":["Stale"]}
 
 | Command | From | To | Actor | Capability | Guard |
 |---|---|---|---|---|---|
 | Accept | Candidate | Accepted | human | CanAccept | scope, claim, source, observation refs and validity window present; agent inference labelled as inference |
 | Contest | Accepted | Contested | agent-or-human | CanContest | contradicting Evidence linked |
-| Uphold | Contested | Accepted | human | CanAccept | rationale; contradiction kept (proposed command) |
+| Uphold | Contested | Accepted | human | CanAccept | rationale; contradiction kept |
 | Supersede | Accepted, Contested | Superseded | agent-or-human | CanSupersede | newer Evidence linked |
 | Invalidate | Candidate, Accepted, Contested | Invalidated | human | CanInvalidate | reason; dependants re-evaluated (EFF-01) |
 
 Non-transition commands (no state change): LinkContradiction.
 
 ### Organization (DSM-06; FND-03)
+
+ID: `TRN-ORGANIZATION`
 
 States: Discovered, Researching, Researched, Candidate, Engaging, ActiveRelationship, Inactive (reactivatable). Initial: Discovered.
 
@@ -183,7 +193,9 @@ Non-transition commands (no state change): ProposeMerge, ReverseMerge.
 
 ### Lead (DSM-08; FND-03, FND-11)
 
-Extends WORKFLOW-BOUNDARY-REVIEW §4.1. FND-11 (proposal): ConvertToOpportunity creates an Opportunity in ProblemConfirmed. Lead qualification establishes fit and problem evidence; Opportunity qualification (decision maker, economic buyer, value hypothesis) happens later. Disqualified leads can be reconsidered with new evidence.
+ID: `TRN-LEAD`
+
+Extends WORKFLOW-BOUNDARY-REVIEW §4.1. FND-11: ConvertToOpportunity creates an Opportunity in ProblemConfirmed. Lead qualification establishes fit and problem evidence; Opportunity qualification (decision maker, economic buyer, value hypothesis) happens later. Disqualified leads can be reconsidered with new evidence.
 
 States: Discovered, Researching, EvidenceReady, QualificationPending, Qualified, **Disqualified** (terminal, reconsiderable), Deferred, **Converted** (terminal). Initial: Discovered.
 
@@ -201,7 +213,9 @@ States: Discovered, Researching, EvidenceReady, QualificationPending, Qualified,
 
 ### Opportunity (DSM-09; FND-03, FND-12, FND-20)
 
-FND-12 (proposal): Rejected means Echelon chose not to pursue (fit, ethics, capacity) and can happen before engagement. Lost means the buyer chose an alternative or did not decide after engagement. Regression is explicit: RegressToProblemConfirmed and RegressToQualified reopen the obligations that the changed evidence invalidates. Won requires a CommercialOutcome value (FND-20). Converted leads enter at ProblemConfirmed (initial for direct creation: Discovered).
+ID: `TRN-OPPORTUNITY`
+
+FND-12: Rejected means Echelon chose not to pursue (fit, ethics, capacity) and can happen before engagement. Lost means the buyer chose an alternative or did not decide after engagement. Regression is explicit: RegressToProblemConfirmed and RegressToQualified reopen the obligations that the changed evidence invalidates. Won requires a CommercialOutcome value (FND-20). Converted leads enter at ProblemConfirmed (initial for direct creation: Discovered).
 
 States: Discovered, Researching, Engaging, ProblemConfirmed, Qualified, Exploring, Proposal, Negotiation, **Won** (terminal), **Lost** (terminal, reopenable), **Dormant** (terminal, reopenable), **Rejected** (terminal, reconsiderable). Initial: Discovered; also entered at ProblemConfirmed.
 
@@ -225,6 +239,8 @@ States: Discovered, Researching, Engaging, ProblemConfirmed, Qualified, Explorin
 
 ### Obligation (DSM-20; FND-14)
 
+ID: `TRN-OBLIGATION`
+
 Extends WORKFLOW-BOUNDARY-REVIEW §4.4: each Obligation declares the transition kinds it blocks. Reopen supports evidence-driven regression.
 
 States: Open, Satisfied, **Waived** (terminal), **Expired** (terminal), **Superseded** (terminal). Initial: Open.
@@ -237,13 +253,13 @@ States: Open, Satisfied, **Waived** (terminal), **Expired** (terminal), **Supers
 | Supersede | Open | Superseded | agent-or-human | — | replacement obligation linked |
 | Reopen ↺ | Satisfied | Open | system | — | satisfying evidence invalidated or superseded |
 
-### LearningRecord (PRD-25; FND-20)
+### LearningRecord (DSM-23; FND-20)
 
-New, proposed with the PRD-25 acceptance proposal. A LearningRecord turns outcomes and evidence into requested belief changes. Applying it submits ordinary hypothesis commands, each evaluated normally, and never writes hypothesis state directly. Each record names the single validation dimension it affects (CLS-10).
+ID: `TRN-LEARNING-RECORD`
+
+New, accepted with the PRD-25 acceptance criteria. A LearningRecord turns outcomes and evidence into requested belief changes. Applying it submits ordinary hypothesis commands, each evaluated normally, and never writes hypothesis state directly. Each record names the single validation dimension it affects (CLS-10).
 
 States: Proposed, Accepted, **Applied** (terminal), **Discarded** (terminal). Initial: Proposed.
-
-Amends PRD-25: {"added":["Proposed","Accepted","Applied","Discarded"]}
 
 | Command | From | To | Actor | Capability | Guard |
 |---|---|---|---|---|---|
@@ -253,15 +269,11 @@ Amends PRD-25: {"added":["Proposed","Accepted","Applied","Discarded"]}
 
 <!-- END generated -->
 
-## 5. What acceptance changes
+## 5. Change control
 
-1. `requirements/DOMAIN-STATE-MODEL.md` is updated:
-   - DSM-03 renames Revisit to Reopened;
-   - DSM-05 drops Stale and adds the freshness projection;
-   - the transition tables are added under each slice aggregate.
-   The `amends` entries in the JSON list exactly these edits.
-2. WORKFLOW-BOUNDARY-REVIEW §4.1 and §4.4 point here.
-3. In `docs/modernization/traceability.json`, `transitionsDefined` may become
-   `true` for WF-01 to WF-06 and WF-14, but only after Tier 2 implements an
-   exhaustive match (§5 of that review).
-4. These tables also generate the static lifecycle diagrams (UIR-14).
+ID: `TRN-CHANGE`
+
+To change a table, edit `requirements/slice-transitions.json` and run
+`npm run render:transitions`. A change to an accepted table needs an owner
+decision record. A change to the state list must also change
+DOMAIN-STATE-MODEL, because the gate rejects any mismatch.

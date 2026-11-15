@@ -93,3 +93,22 @@ then the specification fixes WI-0015, WI-0022, WI-0025, WI-0029.
   (synthetic fixtures). 50 tests.
 - Both documents are proposals. Accepting them advances WI-0038, WI-0015,
   WI-0016, WI-0022, WI-0023, WI-0025 and WI-0026.
+
+## WI-0038: first-slice decisions accepted (2026-11-15)
+
+- The owner accepted every recommendation (Q1–Q6, P1–P9), recorded as
+  DF-MERCATUS-DOM-2026-0002.
+- PRD-25 is now normative and points to `docs/first-slice/PRD-25-ACCEPTANCE.md`.
+- The transition tables moved to `requirements/SLICE-TRANSITIONS.md` and
+  `requirements/slice-transitions.json`, with IDs TRN-*. The earlier
+  `docs/proposals/` paths are gone.
+- DOMAIN-STATE-MODEL is amended:
+  - ProblemHypothesis Revisit is renamed Reopened.
+  - Evidence Stale is removed; freshness is a projection.
+  - DSM-08 and DSM-09 define conversion, Lost vs Rejected, regression and
+    CommercialOutcome.
+  - New DSM-23 LearningRecord.
+- FND-04, FND-05, FND-11, FND-12 and FND-15 are resolved. Coverage is 94
+  listed and 88 linked.
+- **Next:** WI-0013 and WI-0003, the F# core for the slice. Tier 2 must match
+  every table exhaustively before any workflow's `transitionsDefined` flips.

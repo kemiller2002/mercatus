@@ -309,6 +309,11 @@ requirement IDs refer to `traceability.json`.
 
 ## 4. Proposed transition tables (owner confirmation required)
 
+**Update 2026-11-15:** §4.1 (Lead) and §4.4 (Obligation) are superseded by
+the accepted tables `TRN-LEAD` and `TRN-OBLIGATION` in
+`requirements/SLICE-TRANSITIONS.md` (DF-MERCATUS-DOM-2026-0002). §4.2
+(outbound send) and §4.3 (Campaign) remain proposals.
+
 These tables are **proposals derived from the requirements**. They are not
 accepted business rules. They are tracked in WI-0015, WI-0018, WI-0022,
 WI-0023 and WI-0025. They show how the types make invalid transitions

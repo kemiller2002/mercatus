@@ -24,10 +24,16 @@ Limen 0.9.1, Forma 1.0.1, echelon-theme 1.1.0 and Folio 0.4.1
   mandatory. The modernization gate enforces the static rules. Folio 0.4.1 is
   not yet Forma 1.x aligned (EV-MERCATUS-UI-2026-0001, WI-0045).
 
+- The first slice is defined. PRD-25 is a MUST bound to AC-01..16 and to
+  SDP-01..06 (`docs/first-slice/PRD-25-ACCEPTANCE.md`). The transitions for
+  its nine aggregates are accepted (`requirements/SLICE-TRANSITIONS.md`,
+  DF-MERCATUS-DOM-2026-0002).
+
 ## Active work
 
-Owner review of the UI requirements and of the decisions in WI-0039 and
-WI-0044. Resolve the critical specification findings (WI-0015, WI-0022,
+Implement the Tier 1/2 F# core for the first slice against the accepted
+tables (WI-0013, WI-0003). Open owner decisions: WI-0037 (personal-data
+placement), WI-0039 and WI-0044. Resolve the critical specification findings (WI-0015, WI-0022,
 WI-0025, WI-0029) and first-slice readiness (WI-0037, WI-0038). Then implement the Tier 1/2 F# core for the `PRD-25` vertical slice
 (WI-0013, WI-0003).
 

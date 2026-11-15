@@ -1,10 +1,11 @@
-# First Vertical Slice: Acceptance Proposal (PRD-25)
+# First Vertical Slice: Acceptance Criteria (PRD-25)
 
-- **Work item:** WI-0051 (draft). Acceptance happens under WI-0038.
+- **Work items:** WI-0051 (draft), WI-0038 (accepted)
 - **Date:** 2026-11-14
-- **Status:** **proposed.** PRD-25 is unchanged until the owner accepts.
-  Section 7 holds the replacement text, ready to paste.
-- **Companion:** `docs/proposals/SLICE-TRANSITION-TABLES.md` gives the
+- **Status:** **accepted** by the owner on 2026-11-15
+  (DF-MERCATUS-DOM-2026-0002). PRD-25 now carries the §7 text and makes these
+  criteria normative.
+- **Companion:** `requirements/SLICE-TRANSITIONS.md` gives the
   states and commands this slice exercises.
 - **Addresses:** REQ-EVAL-03. The slice has no acceptance criteria, no data
   policy and no definition of "Learning". The first-slice readiness checklist
@@ -68,7 +69,7 @@ run is **unknown**, not passed.
 | AC-15 | All fixtures pass the synthetic-data policy (§4). No real personal data exists anywhere in the repository or its history. | CHK-GATE (checkFixtures) |
 | AC-16 | A verifier other than the implementer runs AC-02 end to end and records the run as Praxis evidence. | WORKFLOW-BOUNDARY-REVIEW §5 |
 
-## 4. Synthetic-data policy (proposed)
+## 4. Synthetic-data policy
 
 | ID | Rule | Enforced by |
 |---|---|---|
@@ -109,7 +110,7 @@ type LearningRecord =
 ```
 
 **Lost vs Rejected, Outcome and regression** follow decisions P5 to P7 in
-the transition proposal.
+the accepted transitions (`requirements/SLICE-TRANSITIONS.md` §2).
 
 ## 6. Out of scope for the slice
 
@@ -119,7 +120,7 @@ the transition proposal.
 - The GitHub-backed store, which WI-0030 builds against the AC-10 contract.
 - Mobile-first screens (UI-07, UI-09, UI-12) and the Folio print documents.
 
-## 7. Proposed replacement text for PRD-25
+## 7. PRD-25 text (accepted and applied)
 
 > ## 25. Initial vertical slice
 >
@@ -135,17 +136,17 @@ the transition proposal.
 > automation is added.
 >
 > It MUST satisfy acceptance criteria AC-01 to AC-16 and the synthetic-data
-> policy SDP-01 to SDP-06 in `docs/proposals/PRD-25-ACCEPTANCE.md`. It MUST
+> policy SDP-01 to SDP-06 in `docs/first-slice/PRD-25-ACCEPTANCE.md`. It MUST
 > NOT store real personal data until the personal-data placement decision
 > (WI-0037) is accepted. Outbound effects are out of scope.
 
-## 8. Questions for the owner
+## 8. Owner decisions (all recommendations accepted 2026-11-15)
 
-| # | Question | Recommendation |
+| # | Question | Accepted answer |
 |---|---|---|
 | Q1 | Accept the replacement text in §7? | Yes. It makes PRD-25 testable without widening scope. |
 | Q2 | Include the three Forma screens (AC-12) in the slice, or defer them to a second slice? | Include them. PRD-25 requires Limen, and screens surface UI-contract defects early. |
 | Q3 | Accept SDP-01..06 now, independent of WI-0037? | Yes. They cost nothing and close the irreversible risk. |
 | Q4 | Is an in-memory or file store acceptable for the slice (AC-10)? | Yes, behind the port and its contract tests. |
-| Q5 | Accept the transition proposal P1..P9? | See `SLICE-TRANSITION-TABLES.md` §2. |
+| Q5 | Accept the transition proposal P1..P9? | Yes. See `requirements/SLICE-TRANSITIONS.md` §2. |
 | Q6 | Who is the independent verifier for AC-16? | The owner, or a separate agent session under its own identity. |

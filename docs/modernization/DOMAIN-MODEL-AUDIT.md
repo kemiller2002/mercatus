@@ -44,6 +44,11 @@ The main consequences:
    work items WI-0013 to WI-0034. Six of them are critical and block the first
    vertical slice (PRD §25).
 
+**Update 2026-11-15:** FND-04, FND-05, FND-11, FND-12 and FND-15 are resolved
+by owner decision DF-MERCATUS-DOM-2026-0002 (first-slice transitions in
+`requirements/SLICE-TRANSITIONS.md`). FND-03, FND-14, FND-18 and FND-20 are
+narrowed but still open.
+
 No business rule was changed. Where this audit proposes a resolution, the
 proposal is labelled as such and assigned to a work item for owner decision.
 

@@ -89,8 +89,8 @@ test("generated tables must match the data", () => {
 });
 
 test("the repository proposal passes against the real DOMAIN-STATE-MODEL", () => {
-  const doc = JSON.parse(readFileSync(join(repoRoot, "docs/proposals/slice-transitions.json"), "utf8"));
+  const doc = JSON.parse(readFileSync(join(repoRoot, "requirements/slice-transitions.json"), "utf8"));
   const dsmStates = dsmStatesOf(readFileSync(join(repoRoot, "requirements/DOMAIN-STATE-MODEL.md"), "utf8"));
   assert.deepEqual(checkProposal(doc, dsmStates), []);
-  assert.deepEqual(checkRendered(readFileSync(join(repoRoot, "docs/proposals/SLICE-TRANSITION-TABLES.md"), "utf8"), doc), []);
+  assert.deepEqual(checkRendered(readFileSync(join(repoRoot, "requirements/SLICE-TRANSITIONS.md"), "utf8"), doc), []);
 });

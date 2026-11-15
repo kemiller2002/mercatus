@@ -1,9 +1,9 @@
 {
   "schema": "mercatus.transition-proposal/v1",
-  "status": "proposed",
-  "workItem": "WI-0052",
+  "status": "accepted",
+  "workItem": "WI-0052 (drafted); WI-0038 (accepted)",
   "acceptanceOwner": "repository owner (PROJECT-CHARTER.md)",
-  "note": "Proposal only. Not accepted business rules. Actor columns are a proposal for the slice authorization model (FND-18). 'human' means no agent may hold the capability for this command in the slice; 'agent-or-human' means an agent with the capability may submit it; 'system' means the host issues it from time or another aggregate's event. Every command is evaluated through the DSM-01 envelope and returns one of the five TransitionResult cases.",
+  "note": "Accepted by the owner (DF-MERCATUS-DOM-2026-0002). The actor columns are the first-slice authorization model; the full model remains FND-18 (WI-0029). 'human' means no agent may hold the capability for this command in the slice; 'agent-or-human' means an agent with the capability may submit it; 'system' means the host issues it from time or another aggregate's event. Every command is evaluated through the DSM-01 envelope and returns one of the five TransitionResult cases.",
   "aggregates": [
     {
       "id": "MarketHypothesis",
@@ -169,7 +169,8 @@
       "nonTransitions": [
         "RecordEvidence",
         "Edit"
-      ]
+      ],
+      "requirementId": "TRN-MARKET-HYPOTHESIS"
     },
     {
       "id": "ProblemHypothesis",
@@ -301,11 +302,7 @@
         "AttachObservation",
         "AttachEvidence"
       ],
-      "amends": {
-        "renamed": {
-          "Revisit": "Reopened"
-        }
-      }
+      "requirementId": "TRN-PROBLEM-HYPOTHESIS"
     },
     {
       "id": "Observation",
@@ -395,7 +392,8 @@
       ],
       "nonTransitions": [
         "LinkDuplicate"
-      ]
+      ],
+      "requirementId": "TRN-OBSERVATION"
     },
     {
       "id": "Evidence",
@@ -404,7 +402,7 @@
         "FND-03",
         "FND-15"
       ],
-      "resolves": "FND-15 (proposal): 'Stale' is not a stored state. Freshness is the pure projection effectiveCurrent(validity, now), so 'Accepted but expired' cannot satisfy a current-evidence guard. MarkStale is replaced by the ReviewStaleEvidence obligation, raised when the projection turns stale. DSM-05 needs an owner amendment.",
+      "resolves": "FND-15: 'Stale' is not a stored state. Freshness is the pure projection effectiveCurrent(validity, now), so 'Accepted but expired' cannot satisfy a current-evidence guard. MarkStale is replaced by the ReviewStaleEvidence obligation, raised when the projection turns stale.",
       "initial": "Candidate",
       "states": [
         {
@@ -454,7 +452,7 @@
           "to": "Accepted",
           "actor": "human",
           "capability": "CanAccept",
-          "guard": "rationale; contradiction kept (proposed command)"
+          "guard": "rationale; contradiction kept"
         },
         {
           "name": "Supersede",
@@ -483,11 +481,7 @@
       "nonTransitions": [
         "LinkContradiction"
       ],
-      "amends": {
-        "removed": [
-          "Stale"
-        ]
-      }
+      "requirementId": "TRN-EVIDENCE"
     },
     {
       "id": "Organization",
@@ -599,7 +593,8 @@
       "nonTransitions": [
         "ProposeMerge",
         "ReverseMerge"
-      ]
+      ],
+      "requirementId": "TRN-ORGANIZATION"
     },
     {
       "id": "Lead",
@@ -608,7 +603,7 @@
         "FND-03",
         "FND-11"
       ],
-      "resolves": "Extends WORKFLOW-BOUNDARY-REVIEW §4.1. FND-11 (proposal): ConvertToOpportunity creates an Opportunity in ProblemConfirmed. Lead qualification establishes fit and problem evidence; Opportunity qualification (decision maker, economic buyer, value hypothesis) happens later. Disqualified leads can be reconsidered with new evidence.",
+      "resolves": "Extends WORKFLOW-BOUNDARY-REVIEW §4.1. FND-11: ConvertToOpportunity creates an Opportunity in ProblemConfirmed. Lead qualification establishes fit and problem evidence; Opportunity qualification (decision maker, economic buyer, value hypothesis) happens later. Disqualified leads can be reconsidered with new evidence.",
       "initial": "Discovered",
       "states": [
         {
@@ -731,7 +726,8 @@
           "guard": "new evidence; prior assessment kept",
           "reopen": true
         }
-      ]
+      ],
+      "requirementId": "TRN-LEAD"
     },
     {
       "id": "Opportunity",
@@ -741,7 +737,7 @@
         "FND-12",
         "FND-20"
       ],
-      "resolves": "FND-12 (proposal): Rejected means Echelon chose not to pursue (fit, ethics, capacity) and can happen before engagement. Lost means the buyer chose an alternative or did not decide after engagement. Regression is explicit: RegressToProblemConfirmed and RegressToQualified reopen the obligations that the changed evidence invalidates. Won requires a CommercialOutcome value (FND-20). Converted leads enter at ProblemConfirmed (initial for direct creation: Discovered).",
+      "resolves": "FND-12: Rejected means Echelon chose not to pursue (fit, ethics, capacity) and can happen before engagement. Lost means the buyer chose an alternative or did not decide after engagement. Regression is explicit: RegressToProblemConfirmed and RegressToQualified reopen the obligations that the changed evidence invalidates. Won requires a CommercialOutcome value (FND-20). Converted leads enter at ProblemConfirmed (initial for direct creation: Discovered).",
       "initial": "Discovered",
       "entryStates": [
         "ProblemConfirmed"
@@ -965,7 +961,8 @@
           "guard": "rationale",
           "reopen": true
         }
-      ]
+      ],
+      "requirementId": "TRN-OPPORTUNITY"
     },
     {
       "id": "Obligation",
@@ -1047,15 +1044,16 @@
           "guard": "satisfying evidence invalidated or superseded",
           "reopen": true
         }
-      ]
+      ],
+      "requirementId": "TRN-OBLIGATION"
     },
     {
       "id": "LearningRecord",
-      "source": "PRD-25",
+      "source": "DSM-23",
       "findings": [
         "FND-20"
       ],
-      "resolves": "New, proposed with the PRD-25 acceptance proposal. A LearningRecord turns outcomes and evidence into requested belief changes. Applying it submits ordinary hypothesis commands, each evaluated normally, and never writes hypothesis state directly. Each record names the single validation dimension it affects (CLS-10).",
+      "resolves": "New, accepted with the PRD-25 acceptance criteria. A LearningRecord turns outcomes and evidence into requested belief changes. Applying it submits ordinary hypothesis commands, each evaluated normally, and never writes hypothesis state directly. Each record names the single validation dimension it affects (CLS-10).",
       "initial": "Proposed",
       "states": [
         {
@@ -1106,14 +1104,9 @@
           "guard": "reason"
         }
       ],
-      "amends": {
-        "added": [
-          "Proposed",
-          "Accepted",
-          "Applied",
-          "Discarded"
-        ]
-      }
+      "requirementId": "TRN-LEARNING-RECORD"
     }
-  ]
+  ],
+  "acceptedBy": "DF-MERCATUS-DOM-2026-0002",
+  "acceptedOn": "2026-11-15"
 }
