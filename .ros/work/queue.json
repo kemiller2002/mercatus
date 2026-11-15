@@ -288,10 +288,10 @@
         "domain-audit"
       ],
       "priority": "high",
-      "status": "captured",
+      "status": "ready",
       "attachments": [],
       "createdAt": "2026-11-08T15:03:01Z",
-      "updatedAt": "2026-11-08T15:03:01Z",
+      "updatedAt": "2026-11-15T12:29:49.937Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",

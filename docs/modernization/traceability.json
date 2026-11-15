@@ -22,11 +22,11 @@
     }
   },
   "implementationInventory": {
-    "fsharpProjects": 0,
-    "fsharpSources": 0,
+    "fsharpProjects": 2,
+    "fsharpSources": 9,
     "uiSources": 0,
-    "domainTests": 0,
-    "note": "The repository holds requirements, research and governance only. Verified by tools/modernization/verify-gate.mjs, which fails if these counts stop matching the tree."
+    "domainTests": 5,
+    "note": "Revised by WI-0013 (2026-11-15): the Tier 1/2 F# core for the first-slice aggregates exists (src/domain, 1 project, 5 sources) with its xUnit suite (tests/Mercatus.Domain.Tests, 1 project, 4 sources). No host, Tier 3, persistence or UI code exists. Verified by tools/modernization/verify-gate.mjs, which fails if these counts stop matching the tree."
   },
   "requirements": [
     {
@@ -1689,13 +1689,20 @@
       ],
       "gate": {
         "domainModelVerified": false,
-        "transitionsDefined": false,
+        "transitionsDefined": true,
         "authorizationEnforced": false,
         "rulesTested": false,
         "formaFollowsContracts": false,
         "endToEndDemonstrated": false
       },
-      "status": "blocked"
+      "status": "blocked",
+      "gateEvidence": {
+        "transitionsDefined": [
+          "requirements/SLICE-TRANSITIONS.md",
+          "src/domain/Core.fs",
+          "tests/Mercatus.Domain.Tests/ConformanceTests.fs"
+        ]
+      }
     },
     {
       "id": "WF-02",
@@ -1725,13 +1732,20 @@
       ],
       "gate": {
         "domainModelVerified": false,
-        "transitionsDefined": false,
+        "transitionsDefined": true,
         "authorizationEnforced": false,
         "rulesTested": false,
         "formaFollowsContracts": false,
         "endToEndDemonstrated": false
       },
-      "status": "blocked"
+      "status": "blocked",
+      "gateEvidence": {
+        "transitionsDefined": [
+          "requirements/SLICE-TRANSITIONS.md",
+          "src/domain/Core.fs",
+          "tests/Mercatus.Domain.Tests/ConformanceTests.fs"
+        ]
+      }
     },
     {
       "id": "WF-03",
@@ -1763,13 +1777,20 @@
       ],
       "gate": {
         "domainModelVerified": false,
-        "transitionsDefined": false,
+        "transitionsDefined": true,
         "authorizationEnforced": false,
         "rulesTested": false,
         "formaFollowsContracts": false,
         "endToEndDemonstrated": false
       },
-      "status": "blocked"
+      "status": "blocked",
+      "gateEvidence": {
+        "transitionsDefined": [
+          "requirements/SLICE-TRANSITIONS.md",
+          "src/domain/Core.fs",
+          "tests/Mercatus.Domain.Tests/ConformanceTests.fs"
+        ]
+      }
     },
     {
       "id": "WF-04",
@@ -1839,13 +1860,20 @@
       ],
       "gate": {
         "domainModelVerified": false,
-        "transitionsDefined": false,
+        "transitionsDefined": true,
         "authorizationEnforced": false,
         "rulesTested": false,
         "formaFollowsContracts": false,
         "endToEndDemonstrated": false
       },
-      "status": "blocked"
+      "status": "blocked",
+      "gateEvidence": {
+        "transitionsDefined": [
+          "requirements/SLICE-TRANSITIONS.md",
+          "src/domain/Core.fs",
+          "tests/Mercatus.Domain.Tests/ConformanceTests.fs"
+        ]
+      }
     },
     {
       "id": "WF-06",
@@ -1879,13 +1907,20 @@
       ],
       "gate": {
         "domainModelVerified": false,
-        "transitionsDefined": false,
+        "transitionsDefined": true,
         "authorizationEnforced": false,
         "rulesTested": false,
         "formaFollowsContracts": false,
         "endToEndDemonstrated": false
       },
-      "status": "blocked"
+      "status": "blocked",
+      "gateEvidence": {
+        "transitionsDefined": [
+          "requirements/SLICE-TRANSITIONS.md",
+          "src/domain/Core.fs",
+          "tests/Mercatus.Domain.Tests/ConformanceTests.fs"
+        ]
+      }
     },
     {
       "id": "WF-07",
@@ -2149,13 +2184,20 @@
       ],
       "gate": {
         "domainModelVerified": false,
-        "transitionsDefined": false,
+        "transitionsDefined": true,
         "authorizationEnforced": false,
         "rulesTested": false,
         "formaFollowsContracts": false,
         "endToEndDemonstrated": false
       },
-      "status": "blocked"
+      "status": "blocked",
+      "gateEvidence": {
+        "transitionsDefined": [
+          "requirements/SLICE-TRANSITIONS.md",
+          "src/domain/Core.fs",
+          "tests/Mercatus.Domain.Tests/ConformanceTests.fs"
+        ]
+      }
     },
     {
       "id": "WF-15",
@@ -2642,13 +2684,23 @@
       "id": "TST-01",
       "class": "State transition tests for every aggregate",
       "requirement": "DVR-01",
-      "status": "missing"
+      "status": "partial",
+      "scope": "first-slice aggregates (TRN-*); WI-0013",
+      "evidence": [
+        "tests/Mercatus.Domain.Tests/ConformanceTests.fs",
+        "tests/Mercatus.Domain.Tests/GuardTests.fs"
+      ]
     },
     {
       "id": "TST-02",
       "class": "Illegal-transition tests",
       "requirement": "DVR-01",
-      "status": "missing"
+      "status": "partial",
+      "scope": "first-slice aggregates (TRN-*); WI-0013",
+      "evidence": [
+        "tests/Mercatus.Domain.Tests/ConformanceTests.fs",
+        "tests/Mercatus.Domain.Tests/GuardTests.fs"
+      ]
     },
     {
       "id": "TST-03",
@@ -2666,13 +2718,23 @@
       "id": "TST-05",
       "class": "Obligation-blocking tests",
       "requirement": "DVR-01",
-      "status": "missing"
+      "status": "partial",
+      "scope": "first-slice aggregates (TRN-*); WI-0013",
+      "evidence": [
+        "tests/Mercatus.Domain.Tests/ConformanceTests.fs",
+        "tests/Mercatus.Domain.Tests/GuardTests.fs"
+      ]
     },
     {
       "id": "TST-06",
       "class": "Evidence freshness tests",
       "requirement": "DVR-01",
-      "status": "missing"
+      "status": "partial",
+      "scope": "first-slice aggregates (TRN-*); WI-0013",
+      "evidence": [
+        "tests/Mercatus.Domain.Tests/ConformanceTests.fs",
+        "tests/Mercatus.Domain.Tests/GuardTests.fs"
+      ]
     },
     {
       "id": "TST-07",
@@ -2786,8 +2848,10 @@
         "TST-01",
         "TST-02"
       ],
-      "status": "defined-not-executable",
-      "precondition": "WI-0015"
+      "status": "partial",
+      "precondition": "WI-0015",
+      "command": "dotnet test Mercatus.slnx",
+      "scope": "first-slice aggregates: every command from every state against requirements/slice-transitions.json"
     },
     {
       "id": "CHK-DOK-03",
@@ -2892,6 +2956,20 @@
       "kind": "executable",
       "description": "Synthetic-data policy SDP-02..04 on every tracked fixture: synthetic marker, reserved email/URL domains, fictional phone range (WI-0051, proposed PRD-25 acceptance).",
       "command": "node --test tools/modernization/data-policy.test.mjs && node tools/modernization/verify-gate.mjs",
+      "status": "passing"
+    },
+    {
+      "id": "CHK-ARCH-01",
+      "kind": "executable",
+      "description": "Tier 1/2 domain references only FSharp.Core and uses no ambient effects (clock, I/O, network, randomness, console, environment, mutation).",
+      "command": "node --test tools/modernization/architecture.test.mjs && node tools/modernization/verify-gate.mjs",
+      "status": "passing"
+    },
+    {
+      "id": "CHK-DOM-01",
+      "kind": "executable",
+      "description": "F# domain build (warnings as errors, FS0025 incomplete match is an error) and xUnit suite: table conformance for all 9 slice aggregates plus domain guards.",
+      "command": "dotnet test Mercatus.slnx -c Release",
       "status": "passing"
     }
   ],
