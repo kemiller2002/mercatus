@@ -1223,10 +1223,10 @@
       "description": null,
       "tags": [],
       "priority": "medium",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-11-25T17:51:25.845Z",
-      "updatedAt": "2026-11-25T17:51:29.000Z",
+      "updatedAt": "2026-11-25T17:53:06.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",

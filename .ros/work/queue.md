@@ -55,4 +55,4 @@
 | WI-0050 | Scheduled Conditor drift advisory in CI against echelon-registry, failing when a pin falls below the supported range | complete | ci,conditor,toolchain | medium |
 | WI-0051 | Draft the PRD-25 first-slice acceptance proposal: numbered acceptance criteria, synthetic-data policy (with an executable fixture check) and a minimal Outcome/LearningRecord model, for owner acceptance under WI-0038 | complete | first-slice,proposal | high |
 | WI-0052 | Draft machine-readable transition tables for the first-slice aggregates with a validator in the gate (proposal for owner acceptance under WI-0015, WI-0016, WI-0022, WI-0023, WI-0026) | complete | first-slice,proposal,domain | high |
-| WI-0053 | Upgrade to echelon-current 1.42.0 (registry authority 1.39.0 -> 1.42.0, Aegis declaration 1.0.0 -> 2.0.2) | ready |  | medium |
+| WI-0053 | Upgrade to echelon-current 1.42.0 (registry authority 1.39.0 -> 1.42.0, Aegis declaration 1.0.0 -> 2.0.2) | complete |  | medium |
