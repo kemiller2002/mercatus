@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "mercatus",
-  "nextSeq": 53,
+  "nextSeq": 54,
   "items": [
     {
       "id": "WI-0001",
@@ -1206,6 +1206,27 @@
       "attachments": [],
       "createdAt": "2026-11-14T20:43:16.618Z",
       "updatedAt": "2026-11-14T20:46:11.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0053",
+      "title": "Upgrade to echelon-current 1.42.0 (registry authority 1.39.0 -> 1.42.0, Aegis declaration 1.0.0 -> 2.0.2)",
+      "description": null,
+      "tags": [],
+      "priority": "medium",
+      "status": "ready",
+      "attachments": [],
+      "createdAt": "2026-11-25T17:51:25.845Z",
+      "updatedAt": "2026-11-25T17:51:29.000Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
