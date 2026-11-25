@@ -7,8 +7,9 @@ sections below are dated milestone notes; the newest is last.
 
 ## Current state
 
-- Governed by Conditor at echelon-current 1.39.0: Praxis 3.25.0, Ordo 1.20.0,
-  Limen 0.9.1, Forma 1.0.1, echelon-theme 1.1.0, Folio 0.4.1.
+- Governed by Conditor at echelon-current 1.42.0 (WI-0053): Praxis 3.25.0,
+  Ordo 1.20.0, Limen 0.9.1, Forma 1.0.1, echelon-theme 1.1.0, Folio 0.4.1.
+  The optional Aegis declaration in `.echelon/foundations.json` is 2.0.2.
 - No application code yet. The domain model and UI contracts are specified;
   all 15 workflows are blocked by the modernization gate.
 - See `context/CURRENT-STATE.md` for the live summary and the sections below
@@ -134,3 +135,14 @@ then the specification fixes WI-0015, WI-0022, WI-0025, WI-0029.
 - **Next:** Tier 3 command handling (expected version, idempotency, event
   envelope, replay) and the store port with its contract tests (AC-08..10).
   Then the Limen host and the Forma screens (WI-0003).
+
+## WI-0053: echelon-current 1.42.0 (2026-11-25)
+
+- Conditor 0.10.29 `upgrade --current` against the 1.42.0 linux-x64 set
+  (`sha256:6be3bc97…`, plan `sha256:d208f17e…`): no component version
+  changed; the registry authority and lock moved from 1.39.0 to 1.42.0.
+  Second-plan drift: none.
+- 1.42.0 supports Aegis `>=2.0.0 <3.0.0`, so `conditor drift --fail-on fail`
+  failed on the optional Aegis 1.0.0 declaration in `.echelon/foundations.json`
+  (not in `conditor.json`, so Conditor does not move it). It is now 2.0.2, and
+  `docs/ui/UI-INTEGRATION.md` names Aegis 2.0.2 for the first UI slice.

@@ -69,7 +69,7 @@ The same change must:
    (`{"engine": ["src/engine"], "kernel": ["src/kernel"]}`) and supersede
    DF-MERCATUS-FND-2026-0001.
 2. Set `forma.required: true`, add the `routing` capability, add
-   `limen-fsharp` 0.9.0 and Aegis 1.0.0 to `conditor.json`, and supersede
+   `limen-fsharp` 0.9.0 and Aegis 2.0.2 to `conditor.json`, and supersede
    DF-MERCATUS-FND-2026-0002. The gate fails if the first UI file lands
    without the Forma change.
 3. Set the screen's `formaStatus`, only after its workflows' contract
