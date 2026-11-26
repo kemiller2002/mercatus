@@ -1244,10 +1244,10 @@
       "description": null,
       "tags": [],
       "priority": "medium",
-      "status": "ready",
+      "status": "complete",
       "attachments": [],
       "createdAt": "2026-11-26T00:32:42.709Z",
-      "updatedAt": "2026-11-26T00:32:48Z",
+      "updatedAt": "2026-11-26T00:34:57Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",
