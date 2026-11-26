@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "repository": "mercatus",
-  "nextSeq": 54,
+  "nextSeq": 55,
   "items": [
     {
       "id": "WI-0001",
@@ -1227,6 +1227,27 @@
       "attachments": [],
       "createdAt": "2026-11-25T17:51:25.845Z",
       "updatedAt": "2026-11-25T17:53:06.000Z",
+      "createdBy": "unknown",
+      "createdByActor": {
+        "kind": "agent",
+        "id": "anthropic/claude-code",
+        "provider": "anthropic",
+        "model": "unknown",
+        "runtime": "claude-code"
+      },
+      "source": "manual",
+      "sourceReference": null
+    },
+    {
+      "id": "WI-0054",
+      "title": "Upgrade to echelon-current 1.43.0 (Praxis 3.26.0)",
+      "description": null,
+      "tags": [],
+      "priority": "medium",
+      "status": "complete",
+      "attachments": [],
+      "createdAt": "2026-11-26T00:32:42.709Z",
+      "updatedAt": "2026-11-26T00:34:57Z",
       "createdBy": "unknown",
       "createdByActor": {
         "kind": "agent",

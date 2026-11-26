@@ -2,14 +2,14 @@
   "schemaVersion": 1,
   "tool": "ros",
   "package": "@echelon-foundry/repository-operating-system",
-  "installedVersion": "3.25.0",
+  "installedVersion": "3.26.0",
   "configurationVersion": 1,
   "profile": "greenfield",
   "managedArtifacts": [
     {
       "path": ".echelon/toolchain.json",
       "ownership": "shared",
-      "sha256": "e61298060b79854aed995ee7257254d35a1f4071289cada22066e9260efc1a4d"
+      "sha256": "3ac8378f7d1e576527f8c86d73f24f8f7db3c8e10946884d56d7284729a90dbc"
     },
     {
       "path": ".editorconfig",
@@ -34,7 +34,7 @@
     {
       "path": ".gitignore",
       "ownership": "user-owned",
-      "sha256": "4dd6f278d1b6349a842185f8d10364da440823f6d26dfb56926826a626efc150"
+      "sha256": "9df05d68e870319c54b4ed4aa98a3e7d65c401a56c805adb0951fa532618912a"
     },
     {
       "path": "AGENTS.md",
@@ -59,7 +59,7 @@
     {
       "path": "HANDOFF.md",
       "ownership": "shared",
-      "sha256": "6fe64bac645c83112f4076d049931e6ea6697ea4e42c792b70f1f333a24acfb4"
+      "sha256": "9e28c71703cf0da1bd86cb9d0e18450b0d4d7d609571fa1b3777502a884e4ac2"
     },
     {
       "path": "PROJECT-CHARTER.md",
@@ -69,32 +69,32 @@
     {
       "path": "README.md",
       "ownership": "user-owned",
-      "sha256": "fb8cbc7a7dabbff41fc7b31bc994e6a53fe1b571ca77564228eab59e3d3dea37"
+      "sha256": "c2111620377b6fd5151972ad76acc35c330b39c9a9d5cf4872eb43f139a45f81"
     },
     {
       "path": "context/ARCHITECTURE.md",
       "ownership": "shared",
-      "sha256": "1c8e3ecc936b6f390778c3886ac1fb7c326a12914843b692e07600f2fc898a3a"
+      "sha256": "983b6c6fce1a3e64123d5e302c7a2e2754b617d80f5ef60b567774d89100df59"
     },
     {
       "path": "context/CURRENT-STATE.md",
       "ownership": "shared",
-      "sha256": "5ac47fc94025c99faeec68f1035a29111d79b0e26b6552ae3f619611a19f0610"
+      "sha256": "b05706b6d6a22ba87c04efded61bb3d9c49856909979dab2f3a230dd2e307335"
     },
     {
       "path": "context/DECISIONS.md",
       "ownership": "shared",
-      "sha256": "785fe87491851b06d3d8063afb8b43ada6bc1402b15afa89e474ff76579e1a85"
+      "sha256": "5e839f319277c303dea289bef04f386a22ec499be57feeb65cdb4d89d6adc41a"
     },
     {
       "path": "context/KNOWN-RISKS.md",
       "ownership": "shared",
-      "sha256": "16bbda05d585c8835413d1197037493d49d08371df8cd01084ad054cb021bf83"
+      "sha256": "f0262023c97bb8652566d7d9357f7e11762ae86c736224752e39c92eba588cb3"
     },
     {
       "path": "context/RESEARCH-QUEUE.md",
       "ownership": "shared",
-      "sha256": "2a4a076469f57ffe0d977c4804661c930bd27a2a78c88ae404ceacc3ef078353"
+      "sha256": "8642219010d0dbf8cf27ed3361d004e9eb939968ece81b3698ac800760dcfff3"
     },
     {
       "path": "docs/00-governance/AI-Repository-Operating-System.md",
@@ -149,12 +149,12 @@
     {
       "path": "docs/development-telemetry.md",
       "ownership": "tool-owned",
-      "sha256": "619e56266fc9f5834d530531ff7e3c4e7b5487404e97bd1a1fbeb1916040c59c"
+      "sha256": "20d9963340a4e84324f194e9137aaae036b2901eb362bd2e24931f34cca4b4a2"
     },
     {
       "path": "docs/fallback-reconciliation.md",
       "ownership": "tool-owned",
-      "sha256": "cd8b12aeca89d95397a42e6bd68f75ada96aaf6575deeb2279eb61a6ca00d2a9"
+      "sha256": "a46c5b26570db4d97a3aa0a43073374aa3b80461a647d4feefd4c05edc627617"
     },
     {
       "path": "docs/ordo-observation.md",
@@ -169,7 +169,7 @@
     {
       "path": "docs/remote-protocol.md",
       "ownership": "tool-owned",
-      "sha256": "504a0ce2ed13eee21307b686f78eb47ac11f2cd984774553e3ea8c1235b7b08d"
+      "sha256": "63ccb4709b53435e318efef02c0542041bfd9b75ec23a040b0173642afc9473c"
     },
     {
       "path": "docs/work-adapter-contract.md",
@@ -179,7 +179,7 @@
     {
       "path": "docs/work-protocol.md",
       "ownership": "tool-owned",
-      "sha256": "ac171a29724c7f1cd6606df031d68602a5d26c206a6f384aa5658b69859eb0d1"
+      "sha256": "99586494359880e329a38d0f19944c645ef5aa80e6a24e485e194d28e777fc04"
     },
     {
       "path": "framework/REP-SPECIFICATION.md",
@@ -269,12 +269,12 @@
     {
       "path": "registries/decisions.json",
       "ownership": "generated",
-      "sha256": "d9edd5dc59f18c67ca98a1371f4fcc097d89366f6236c2c1b87d6f19e04bf480"
+      "sha256": "a2acdb4fac1a0b3293633eb6625e9a8f20dd2c3408c25338079e482740939f1e"
     },
     {
       "path": "registries/evidence.json",
       "ownership": "generated",
-      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      "sha256": "20a22907d8f80cd2b1c0f7cb3a778b245d99a119d0f07bf017c3a494221ad725"
     },
     {
       "path": "registries/experiments.json",

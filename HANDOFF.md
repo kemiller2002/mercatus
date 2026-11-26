@@ -7,7 +7,7 @@ sections below are dated milestone notes; the newest is last.
 
 ## Current state
 
-- Governed by Conditor at echelon-current 1.42.0 (WI-0053): Praxis 3.25.0,
+- Governed by Conditor at echelon-current 1.43.0 (WI-0054): Praxis 3.26.0,
   Ordo 1.20.0, Limen 0.9.1, Forma 1.0.1, echelon-theme 1.1.0, Folio 0.4.1.
   The optional Aegis declaration in `.echelon/foundations.json` is 2.0.2.
 - No application code yet. The domain model and UI contracts are specified;
